@@ -13,12 +13,8 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
 - "Feature 4": Description
 - "Feature 5": Description
 
-## Imported SDK
-
-- [@logseq/libs](https://logseq.github.io/plugins/)
-- [logseq-dateutils](https://github.com/hkgnp/logseq-dateutils)
-
 ## Credit
 
-- <https://github.com/hkgnp/logseqplugin-basic-template>
-- <https://github.com/YU000jp/logseq-plugin-templete-js>
+- [@logseq/libs](https://logseq.github.io/plugins/)
+- [hkgnp/logseq-dateutils](https://github.com/hkgnp/logseq-dateutils)
+- [icooon-mono.com](https://icooon-mono.com/12611-%e3%83%a1%e3%83%8b%e3%83%a5%e3%83%bc%e3%81%ae%e3%83%95%e3%83%aa%e3%83%bc%e3%82%a2%e3%82%a4%e3%82%b3%e3%83%b316/)
