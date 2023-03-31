@@ -1,10 +1,10 @@
 {
-  "name": "plugin-name",
-  "description": "logseq plugin",
-  "author": "PLUGIN-AUTHOR",
+  "name": "logseq-plugin-some-menu-extender",
+  "description": "adds new functions to Logseq contextMenus and others, allowing for more efficient and convenient operations",
+  "author": "YU000jp",
   "logseq": {
-    "id": "PLUGIN-NAME",
-    "title": "PLUGIN-NAME",
+    "id": "some-menu-extender",
+    "title": "Some Menu Extender",
     "icon": "./icon.svg"
   },
   "main": "dist/index.html",
