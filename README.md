@@ -118,6 +118,7 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
 - [DimitryDushkin/ task completion tracker](https://github.com/DimitryDushkin/logseq-plugin-task-check-date)
 - [0x7b1/ automatic url title](https://github.com/0x7b1/logseq-plugin-automatic-url-title)
 - [freder/ insert above](https://github.com/freder/logseq-plugin-insert-above)
+- [georgeguimaraes/ add PARA properties](https://github.com/georgeguimaraes/logseq-plugin-add-PARA-properties)
 
 ### Icon
 
