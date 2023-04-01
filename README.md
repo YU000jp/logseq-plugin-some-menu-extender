@@ -10,6 +10,7 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
 - Migrated several features from Column Layout plugin and Page-tags and Hierarchy plugin. #2023/04/01
 
 ### Also update the following plugins (require)
+
 - [Column Layout](https://github.com/YU000jp/Logseq-column-Layout) (to version 2)
 - [Page-tags and Hierarchy](https://github.com/YU000jp/logseq-page-tags-and-hierarchy) (to version 2)
 
@@ -98,12 +99,28 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
 
 ![Animation6w21](https://user-images.githubusercontent.com/111847207/222945226-f8e031cf-9e49-4c98-a5e8-ee360c931050.gif)
 
-## Credit
+## Other Logseq plugins (My products)
+
+- [Column Layout](https://github.com/YU000jp/Logseq-column-Layout)
+- [page-tags and hierarchy](https://github.com/YU000jp/logseq-page-tags-and-hierarchy)
+- [Panel Coloring](https://github.com/YU000jp/logseq-plugin-panel-coloring)
+- [Rakuten books](https://github.com/YU000jp/logseq-plugin-rakuten-books) (Only for Japanese site)
+
+## Prior art & Credit
+
+### Library
 
 - [@logseq/libs](https://logseq.github.io/plugins/)
 - [hkgnp/logseq-dateutils](https://github.com/hkgnp/logseq-dateutils)
-- [task completion tracker](https://github.com/DimitryDushkin/logseq-plugin-task-check-date)
-- [automatic-url-title](https://github.com/0x7b1/logseq-plugin-automatic-url-title)
+
+### Logseq-plugin
+
+- [DimitryDushkin/ task completion tracker](https://github.com/DimitryDushkin/logseq-plugin-task-check-date)
+- [0x7b1/ automatic url title](https://github.com/0x7b1/logseq-plugin-automatic-url-title)
+- [freder/ insert above](https://github.com/freder/logseq-plugin-insert-above)
+
+### Icon
+
 - [icooon-mono.com](https://icooon-mono.com/12611-%e3%83%a1%e3%83%8b%e3%83%a5%e3%83%bc%e3%81%ae%e3%83%95%e3%83%aa%e3%83%bc%e3%82%a2%e3%82%a4%e3%82%b3%e3%83%b316/)
 
 ---
