@@ -1,46 +1,59 @@
 import '@logseq/libs';
 import { getDateForPage } from 'logseq-dateutils';//https://github.com/hkgnp/logseq-dateutils
-import swal from 'sweetalert';//https://sweetalert.js.org/guides/
+import Swal from 'sweetalert2';//https://sweetalert2.github.io/
 
 
-export const TurnOnFunction = async (UserSettings) => {
+export const TurnOnFunction = async () => {
 
     //switch contextmenu
-    if (UserSettings.switchCompletedDialog === "enable") {
+    if (logseq.settings?.switchCompletedDialog === true) {
         //add completed property to done task
         //https://github.com/DimitryDushkin/logseq-plugin-task-check-date
         const blockSet = new Set();
         logseq.DB.onChanged(async (e) => {
-            const currentBlock = await logseq.Editor.getCurrentBlock();
-            if (currentBlock) {
-                if (!blockSet.has(currentBlock.uuid)) {
-                    blockSet.clear();//ほかのブロックを触ったら解除する
-                    if (!currentBlock.properties?.completed && currentBlock.marker === "DONE") {
-                        const userConfigs = await logseq.App.getUserConfigs();
-                        const datePage = await getDateForPage(new Date(), userConfigs.preferredDateFormat);
-                        //dialog
-                        logseq.showMainUI();
-                        swal({
-                            title: "Turn on completed (date) property?",
-                            text: "",
-                            icon: "info",
-                            buttons: {
-                                cancel: true,
-                                confirm: true,
-                            },
-                        })
-                            .then((answer) => {
-                                if (answer) {//OK
-                                    logseq.Editor.upsertBlockProperty(currentBlock.uuid, "completed", datePage);
+            if (logseq.settings?.switchCompletedDialog === true) {//if changed settings
+                const currentBlock = await logseq.Editor.getCurrentBlock();
+                if (currentBlock) {
+                    if (!blockSet.has(currentBlock.uuid)) {
+                        blockSet.clear();//ほかのブロックを触ったら解除する
+                        if (!currentBlock.properties?.completed && currentBlock.marker === "DONE") {
+                            const userConfigs = await logseq.App.getUserConfigs();
+                            const today = new Date();
+                            const year = today.getFullYear();
+                            const month = ("0" + (today.getMonth() + 1)).slice(-2);
+                            const day = ("0" + today.getDate()).slice(-2);
+                            const todayFormatted = `${year}-${month}-${day}`;
+                            //dialog
+                            await logseq.showMainUI();
+                            const { value: formValues } = await Swal.fire<{
+                                input1: any;
+                            }>({
+                                title: "Turn on completed (date) property?",
+                                text: "",
+                                icon: "info",
+                                showCancelButton: true,
+                                html: `<input id="swal-input1" class="swal2-input" type="date" value="${todayFormatted}"/>`,//type:dateが指定できないためhtmlとして作成
+                                focusConfirm: false,
+                                preConfirm: () => {
+                                    const input1 = document.getElementById('swal-input1') as HTMLInputElement;
+                                    return {
+                                        input1: input1.value
+                                    };
+                                }
+                            });
+                            if (formValues) {
+                                if (formValues?.input1) {//OK
+                                    const FormattedDateUser = await getDateForPage(new Date(formValues?.input1), userConfigs.preferredDateFormat);
+                                    logseq.Editor.upsertBlockProperty(currentBlock.uuid, "completed", FormattedDateUser);
                                 } else {//Cancel
                                     //user cancel in dialog
+                                    logseq.UI.showMsg("Cancel", "warning");
                                     blockSet.add(currentBlock.uuid);//キャンセルだったらブロックをロックする
                                 }
-                            })
-                            .finally(() => {
-                                logseq.hideMainUI();
-                            });
-                        //dialog end
+                            }
+                            await logseq.hideMainUI();
+                            //dialog end
+                        }
                     }
                 }
             }

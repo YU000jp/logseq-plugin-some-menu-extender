@@ -7,13 +7,12 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
 
 ## Features
 
-- "Feature 1": Description
-- "Feature 2": Description
-- "Feature 3": Description
-- "Feature 4": Description
-- "Feature 5": Description
+- "Feature 1": Block Context menu
+- "Feature 2": Dialog at action
+- "Feature 3": Page Context menu
+- "Feature 4": Slash command
 
-## Bullet context menu
+## Block context menu (Right clock on the bullet)
 
 ### `repeat-task as LATER`
 
@@ -45,7 +44,7 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
 
 - [Result] Create a line break without breaking outlines
 
-## Dialog (at action)
+## Dialog at action
 
 ### Automatic markdown link (Paste URL)
 
@@ -65,9 +64,27 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
 
 - [Result] The date contained in the completed property acts as a link. View completed tasks in Journal Linked References.
 
-## Test Function
+## Page context menu (Right clock on the page title)
 
-### Year List Calendar (slash command : `create Year List Calendar`)
+### For PARA method pages. Quickly add to page-tags
+
+#### 🎨 add Project
+
+![Animation6w22](https://user-images.githubusercontent.com/111847207/226155740-02c6bc12-2930-4409-9acd-d3dc7f899514.gif)
+
+#### 🏠 add Area of responsibility
+
+#### 🌍 add Resource
+
+#### 🧹 add Archive
+
+### For Other pages. Quickly add to page-tags
+
+#### 🧺 add a page-tag by select list
+
+## Slash command
+
+### `create Year List Calendar` **Test Function
 
 - Using Year List Calendar, all the dates for a full year are generated as date links. When written as child elements, they are displayed in the Linked References section.
 

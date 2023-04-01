@@ -1,5 +1,5 @@
 import '@logseq/libs';
-import swal from 'sweetalert';////https://sweetalert.js.org/guides/
+import Swal from 'sweetalert2';//https://sweetalert2.github.io/
 import Encoding from 'encoding-japanese';//https://github.com/polygonplanet/encoding.js
 
 
@@ -49,16 +49,16 @@ async function getTitle(url) {
     return '';
 }
 
-async function convertUrlToMarkdownLink(url, text, urlStartIndex, offset, applyFormat) {
-    let title = await getTitle(url);
-    if (title === '') {
+async function convertUrlToMarkdownLink(title, url, text, urlStartIndex, offset, applyFormat) {
+    if (title) {
+        title = title.replace("\n", '');
+        title = title.replace("(", '');
+        title = title.replace(")", '');
+        title = title.replace("[", '');
+        title = title.replace("]", '');
+    } else {
         return { text, offset };
     }
-    title = title.replace("\n", '');
-    title = title.replace("(", '');
-    title = title.replace(")", '');
-    title = title.replace("[", '');
-    title = title.replace("]", '');
 
     const startSection = text.slice(0, urlStartIndex);
     const wrappedUrl = applyFormat(title, url);
@@ -125,24 +125,47 @@ async function parseBlockForLink(uuid) {
             continue;
         }
         //dialog
-        logseq.showMainUI();
-        await swal({
+        await logseq.showMainUI();
+        await Swal.fire({
             title: "Are you sure?",
             text: `Convert to markdown link\n(${url})`,
             icon: "info",
-            buttons: true,
-            closeOnClickOutside: false,
-            closeOnEsc: false,
+            showCancelButton: true,
         })
-            .then(async (answer) => {
-                if (answer) {//OK
-                    const updatedTitle = await convertUrlToMarkdownLink(url, text, urlIndex, offset, formatSettings.applyFormat);
-                    text = updatedTitle.text;
-                    offset = updatedTitle.offset;
-                    logseq.Editor.updateBlock(uuid, text);
-                } else {//Cancel
-                    //user cancel in dialog
-                    return uuid;
+            .then(async (result) => {
+                if (result) {//OK
+                    if (result?.value) {
+                        let MarkdownTitle: string = await getTitle(url) || "";
+                        MarkdownTitle = MarkdownTitle.replace(/[\n()\[\]]/g, '');
+                        await Swal.fire({
+                            title: "Edit markdown link title",
+                            input: "text",
+                            inputValue: MarkdownTitle,
+                            showCancelButton: false,
+                            inputValidator: (value) => {
+                                return new Promise((resolve) => {
+                                    if (value) {
+                                        resolve("");
+                                    } else {
+                                        resolve('Input cannot be empty!');
+                                    }
+                                });
+                            },
+                        }).then(async (resultEditTitle) => {
+                            if (resultEditTitle?.value) {
+                                const updatedTitle = await convertUrlToMarkdownLink(resultEditTitle.value, url, text, urlIndex, offset, formatSettings.applyFormat)
+                                text = updatedTitle.text;
+                                offset = updatedTitle.offset;
+                                logseq.Editor.updateBlock(uuid, text);
+                            }
+                        });
+
+
+                    } else {//Cancel
+                        //user cancel in dialog
+                        logseq.UI.showMsg("Cancel", "warning");
+                        return uuid;
+                    }
                 }
             })
             .finally(() => {
@@ -153,11 +176,11 @@ async function parseBlockForLink(uuid) {
 }
 
 
-export const MarkdownLink = (UserSettings) => {
+export const MarkdownLink = () => {
 
-    if (UserSettings.switchMarkdownLink === "enable") {
-        const blockSet = new Set();
-        logseq.DB.onChanged(async (e) => {
+    const blockSet = new Set();
+    logseq.DB.onChanged(async (e) => {
+        if (logseq.settings?.switchMarkdownLink === true) {
             const currentBlock = await logseq.Editor.getCurrentBlock();
             if (currentBlock) {
                 if (!blockSet.has(currentBlock.uuid)) {//ほかのブロックを触ったら解除する
@@ -168,14 +191,16 @@ export const MarkdownLink = (UserSettings) => {
                     }
                 }
             }
-        });
-        /* Block slash command */
-        logseq.Editor.registerSlashCommand('🌐Convert to markdown link (get webpage title)', (e) => {
-            parseBlockForLink(uuid);
-        });
-        /* Block ContextMenuItem  */
-        logseq.Editor.registerBlockContextMenuItem('🌐Convert to markdown link', (e) => {
-            parseBlockForLink(uuid);
-        });
-    }
+        }
+    });
+    //if (logseq.settings?.switchMarkdownLink === true) {
+    /* Block slash command */
+    //logseq.Editor.registerSlashCommand('🌐Convert to markdown link (get webpage title)', async (event) => {
+    //    parseBlockForLink(event.uuid);
+    //});
+    /* Block ContextMenuItem  */
+    //logseq.Editor.registerBlockContextMenuItem('🌐Convert to markdown link (Get webpage title by URL)', async (event) => {
+    //    parseBlockForLink(event.uuid);
+    //})
+    //}
 };

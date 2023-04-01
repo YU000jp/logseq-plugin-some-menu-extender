@@ -20,7 +20,6 @@
     "@logseq/libs": "latest",
     "encoding-japanese": "^2.0.0",
     "logseq-dateutils": "^0.0.26",
-    "sweetalert": "^2.1.2",
     "sweetalert2": "^11.7.3"
   },
   "devDependencies": {
