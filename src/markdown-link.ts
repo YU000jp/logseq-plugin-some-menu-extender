@@ -52,13 +52,9 @@ async function getTitle(url) {
     return '';
 }
 
-async function convertUrlToMarkdownLink(title, url, text, urlStartIndex, offset, applyFormat) {
+async function convertUrlToMarkdownLink(title: string, url, text, urlStartIndex, offset, applyFormat) {
     if (title) {
-        title = title.replace("\n", '');
-        title = title.replace("(", '');
-        title = title.replace(")", '');
-        title = title.replace("[", '');
-        title = title.replace("]", '');
+        title = IncludeTitle(title);
     } else {
         return { text, offset };
     }
@@ -92,7 +88,7 @@ function isWrappedInCommand(text, url) {
 
 function isWrappedInHTML(text, url) {//add
     // "@@html: "URLを含む何らかの文字"@@"にマッチする
-    //https://github.com/0x7b1/logseq-plugin-automatic-url-title/issues/11
+    //https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/1
     const wrappedLinks = text.match(DEFAULT_REGEX.wrappedInHTML);
     if (!wrappedLinks) {
         return false;
@@ -168,12 +164,12 @@ async function parseBlockForLink(uuid) {
             .then(async (result) => {
                 if (result) {//OK
                     if (result?.value) {
-                        let MarkdownTitle: string = await getTitle(url) || "";
-                        MarkdownTitle = MarkdownTitle.replace(/[\n()\[\]]/g, '');
+                        let title: string = await getTitle(url) || "";
+                        title = await IncludeTitle(title);
                         await Swal.fire({
                             title: "Edit markdown link title",
                             input: "text",
-                            inputValue: MarkdownTitle,
+                            inputValue: title,
                             showCancelButton: false,
                             inputValidator: (value) => {
                                 return new Promise((resolve) => {
@@ -208,32 +204,35 @@ async function parseBlockForLink(uuid) {
     }
 }
 
+function IncludeTitle(title: string) {
+    title = title.replace(/[\n()\[\]]/g, '');
+    title = title.replace("\n", '');
+    title = title.replace("(", '');
+    title = title.replace(")", '');
+    title = title.replace("[", '');
+    title = title.replace("]", '');
+    title = title.replace("{{", '{');
+    title = title.replace("}}", '}');
+    title = title.replace("#+", ' ');
+    return title;
+}
 
 export const MarkdownLink = () => {
 
-    const blockSet = new Set();
+    let blockSet = "";
     logseq.DB.onChanged(async (e) => {
         if (logseq.settings?.switchMarkdownLink === true) {
             const currentBlock = await logseq.Editor.getCurrentBlock();
             if (currentBlock) {
-                if (!blockSet.has(currentBlock.uuid)) {//ほかのブロックを触ったら解除する
-                    blockSet.clear();
-                    const uuidUserCancel:any = await parseBlockForLink(currentBlock.uuid);
+                if (blockSet !== currentBlock?.uuid) {//ほかのブロックを触ったら解除する
+                    const uuidUserCancel: any = await parseBlockForLink(currentBlock.uuid);
                     if (uuidUserCancel) {//cancel
-                        blockSet.add(uuidUserCancel);//キャンセルだったらブロックをロックする
+                        blockSet = uuidUserCancel;//キャンセルだったらブロックをロックする
                     }
+                } else {
+                    blockSet = currentBlock.uuid;
                 }
             }
         }
     });
-    //if (logseq.settings?.switchMarkdownLink === true) {
-    /* Block slash command */
-    //logseq.Editor.registerSlashCommand('🌐Convert to markdown link (get webpage title)', async (event) => {
-    //    parseBlockForLink(event.uuid);
-    //});
-    /* Block ContextMenuItem  */
-    //logseq.Editor.registerBlockContextMenuItem('🌐Convert to markdown link (Get webpage title by URL)', async (event) => {
-    //    parseBlockForLink(event.uuid);
-    //})
-    //}
 };
