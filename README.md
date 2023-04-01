@@ -16,10 +16,30 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
 
 ## Features
 
-1. Block Context menu
 1. Dialog at action
+1. Block Context menu
 1. Page Context menu
 1. Slash command
+
+## Dialog at action
+
+### Automatic markdown link (Paste URL)
+
+- [Problem] Existing auto plugins do unnecessary conversions. / Garbled characters occur.
+
+- [Solution] Confirm to user in dialog / anti-garbled japanese website : 日本語ウェブサイトの文字化け対策済み
+
+- [Usage] Paste URL, then to bring up a dialog. Possible to edit the title.
+
+### Add completed property to DONE task (Mark task as DONE)
+
+- [Problem] Logseq does not record the DONE date.
+
+- [Solution] After the task DONE, add completed property to the block.
+
+- [Usage] After DONE a task, a dialog will appear asking if you want to add a completed property. Possible to edit the date.
+
+- [Result] The date contained in the completed property acts as a link. View completed tasks in Journal Linked References.
 
 ## Block context menu (Right click on the bullet)
 
@@ -52,26 +72,6 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
 - [Usage] Open context menu at the bullet for above block
 
 - [Result] Create a line break without breaking outlines
-
-## Dialog at action
-
-### Automatic markdown link (Paste URL)
-
-- [Problem] Existing auto plugins do unnecessary conversions. / Garbled characters occur.
-
-- [Solution] Confirm to user in dialog / anti-garbled japanese website : 日本語ウェブサイトの文字化け対策済み
-
-- [Usage] Paste URL, then to bring up a dialog. Possible to edit the title.
-
-### Add completed property to DONE task (Mark task as DONE)
-
-- [Problem] Logseq does not record the DONE date.
-
-- [Solution] After the task DONE, add completed property to the block.
-
-- [Usage] After DONE a task, a dialog will appear asking if you want to add a completed property. Possible to edit the date.
-
-- [Result] The date contained in the completed property acts as a link. View completed tasks in Journal Linked References.
 
 ## Page context menu (Right click on the page title)
 
