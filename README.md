@@ -77,19 +77,25 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
 
 ### For PARA method pages. Quickly add to page-tags
 
-#### 🎨 add Project
+#### `🎨 add Project`
 
 ![Animation6w22](https://user-images.githubusercontent.com/111847207/226155740-02c6bc12-2930-4409-9acd-d3dc7f899514.gif)
 
-#### 🏠 add Area of responsibility
+#### `🏠 add Area of responsibility`
 
-#### 🌍 add Resource
+#### `🌍 add Resource`
 
-#### 🧹 add Archive
+#### `🧹 add Archive`
 
 ### For Other pages. Quickly add to page-tags
 
-#### 🧺 add a page-tag by select list
+#### `🧺 add a page-tag by select list`
+
+### Quickly create a page
+
+#### `🧑‍💻 create New Project`
+
+#### `🧒 create child page (for hierarchy)`
 
 ## Slash command
 
