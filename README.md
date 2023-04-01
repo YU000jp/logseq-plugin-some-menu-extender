@@ -20,7 +20,7 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
 1. Page Context menu
 1. Slash command
 
-## Block context menu (Right clock on the bullet)
+## Block context menu (Right click on the bullet)
 
 ### `repeat-task as LATER`
 
@@ -72,7 +72,7 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
 
 - [Result] The date contained in the completed property acts as a link. View completed tasks in Journal Linked References.
 
-## Page context menu (Right clock on the page title)
+## Page context menu (Right click on the page title)
 
 ### For PARA method pages. Quickly add to page-tags
 
@@ -92,7 +92,7 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
 
 ## Slash command
 
-### `create Year List Calendar` **Test Function
+### `create Year List Calendar` **Test Function (△Not reaching the workflow)
 
 - Using Year List Calendar, all the dates for a full year are generated as date links. When written as child elements, they are displayed in the Linked References section.
 
