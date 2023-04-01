@@ -73,13 +73,13 @@ const main = () => {
   if (logseq.settings?.switchCompletedDialog === true) {
     //add completed property to done task
     //https://github.com/DimitryDushkin/logseq-plugin-task-check-date
-    const blockSet = new Set();
+    let blockSet = "";
     logseq.DB.onChanged(async (e) => {
       if (logseq.settings?.switchCompletedDialog === true) {//if changed settings
         const currentBlock = await logseq.Editor.getCurrentBlock();
         if (currentBlock) {
-          if (!blockSet.has(currentBlock.uuid)) {
-            blockSet.clear();//ほかのブロックを触ったら解除する
+          if (blockSet !== currentBlock.uuid) {
+            blockSet = "";//ほかのブロックを触ったら解除する
             if (!currentBlock.properties?.completed && currentBlock.marker === "DONE") {
               const userConfigs = await logseq.App.getUserConfigs();
               const today = new Date();
@@ -112,12 +112,14 @@ const main = () => {
                 } else {//Cancel
                   //user cancel in dialog
                   logseq.UI.showMsg("Cancel", "warning");
-                  blockSet.add(currentBlock.uuid);//キャンセルだったらブロックをロックする
+                  blockSet = currentBlock.uuid;//キャンセルだったらブロックをロックする
                 }
               }
               await logseq.hideMainUI();
               //dialog end
             }
+          } else {
+            blockSet = currentBlock.uuid;
           }
         }
       }
