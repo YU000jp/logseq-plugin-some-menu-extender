@@ -6,7 +6,10 @@ import Encoding from 'encoding-japanese';//https://github.com/polygonplanet/enco
 //https://github.com/0x7b1/logseq-plugin-automatic-url-title
 
 const DEFAULT_REGEX = {
-    wrappedInCommand: /(\{\{(video)\s*(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})\s*\}\})/gi,
+    wrappedInSharp: /\#+(.*?)\#+(?=[^#+]*?(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,}))/gi,
+    wrappedInApostrophe: /(`+)(.*?)\1(?=[^`]*?(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,}))[^\`]*?\1/gi,
+    wrappedInHTML: /@@html:\s*(.*?)\s*(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})\s*(.*?)\s*@@/gi,
+    wrappedInCommand: /(\{\{([a-zA-Z]+)\s*(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})\s*\}\})/gi,
     htmlTitleTag: /<title(\s[^>]+)*>([^<]*)<\/title>/,
     line: /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi,
     imageExtension: /\.(gif|jpe?g|tiff?|png|webp|bmp|tga|psd|ai)$/i,
@@ -84,9 +87,39 @@ function isWrappedInCommand(text, url) {
     if (!wrappedLinks) {
         return false;
     }
-
     return wrappedLinks.some(command => command.includes(url));
 }
+
+function isWrappedInHTML(text, url) {//add
+    // "@@html: "URLを含む何らかの文字"@@"にマッチする
+    //https://github.com/0x7b1/logseq-plugin-automatic-url-title/issues/11
+    const wrappedLinks = text.match(DEFAULT_REGEX.wrappedInHTML);
+    if (!wrappedLinks) {
+        return false;
+    }
+    return wrappedLinks.some(command => command.includes(url));
+}
+
+function isWrappedInApostrophe(text, url) {//add
+    // `URLを含む何らかの文字`にマッチする ``も対応
+    //https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/3
+    const wrappedLinks = text.match(DEFAULT_REGEX.wrappedInApostrophe);
+    if (!wrappedLinks) {
+        return false;
+    }
+    return wrappedLinks.some(command => command.includes(url));
+}
+
+function isWrappedInSharp(text, url) {//add
+    // #+URLを含む何らかの文字#+にマッチする
+    //https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/4
+    const wrappedLinks = text.match(DEFAULT_REGEX.wrappedInApostrophe);
+    if (!wrappedLinks) {
+        return false;
+    }
+    return wrappedLinks.some(command => command.includes(url));
+}
+
 
 async function getFormatSettings() {
     const { preferredFormat } = await logseq.App.getUserConfigs();
@@ -121,7 +154,7 @@ async function parseBlockForLink(uuid) {
     let offset = 0;
     for (const url of urls) {
         const urlIndex = text.indexOf(url, offset);
-        if (isAlreadyFormatted(text, url, urlIndex, formatSettings.formatBeginning) || isImage(url) || isWrappedInCommand(text, url)) {
+        if (isAlreadyFormatted(text, url, urlIndex, formatSettings.formatBeginning) || isImage(url) || isWrappedInCommand(text, url) || isWrappedInHTML(text, url) || isWrappedInApostrophe(text, url) || isWrappedInSharp(text, url)) {
             continue;
         }
         //dialog
@@ -185,7 +218,7 @@ export const MarkdownLink = () => {
             if (currentBlock) {
                 if (!blockSet.has(currentBlock.uuid)) {//ほかのブロックを触ったら解除する
                     blockSet.clear();
-                    const uuidUserCancel = parseBlockForLink(currentBlock.uuid);
+                    const uuidUserCancel:any = await parseBlockForLink(currentBlock.uuid);
                     if (uuidUserCancel) {//cancel
                         blockSet.add(uuidUserCancel);//キャンセルだったらブロックをロックする
                     }
