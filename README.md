@@ -48,9 +48,9 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
 
 ### Automatic markdown link (Paste URL)
 
-- [Problem] URL is converted inadvertently / Garbled characters occur.
+- [Problem] Existing auto plugins do unnecessary conversions. / Garbled characters occur.
 
-- [Solution] Confirm in dialog / anti-garbled japanese website : 日本語ウェブサイトの文字化け対策済み
+- [Solution] Confirm to user in dialog / anti-garbled japanese website : 日本語ウェブサイトの文字化け対策済み
 
 - [Usage] Paste URL, then to bring up a dialog. Possible to edit the title.
 
