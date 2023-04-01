@@ -7,10 +7,10 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
 
 ## Features
 
-- "Feature 1": Block Context menu
-- "Feature 2": Dialog at action
-- "Feature 3": Page Context menu
-- "Feature 4": Slash command
+1. Block Context menu
+1. Dialog at action
+1. Page Context menu
+1. Slash command
 
 ## Block context menu (Right clock on the bullet)
 
@@ -95,5 +95,7 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
 - [@logseq/libs](https://logseq.github.io/plugins/)
 
 - [hkgnp/logseq-dateutils](https://github.com/hkgnp/logseq-dateutils)
+
+- [0x7b1/logseq-plugin-automatic-url-title](https://github.com/0x7b1/logseq-plugin-automatic-url-title)
 
 - [icooon-mono.com](https://icooon-mono.com/12611-%e3%83%a1%e3%83%8b%e3%83%a5%e3%83%bc%e3%81%ae%e3%83%95%e3%83%aa%e3%83%bc%e3%82%a2%e3%82%a4%e3%82%b3%e3%83%b316/)
