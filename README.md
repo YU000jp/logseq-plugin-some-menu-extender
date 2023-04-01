@@ -5,6 +5,14 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
 [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-some-menu-extender)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/releases)
 [![License](https://img.shields.io/github/license/YU000jp/logseq-plugin-some-menu-extender?color=blue)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/blob/main/LICENSE)
 
+## CHANGELOG
+
+- Migrated several features from Column Layout plugin and Page-tags and Hierarchy plugin. #2023/04/01
+
+### Also update the following plugins (require)
+- [Column Layout](https://github.com/YU000jp/Logseq-column-Layout) (to version 2)
+- [Page-tags and Hierarchy](https://github.com/YU000jp/logseq-page-tags-and-hierarchy) (to version 2)
+
 ## Features
 
 1. Block Context menu
