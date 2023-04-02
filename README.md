@@ -39,7 +39,7 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
 
 - [Solution] After the task DONE, add completed property to the block.
 
-- [Usage] After DONE a task, a dialog will appear asking if you want to add a completed property. Possible to edit the date.
+- [Usage] After DONE a task, a dialog will appear asking to add a completed property. Possible to edit the date.
 
 - [Result] The date contained in the completed property acts as a link. View completed tasks in Journal Linked References.
 
