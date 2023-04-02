@@ -35,6 +35,8 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
 
 ### Add completed property to DONE task (Mark task as DONE)
 
+![someDone](https://user-images.githubusercontent.com/111847207/229385006-08d16d36-a8d9-4b24-87d9-ed0c2474da00.gif)
+
 - [Problem] Logseq does not record the DONE date.
 
 - [Solution] After the task DONE, add completed property to the block.
