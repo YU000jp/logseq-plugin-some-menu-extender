@@ -43,7 +43,7 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
 
 - [Result] The date contained in the completed property acts as a link. View completed tasks in Journal Linked References.
 
-## Block context menu (Right click on the bullet)
+## Block context menu (Right click on bullet)
 
 ### `repeat-task as LATER`
 
@@ -75,7 +75,7 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
 
 - [Result] Create a line break without breaking outlines
 
-## Page context menu (Right click on the page title)
+## Page context menu (Right click on page title)
 
 ### For PARA method pages. Quickly add to page-tags
 
