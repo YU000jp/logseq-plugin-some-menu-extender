@@ -76,51 +76,56 @@ const main = () => {
     let blockSet = "";
     logseq.DB.onChanged(async (e) => {
       if (logseq.settings?.switchCompletedDialog === true) {//if changed settings
-        const currentBlock = await logseq.Editor.getCurrentBlock();
-        if (currentBlock) {
-          if (blockSet !== currentBlock.uuid) {
-            blockSet = "";//ほかのブロックを触ったら解除する
-            if (!currentBlock.properties?.completed && currentBlock.marker === "DONE") {
-              const userConfigs = await logseq.App.getUserConfigs();
-              const today = new Date();
-              const year = today.getFullYear();
-              const month = ("0" + (today.getMonth() + 1)).slice(-2);
-              const day = ("0" + today.getDate()).slice(-2);
-              const todayFormatted = `${year}-${month}-${day}`;
-              //dialog
-              await logseq.showMainUI();
-              const { value: formValues } = await Swal.fire<{
-                input1: any;
-              }>({
-                title: "Turn on completed (date) property?",
-                text: "",
-                icon: "info",
-                showCancelButton: true,
-                html: `<input id="swal-input1" class="swal2-input" type="date" value="${todayFormatted}"/>`,//type:dateが指定できないためhtmlとして作成
-                focusConfirm: false,
-                preConfirm: () => {
-                  const input1 = document.getElementById('swal-input1') as HTMLInputElement;
-                  return {
-                    input1: input1.value
-                  };
-                }
-              });
-              if (formValues) {
-                if (formValues?.input1) {//OK
-                  const FormattedDateUser = await getDateForPage(new Date(formValues?.input1), userConfigs.preferredDateFormat);
-                  logseq.Editor.upsertBlockProperty(currentBlock.uuid, "completed", FormattedDateUser);
-                } else {//Cancel
-                  //user cancel in dialog
-                  logseq.UI.showMsg("Cancel", "warning");
-                  blockSet = currentBlock.uuid;//キャンセルだったらブロックをロックする
-                }
-              }
-              await logseq.hideMainUI();
-              //dialog end
+        const TASK_MARKERS = new Set(["DONE", "NOW", "LATER", "DOING", "TODO", "WAITING"]);
+        const taskBlock = e.blocks.find((block) => TASK_MARKERS.has(block.marker));
+        if (!taskBlock) {
+          return;
+        }
+        if (blockSet !== taskBlock.uuid) {
+          blockSet = "";//ほかのブロックを触ったら解除する
+          if (taskBlock.marker === "DONE") {
+            if(taskBlock.properties?.completed){
+              return;
             }
-          } else {
-            blockSet = currentBlock.uuid;
+            const userConfigs = await logseq.App.getUserConfigs();
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = ("0" + (today.getMonth() + 1)).slice(-2);
+            const day = ("0" + today.getDate()).slice(-2);
+            const todayFormatted = `${year}-${month}-${day}`;
+            //dialog
+            await logseq.showMainUI();
+            const { value: formValues } = await Swal.fire<{
+              input1: any;
+            }>({
+              title: "Turn on completed (date) property?",
+              text: "",
+              icon: "info",
+              showCancelButton: true,
+              html: `<input id="swal-input1" class="swal2-input" type="date" value="${todayFormatted}"/>`,//type:dateが指定できないためhtmlとして作成
+              focusConfirm: false,
+              preConfirm: () => {
+                const input1 = document.getElementById('swal-input1') as HTMLInputElement;
+                return {
+                  input1: input1.value
+                };
+              }
+            });
+            if (formValues) {
+              if (formValues?.input1) {//OK
+                const FormattedDateUser = await getDateForPage(new Date(formValues?.input1), userConfigs.preferredDateFormat);
+                logseq.Editor.upsertBlockProperty(taskBlock.uuid, "completed", FormattedDateUser);
+              } else {//Cancel
+                //user cancel in dialog
+                logseq.UI.showMsg("Cancel", "warning");
+                blockSet = taskBlock.uuid;//キャンセルだったらブロックをロックする
+              }
+            }
+            await logseq.hideMainUI();
+            //dialog end
           }
+        } else {
+          blockSet = taskBlock.uuid;
         }
       }
     });
@@ -151,7 +156,7 @@ const main = () => {
     // necessary to have the window focused in order to copy the content of the code block to the clipboard
     //https://github.com/vyleung/logseq-copy-code-plugin/blob/main/src/index.js#L219
     window.focus();
-    navigator.clipboard.writeText(`{{embed ((${event.uuid}))}}\n(from ((${event.uuid})) )`);
+    navigator.clipboard.writeText(`{{embed ((${event.uuid}))}}\nfrom ((${event.uuid}))`);
     logseq.UI.showMsg("Copied to clipboard\n(block reference and embed)", "info");
   });
 
