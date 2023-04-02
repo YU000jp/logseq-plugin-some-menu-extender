@@ -25,6 +25,8 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
 
 ### Automatic markdown link (Paste URL)
 
+![someautomaticmarkdownlink](https://user-images.githubusercontent.com/111847207/229340766-02df5320-a37a-4a34-8aa7-bc1b22d700d0.gif)
+
 - [Problem] Existing auto plugins do unnecessary conversions. / Garbled characters occur.
 
 - [Solution] Confirm to user in dialog / anti-garbled japanese website : 日本語ウェブサイトの文字化け対策済み
