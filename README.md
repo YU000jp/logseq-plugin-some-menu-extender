@@ -107,6 +107,16 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
 
 ![Animation6w21](https://user-images.githubusercontent.com/111847207/222945226-f8e031cf-9e49-4c98-a5e8-ee360c931050.gif)
 
+## Install from Marketplace
+
+- Press [---] on the top right toolbar to open [Plugins]
+
+- Select marketplace
+
+- Type 'some' in the search field, select it from the search results and install
+
+![image](https://user-images.githubusercontent.com/111847207/229358935-9a6cfb57-4978-42fc-9197-a962c8ecca33.png)
+
 ## Other Logseq plugins (My products)
 
 - [Column Layout](https://github.com/YU000jp/Logseq-column-Layout)
