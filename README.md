@@ -110,9 +110,10 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
 ## Other Logseq plugins (My products)
 
 - [Column Layout](https://github.com/YU000jp/Logseq-column-Layout)
-- [page-tags and hierarchy](https://github.com/YU000jp/logseq-page-tags-and-hierarchy)
 - [Panel Coloring](https://github.com/YU000jp/logseq-plugin-panel-coloring)
-- [Rakuten books](https://github.com/YU000jp/logseq-plugin-rakuten-books) (Only for Japanese site)
+- [Page-tags and Hierarchy](https://github.com/YU000jp/logseq-page-tags-and-hierarchy)
+- [Rakuten-books](https://github.com/YU000jp/logseq-plugin-rakuten-books) (Only for Japanese site)
+- [booklog-jp-import](https://github.com/YU000jp/logseq-plugin-booklog-jp-import) (Only for Japanese site)
 
 ## Prior art & Credit
 
