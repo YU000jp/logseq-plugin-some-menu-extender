@@ -16,10 +16,17 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
 
 ## Features
 
-1. Dialog at action
-1. Block Context menu
-1. Page Context menu
-1. Slash command
+- Dialog at action
+    1. Auto link title (Paste URL)
+    1. Add completed property to DONE task (Mark task as DONE)
+- Block Context menu
+    1. `repeat-task as LATER`
+    1. `Copy block reference and embed`
+    1. `Make to next line blank`
+- Page Context menu
+    1. For PARA method pages. Quickly add to page-tags
+    1. For Other pages. Quickly add to page-tags
+    1. Quickly create a page
 
 ## Dialog at action
 
