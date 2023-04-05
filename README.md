@@ -23,7 +23,7 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
 
 ## Dialog at action
 
-### Automatic markdown link (Paste URL)
+### Auto link title (Paste URL)
 
 ![someautomaticmarkdownlink](https://user-images.githubusercontent.com/111847207/229340766-02df5320-a37a-4a34-8aa7-bc1b22d700d0.gif)
 
