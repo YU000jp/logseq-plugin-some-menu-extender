@@ -46,8 +46,8 @@ jobs:
         run: |
           echo "# Changelog" > CHANGELOG.md
           echo "## v${{ steps.build.outputs.tag_name }}" >> CHANGELOG.md
-          echo "" >> CHANGELOG.md
-          git log --pretty=format:'- %s' --no-merges "$(git describe --tags --abbrev=0 $(git rev-list --tags --skip=1 --max-count=1))..$(git describe --tags --abbrev=0 HEAD)" >> CHANGELOG.md
+          echo "${{ env.PLUGIN_NAME }} ${{ steps.build.outputs.tag_name }}" >> CHANGELOG.md
+          git log $(git describe --tags --abbrev=0)..HEAD --pretty=format:'- %s' >> CHANGELOG.md
           echo "" >> CHANGELOG.md
           echo "## Previous releases" >> CHANGELOG.md
           git for-each-ref --sort=-taggerdate --format '  - %(refname:short) (%(taggerdate:short))' refs/tags | sed 's/tags\///' >> CHANGELOG.md
@@ -81,3 +81,4 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./package.json
           asset_name: package.json
+          asset_content_type: application/json
