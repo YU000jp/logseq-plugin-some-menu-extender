@@ -69,7 +69,6 @@ const main = () => {
 `);
 
 
-  //switch contextmenu
   if (logseq.settings?.switchCompletedDialog === true) {
     //add completed property to done task
     //https://github.com/DimitryDushkin/logseq-plugin-task-check-date
@@ -84,7 +83,7 @@ const main = () => {
         if (blockSet !== taskBlock.uuid) {
           blockSet = "";//ほかのブロックを触ったら解除する
           if (taskBlock.marker === "DONE") {
-            if(taskBlock.properties?.completed){
+            if (taskBlock.properties?.completed) {
               return;
             }
             const userConfigs = await logseq.App.getUserConfigs();
@@ -132,7 +131,7 @@ const main = () => {
     //end
   }
 
-  /* ContextMenuItem LATER  */
+  /* ContextMenuItem `repeat-task as LATER`  */
   logseq.Editor.registerBlockContextMenuItem('repeat-task as LATER', async (e) => {
     const block = await logseq.Editor.getBlock(e.uuid);
     if (block?.marker == "LATER") {
@@ -145,7 +144,7 @@ const main = () => {
     }
   });
 
-  /* ContextMenuItem Copy block reference and embed  */
+  /* ContextMenuItem `Copy block reference and embed`  */
   logseq.Editor.registerBlockContextMenuItem('Copy block reference and embed', async (event) => {
     const block = await logseq.Editor.getBlock(event.uuid);
     //ブロックのtimestampsはオプション機能
@@ -160,20 +159,69 @@ const main = () => {
     logseq.UI.showMsg("Copied to clipboard\n(block reference and embed)", "info");
   });
 
-  /* ContextMenuItem Make to next line blank  */
+  /* ContextMenuItem `Make to next line blank`  */
   logseq.Editor.registerBlockContextMenuItem('Make to next line blank', async (event) => {
     const block = await logseq.Editor.insertBlock(event.uuid, "", { focus: true, sibling: true });
     logseq.UI.showMsg("Done! (Make to next line blank)", "info");
   });
 
-  /* SlashCommand Year List Calendar */
-  logseq.Editor.registerSlashCommand('Create Year List Calendar', async (e) => {
+
+  /* Slash Command `create pdf link (online)`  */
+  logseq.Editor.registerSlashCommand('create pdf link (online)', async (event) => {
+    //dialog
+    await logseq.showMainUI();
+    await Swal.fire({
+      title: 'generate markdown',
+      html:
+        '<input id="title" class="swal2-input" placeholder="link title"/>' +
+        '<input id="url" class="swal2-input" placeholder="URL (Online PDF)"/>',
+      focusConfirm: false,
+      showCancelButton: true,
+      inputValidator: (value) => {
+        return new Promise((resolve) => {
+          if (value) {
+            resolve("");
+          }
+        });
+      },
+      preConfirm: () => {
+        const title = (document.getElementById('title') as HTMLInputElement).value;
+        const url = (document.getElementById('url') as HTMLInputElement).value;
+        return { title: title, url: url };
+      },
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        let title = result.value?.title || "";
+        title = IncludeTitle(title);
+        const line = await logseq.Editor.insertBlock(event.uuid, `![${title}](${result.value?.url})`, { focus: true, sibling: true });
+        logseq.UI.showMsg("Done! generate the link online pdf", "info");
+      } else {//Cancel
+        logseq.UI.showMsg("Cancel", "warning");
+      }
+    });
+    await logseq.hideMainUI();
+    //dialog end
+  });
+
+  // TODO:
+  /* ContextMenuItem `PDF parse`  */
+  // logseq.Editor.registerSlashCommand('pdf parse', async (event) => {
+  //   const blank = await logseq.Editor.insertBlock(event.uuid, "", { focus: true, sibling: true });
+  //   if (blank) {
+  //     const next = await logseq.Editor.insertBlock(blank.uuid, "", { sibling: false });
+  //   }
+  //   logseq.UI.showMsg("Done! generate the parse date of online pdf", "info");
+  // });
+
+
+  /* SlashCommand `Create Year List Calendar` */
+  logseq.Editor.registerSlashCommand('Create Year List Calendar', async (event) => {
     const userConfigs = await logseq.App.getUserConfigs();
     const ThisDate: any = new Date();
     const ThisYear = ThisDate.getFullYear();
     const ThisMonth = ThisDate.getMonth() + 1;
     const displayThisMonth = String(ThisMonth).padStart(2, '0');
-    logseq.Editor.insertBlock(e.uuid, `Year List Calendar`).then(async (b) => {
+    logseq.Editor.insertBlock(event.uuid, `Year List Calendar`).then(async (b) => {
       if (b) {
         //年間タスクリスト作成
         await createCalendar(ThisYear, ThisYear, ThisMonth, b.uuid, userConfigs.preferredDateFormat);//this year
@@ -365,6 +413,20 @@ async function createCalendar(year, ThisYear, ThisMonth, selectBlock, preferredD
   function isLeapYear(year) {
     return year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
   }
+}
+
+
+function IncludeTitle(title: string) {
+  title = title.replace(/[\n()\[\]]/g, '');
+  title = title.replace("\n", '');
+  title = title.replace("(", '');
+  title = title.replace(")", '');
+  title = title.replace("[", '');
+  title = title.replace("]", '');
+  title = title.replace("{{", '{');
+  title = title.replace("}}", '}');
+  title = title.replace("#+", ' ');
+  return title;
 }
 
 logseq.ready(main).catch(console.error);
