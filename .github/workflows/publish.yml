@@ -42,6 +42,24 @@ jobs:
           draft: false
           prerelease: false
 
+      - name: Create CHANGELOG.md
+        run: |
+          echo "# Changelog" > CHANGELOG.md
+          echo "## v${{ steps.build.outputs.tag_name }}" >> CHANGELOG.md
+          echo "${{ env.PLUGIN_NAME }} ${{ steps.build.outputs.tag_name }}" >> CHANGELOG.md
+          git log $(git describe --tags --abbrev=0)..HEAD --pretty=format:'- %s' >> CHANGELOG.md
+          echo "" >> CHANGELOG.md
+          echo "## Previous releases" >> CHANGELOG.md
+          git for-each-ref --sort=-taggerdate --format '  - %(refname:short) (%(taggerdate:short))' refs/tags | sed 's/tags\///' >> CHANGELOG.md
+
+      - name: Commit changelog
+        uses: EndBug/add-and-commit@v7
+        with:
+          add: 'CHANGELOG.md'
+          message: 'Add changelog for release v${{ steps.build.outputs.tag_name }}'
+          author_name: 'GitHub Action'
+          author_email: 'action@github.com'
+
       - name: Upload zip file
         id: upload_zip
         uses: actions/upload-release-asset@v1
