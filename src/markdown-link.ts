@@ -6,10 +6,10 @@ import Encoding from 'encoding-japanese';//https://github.com/polygonplanet/enco
 //https://github.com/0x7b1/logseq-plugin-automatic-url-title
 
 const DEFAULT_REGEX = {
-    wrappedInSharp: /\#+(.*?)\#+(?=[^#+]*?(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,}))/gi,
-    wrappedInApostrophe: /(`+)(.*?)\1(?=[^`]*?(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,}))[^\`]*?\1/gi,
-    wrappedInHTML: /@@html:\s*(.*?)\s*(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})\s*(.*?)\s*@@/gi,
-    wrappedInCommand: /(\{\{([a-zA-Z]+)\s*(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})\s*\}\})/gi,
+    wrappedInApostrophe: /(`+)(.*?)\1(?=[^`]*?(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,}))[^\`]*?\1/gis,
+    wrappedInHTML: /@@html:\s*(.*?)\s*(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})\s*(.*?)\s*@@/gis,
+    wrappedInCommand: /(\{\{([a-zA-Z]+)\s*(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})\s*\}\})/gis,
+    wrappedInHiccup: /\[:\s*(.*?)\s*(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})\s*(.*?)\s*\]/gis,
     htmlTitleTag: /<title(\s[^>]+)*>([^<]*)<\/title>/,
     line: /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi,
     imageExtension: /\.(gif|jpe?g|tiff?|png|webp|bmp|tga|psd|ai)$/i,
@@ -40,8 +40,13 @@ async function getTitle(url) {
         const response = await fetch(url);
         const responseText = await response.text();
         //title convert UTF-8
-        const matches = await Encoding.convert(responseText.match(DEFAULT_REGEX.htmlTitleTag), 'UTF8', 'AUTO');//エンコード処理(文字化け対策)
+        let matches;
+        if (responseText.match(DEFAULT_REGEX.htmlTitleTag)) {
+            matches = await Encoding.convert(responseText.match(DEFAULT_REGEX.htmlTitleTag), 'UTF8', 'AUTO');//エンコード処理(文字化け対策)
+        } else {
+            //titleタグから得られない場合
 
+        }
         if (matches !== null && matches.length > 1 && matches[2] !== null) {
             return decodeHTML(matches[2].trim());
         }
@@ -54,7 +59,7 @@ async function getTitle(url) {
 
 async function convertUrlToMarkdownLink(title: string, url, text, urlStartIndex, offset, applyFormat) {
     if (title) {
-        title = IncludeTitle(title);
+        title = includeTitle(title);
     } else {
         return { text, offset };
     }
@@ -78,38 +83,14 @@ function isAlreadyFormatted(text, url, urlIndex, formatBeginning) {
     return text.slice(urlIndex - 2, urlIndex) === formatBeginning;
 }
 
-function isWrappedInCommand(text, url) {
-    const wrappedLinks = text.match(DEFAULT_REGEX.wrappedInCommand);
-    if (!wrappedLinks) {
-        return false;
-    }
-    return wrappedLinks.some(command => command.includes(url));
-}
-
-function isWrappedInHTML(text, url) {//add
+function isWrappedIn(text, url) {
     // "@@html: "URLを含む何らかの文字"@@"にマッチする
     //https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/1
-    const wrappedLinks = text.match(DEFAULT_REGEX.wrappedInHTML);
-    if (!wrappedLinks) {
-        return false;
-    }
-    return wrappedLinks.some(command => command.includes(url));
-}
-
-function isWrappedInApostrophe(text, url) {//add
     // `URLを含む何らかの文字`にマッチする ``も対応
     //https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/3
-    const wrappedLinks = text.match(DEFAULT_REGEX.wrappedInApostrophe);
-    if (!wrappedLinks) {
-        return false;
-    }
-    return wrappedLinks.some(command => command.includes(url));
-}
-
-function isWrappedInSharp(text, url) {//add
-    // #+URLを含む何らかの文字#+にマッチする
-    //https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/4
-    const wrappedLinks = text.match(DEFAULT_REGEX.wrappedInApostrophe);
+    // [: "URL"]のような形式にマッチする
+    //https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/8
+    const wrappedLinks = text.match(DEFAULT_REGEX.wrappedInCommand) || text.match(DEFAULT_REGEX.wrappedInHTML) || text.match(DEFAULT_REGEX.wrappedInApostrophe) || text.match(DEFAULT_REGEX.wrappedInHiccup);
     if (!wrappedLinks) {
         return false;
     }
@@ -126,7 +107,7 @@ async function getFormatSettings() {
     return FORMAT_SETTINGS[preferredFormat];
 }
 
-async function parseBlockForLink(uuid) {
+const parseBlockForLink = async (uuid) => {
     if (!uuid) {
         return;
     }
@@ -146,18 +127,18 @@ async function parseBlockForLink(uuid) {
     if (!formatSettings) {
         return;
     }
-
+    let Cancel: boolean = false;
     let offset = 0;
     for (const url of urls) {
         const urlIndex = text.indexOf(url, offset);
-        if (isAlreadyFormatted(text, url, urlIndex, formatSettings.formatBeginning) || isImage(url) || isWrappedInCommand(text, url) || isWrappedInHTML(text, url) || isWrappedInApostrophe(text, url) || isWrappedInSharp(text, url)) {
+        if (isAlreadyFormatted(text, url, urlIndex, formatSettings.formatBeginning) || isImage(url) || isWrappedIn(text, url)) {
             continue;
         }
         //dialog
         await logseq.showMainUI();
         await Swal.fire({
-            title: "Are you sure?",
-            text: `Convert to markdown link\n(${url})`,
+            title: "Convert to markdown link",
+            text: `(${url})`,
             icon: "info",
             showCancelButton: true,
         })
@@ -165,7 +146,7 @@ async function parseBlockForLink(uuid) {
                 if (result) {//OK
                     if (result?.value) {
                         let title: string = await getTitle(url) || "";
-                        title = await IncludeTitle(title);
+                        title = await includeTitle(title);
                         await Swal.fire({
                             title: "Edit markdown link title",
                             input: "text",
@@ -193,46 +174,64 @@ async function parseBlockForLink(uuid) {
                     } else {//Cancel
                         //user cancel in dialog
                         logseq.UI.showMsg("Cancel", "warning");
-                        return uuid;
+                        Cancel = true;
                     }
                 }
             })
             .finally(() => {
-                logseq.hideMainUI();
+                logseq.hideMainUI({ restoreEditingCursor: true });
             });
         //dialog end
     }
+    return Cancel;
 }
 
-function IncludeTitle(title: string) {
-    title = title.replace(/[\n()\[\]]/g, '');
-    title = title.replace("\n", '');
-    title = title.replace("(", '');
-    title = title.replace(")", '');
-    title = title.replace("[", '');
-    title = title.replace("]", '');
-    title = title.replace("{{", '{');
-    title = title.replace("}}", '}');
-    title = title.replace("#+", ' ');
-    return title;
+function includeTitle(title: string): string {
+    return title.replace(/[\n()\[\]]|{{|}}|#\+/g, (match) => {
+        switch (match) {
+            case "{{":
+                return "{";
+            case "}}":
+                return "}";
+            case "#+":
+                return " ";
+            default:
+                return "";
+        }
+    });
 }
 
-export const MarkdownLink = () => {
+export const MarkdownLink = async () => {
+    let blockSet: string = "";
+    let processing: boolean = false; // ロック用フラグ
 
-    let blockSet = "";
-    logseq.DB.onChanged(async (e) => {
+    await logseq.DB.onChanged(async (e) => {
         if (logseq.settings?.switchMarkdownLink === true) {
+            if (processing) { // 処理中の場合はリターンして重複を避ける
+                return;
+            }
             const currentBlock = await logseq.Editor.getCurrentBlock();
             if (currentBlock) {
-                if (blockSet !== currentBlock?.uuid) {//ほかのブロックを触ったら解除する
-                    const uuidUserCancel: any = await parseBlockForLink(currentBlock.uuid);
-                    if (uuidUserCancel) {//cancel
-                        blockSet = uuidUserCancel;//キャンセルだったらブロックをロックする
+                if (blockSet !== currentBlock.uuid || e.txMeta?.outlinerOp === 'insertBlocks') {// 他のブロックを触ったら解除する
+                    processing = true; // ロックをかける
+                    const cancel = await parseBlockForLink(currentBlock.uuid) as boolean; // キャンセルだったらブロックをロックする
+                    if (cancel === true) {
+                        blockSet = currentBlock.uuid;
+                        const textarea = parent.document.querySelector(`#edit-block-1-${currentBlock.uuid}`) as HTMLTextAreaElement;
+                        if (textarea) {
+                            await textarea.addEventListener('blur', async () => {
+                                // フォーカスが外れたときの処理
+                                await parseBlockForLink(currentBlock.uuid);
+                            }, { once: true });
+                        }
+                    } else {
+                        blockSet = "";
                     }
                 } else {
                     blockSet = currentBlock.uuid;
                 }
             }
+            processing = false; // ロックを解除する
         }
     });
 };
