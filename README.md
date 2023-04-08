@@ -5,7 +5,7 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
 [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-some-menu-extender)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/releases)
 [![License](https://img.shields.io/github/license/YU000jp/logseq-plugin-some-menu-extender?color=blue)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/blob/main/LICENSE)
 
-## CHANGELOG
+## Changelog
 
 - Migrated several features from Column Layout plugin and Page-tags and Hierarchy plugin. #2023/04/01
 
@@ -25,10 +25,17 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
     1. `Make to next line blank`
 - Page Context menu
     1. For PARA method pages. Quickly add to page-tags
+        1. `add Project`
+        1. `add Area of responsibility`
+        1. `add Resource`
+        1. `add Archive`
     1. For Other pages. Quickly add to page-tags
+        1. `add a page-tag by select list`
     1. Quickly create a page
+        1. `create New Project`
+        1. `create child page (for hierarchy)`
 - Slash command
-    1. create pdf link (online)
+    1. `create pdf link (online)`
 
 ## Dialog at action
 
