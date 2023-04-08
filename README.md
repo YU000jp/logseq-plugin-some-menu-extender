@@ -27,6 +27,8 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
     1. For PARA method pages. Quickly add to page-tags
     1. For Other pages. Quickly add to page-tags
     1. Quickly create a page
+- Slash command
+    1. create pdf link (online)
 
 ## Dialog at action
 
