@@ -110,6 +110,10 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
 
 ## Slash command
 
+### `create pdf link (online)`
+
+ - Create a markdown link for online PDF
+
 ### `create Year List Calendar` **Test Function (△Not reaching the workflow)
 
 - Using Year List Calendar, all the dates for a full year are generated as date links. When written as child elements, they are displayed in the Linked References section.
