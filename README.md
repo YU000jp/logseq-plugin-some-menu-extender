@@ -18,7 +18,7 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
 
 - Dialog at action
     1. [ Auto link title (Paste URL)](#auto-link-title-paste-url)
-    1. [Add completed property to DONE task (Mark task as DONE)](#dialog-at-action)
+    1. [Add completed property to DONE task (Mark task as DONE)](#add-completed-property-to-done-task-mark-task-as-done)
 - Block Context menu
     1. For repeat-task
         1. `repeat-task as LATER`
