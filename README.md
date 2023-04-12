@@ -26,7 +26,7 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
         1. `Copy block reference and embed`
         1. `Make to next line blank`
 - Page Context menu
-    1. [For PARA method pages. Quickly add to page-tags](#-add-project)
+    1. [For PARA method pages. Quickly add to page-tags](#for-para-method-pages-quickly-add-to-page-tags)
         1. `add Project`
         1. `add Area of responsibility`
         1. `add Resource`
