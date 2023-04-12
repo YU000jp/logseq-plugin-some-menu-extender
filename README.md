@@ -14,27 +14,29 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
 - [Column Layout](https://github.com/YU000jp/Logseq-column-Layout) (to version 2)
 - [Page-tags and Hierarchy](https://github.com/YU000jp/logseq-page-tags-and-hierarchy) (to version 2)
 
-## Features
+## Table of Features
 
 - Dialog at action
-    1. Auto link title (Paste URL)
-    1. Add completed property to DONE task (Mark task as DONE)
+    1. [ Auto link title (Paste URL)](r#dialog-at-action)
+    1. [Add completed property to DONE task (Mark task as DONE)](#dialog-at-action)
 - Block Context menu
-    1. `repeat-task as LATER`
-    1. `Copy block reference and embed`
-    1. `Make to next line blank`
+    1. For repeat-task
+        1. `repeat-task as LATER`
+    1. For outliner
+        1. `Copy block reference and embed`
+        1. `Make to next line blank`
 - Page Context menu
-    1. For PARA method pages. Quickly add to page-tags
+    1. [For PARA method pages. Quickly add to page-tags](#-add-project)
         1. `add Project`
         1. `add Area of responsibility`
         1. `add Resource`
         1. `add Archive`
-    1. For Other pages. Quickly add to page-tags
+    1. [For Other pages. Quickly add to page-tags](#for-other-pages-quickly-add-to-page-tags)
         1. `add a page-tag by select list`
-    1. Quickly create a page
+    1. [Quickly create a page](#quickly-create-a-page)
         1. `create New Project`
         1. `create child page (for hierarchy)`
-- Slash command
+- [Slash command](#slash-command)
     1. `create pdf link (online)`
 
 ## Dialog at action
