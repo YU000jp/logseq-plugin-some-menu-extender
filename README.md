@@ -17,7 +17,7 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
 ## Table of Features
 
 - Dialog at action
-    1. [ Auto link title (Paste URL)](#auto-link-title-paste-url)
+    1. [Auto link title (Paste URL)](#auto-link-title-paste-url)
     1. [Add completed property to DONE task (Mark task as DONE)](#add-completed-property-to-done-task-mark-task-as-done)
 - Block Context menu
     1. For repeat-task
@@ -123,7 +123,7 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
 
 ### `create pdf link (online)`
 
- - Create a markdown link for online PDF
+- Create a markdown link for online PDF
 
 ### `create Year List Calendar` **Test Function (△Not reaching the workflow)
 
