@@ -4,6 +4,8 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
 
 [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-some-menu-extender)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/releases)
 [![License](https://img.shields.io/github/license/YU000jp/logseq-plugin-some-menu-extender?color=blue)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/blob/main/LICENSE)
+[![Downloads](https://img.shields.io/github/downloads/YU000jp/logseq-plugin-some-menu-extender/total.svg)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/releases)
+
 
 ## Changelog
 
