@@ -16,6 +16,7 @@ const DEFAULT_REGEX = {
 };
 
 const FORMAT_SETTINGS = {
+    //ユーザー設定を反映させる(ページの設定ではない TODO:)
     markdown: {
         formatBeginning: '](',
         applyFormat: (title, url) => `[${title}](${url})`,

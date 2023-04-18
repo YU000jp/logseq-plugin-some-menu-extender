@@ -1,16 +1,21 @@
 import '@logseq/libs'; //https://plugins-doc.logseq.com/
-import { SettingSchemaDesc } from "@logseq/libs/dist/LSPlugin.user";
-import { logseq as PL } from "../package.json";
-const pluginId = PL.id; //set plugin id from package.json
+import { BlockEntity, SettingSchemaDesc } from "@logseq/libs/dist/LSPlugin.user";
 import { MarkdownLink } from './markdown-link';
 import { addProperties, RecodeDateToPage } from './addProperties';
-import Swal from 'sweetalert2';//https://sweetalert2.github.io/
-import { getDateForPage } from 'logseq-dateutils';//https://github.com/hkgnp/logseq-dateutils
+import Swal from 'sweetalert2'; //https://sweetalert2.github.io/
+import { getDateForPage } from 'logseq-dateutils'; //https://github.com/hkgnp/logseq-dateutils
+import { evalExpression } from '@hkh12/node-calc'; //https://github.com/heokhe/node-calc
 
-
-/* main */
 const main = () => {
-  console.info(`#${pluginId}: MAIN`); //console
+
+  //check current graph
+  let demo;
+  logseq.App.getCurrentGraph().then((graph) => {
+    if (!graph) {//デモグラフの場合は返り値がnull
+      demo = true;
+    }
+  });
+  if (demo === true) return;//デモの場合は動作させない
 
   //https://logseq.github.io/plugins/types/SettingSchemaDesc.html
   const settingsTemplate: SettingSchemaDesc[] = [
@@ -69,67 +74,66 @@ const main = () => {
 `);
 
 
-  if (logseq.settings?.switchCompletedDialog === true) {
-    //add completed property to done task
-    //https://github.com/DimitryDushkin/logseq-plugin-task-check-date
-    let blockSet = "";
-    logseq.DB.onChanged(async (e) => {
-      if (logseq.settings?.switchCompletedDialog === true) {//if changed settings
-        const TASK_MARKERS = new Set(["DONE", "NOW", "LATER", "DOING", "TODO", "WAITING"]);
-        const taskBlock = e.blocks.find((block) => TASK_MARKERS.has(block.marker));
-        if (!taskBlock) {
-          return;
-        }
-        if (blockSet !== taskBlock.uuid) {
-          blockSet = "";//ほかのブロックを触ったら解除する
-          if (taskBlock.marker === "DONE") {
-            if (taskBlock.properties?.completed) {
-              return;
-            }
-            const userConfigs = await logseq.App.getUserConfigs();
-            const today = new Date();
-            const year = today.getFullYear();
-            const month = ("0" + (today.getMonth() + 1)).slice(-2);
-            const day = ("0" + today.getDate()).slice(-2);
-            const todayFormatted = `${year}-${month}-${day}`;
-            //dialog
-            await logseq.showMainUI();
-            const { value: formValues } = await Swal.fire<{
-              input1: any;
-            }>({
-              title: "Turn on completed (date) property?",
-              text: "",
-              icon: "info",
-              showCancelButton: true,
-              html: `<input id="swal-input1" class="swal2-input" type="date" value="${todayFormatted}"/>`,//type:dateが指定できないためhtmlとして作成
-              focusConfirm: false,
-              preConfirm: () => {
-                const input1 = document.getElementById('swal-input1') as HTMLInputElement;
-                return {
-                  input1: input1.value
-                };
-              }
-            });
-            if (formValues) {
-              if (formValues?.input1) {//OK
-                const FormattedDateUser = await getDateForPage(new Date(formValues?.input1), userConfigs.preferredDateFormat);
-                logseq.Editor.upsertBlockProperty(taskBlock.uuid, "completed", FormattedDateUser);
-              } else {//Cancel
-                //user cancel in dialog
-                logseq.UI.showMsg("Cancel", "warning");
-                blockSet = taskBlock.uuid;//キャンセルだったらブロックをロックする
-              }
-            }
-            await logseq.hideMainUI();
-            //dialog end
-          }
-        } else {
-          blockSet = taskBlock.uuid;
-        }
+  //add completed property to done task
+  //https://github.com/DimitryDushkin/logseq-plugin-task-check-date
+  let blockSet = "";
+  logseq.DB.onChanged(async (e) => {
+    if (logseq.settings?.switchCompletedDialog === true) {//if changed settings
+      const TASK_MARKERS = new Set(["DONE", "NOW", "LATER", "DOING", "TODO", "WAITING"]);
+      const taskBlock = e.blocks.find((block) => TASK_MARKERS.has(block.marker));
+      if (!taskBlock) {
+        return;
       }
-    });
-    //end
-  }
+      if (blockSet !== taskBlock.uuid) {
+        blockSet = "";//ほかのブロックを触ったら解除する
+        if (taskBlock.marker === "DONE") {
+          if (taskBlock.properties?.completed) {
+            return;
+          }
+          const userConfigs = await logseq.App.getUserConfigs();
+          const today = new Date();
+          const year = today.getFullYear();
+          const month = ("0" + (today.getMonth() + 1)).slice(-2);
+          const day = ("0" + today.getDate()).slice(-2);
+          const todayFormatted = `${year}-${month}-${day}`;
+          //dialog
+          await logseq.showMainUI();
+          const { value: formValues } = await Swal.fire<{
+            input1: any;
+          }>({
+            title: "Turn on completed (date) property?",
+            text: "",
+            icon: "info",
+            showCancelButton: true,
+            html: `<input id="swal-input1" class="swal2-input" type="date" value="${todayFormatted}"/>`,//type:dateが指定できないためhtmlとして作成
+            focusConfirm: false,
+            preConfirm: () => {
+              const input1 = document.getElementById('swal-input1') as HTMLInputElement;
+              return {
+                input1: input1.value
+              };
+            }
+          });
+          if (formValues) {
+            if (formValues?.input1) {//OK
+              const FormattedDateUser = await getDateForPage(new Date(formValues?.input1), userConfigs.preferredDateFormat);
+              logseq.Editor.upsertBlockProperty(taskBlock.uuid, "completed", FormattedDateUser);
+            } else {//Cancel
+              //user cancel in dialog
+              logseq.UI.showMsg("Cancel", "warning");
+              blockSet = taskBlock.uuid;//キャンセルだったらブロックをロックする
+            }
+          }
+          await logseq.hideMainUI();
+          //dialog end
+        }
+      } else {
+        blockSet = taskBlock.uuid;
+      }
+    }
+  });
+  //end
+
 
   /* ContextMenuItem `repeat-task as LATER`  */
   logseq.Editor.registerBlockContextMenuItem('repeat-task as LATER', async (e) => {
@@ -206,11 +210,23 @@ const main = () => {
   // TODO:
   /* ContextMenuItem `PDF parse`  */
   // logseq.Editor.registerSlashCommand('pdf parse', async (event) => {
-  //   const blank = await logseq.Editor.insertBlock(event.uuid, "", { focus: true, sibling: true });
-  //   if (blank) {
-  //     const next = await logseq.Editor.insertBlock(blank.uuid, "", { sibling: false });
-  //   }
-  //   logseq.UI.showMsg("Done! generate the parse date of online pdf", "info");
+  //   logseq.showMainUI();
+  //   await Swal.fire({
+  //     title: "Input",
+  //     input: "text",
+  //     inputPlaceholder: "URL (Online PDF)",
+  //   }).then(async (result) => {
+  //     if (result) {
+
+  //       const markdown = await convertPDFToMarkdown(result.value) as string;
+
+  //       const next = await logseq.Editor.insertBlock(event.uuid, markdown, { sibling: false });
+  //       logseq.UI.showMsg("Done! generate the parse date of online pdf", "info");
+  //     } else {
+  //       logseq.UI.showMsg("Cancel", "warning");
+  //     }
+  //   });
+  //   logseq.hideMainUI();
   // });
 
 
@@ -348,20 +364,91 @@ const main = () => {
   });
 
 
-  if (logseq.settings?.switchMarkdownLink === true) {
-    MarkdownLink();
-  }
+  //https://github.com/hiway/logseq-calculator-plugin
+  logseq.Editor.registerBlockContextMenuItem("Block Calculator", async (event) => {
+    calculator(event);
+  });
+  logseq.Editor.registerSlashCommand("Block Calculator", async (event) => {
+    calculator(event);
+  });
 
 
+  //コマンドパレット `select blocks to calculate`
+  //選択したブロックの数値を合計して、最後のブロックに追記する
+  //バレッドのコンテキストメニューではブロックの複数選択ができないため
+  logseq.App.registerCommandPalette({
+    key: 'some-menu-extender-select-blocks-for-calculate',
+    label: 'Select blocks to SUM (calculate)',
+  }, async (event) => {
+    const blocks = await logseq.Editor.getSelectedBlocks() as BlockEntity[];
+    if (blocks) {
+      const amounts: { [key: string]: number } = {};
+      await Promise.all(blocks.map(async (block) => {
+        const match = block.content.match(/(\$|€)?([0-9,]+)(元|円|¥|\\￥)?/);
+        if (match) {
+          const amount = Number(match[2].replace(/,/g, ''));
+          const currency = match[1] || match[3] || '';
+          if (currency in amounts) {
+            amounts[currency] += amount;
+          } else {
+            amounts[currency] = amount;
+          }
+        }
+      }));
+      let output = '';
+      for (const currency in amounts) {
+        const amount = amounts[currency];
+        const formattedAmount = (currency === '$' || currency === '€') ? amount.toString() : amount.toLocaleString(undefined, { maximumFractionDigits: 0 });
+        if (output) {
+          output += ', ';
+        }
+        if (currency === '$' || currency === '€') {
+          output += currency + formattedAmount;
+        } else {
+          output += formattedAmount + currency;
+        }
+      }
+      await logseq.Editor.insertBlock(blocks[blocks.length - 1].uuid, ` = ${output}`, { sibling: true, focus: true });
+      logseq.UI.showMsg("Success", "success");
+    } else {
+      logseq.UI.showMsg("Failed", "error");
+    }
+  });
+  //end コマンドパレット `select blocks to calculate`
+
+
+  //markdown link
+  MarkdownLink();
+
+  //main support
   parent.document.body.classList.add('is-plugin-some-menu-extender-enabled');
   logseq.beforeunload(async () => {
     parent.document.body.classList.remove('is-plugin-some-menu-extender-enabled');
   });
 
-  console.info(`#${pluginId}: loaded`);//console
+
 };/* end_main */
 
 
+//calculator
+async function calculator(event) {
+  let Success: boolean = false;
+  const text = await logseq.Editor.getBlock(event.uuid, { includeChildren: false });
+  if (text) {
+    const result = await evalExpression(text.content);
+    if (result) {
+      await logseq.Editor.insertBlock(event.uuid, ` = ${result}`, { sibling: false, focus: true });
+      Success = true;
+      logseq.UI.showMsg("Success", "success");
+    }
+  }
+  if (Success === false) {
+    logseq.UI.showMsg("Failed", "error");
+  }
+}
+
+
+//CreateCalendar
 async function createCalendar(year, ThisYear, ThisMonth, selectBlock, preferredDateFormat) {
   // 1月から12月までの各月の日数を配列に格納
   const monthDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -428,5 +515,6 @@ function IncludeTitle(title: string) {
   title = title.replace("#+", ' ');
   return title;
 }
+
 
 logseq.ready(main).catch(console.error);

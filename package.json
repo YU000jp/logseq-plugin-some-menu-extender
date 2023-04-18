@@ -17,12 +17,15 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@hkh12/node-calc": "^4.2.1",
     "@logseq/libs": "latest",
     "encoding-japanese": "^2.0.0",
     "logseq-dateutils": "^0.0.26",
     "sweetalert2": "^11.7.3"
   },
   "devDependencies": {
-    "parcel": "latest"
+    "@types/node": "^18.15.11",
+    "parcel": "^2.8.3",
+    "typescript": "^5.0.4"
   }
 }
