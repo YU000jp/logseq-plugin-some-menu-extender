@@ -1,20 +1,12 @@
 # Logseq Plugin: SomeMenuExtender
 
-A Logseq plugin that adds new functions to context menus and others, allowing for more efficient and convenient operations.
+A plugin that adds new functions to context menus and others, allowing for more efficient and convenient operations.
 
 [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-some-menu-extender)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/releases)
 [![License](https://img.shields.io/github/license/YU000jp/logseq-plugin-some-menu-extender?color=blue)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/blob/main/LICENSE)
 [![Downloads](https://img.shields.io/github/downloads/YU000jp/logseq-plugin-some-menu-extender/total.svg)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/releases)
 
-
-## Changelog
-
-- Migrated several features from Column Layout plugin and Page-tags and Hierarchy plugin. #2023/04/01
-
-### Also update the following plugins (require)
-
-- [Column Layout](https://github.com/YU000jp/Logseq-column-Layout) (to version 2)
-- [Page-tags and Hierarchy](https://github.com/YU000jp/logseq-page-tags-and-hierarchy) (to version 2)
+> Migrated several features from Column Layout plugin and Page-tags and Hierarchy plugin. #2023/04/01
 
 ## Table of Features
 
@@ -103,7 +95,11 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
 
 #### `🎨 add Project`
 
+<details><summary>Demo</summary>
+  
 ![Animation6w22](https://user-images.githubusercontent.com/111847207/226155740-02c6bc12-2930-4409-9acd-d3dc7f899514.gif)
+
+</details>
 
 #### `🏠 add Area of responsibility`
 
@@ -131,7 +127,11 @@ A Logseq plugin that adds new functions to context menus and others, allowing fo
 
 - Using Year List Calendar, all the dates for a full year are generated as date links. When written as child elements, they are displayed in the Linked References section.
 
+<details><summary>Demo</summary>
+
 ![Animation6w21](https://user-images.githubusercontent.com/111847207/222945226-f8e031cf-9e49-4c98-a5e8-ee360c931050.gif)
+
+</details>
 
 ## Install from Marketplace
 
