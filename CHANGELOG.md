@@ -1,3 +1,10 @@
+## [0.4.1](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.4.0...v0.4.1) (2023-04-22)
+
+
+### Bug Fixes
+
+* handle same E, EE, or EEE bug ([4a50d93](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/4a50d93b39d61171643cfc164623b68f4248c94a))
+
 # [0.4.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.3.33...v0.4.0) (2023-04-22)
 
 
