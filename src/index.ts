@@ -61,6 +61,14 @@ const main = () => {
       default: false,
       description: "Possible to add it, but delete it manually.",
     },
+    {
+      key: "nextLineBlank",
+      title: "ContextMenuItem `Make to next line blank` option",
+      type: "enum",
+      default: "1",
+      enumChoices: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+      description: "Number of blank lines after the selected block",
+    }
   ];
   logseq.useSettingsSchema(settingsTemplate);
 
@@ -165,7 +173,10 @@ const main = () => {
 
   /* ContextMenuItem `Make to next line blank`  */
   logseq.Editor.registerBlockContextMenuItem('Make to next line blank', async (event) => {
-    const block = await logseq.Editor.insertBlock(event.uuid, "", { focus: true, sibling: true });
+    const array = logseq.settings?.nextLineBlank || "1";
+    for (let i = 0; i < parseInt(array); i++) {
+      logseq.Editor.insertBlock(event.uuid, "", { focus: true, sibling: true });
+    }
     logseq.UI.showMsg("Done! (Make to next line blank)", "info");
   });
 
