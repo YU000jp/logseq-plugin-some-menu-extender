@@ -300,7 +300,7 @@ const main = () => {
         if (text) {
           const obj = await logseq.Editor.getPage(text) || [];//ページチェック
           if (Object.keys(obj).length === 0) {//ページが存在しない
-            const createPage = await logseq.Editor.createPage(text, "", { createFirstBlock: false, redirect: false });
+            const createPage = await logseq.Editor.createPage(text, "", { createFirstBlock: false, redirect: true });
             if (createPage) {
               const userConfigs = await logseq.App.getUserConfigs();
               let userFormat = userConfigs.preferredDateFormat;
