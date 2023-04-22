@@ -124,7 +124,10 @@ const main = () => {
           });
           if (formValues) {
             if (formValues?.input1) {//OK
-              const FormattedDateUser = await getDateForPage(new Date(formValues?.input1), userConfigs.preferredDateFormat);
+              let userFormat;
+              userFormat = userConfigs.preferredDateFormat;
+              userFormat = userFormat.replace(/E{1,3}/, "EEE");//handle same E, EE, or EEE bug
+              const FormattedDateUser = await getDateForPage(new Date(formValues?.input1), userFormat);
               logseq.Editor.upsertBlockProperty(taskBlock.uuid, "completed", FormattedDateUser);
             } else {//Cancel
               //user cancel in dialog
