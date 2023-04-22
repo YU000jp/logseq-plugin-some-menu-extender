@@ -124,8 +124,7 @@ const main = () => {
           });
           if (formValues) {
             if (formValues?.input1) {//OK
-              let userFormat;
-              userFormat = userConfigs.preferredDateFormat;
+              let userFormat = userConfigs.preferredDateFormat;
               userFormat = userFormat.replace(/E{1,3}/, "EEE");//handle same E, EE, or EEE bug
               const FormattedDateUser = await getDateForPage(new Date(formValues?.input1), userFormat);
               logseq.Editor.upsertBlockProperty(taskBlock.uuid, "completed", FormattedDateUser);
@@ -247,6 +246,8 @@ const main = () => {
   /* SlashCommand `Create Year List Calendar` */
   logseq.Editor.registerSlashCommand('Create Year List Calendar', async (event) => {
     const userConfigs = await logseq.App.getUserConfigs();
+    let userFormat = userConfigs.preferredDateFormat;
+    userFormat = userFormat.replace(/E{1,3}/, "EEE");//handle same E, EE, or EEE bug
     const ThisDate: any = new Date();
     const ThisYear = ThisDate.getFullYear();
     const ThisMonth = ThisDate.getMonth() + 1;
@@ -254,7 +255,7 @@ const main = () => {
     logseq.Editor.insertBlock(event.uuid, `Year List Calendar`).then(async (b) => {
       if (b) {
         //年間タスクリスト作成
-        await createCalendar(ThisYear, ThisYear, ThisMonth, b.uuid, userConfigs.preferredDateFormat);//this year
+        await createCalendar(ThisYear, ThisYear, ThisMonth, b.uuid, userFormat);//this year
         await createCalendar(ThisYear as number + 1, ThisYear, ThisMonth, b.uuid, userConfigs.preferredDateFormat);//next year
       }
     }).finally(() => {
@@ -302,7 +303,9 @@ const main = () => {
             const createPage = await logseq.Editor.createPage(text, "", { createFirstBlock: false, redirect: false });
             if (createPage) {
               const userConfigs = await logseq.App.getUserConfigs();
-              await RecodeDateToPage(userConfigs.preferredDateFormat, "Project", " [[" + createPage.name + "]]");
+              let userFormat = userConfigs.preferredDateFormat;
+              userFormat = userFormat.replace(/E{1,3}/, "EEE");//handle same E, EE, or EEE bug
+              await RecodeDateToPage(userFormat, "Project", " [[" + createPage.name + "]]");
               const prepend = await logseq.Editor.prependBlockInPage(createPage.uuid, "", { properties: { tags: "Project" } });
               if (prepend) {
                 await logseq.Editor.editBlock(prepend.uuid).catch(async () => {
@@ -357,8 +360,10 @@ const main = () => {
                 const createPage = await logseq.Editor.createPage(text, "", { createFirstBlock: false, redirect: false });
                 if (createPage) {
                   const userConfigs = await logseq.App.getUserConfigs();
+                  let userFormat = userConfigs.preferredDateFormat;
+    userFormat = userFormat.replace(/E{1,3}/, "EEE");//handle same E, EE, or EEE bug
                   //const ChildPageTitle = createPage.name.replace(`${currentPage.name}/`, "")
-                  await RecodeDateToPage(userConfigs.preferredDateFormat, currentPage.name, " [[" + createPage.name + "]]");
+                  await RecodeDateToPage(userFormat, currentPage.name, " [[" + createPage.name + "]]");
                   logseq.Editor.openInRightSidebar(createPage.uuid);
                   logseq.UI.showMsg("The page is created");
                 }
