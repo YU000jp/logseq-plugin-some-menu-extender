@@ -10,7 +10,7 @@ A plugin that adds new functions to context menus and others, allowing for more 
 
 ## Table of Features
 
-- Prompts dialog
+- Confirm on dialog
     1. [Auto link title (Paste URL)](#auto-link-title-paste-url)
     1. [Add completed property to DONE task (Mark task as DONE)](#add-completed-property-to-done-task-mark-task-as-done)
 - Block Context menu
@@ -33,7 +33,7 @@ A plugin that adds new functions to context menus and others, allowing for more 
 - [Slash command](#slash-command)
     1. `create pdf link (online)`
 
-## Prompts dialog
+## Confirm on dialog
 
 ### Auto link title (Paste URL)
 
