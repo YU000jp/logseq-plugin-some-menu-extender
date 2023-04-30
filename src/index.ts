@@ -8,22 +8,13 @@ import { evalExpression } from '@hkh12/node-calc'; //https://github.com/heokhe/n
 
 const main = () => {
 
-  //check current graph
-  let demo;
-  logseq.App.getCurrentGraph().then((graph) => {
-    if (!graph) {//デモグラフの場合は返り値がnull
-      demo = true;
-    }
-  });
-  if (demo === true) return;//デモの場合は動作させない
-
   //https://logseq.github.io/plugins/types/SettingSchemaDesc.html
   const settingsTemplate: SettingSchemaDesc[] = [
     {
       key: "switchCompletedDialog",
       title: "Turn on DONE task completed (date) property",
       type: "boolean",
-      default: true,
+      default: false,
       description: "Confirm in dialog",
     },
     {
@@ -37,7 +28,7 @@ const main = () => {
       key: "switchPARAfunction",
       title: "[page title context menu] Shortcuts for PARA method pages. Add to page-tags",
       type: "boolean",
-      default: true,
+      default: false,
       description: "Possible to add it, but delete it manually. \n(It is slow to be removed from the list of page tags by Logseq specification.)",
     },
     {
@@ -65,7 +56,7 @@ const main = () => {
       key: "nextLineBlank",
       title: "ContextMenuItem `Make to next line blank` option",
       type: "enum",
-      default: "1",
+      default: "3",
       enumChoices: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
       description: "Number of blank lines after the selected block",
     }
@@ -86,6 +77,11 @@ const main = () => {
   //https://github.com/DimitryDushkin/logseq-plugin-task-check-date
   let blockSet = "";
   logseq.DB.onChanged(async (e) => {
+    //check current graph
+    const graph = await logseq.App.getCurrentGraph();
+    if (graph === null) {//デモグラフの場合は返り値がnull
+      return;
+    }
     if (logseq.settings?.switchCompletedDialog === true) {//if changed settings
       const TASK_MARKERS = new Set(["DONE", "NOW", "LATER", "DOING", "TODO", "WAITING"]);
       const taskBlock = e.blocks.find((block) => TASK_MARKERS.has(block.marker));
@@ -361,7 +357,7 @@ const main = () => {
                 if (createPage) {
                   const userConfigs = await logseq.App.getUserConfigs();
                   let userFormat = userConfigs.preferredDateFormat;
-    userFormat = userFormat.replace(/E{1,3}/, "EEE");//handle same E, EE, or EEE bug
+                  userFormat = userFormat.replace(/E{1,3}/, "EEE");//handle same E, EE, or EEE bug
                   //const ChildPageTitle = createPage.name.replace(`${currentPage.name}/`, "")
                   await RecodeDateToPage(userFormat, currentPage.name, " [[" + createPage.name + "]]");
                   logseq.Editor.openInRightSidebar(createPage.uuid);
