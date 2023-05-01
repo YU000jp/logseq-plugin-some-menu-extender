@@ -37,7 +37,7 @@ A plugin that adds new functions to context menus and others, allowing for more 
 
 ### Auto link title (Paste URL)
 
-![someautomaticmarkdownlink](https://user-images.githubusercontent.com/111847207/229340766-02df5320-a37a-4a34-8aa7-bc1b22d700d0.gif)
+![image](https://user-images.githubusercontent.com/111847207/229340766-02df5320-a37a-4a34-8aa7-bc1b22d700d0.gif)
 
 - [Problem] Existing auto plugins do unnecessary conversions. / Garbled characters occur.
 
@@ -45,9 +45,9 @@ A plugin that adds new functions to context menus and others, allowing for more 
 
 - [Usage] Paste URL, then to bring up a dialog. Possible to edit the title.
 
-### Add completed property to DONE task (Mark task as DONE)
+### Add completed property to DONE task (Mark task as `DONE`)
 
-![someDone](https://user-images.githubusercontent.com/111847207/229385006-08d16d36-a8d9-4b24-87d9-ed0c2474da00.gif)
+![image](https://user-images.githubusercontent.com/111847207/229385006-08d16d36-a8d9-4b24-87d9-ed0c2474da00.gif)
 
 - [Problem] Logseq does not record the DONE date.
 
@@ -63,7 +63,7 @@ A plugin that adds new functions to context menus and others, allowing for more 
 
 - [Problem] Repeat task is for a notification. Not for journaling.
 
-- [Solution] To place in the journal as a LATER task and block reference. For marking "DONE".
+- [Solution] To place in the journal as a LATER task and block reference. For marking `DONE`.
 
 - [Usage] A block open into right sidebar. Drag that bullet and place it in the journal. After executing the task, click the repeat-task checkbox first, then the LATER task checkbox.
 
@@ -123,31 +123,24 @@ A plugin that adds new functions to context menus and others, allowing for more 
 
 - Create a markdown link for online PDF
 
-### `create Year List Calendar` **Test Function (△Not reaching the workflow)
+## Install from Logseq Marketplace
 
-- Using Year List Calendar, all the dates for a full year are generated as date links. When written as child elements, they are displayed in the Linked References section.
-
-<details><summary>Demo</summary>
-
-![Animation6w21](https://user-images.githubusercontent.com/111847207/222945226-f8e031cf-9e49-4c98-a5e8-ee360c931050.gif)
-
-</details>
-
-## Install from Marketplace
-
-- Press [---] on the top right toolbar to open [Plugins]
+- Press [`---`] on the top right toolbar to open [`Plugins`]
 
 - Select marketplace
 
-- Type 'some' in the search field, select it from the search results and install
+- Type '`some`' in the search field, select it from the search results and install
 
 ![image](https://user-images.githubusercontent.com/111847207/229358935-9a6cfb57-4978-42fc-9197-a962c8ecca33.png)
 
-## Other Logseq plugins (My products)
+## My plugins
 
-- [Column Layout](https://github.com/YU000jp/Logseq-column-Layout)
-- [Panel Coloring](https://github.com/YU000jp/logseq-plugin-panel-coloring)
-- [Page-tags and Hierarchy](https://github.com/YU000jp/logseq-page-tags-and-hierarchy)
+- [Weekdays and Holidays (Templates)](https://github.com/YU000jp/logseq-plugin-weekdays-and-weekends)
+- [Sticky Popup](https://github.com/YU000jp/logseq-plugin-sticky-popup)
+- [SomeMenuExtender](https://github.com/YU000jp/logseq-plugin-some-menu-extender)
+- [Column Layout (UI)](https://github.com/YU000jp/Logseq-column-Layout)
+- [Panel Coloring (Color)](https://github.com/YU000jp/logseq-plugin-panel-coloring)
+- [Page-tags and Hierarchy (UI)](https://github.com/YU000jp/logseq-page-tags-and-hierarchy)
 - [Rakuten-books](https://github.com/YU000jp/logseq-plugin-rakuten-books) (Only for Japanese site)
 - [booklog-jp-import](https://github.com/YU000jp/logseq-plugin-booklog-jp-import) (Only for Japanese site)
 
