@@ -239,25 +239,26 @@ const main = () => {
   // });
 
 
-  /* SlashCommand `Create Year List Calendar` */
-  logseq.Editor.registerSlashCommand('Create Year List Calendar', async (event) => {
-    const userConfigs = await logseq.App.getUserConfigs();
-    let userFormat = userConfigs.preferredDateFormat;
-    userFormat = userFormat.replace(/E{1,3}/, "EEE");//handle same E, EE, or EEE bug
-    const ThisDate: any = new Date();
-    const ThisYear = ThisDate.getFullYear();
-    const ThisMonth = ThisDate.getMonth() + 1;
-    const displayThisMonth = String(ThisMonth).padStart(2, '0');
-    logseq.Editor.insertBlock(event.uuid, `Year List Calendar`).then(async (b) => {
-      if (b) {
-        //年間タスクリスト作成
-        await createCalendar(ThisYear, ThisYear, ThisMonth, b.uuid, userFormat);//this year
-        await createCalendar(ThisYear as number + 1, ThisYear, ThisMonth, b.uuid, userConfigs.preferredDateFormat);//next year
-      }
-    }).finally(() => {
-      logseq.UI.showMsg(`Year Calendar since ${ThisYear}/${displayThisMonth}`, 'info');
-    });
-  });
+  // remove
+  // /* SlashCommand `Create Year List Calendar` */
+  // logseq.Editor.registerSlashCommand('Create Year List Calendar', async (event) => {
+  //   const userConfigs = await logseq.App.getUserConfigs();
+  //   let userFormat = userConfigs.preferredDateFormat;
+  //   userFormat = userFormat.replace(/E{1,3}/, "EEE");//handle same E, EE, or EEE bug
+  //   const ThisDate: any = new Date();
+  //   const ThisYear = ThisDate.getFullYear();
+  //   const ThisMonth = ThisDate.getMonth() + 1;
+  //   const displayThisMonth = String(ThisMonth).padStart(2, '0');
+  //   logseq.Editor.insertBlock(event.uuid, `Year List Calendar`).then(async (b) => {
+  //     if (b) {
+  //       //年間タスクリスト作成
+  //       await createCalendar(ThisYear, ThisYear, ThisMonth, b.uuid, userFormat);//this year
+  //       await createCalendar(ThisYear as number + 1, ThisYear, ThisMonth, b.uuid, userConfigs.preferredDateFormat);//next year
+  //     }
+  //   }).finally(() => {
+  //     logseq.UI.showMsg(`Year Calendar since ${ThisYear}/${displayThisMonth}`, 'info');
+  //   });
+  // });
 
 
 
@@ -379,7 +380,8 @@ const main = () => {
   });
 
 
-  //https://github.com/hiway/logseq-calculator-plugin
+  //TODO: Edit README.md
+  //Prior art: https://github.com/hiway/logseq-calculator-plugin
   logseq.Editor.registerBlockContextMenuItem("Block Calculator", async (event) => {
     calculator(event);
   });
@@ -388,6 +390,7 @@ const main = () => {
   });
 
 
+  //TODO: Edit README.md
   //コマンドパレット `select blocks to calculate`
   //選択したブロックの数値を合計して、最後のブロックに追記する
   //バレッドのコンテキストメニューではブロックの複数選択ができないため
@@ -463,59 +466,59 @@ async function calculator(event) {
 }
 
 
-//CreateCalendar
-async function createCalendar(year, ThisYear, ThisMonth, selectBlock, preferredDateFormat) {
-  // 1月から12月までの各月の日数を配列に格納
-  const monthDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-  let yearBlock;
-  await logseq.Editor.insertBlock(selectBlock, `${year}`, {}).then((y) => {
-    if (y) {
-      yearBlock = y.uuid;
-    }
-  });
-  let forTryMonth;
-  let forNextYear;
-  if (year === ThisYear) {
-    forTryMonth = 12;
-    forNextYear = ThisMonth - 1;
-  } else {
-    forTryMonth = ThisMonth;
-    forNextYear = 0;
-  }
-  for (let month: number = forNextYear; month < forTryMonth; month++) {
-    // 月の日数を取得する
-    let daysInMonth = monthDays[month];
-    // 2月の場合は閏年かどうかを確認して日数を修正
-    if (month === 1 && isLeapYear(year)) {
-      daysInMonth = 29;
-    }
-    // 月のカレンダー
-    const displayMonth = String(month + 1).padStart(2, '0');
-    //if 日付リンク有効/無効(ユーザー形式の月表示は難しい)      #TODO
-    await logseq.Editor.insertBlock(yearBlock, `${year}/${displayMonth}`, { properties: { collapsed: true } }).then(async (m) => {
-      if (m) {
-        for (let day = 1; day <= daysInMonth; day++) {
-          // 曜日を取得
-          const dayOfWeek = new Date(year, month, day).getDay();
-          // 平日と休日の色分け
-          let insertProperties = {};
-          if (dayOfWeek === 0) {
-            insertProperties["background-color"] = "red";
-          } else if (dayOfWeek === 6) {
-            insertProperties["background-color"] = "blue";
-          } else {
+// //CreateCalendar
+// async function createCalendar(year, ThisYear, ThisMonth, selectBlock, preferredDateFormat) {
+//   // 1月から12月までの各月の日数を配列に格納
+//   const monthDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+//   let yearBlock;
+//   await logseq.Editor.insertBlock(selectBlock, `${year}`, {}).then((y) => {
+//     if (y) {
+//       yearBlock = y.uuid;
+//     }
+//   });
+//   let forTryMonth;
+//   let forNextYear;
+//   if (year === ThisYear) {
+//     forTryMonth = 12;
+//     forNextYear = ThisMonth - 1;
+//   } else {
+//     forTryMonth = ThisMonth;
+//     forNextYear = 0;
+//   }
+//   for (let month: number = forNextYear; month < forTryMonth; month++) {
+//     // 月の日数を取得する
+//     let daysInMonth = monthDays[month];
+//     // 2月の場合は閏年かどうかを確認して日数を修正
+//     if (month === 1 && isLeapYear(year)) {
+//       daysInMonth = 29;
+//     }
+//     // 月のカレンダー
+//     const displayMonth = String(month + 1).padStart(2, '0');
+//     //if 日付リンク有効/無効(ユーザー形式の月表示は難しい)      #TODO
+//     await logseq.Editor.insertBlock(yearBlock, `${year}/${displayMonth}`, { properties: { collapsed: true } }).then(async (m) => {
+//       if (m) {
+//         for (let day = 1; day <= daysInMonth; day++) {
+//           // 曜日を取得
+//           const dayOfWeek = new Date(year, month, day).getDay();
+//           // 平日と休日の色分け
+//           let insertProperties = {};
+//           if (dayOfWeek === 0) {
+//             insertProperties["background-color"] = "red";
+//           } else if (dayOfWeek === 6) {
+//             insertProperties["background-color"] = "blue";
+//           } else {
 
-          }
-          logseq.Editor.insertBlock(m.uuid, await getDateForPage(new Date(`${year}/${displayMonth}/${day}`), preferredDateFormat), { properties: insertProperties });
-        }
-      }
-    });
-  }
-  // うるう年かどうかを判定する関数
-  function isLeapYear(year) {
-    return year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
-  }
-}
+//           }
+//           logseq.Editor.insertBlock(m.uuid, await getDateForPage(new Date(`${year}/${displayMonth}/${day}`), preferredDateFormat), { properties: insertProperties });
+//         }
+//       }
+//     });
+//   }
+//   // うるう年かどうかを判定する関数
+//   function isLeapYear(year) {
+//     return year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
+//   }
+// }
 
 
 function IncludeTitle(title: string) {
