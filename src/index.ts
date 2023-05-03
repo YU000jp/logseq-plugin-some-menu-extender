@@ -8,6 +8,22 @@ import { evalExpression } from '@hkh12/node-calc'; //https://github.com/heokhe/n
 
 const main = () => {
 
+  //get theme color (For SweetAlert2)
+  //checkboxなどはCSSで上書きする必要あり
+  let sweetAlert2background;  //color: sweetAlert2color
+  let sweetAlert2color; //background: sweetAlert2background
+  const rootThemeColor = () => {
+    const root = parent.document.querySelector(":root");
+    if (root) {
+      const rootStyles = getComputedStyle(root);
+      sweetAlert2background = rootStyles.getPropertyValue("--ls-block-properties-background-color") || "#ffffff";
+      sweetAlert2color = rootStyles.getPropertyValue("--ls-primary-text-color") || "#000000";
+    }
+  };
+  rootThemeColor();
+  logseq.App.onThemeModeChanged(() => { rootThemeColor(); });
+  //end
+
   //https://logseq.github.io/plugins/types/SettingSchemaDesc.html
   const settingsTemplate: SettingSchemaDesc[] = [
     {
@@ -111,6 +127,8 @@ const main = () => {
             showCancelButton: true,
             html: `<input id="swal-input1" class="swal2-input" type="date" value="${todayFormatted}"/>`,//type:dateが指定できないためhtmlとして作成
             focusConfirm: false,
+            color: sweetAlert2color,
+            background: sweetAlert2background,
             preConfirm: () => {
               const input1 = document.getElementById('swal-input1') as HTMLInputElement;
               return {
@@ -190,6 +208,8 @@ const main = () => {
         '<input id="url" class="swal2-input" placeholder="URL (Online PDF)"/>',
       focusConfirm: false,
       showCancelButton: true,
+      color: sweetAlert2color,
+      background: sweetAlert2background,
       inputValidator: (value) => {
         return new Promise((resolve) => {
           if (value) {
@@ -224,6 +244,8 @@ const main = () => {
   //     title: "Input",
   //     input: "text",
   //     inputPlaceholder: "URL (Online PDF)",
+  //     color: sweetAlert2color,
+  //     background: sweetAlert2background,
   //   }).then(async (result) => {
   //     if (result) {
 
@@ -264,20 +286,20 @@ const main = () => {
 
   if (logseq.settings?.switchPARAfunction === true) {
     logseq.App.registerPageMenuItem("🎨 add Project", (e) => {
-      addProperties("Project", "PARA");
+      addProperties("Project", "PARA", sweetAlert2background, sweetAlert2color);
     });
     logseq.App.registerPageMenuItem("🏠 add Area of responsibility", (e) => {
-      addProperties("Area of responsibility", "PARA");
+      addProperties("Area of responsibility", "PARA", sweetAlert2background, sweetAlert2color);
     });
     logseq.App.registerPageMenuItem("🌍 add Resource", (e) => {
-      addProperties("Resource", "PARA");
+      addProperties("Resource", "PARA", sweetAlert2background, sweetAlert2color);
     });
     logseq.App.registerPageMenuItem("🧹 add Archive", (e) => {
-      addProperties("Archive", "PARA");
+      addProperties("Archive", "PARA", sweetAlert2background, sweetAlert2color);
     });
   }
   logseq.App.registerPageMenuItem("🧺 add a page-tag by select list", (e) => {
-    addProperties("", "Select");
+    addProperties("", "Select", sweetAlert2background, sweetAlert2color);
   });
 
   //New Project Page
@@ -291,6 +313,8 @@ const main = () => {
       inputPlaceholder: 'Edit here',
       inputValue: ``,
       showCancelButton: true,
+      color: sweetAlert2color,
+      background: sweetAlert2background,
     }).then(async (answer) => {
       if (answer) {
         let { value: text } = answer;
@@ -342,6 +366,8 @@ const main = () => {
         inputPlaceholder: 'Edit here',
         inputValue: `${currentPage.name}/`,
         showCancelButton: true,
+        color: sweetAlert2color,
+        background: sweetAlert2background,
       }).then(async (answer) => {
         if (answer) {
           let { value: text } = answer;
@@ -436,7 +462,7 @@ const main = () => {
 
 
   //markdown link
-  MarkdownLink();
+  MarkdownLink(sweetAlert2background, sweetAlert2color);
 
   //main support
   parent.document.body.classList.add('is-plugin-some-menu-extender-enabled');
