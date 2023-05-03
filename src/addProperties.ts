@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';//https://sweetalert2.github.io/
 import { getDateForPage } from 'logseq-dateutils';
 
 
-export async function addProperties(addProperty: string | undefined, addType: string) {
+export async function addProperties(addProperty: string | undefined, addType: string, sweetAlert2background: string, sweetAlert2color: string) {
 
     //リスト選択モード
     if (addType === "Select") {
@@ -28,6 +28,8 @@ export async function addProperties(addProperty: string | undefined, addType: st
             inputOptions: SelectionListObj,
             inputPlaceholder: 'Select a page-tag (Add to page-tags)',
             showCancelButton: true,
+            color: sweetAlert2color,
+            background: sweetAlert2background,
         }).then((answer) => {
             if (answer) {
                 const { value: select } = answer;

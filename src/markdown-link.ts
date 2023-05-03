@@ -108,7 +108,7 @@ async function getFormatSettings() {
     return FORMAT_SETTINGS[preferredFormat];
 }
 
-const parseBlockForLink = async (uuid) => {
+const parseBlockForLink = async (uuid, sweetAlert2background, sweetAlert2color) => {
     if (!uuid) {
         return;
     }
@@ -142,6 +142,8 @@ const parseBlockForLink = async (uuid) => {
             text: `(${url})`,
             icon: "info",
             showCancelButton: true,
+            color: sweetAlert2color,
+            background: sweetAlert2background,
         })
             .then(async (result) => {
                 if (result) {//OK
@@ -153,6 +155,8 @@ const parseBlockForLink = async (uuid) => {
                             input: "text",
                             inputValue: title,
                             showCancelButton: false,
+                            color: sweetAlert2color,
+                            background: sweetAlert2background,
                             inputValidator: (value) => {
                                 return new Promise((resolve) => {
                                     if (value) {
@@ -202,7 +206,7 @@ function includeTitle(title: string): string {
     });
 }
 
-export const MarkdownLink = async () => {
+export const MarkdownLink = async (sweetAlert2background, sweetAlert2color) => {
     let blockSet: string = "";
     let processing: boolean = false; // ロック用フラグ
 
@@ -215,14 +219,14 @@ export const MarkdownLink = async () => {
             if (currentBlock) {
                 if (blockSet !== currentBlock.uuid || e.txMeta?.outlinerOp === 'insertBlocks') {// 他のブロックを触ったら解除する
                     processing = true; // ロックをかける
-                    const cancel = await parseBlockForLink(currentBlock.uuid) as boolean; // キャンセルだったらブロックをロックする
+                    const cancel = await parseBlockForLink(currentBlock.uuid, sweetAlert2background, sweetAlert2color) as boolean; // キャンセルだったらブロックをロックする
                     if (cancel === true) {
                         blockSet = currentBlock.uuid;
                         const textarea = parent.document.querySelector(`#edit-block-1-${currentBlock.uuid}`) as HTMLTextAreaElement;
                         if (textarea) {
                             await textarea.addEventListener('blur', async () => {
                                 // フォーカスが外れたときの処理
-                                await parseBlockForLink(currentBlock.uuid);
+                                await parseBlockForLink(currentBlock.uuid, sweetAlert2background, sweetAlert2color);
                             }, { once: true });
                         }
                     } else {
