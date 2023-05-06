@@ -52,6 +52,10 @@
 
 - Create a Markdown link for online PDF
 
+## Document
+
+> Check out [Document](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document)
+
 ## Getting Started
 
 ### Install from Logseq Marketplace
@@ -64,6 +68,10 @@
 
 ![image](https://user-images.githubusercontent.com/111847207/229358935-9a6cfb57-4978-42fc-9197-a962c8ecca33.png)
 
+## Showcase / Questions / Ideas / Help
+
+Go to the [discussion](https://github.com/YU000jp/logseq-plugin-some-menu-extender/discussions) tab to ask and find this kind of things.
+
 ## Contributing
 
 - Contributions to this plugin are always welcome! If you find a bug or have a suggestion for a new feature, please open an issue or submit a pull request. All contributions will be reviewed and considered for inclusion in future releases.
@@ -72,14 +80,19 @@
 
 - This Plugin is released under the MIT License. See the LICENSE file for more information.
 
-## My plugins
+# Author
+
+* YU000jp
+* Twitter: [@y0skyblue](https://twitter.com/y0skyblue)
+
+### My plugins
 
 - [Weekdays and Holidays (Templates)](https://github.com/YU000jp/logseq-plugin-weekdays-and-weekends)
 - [Sticky Popup](https://github.com/YU000jp/logseq-plugin-sticky-popup)
 - [SomeMenuExtender](https://github.com/YU000jp/logseq-plugin-some-menu-extender)
-- [Column Layout (UI)](https://github.com/YU000jp/Logseq-column-Layout)
-- [Panel Coloring (Color)](https://github.com/YU000jp/logseq-plugin-panel-coloring)
-- [Page-tags and Hierarchy (UI)](https://github.com/YU000jp/logseq-page-tags-and-hierarchy)
+- [Column Layout](https://github.com/YU000jp/Logseq-column-Layout)
+- [Panel Coloring](https://github.com/YU000jp/logseq-plugin-panel-coloring)
+- [Page-tags and Hierarchy](https://github.com/YU000jp/logseq-page-tags-and-hierarchy)
 - [Rakuten-books](https://github.com/YU000jp/logseq-plugin-rakuten-books) (Only for Japanese site)
 - [booklog-jp-import](https://github.com/YU000jp/logseq-plugin-booklog-jp-import) (Only for Japanese site)
 
