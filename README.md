@@ -86,7 +86,7 @@ Go to the [discussion](https://github.com/YU000jp/logseq-plugin-some-menu-extend
 * Twitter: [@y0skyblue](https://twitter.com/y0skyblue)
 * Discord: YU#5179 ([Logseq](https://discord.gg/logseq))
 
-### My plugins
+### My Logseq plugins
 
 - [Weekdays and Holidays (Templates)](https://github.com/YU000jp/logseq-plugin-weekdays-and-weekends)
 - [Sticky Popup](https://github.com/YU000jp/logseq-plugin-sticky-popup)
