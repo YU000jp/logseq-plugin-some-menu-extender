@@ -82,18 +82,18 @@ Go to the [discussion](https://github.com/YU000jp/logseq-plugin-some-menu-extend
 
 ## Author
 
-* YU000jp
+* GitHub: [YU000jp](https://github.com/YU000jp)
 * Twitter: [@y0skyblue](https://twitter.com/y0skyblue)
-* Discord([Logseq](https://discord.gg/logseq)): YU#5179
+* Discord: YU#5179 ([Logseq](https://discord.gg/logseq))
 
 ### My plugins
 
 - [Weekdays and Holidays (Templates)](https://github.com/YU000jp/logseq-plugin-weekdays-and-weekends)
 - [Sticky Popup](https://github.com/YU000jp/logseq-plugin-sticky-popup)
 - [SomeMenuExtender](https://github.com/YU000jp/logseq-plugin-some-menu-extender)
-- [Column Layout](https://github.com/YU000jp/Logseq-column-Layout)
 - [Panel Coloring](https://github.com/YU000jp/logseq-plugin-panel-coloring)
 - [Page-tags and Hierarchy](https://github.com/YU000jp/logseq-page-tags-and-hierarchy)
+- [Column Layout](https://github.com/YU000jp/Logseq-column-Layout)
 - [Rakuten-books](https://github.com/YU000jp/logseq-plugin-rakuten-books) (Only for Japanese site)
 - [booklog-jp-import](https://github.com/YU000jp/logseq-plugin-booklog-jp-import) (Only for Japanese site)
 
