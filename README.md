@@ -80,10 +80,11 @@ Go to the [discussion](https://github.com/YU000jp/logseq-plugin-some-menu-extend
 
 - This Plugin is released under the MIT License. See the LICENSE file for more information.
 
-# Author
+## Author
 
 * YU000jp
 * Twitter: [@y0skyblue](https://twitter.com/y0skyblue)
+* Discord([Logseq](https://discord.gg/logseq)): YU#5179
 
 ### My plugins
 
@@ -95,6 +96,10 @@ Go to the [discussion](https://github.com/YU000jp/logseq-plugin-some-menu-extend
 - [Page-tags and Hierarchy](https://github.com/YU000jp/logseq-page-tags-and-hierarchy)
 - [Rakuten-books](https://github.com/YU000jp/logseq-plugin-rakuten-books) (Only for Japanese site)
 - [booklog-jp-import](https://github.com/YU000jp/logseq-plugin-booklog-jp-import) (Only for Japanese site)
+
+## Link
+
+- [Logseq](https://github.com/logseq)
 
 ## Prior art & Credit
 
