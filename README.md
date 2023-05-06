@@ -7,17 +7,46 @@
 [![Downloads](https://img.shields.io/github/downloads/YU000jp/logseq-plugin-some-menu-extender/total.svg)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/releases)
  Published 2023/04/01
 
+## Table of Features
+
+- Confirm on dialog
+    1. [Auto link title](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#auto-link-title-paste-url)
+    1. [Add completed property to DONE task](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#add-completed-property-to-done-task-mark-task-as-done)
+- Block Context menu
+    1. For repeat-task
+        1. `repeat-task as LATER`
+    1. For outlier
+        1. `Copy block reference and embed`
+        1. `Make to next line blank`
+- Page Context menu
+    1. [For PARA method pages. Quickly add to page-tags](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#for-para-method-pages-quickly-add-to-page-tags)
+        1. `add Project`
+        1. `add Area of responsibility`
+        1. `add Resource`
+        1. `add Archive`
+    1. [For Other pages. Quickly add to page-tags](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#for-other-pages-quickly-add-to-page-tags)
+        1. `add a page-tag by select list`
+    1. [Quickly create a page](#quickly-create-a-page)
+        1. `create New Project`
+        1. `create child page (for hierarchy)`
+- [Slash command](#slash-command)
+    1. `create pdf link (online)`
+
 > Migrated several features from Column Layout plugin and Page-tags and Hierarchy plugin. #2023/04/01
 
-## Features
+## Demo
 
-### Auto link title (Paste URL)
+### Auto link title
 
-![image](https://user-images.githubusercontent.com/111847207/229340766-02df5320-a37a-4a34-8aa7-bc1b22d700d0.gif)
+- Usage: Paste URL
 
-### Add completed property to DONE task (Mark task as `DONE`)
+![image](https://user-images.githubusercontent.com/111847207/236649623-26d9d4fb-e806-4f9b-b6c3-996c6d985788.gif)
 
-![image](https://user-images.githubusercontent.com/111847207/229385006-08d16d36-a8d9-4b24-87d9-ed0c2474da00.gif)
+### Add completed property to DONE task
+
+- Usage: Mark task as `DONE`
+
+![image](https://user-images.githubusercontent.com/111847207/236649716-35230da1-bc2d-4a45-beef-ebaecd786252.gif)
 
 ### Slash command `create pdf link (online)`
 
