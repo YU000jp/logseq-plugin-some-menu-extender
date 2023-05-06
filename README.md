@@ -1,6 +1,6 @@
 # Logseq Plugin: SomeMenuExtender
 
-A plugin that adds new functions to context menus and others, allowing for more efficient and convenient operations.
+ - A plugin that adds new functions to context menus and others, allowing for more efficient and convenient operations.
 
 [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-some-menu-extender)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/releases)
 [![License](https://img.shields.io/github/license/YU000jp/logseq-plugin-some-menu-extender?color=blue)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/blob/main/LICENSE)
@@ -9,7 +9,35 @@ A plugin that adds new functions to context menus and others, allowing for more 
 
 > Migrated several features from Column Layout plugin and Page-tags and Hierarchy plugin. #2023/04/01
 
+## Features
 
+### Auto link title (Paste URL)
+
+![image](https://user-images.githubusercontent.com/111847207/229340766-02df5320-a37a-4a34-8aa7-bc1b22d700d0.gif)
+
+### Add completed property to DONE task (Mark task as `DONE`)
+
+![image](https://user-images.githubusercontent.com/111847207/229385006-08d16d36-a8d9-4b24-87d9-ed0c2474da00.gif)
+
+### Slash command `create pdf link (online)`
+
+- Create a Markdown link for online PDF
+
+## Getting Started
+
+### Install from Logseq Marketplace
+
+- Press [`---`] on the top right toolbar to open [`Plugins`]
+
+- Select [`Marketplace`]
+
+- Type '`some`' in the search field, select it from the search results and install
+
+![image](https://user-images.githubusercontent.com/111847207/229358935-9a6cfb57-4978-42fc-9197-a962c8ecca33.png)
+
+## Contributing
+
+- Contributions to SomeMenuExtender are always welcome! If you find a bug or have a suggestion for a new feature, please open an issue or submit a pull request. All contributions will be reviewed and considered for inclusion in future releases.
 
 ## My plugins
 
