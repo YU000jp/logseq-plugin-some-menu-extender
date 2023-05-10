@@ -9,7 +9,7 @@
 
 ## Table of Features
 
-- Confirm on dialog
+- Confirmation dialogue
     1. [Auto link title](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#auto-link-title-paste-url)
     1. [Add completed property to DONE task](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#add-completed-property-to-done-task-mark-task-as-done)
 - Block Context menu
