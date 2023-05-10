@@ -48,10 +48,6 @@
 
 ![image](https://user-images.githubusercontent.com/111847207/236649716-35230da1-bc2d-4a45-beef-ebaecd786252.gif)
 
-### Slash command `create pdf link (online)`
-
-- Create a Markdown link for online PDF
-
 ## Document
 
 > Check out [Document](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document)
