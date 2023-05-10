@@ -24,59 +24,6 @@ const main = () => {
   logseq.App.onThemeModeChanged(() => { rootThemeColor(); });
   //end
 
-  //https://logseq.github.io/plugins/types/SettingSchemaDesc.html
-  const settingsTemplate: SettingSchemaDesc[] = [
-    {
-      key: "switchCompletedDialog",
-      title: "Turn on DONE task completed (date) property",
-      type: "boolean",
-      default: false,
-      description: "Confirm in dialog",
-    },
-    {
-      key: "switchMarkdownLink",
-      title: "Turn on automatic Markdown link (Paste URL)",
-      type: "boolean",
-      default: true,
-      description: "Confirm in dialog and edit the title / Anti-garbled (for japanese website and others)",
-    },
-    {
-      key: "switchPARAfunction",
-      title: "[page title context menu] Shortcuts for PARA method pages. Add to page-tags",
-      type: "boolean",
-      default: false,
-      description: "Possible to add it, but delete it manually. \n(It is slow to be removed from the list of page tags by Logseq specification.)",
-    },
-    {
-      key: "switchPARArecodeDate",
-      title: "Record today's date on the PARA page when adding",
-      type: "boolean",
-      default: true,
-      description: "Possible to add it, but delete it manually.",
-    },
-    {
-      key: "SelectionList",
-      type: "string",
-      default: `Index,`,
-      title: "For selecting on page-tags selection list",
-      description: `Entry page titles separated by commas(,).`,
-    },
-    {
-      key: "switchRecodeDate",
-      title: "Record today's date on the selection page when adding",
-      type: "boolean",
-      default: false,
-      description: "Possible to add it, but delete it manually.",
-    },
-    {
-      key: "nextLineBlank",
-      title: "ContextMenuItem `Make to next line blank` option",
-      type: "enum",
-      default: "3",
-      enumChoices: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
-      description: "Number of blank lines after the selected block",
-    }
-  ];
   logseq.useSettingsSchema(settingsTemplate);
 
 
@@ -261,7 +208,7 @@ const main = () => {
   // });
 
 
-  // remove
+  // remove TODO:
   // /* SlashCommand `Create Year List Calendar` */
   // logseq.Editor.registerSlashCommand('Create Year List Calendar', async (event) => {
   //   const userConfigs = await logseq.App.getUserConfigs();
@@ -492,7 +439,7 @@ async function calculator(event) {
 }
 
 
-// //CreateCalendar
+// //CreateCalendar TODO:
 // async function createCalendar(year, ThisYear, ThisMonth, selectBlock, preferredDateFormat) {
 //   // 1月から12月までの各月の日数を配列に格納
 //   const monthDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -545,6 +492,61 @@ async function calculator(event) {
 //     return year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
 //   }
 // }
+
+
+  //https://logseq.github.io/plugins/types/SettingSchemaDesc.html
+  const settingsTemplate: SettingSchemaDesc[] = [
+    {
+      key: "switchCompletedDialog",
+      title: "Use DONE task completed (date) property",
+      type: "boolean",
+      default: false,
+      description: "Confirm in dialog and edit the date",
+    },
+    {
+      key: "switchMarkdownLink",
+      title: "Use automatic Markdown link title (Paste URL)",
+      type: "boolean",
+      default: true,
+      description: "Confirm in dialog and edit the title / Anti-garbled (for japanese website and others)",
+    },
+    {
+      key: "switchPARAfunction",
+      title: "Use [page title context menu] Shortcuts for PARA method pages. ",
+      type: "boolean",
+      default: false,
+      description: "",
+    },
+    {
+      key: "switchPARArecodeDate",
+      title: "Record today's date on the PARA page when adding",
+      type: "boolean",
+      default: true,
+      description: "",
+    },
+    {
+      key: "SelectionList",
+      type: "string",
+      default: `Index,`,
+      title: "Use page-tags selection list",
+      description: `Entry page titles separated by commas(,).`,
+    },
+    {
+      key: "switchRecodeDate",
+      title: "Record today's date on the selection page when adding",
+      type: "boolean",
+      default: false,
+      description: "",
+    },
+    {
+      key: "nextLineBlank",
+      title: "ContextMenuItem `Make to next line blank` option",
+      type: "enum",
+      default: "3",
+      enumChoices: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+      description: "Number of blank lines after the selected block",
+    }
+  ];
 
 
 function IncludeTitle(title: string) {
