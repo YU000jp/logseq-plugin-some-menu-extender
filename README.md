@@ -26,11 +26,13 @@
         1. `add Archive`
     1. [For Other pages. Quickly add to page-tags](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#for-other-pages-quickly-add-to-page-tags)
         1. `add a page-tag by select list`
-    1. [Quickly create a page](#quickly-create-a-page)
+    1. [Quickly create a page](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#quickly-create-a-page)
         1. `create New Project`
         1. `create child page (for hierarchy)`
-- [Slash command](#slash-command)
+- [Slash command](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#slash-command)
     1. `create pdf link (online)`
+ - [Command Pallet](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#command-pallet)
+    1. `select blocks to calculate`
 
 > Migrated several features from Column Layout plugin and Page-tags and Hierarchy plugin. #2023/04/01
 
