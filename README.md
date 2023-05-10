@@ -50,6 +50,16 @@
 
 ![image](https://user-images.githubusercontent.com/111847207/236649716-35230da1-bc2d-4a45-beef-ebaecd786252.gif)
 
+### For PARA method pages. Quickly add to page-tags
+
+#### `🎨 add Project`
+
+<details><summary>Demo</summary>
+  
+![Animation6w22](https://user-images.githubusercontent.com/111847207/226155740-02c6bc12-2930-4409-9acd-d3dc7f899514.gif)
+
+</details>
+
 ## Document
 
 > Check out [Document](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document)
