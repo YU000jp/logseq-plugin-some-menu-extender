@@ -42,13 +42,13 @@
 
 ### Automatic link title feature
 
-- Usage: Paste URL
+> Paste the URL on the editing block
 
 ![image](https://user-images.githubusercontent.com/111847207/236649623-26d9d4fb-e806-4f9b-b6c3-996c6d985788.gif)
 
 ### Add completed property to the DONE task
 
-- Usage: Mark task as `DONE`
+> Mark the task as `DONE`
 
 ![image](https://user-images.githubusercontent.com/111847207/236649716-35230da1-bc2d-4a45-beef-ebaecd786252.gif)
 
