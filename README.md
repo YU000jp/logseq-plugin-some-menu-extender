@@ -10,15 +10,15 @@
 ## Table of Features
 
 - Confirmation dialogue
-    1. [Auto link title](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#auto-link-title-paste-url)
-    1. [Add completed property to DONE task](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#add-completed-property-to-done-task-mark-task-as-done)
-- Block Context menu
+    1. [Automatic link title feature](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#automatic-link-title-feature-paste-url)
+    1. [Add completed property to the DONE task](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#add-completed-property-to-the-done-task-mark-task-as-done)
+- Block Context menu option
     1. For repeat-task
         1. `repeat-task as LATER`
     1. For Outliner
         1. `Copy block reference and embed`
         1. `Make to next line blank`
-- Page Context menu
+- Page Context menu option
     1. [For PARA method pages. Quickly add to page-tags](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#for-para-method-pages-quickly-add-to-page-tags)
         1. `add Project`
         1. `add Area of responsibility`
@@ -29,22 +29,20 @@
     1. [Quickly create a page](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#quickly-create-a-page)
         1. `create New Project`
         1. `create child page (for hierarchy)`
-- [Slash command](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#slash-command)
+- [Slash command option](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#slash-command-option)
     1. `create pdf link (online)`
- - [Command Pallet](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#command-pallet)
+ - [Command Pallet option](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#command-pallet-option)
     1. `select blocks to calculate`
-
-> Migrated several features from Column Layout plugin and Page-tags and Hierarchy plugin. #2023/04/01
 
 ## Demo
 
-### Auto link title
+### Automatic link title feature
 
 - Usage: Paste URL
 
 ![image](https://user-images.githubusercontent.com/111847207/236649623-26d9d4fb-e806-4f9b-b6c3-996c6d985788.gif)
 
-### Add completed property to DONE task
+### Add completed property to the DONE task
 
 - Usage: Mark task as `DONE`
 
