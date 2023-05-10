@@ -1,31 +1,30 @@
 # Logseq Plugin: SomeMenuExtender
 
-A plugin that adds new functions to context menus and others, allowing for more efficient and convenient operations.
+ - A plugin that adds new functions to context menus and others, allowing for more efficient and convenient operations.
 
 [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-some-menu-extender)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/releases)
 [![License](https://img.shields.io/github/license/YU000jp/logseq-plugin-some-menu-extender?color=blue)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/blob/main/LICENSE)
 [![Downloads](https://img.shields.io/github/downloads/YU000jp/logseq-plugin-some-menu-extender/total.svg)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/releases)
-
-> Migrated several features from Column Layout plugin and Page-tags and Hierarchy plugin. #2023/04/01
+ Published 2023/04/01
 
 ## Table of Features
 
 - Confirm on dialog
-    1. [Auto link title (Paste URL)](#auto-link-title-paste-url)
-    1. [Add completed property to DONE task (Mark task as DONE)](#add-completed-property-to-done-task-mark-task-as-done)
+    1. [Auto link title](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#auto-link-title-paste-url)
+    1. [Add completed property to DONE task](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#add-completed-property-to-done-task-mark-task-as-done)
 - Block Context menu
     1. For repeat-task
         1. `repeat-task as LATER`
-    1. For outliner
+    1. For outlier
         1. `Copy block reference and embed`
         1. `Make to next line blank`
 - Page Context menu
-    1. [For PARA method pages. Quickly add to page-tags](#for-para-method-pages-quickly-add-to-page-tags)
+    1. [For PARA method pages. Quickly add to page-tags](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#for-para-method-pages-quickly-add-to-page-tags)
         1. `add Project`
         1. `add Area of responsibility`
         1. `add Resource`
         1. `add Archive`
-    1. [For Other pages. Quickly add to page-tags](#for-other-pages-quickly-add-to-page-tags)
+    1. [For Other pages. Quickly add to page-tags](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#for-other-pages-quickly-add-to-page-tags)
         1. `add a page-tag by select list`
     1. [Quickly create a page](#quickly-create-a-page)
         1. `create New Project`
@@ -33,116 +32,74 @@ A plugin that adds new functions to context menus and others, allowing for more 
 - [Slash command](#slash-command)
     1. `create pdf link (online)`
 
-## Confirm on dialog
+> Migrated several features from Column Layout plugin and Page-tags and Hierarchy plugin. #2023/04/01
 
-### Auto link title (Paste URL)
+## Demo
 
-![image](https://user-images.githubusercontent.com/111847207/229340766-02df5320-a37a-4a34-8aa7-bc1b22d700d0.gif)
+### Auto link title
 
-- [Problem] Existing auto plugins do unnecessary conversions. / Garbled characters occur.
+- Usage: Paste URL
 
-- [Solution] Confirm to user in dialog / anti-garbled japanese website : 日本語ウェブサイトの文字化け対策済み
+![image](https://user-images.githubusercontent.com/111847207/236649623-26d9d4fb-e806-4f9b-b6c3-996c6d985788.gif)
 
-- [Usage] Paste URL, then to bring up a dialog. Possible to edit the title.
+### Add completed property to DONE task
 
-### Add completed property to DONE task (Mark task as `DONE`)
+- Usage: Mark task as `DONE`
 
-![image](https://user-images.githubusercontent.com/111847207/229385006-08d16d36-a8d9-4b24-87d9-ed0c2474da00.gif)
+![image](https://user-images.githubusercontent.com/111847207/236649716-35230da1-bc2d-4a45-beef-ebaecd786252.gif)
 
-- [Problem] Logseq does not record the DONE date.
+### Slash command `create pdf link (online)`
 
-- [Solution] After the task DONE, add completed property to the block.
+- Create a Markdown link for online PDF
 
-- [Usage] After DONE a task, a dialog will appear asking to add a completed property. Possible to edit the date.
+## Document
 
-- [Result] The date contained in the completed property acts as a link. View completed tasks in Journal Linked References.
+> Check out [Document](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document)
 
-## Block context menu (Right click on bullet)
+## Getting Started
 
-### `repeat-task as LATER`
-
-- [Problem] Repeat task is for a notification. Not for journaling.
-
-- [Solution] To place in the journal as a LATER task and block reference. For marking `DONE`.
-
-- [Usage] A block open into right sidebar. Drag that bullet and place it in the journal. After executing the task, click the repeat-task checkbox first, then the LATER task checkbox.
-
-- [Result] Keep repeat task as a recode in journals.
-
-### `Copy block reference and embed`
-
-- [Problem] no link in embed
-
-- [Solution] insert block reference and embed together
-
-- [Usage] Copy to clipboard
-
-- [Result] Enables access to reference source
-
-### `Make to next line blank`
-
-- [Problem] For blocks with content, line breaks can be annoying.
-
-- [Solution] Select in context menu and work
-
-- [Usage] Open context menu at the bullet for above block
-
-- [Result] Create a line break without breaking outlines
-
-## Page context menu (Right click on page title)
-
-### For PARA method pages. Quickly add to page-tags
-
-#### `🎨 add Project`
-
-<details><summary>Demo</summary>
-  
-![Animation6w22](https://user-images.githubusercontent.com/111847207/226155740-02c6bc12-2930-4409-9acd-d3dc7f899514.gif)
-
-</details>
-
-#### `🏠 add Area of responsibility`
-
-#### `🌍 add Resource`
-
-#### `🧹 add Archive`
-
-### For Other pages. Quickly add to page-tags
-
-#### `🧺 add a page-tag by select list`
-
-### Quickly create a page
-
-#### `🧑‍💻 create New Project`
-
-#### `🧒 create child page (for hierarchy)`
-
-## Slash command
-
-### `create pdf link (online)`
-
-- Create a markdown link for online PDF
-
-## Install from Logseq Marketplace
+### Install from Logseq Marketplace
 
 - Press [`---`] on the top right toolbar to open [`Plugins`]
 
-- Select marketplace
+- Select [`Marketplace`]
 
 - Type '`some`' in the search field, select it from the search results and install
 
 ![image](https://user-images.githubusercontent.com/111847207/229358935-9a6cfb57-4978-42fc-9197-a962c8ecca33.png)
 
-## My plugins
+## Showcase / Questions / Ideas / Help
+
+Go to the [discussion](https://github.com/YU000jp/logseq-plugin-some-menu-extender/discussions) tab to ask and find this kind of things.
+
+## Contributing
+
+- Contributions to this plugin are always welcome! If you find a bug or have a suggestion for a new feature, please open an issue or submit a pull request. All contributions will be reviewed and considered for inclusion in future releases.
+
+## License
+
+- This Plugin is released under the MIT License. See the LICENSE file for more information.
+
+## Author
+
+* GitHub: [YU000jp](https://github.com/YU000jp)
+* Twitter: [@y0skyblue](https://twitter.com/y0skyblue)
+* Discord: YU#5179 ([Logseq](https://discord.gg/logseq))
+
+### My Logseq plugins
 
 - [Weekdays and Holidays (Templates)](https://github.com/YU000jp/logseq-plugin-weekdays-and-weekends)
 - [Sticky Popup](https://github.com/YU000jp/logseq-plugin-sticky-popup)
 - [SomeMenuExtender](https://github.com/YU000jp/logseq-plugin-some-menu-extender)
-- [Column Layout (UI)](https://github.com/YU000jp/Logseq-column-Layout)
-- [Panel Coloring (Color)](https://github.com/YU000jp/logseq-plugin-panel-coloring)
-- [Page-tags and Hierarchy (UI)](https://github.com/YU000jp/logseq-page-tags-and-hierarchy)
+- [Panel Coloring](https://github.com/YU000jp/logseq-plugin-panel-coloring)
+- [Page-tags and Hierarchy](https://github.com/YU000jp/logseq-page-tags-and-hierarchy)
+- [Column Layout](https://github.com/YU000jp/Logseq-column-Layout)
 - [Rakuten-books](https://github.com/YU000jp/logseq-plugin-rakuten-books) (Only for Japanese site)
 - [booklog-jp-import](https://github.com/YU000jp/logseq-plugin-booklog-jp-import) (Only for Japanese site)
+
+## Link
+
+- [Logseq](https://github.com/logseq)
 
 ## Prior art & Credit
 
