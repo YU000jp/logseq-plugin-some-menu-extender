@@ -34,6 +34,10 @@
  - [Command Pallet option](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#command-pallet-option)
     1. `select blocks to calculate`
 
+## Document
+
+> Check out [Document](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document)
+
 ## Demo
 
 ### Automatic link title feature
@@ -57,10 +61,6 @@
 ![Animation6w22](https://user-images.githubusercontent.com/111847207/226155740-02c6bc12-2930-4409-9acd-d3dc7f899514.gif)
 
 </details>
-
-## Document
-
-> Check out [Document](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document)
 
 ## Getting Started
 
