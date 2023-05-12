@@ -10,8 +10,8 @@
 ## Table of Features
 
 - Confirmation dialogue
-    1. [Automatic link title feature](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#automatic-link-title-feature-paste-url)
-    1. [Add completed property to the DONE task](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#add-completed-property-to-the-done-task-mark-task-as-done)
+    1. [Automatic link title feature](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#automatic-link-title-feature)
+    1. [Add completed property to the DONE task](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#add-completed-proえerty-to-the-done-task)
 - Block Context menu option
     1. For repeat-task
         1. `repeat-task as LATER`
