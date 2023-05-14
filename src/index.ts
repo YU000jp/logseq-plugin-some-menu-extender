@@ -1,7 +1,6 @@
 import '@logseq/libs'; //https://plugins-doc.logseq.com/
 import { BlockEntity, SettingSchemaDesc } from "@logseq/libs/dist/LSPlugin.user";
 import { MarkdownLink } from './markdown-link';
-import { addProperties, RecodeDateToPage } from './addProperties';
 import Swal from 'sweetalert2'; //https://sweetalert2.github.io/
 import { getDateForPage } from 'logseq-dateutils'; //https://github.com/hkgnp/logseq-dateutils
 import { evalExpression } from '@hkh12/node-calc'; //https://github.com/heokhe/node-calc
@@ -63,23 +62,30 @@ const main = () => {
           const month = ("0" + (today.getMonth() + 1)).slice(-2);
           const day = ("0" + today.getDate()).slice(-2);
           const todayFormatted = `${year}-${month}-${day}`;
+          let addTime = "";
+          if (logseq.settings?.completedDialogAddTime === true) {
+            addTime = `<input id="swal-input2" class="swal2-input" type="time" value="${today.getHours()}:${today.getMinutes()}"/>`;
+          }
           //dialog
           await logseq.showMainUI();
           const { value: formValues } = await Swal.fire<{
-            input1: any;
+            input1: string;
+            input2: string;
           }>({
             title: "Turn on completed (date) property?",
             text: "",
             icon: "info",
             showCancelButton: true,
-            html: `<input id="swal-input1" class="swal2-input" type="date" value="${todayFormatted}"/>`,//type:dateが指定できないためhtmlとして作成
+            html: `<input id="swal-input1" class="swal2-input" type="date" value="${todayFormatted}"/>${addTime}`,//type:dateが指定できないためhtmlとして作成
             focusConfirm: false,
             color: sweetAlert2color,
             background: sweetAlert2background,
             preConfirm: () => {
               const input1 = document.getElementById('swal-input1') as HTMLInputElement;
+              const input2 = document.getElementById('swal-input2') as HTMLInputElement;
               return {
-                input1: input1.value
+                input1: input1.value,
+                input2: ` **${input2.value}**`,
               };
             }
           });
@@ -88,7 +94,7 @@ const main = () => {
               let userFormat = userConfigs.preferredDateFormat;
               userFormat = userFormat.replace(/E{1,3}/, "EEE");//handle same E, EE, or EEE bug
               const FormattedDateUser = await getDateForPage(new Date(formValues?.input1), userFormat);
-              logseq.Editor.upsertBlockProperty(taskBlock.uuid, "completed", FormattedDateUser);
+              logseq.Editor.upsertBlockProperty(taskBlock.uuid, "completed", FormattedDateUser + formValues?.input2);
             } else {//Cancel
               //user cancel in dialog
               logseq.UI.showMsg("Cancel", "warning");
@@ -421,6 +427,118 @@ const main = () => {
 };/* end_main */
 
 
+
+async function addProperties(addProperty: string | undefined, addType: string, sweetAlert2background: string, sweetAlert2color: string) {
+
+  //リスト選択モード
+  if (addType === "Select") {
+    let SettingSelectionList = logseq.settings?.SelectionList || "";
+    if (SettingSelectionList === "") {
+      return logseq.UI.showMsg(`Please set the selection list first`, "warning");//cancel
+    }
+    SettingSelectionList = SettingSelectionList.split(",");
+    const SelectionListObj = {};
+    for (let i = 0; i < SettingSelectionList.length; i++) {
+      if (SettingSelectionList[i]) {
+        SelectionListObj[`${SettingSelectionList[i]}`] = SettingSelectionList[i];
+      }
+    }
+    //dialog
+    logseq.showMainUI();
+    await Swal.fire({
+      text: 'Page-tags selection list',
+      input: 'select',
+      inputOptions: SelectionListObj,
+      inputPlaceholder: 'Select a page-tag (Add to page-tags)',
+      showCancelButton: true,
+      color: sweetAlert2color,
+      background: sweetAlert2background,
+    }).then((answer) => {
+      if (answer) {
+        const { value: select } = answer;
+        if (select) {
+          addProperty = select;//ページタグ確定
+        }
+      }
+    }).finally(() => {
+      logseq.hideMainUI();
+    });
+  }
+  if (addProperty === "") {
+    return logseq.UI.showMsg(`Cancel`, "warning");//cancel
+  }
+  const getCurrent = await logseq.Editor.getCurrentPage();
+  if (getCurrent && addProperty) {
+    if (getCurrent.name === addProperty || getCurrent.originalName === addProperty) {
+      return logseq.UI.showMsg(`Need not add current page to page-tags.`, "warning");//cancel same page
+    }
+    const getCurrentTree = await logseq.Editor.getCurrentPageBlocksTree();
+    const firstBlockUUID: string = getCurrentTree[0].uuid;
+    const editBlockUUID: string | undefined = await updateProperties(addProperty, "tags", getCurrent.properties, addType, firstBlockUUID);
+    if (editBlockUUID) {
+      if ((addType === "Select" && logseq.settings?.switchPARArecodeDate === true) || (addType === "PARA" && logseq.settings?.switchRecodeDate === true)) {//指定されたPARAページに日付とリンクをつける
+        const userConfigs = await logseq.App.getUserConfigs();
+        await setTimeout(function () { RecodeDateToPage(userConfigs.preferredDateFormat, addProperty, " [[" + getCurrent.name + "]]") }, 300);
+      }
+      logseq.UI.showMsg(`add ${addProperty} to tags`, "info");
+    }
+  }
+}
+
+
+async function RecodeDateToPage(userDateFormat, ToPageName, pushPageLink) {
+  const blocks = await logseq.Editor.getPageBlocksTree(ToPageName);
+  if (blocks) {
+    //PARAページの先頭行の下に追記
+    const content = getDateForPage(new Date(), userDateFormat) + pushPageLink;
+    await logseq.Editor.insertBlock(blocks[0].uuid, content, { sibling: false });
+  }
+}
+
+
+async function updateProperties(addProperty: string, targetProperty: string, PageProperties, addType: string, firstBlockUUID: string) {
+  let editBlockUUID;
+  let deleteArray = ['Project', 'Resource', 'Area of responsibility', 'Archive'];
+  if (typeof PageProperties === "object" && PageProperties !== null) {//ページプロパティが存在した場合
+    for (const [key, value] of Object.entries(PageProperties)) {//オブジェクトのキーに値がない場合は削除
+      if (!value) {
+        delete PageProperties[key];
+      }
+    }
+    if (addType === "PARA") {
+      deleteArray = deleteArray.filter(element => element !== addProperty);//PARA: 一致するもの以外のリスト
+    }
+    let PropertiesArray = PageProperties[targetProperty] || [];
+    if (PropertiesArray) {
+      if (addType === "PARA") {
+        PropertiesArray = PropertiesArray.filter(property => !deleteArray.includes(property));//PARA: タグの重複削除
+      }
+      PropertiesArray = [...PropertiesArray, addProperty];
+    } else {
+      PropertiesArray = [addProperty];
+    }
+    PropertiesArray = [...new Set(PropertiesArray)];//タグの重複削除
+    await logseq.Editor.upsertBlockProperty(firstBlockUUID, targetProperty, PropertiesArray);
+    editBlockUUID = firstBlockUUID;
+  } else {//ページプロパティが存在しない
+    const prependProperties = {};
+    prependProperties[targetProperty] = addProperty;
+    await logseq.Editor.insertBlock(firstBlockUUID, "", { properties: prependProperties, sibling: true, before: true, isPageBlock: true, focus: true }).then((prepend) => {
+      if (prepend) {
+        logseq.Editor.moveBlock(prepend.uuid, firstBlockUUID, { before: true, children: true });
+        editBlockUUID = prepend.uuid;
+      }
+    });
+
+  }
+  await logseq.Editor.editBlock(editBlockUUID);
+  await setTimeout(function () {
+    logseq.Editor.insertAtEditingCursor(",");//ページプロパティを配列として読み込ませる処理
+  }, 200);
+  return editBlockUUID;
+}
+
+
 //calculator
 async function calculator(event) {
   let Success: boolean = false;
@@ -494,59 +612,66 @@ async function calculator(event) {
 // }
 
 
-  //https://logseq.github.io/plugins/types/SettingSchemaDesc.html
-  const settingsTemplate: SettingSchemaDesc[] = [
-    {
-      key: "switchCompletedDialog",
-      title: "Use DONE task completed (date) property",
-      type: "boolean",
-      default: false,
-      description: "Confirm in dialog and edit the date",
-    },
-    {
-      key: "switchMarkdownLink",
-      title: "Use automatic Markdown link title (Paste URL)",
-      type: "boolean",
-      default: true,
-      description: "Confirm in dialog and edit the title / Anti-garbled (for japanese website and others)",
-    },
-    {
-      key: "switchPARAfunction",
-      title: "Use [page title context menu] Shortcuts for PARA method pages. ",
-      type: "boolean",
-      default: false,
-      description: "",
-    },
-    {
-      key: "switchPARArecodeDate",
-      title: "Record today's date on the PARA page when adding",
-      type: "boolean",
-      default: true,
-      description: "",
-    },
-    {
-      key: "SelectionList",
-      type: "string",
-      default: `Index,`,
-      title: "Use page-tags selection list",
-      description: `Entry page titles separated by commas(,).`,
-    },
-    {
-      key: "switchRecodeDate",
-      title: "Record today's date on the selection page when adding",
-      type: "boolean",
-      default: false,
-      description: "",
-    },
-    {
-      key: "nextLineBlank",
-      title: "ContextMenuItem `Make to next line blank` option",
-      type: "enum",
-      default: "3",
-      enumChoices: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
-      description: "Number of blank lines after the selected block",
-    }
-  ];
+//https://logseq.github.io/plugins/types/SettingSchemaDesc.html
+const settingsTemplate: SettingSchemaDesc[] = [
+  {
+    key: "switchCompletedDialog",
+    title: "Use DONE task completed (date) property",
+    type: "boolean",
+    default: false,
+    description: "Confirm in dialog and edit the date",
+  },
+  {
+    key: "completedDialogAddTime",
+    title: "Use completed (date) property with time",
+    type: "boolean",
+    default: false,
+    description: "Confirm in dialog and edit the date and time",
+  },
+  {
+    key: "switchMarkdownLink",
+    title: "Use automatic markdown link title feature (Paste URL)",
+    type: "boolean",
+    default: true,
+    description: "Confirm in dialog and edit the title",
+  },
+  {
+    key: "switchPARAfunction",
+    title: "Use [page title context menu] Shortcuts for PARA method pages",
+    type: "boolean",
+    default: false,
+    description: "",
+  },
+  {
+    key: "switchPARArecodeDate",
+    title: "Record today's date on the PARA page when adding",
+    type: "boolean",
+    default: true,
+    description: "",
+  },
+  {
+    key: "SelectionList",
+    type: "string",
+    default: `Index,`,
+    title: "Use page-tags selection list",
+    description: `Entry page titles separated by commas(,).`,
+  },
+  {
+    key: "switchRecodeDate",
+    title: "Record today's date on the selection page when adding",
+    type: "boolean",
+    default: false,
+    description: "",
+  },
+  {
+    key: "nextLineBlank",
+    title: "ContextMenuItem `Make to next line blank` option",
+    type: "enum",
+    default: "3",
+    enumChoices: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+    description: "Number of blank lines after the selected block",
+  }
+];
 
 
 function IncludeTitle(title: string) {
