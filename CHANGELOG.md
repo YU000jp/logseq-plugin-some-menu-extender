@@ -1,3 +1,10 @@
+# [0.6.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.5.0...v0.6.0) (2023-05-14)
+
+
+### Features
+
+* **DONE dialog:** Add time input function to 'DONE property' ([6eac353](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/6eac3532c83d8f57b6f74ffbaa7bec3832240f78))
+
 # [0.5.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.4.1...v0.5.0) (2023-05-10)
 
 
