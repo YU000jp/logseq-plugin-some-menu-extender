@@ -15,7 +15,7 @@
 - Block Context menu option
     1. For repeat-task
         1. `repeat-task as LATER`
-    1. For Outlin
+    1. For Outlines
         1. `Copy block reference and embed`
         1. `Make to next line blank`
 - Page Context menu option
