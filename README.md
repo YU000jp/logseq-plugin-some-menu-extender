@@ -44,7 +44,7 @@
 
 > Paste the URL on the editing block
 
-![image](https://user-images.githubusercontent.com/111847207/236649623-26d9d4fb-e806-4f9b-b6c3-996c6d985788.gif)
+![image](https://github.com/YU000jp/logseq-plugin-some-menu-extender/assets/111847207/1d67d7fb-bb2f-42d7-bc0c-f19e27bb5419)
 
 ### Add completed property to the DONE task
 
