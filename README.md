@@ -50,7 +50,7 @@
 
 > Mark the task as `DONE`
 
-![image](https://user-images.githubusercontent.com/111847207/236649716-35230da1-bc2d-4a45-beef-ebaecd786252.gif)
+![image](https://github.com/YU000jp/logseq-plugin-some-menu-extender/assets/111847207/7cf6ec68-8441-4398-b195-15c757e1d2de)
 
 ### Quickly add to page-tags
 
