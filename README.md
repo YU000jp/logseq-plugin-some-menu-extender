@@ -72,6 +72,11 @@
 
 ![image](https://user-images.githubusercontent.com/111847207/229358935-9a6cfb57-4978-42fc-9197-a962c8ecca33.png)
 
+### Usage
+
+- Open the plugin settings screen and make the necessary changes.
+> By default, several items are set to "off" in the initial configuration.
+
 ## Showcase / Questions / Ideas / Help
 
 Go to the [discussion](https://github.com/YU000jp/logseq-plugin-some-menu-extender/discussions) tab to ask and find this kind of things.
