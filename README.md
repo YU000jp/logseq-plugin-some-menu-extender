@@ -74,8 +74,7 @@
 
 ### Usage
 
-- Open the plugin settings screen and make the necessary changes.
-> By default, several items are set to "off" in the initial configuration.
+- Open the plugin settings screen and do the necessary changes. By default, several items are set to "off" in the initial configuration.
 
 ## Showcase / Questions / Ideas / Help
 
