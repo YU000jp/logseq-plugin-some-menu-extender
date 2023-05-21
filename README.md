@@ -7,6 +7,8 @@
 [![Downloads](https://img.shields.io/github/downloads/YU000jp/logseq-plugin-some-menu-extender/total.svg)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/releases)
  Published 2023/04/01
 
+---
+
 ## Table of Features
 
 - Confirmation dialogue
@@ -38,6 +40,8 @@
 
 > Check out [Document](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document)
 
+---
+
 ## Demo
 
 ### Automatic link title feature
@@ -60,6 +64,8 @@
   
 ![image](https://user-images.githubusercontent.com/111847207/226155740-02c6bc12-2930-4409-9acd-d3dc7f899514.gif)
 
+---
+
 ## Getting Started
 
 ### Install from Logseq Marketplace
@@ -75,6 +81,8 @@
 ### Usage
 
 - Open the plugin settings screen and do the necessary changes. By default, several items are set to "off" in the initial configuration.
+
+---
 
 ## Showcase / Questions / Ideas / Help
 
