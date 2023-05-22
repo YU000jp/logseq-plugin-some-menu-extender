@@ -1,3 +1,10 @@
+## [0.6.1](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.6.0...v0.6.1) (2023-05-22)
+
+
+### Bug Fixes
+
+* **refactor:** done dialog set time ([6d09def](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/6d09deffe390702aa890fc1a40c89f52e6ef741c))
+
 # [0.6.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.5.0...v0.6.0) (2023-05-14)
 
 
