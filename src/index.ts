@@ -57,14 +57,14 @@ const main = () => {
             return;
           }
           const userConfigs = await logseq.App.getUserConfigs();
-          const today = new Date();
-          const year = today.getFullYear();
-          const month = ("0" + (today.getMonth() + 1)).slice(-2);
-          const day = ("0" + today.getDate()).slice(-2);
+          const today: Date = new Date();
+          const year: number = today.getFullYear();
+          const month: string = ("0" + (today.getMonth() + 1)).slice(-2);
+          const day: string = ("0" + today.getDate()).slice(-2);
           const todayFormatted = `${year}-${month}-${day}`;
           let addTime = "";
           if (logseq.settings?.completedDialogAddTime === true) {
-            addTime = `<input id="swal-input2" class="swal2-input" type="time" value="${today.getHours()}:${today.getMinutes()}"/>`;
+            addTime = `<input id="swal-input2" class="swal2-input" type="time" value="${today.getHours() as number}:${today.getMinutes() as number}"/>`;
           }
           //dialog
           await logseq.showMainUI();
