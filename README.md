@@ -70,11 +70,11 @@
 
 ### Install from Logseq Marketplace
 
-- Press [`---`] on the top right toolbar to open [`Plugins`]
+- Press `---` on the top right toolbar to open `Plugins`
 
-- Select [`Marketplace`]
+- Select `Marketplace`
 
-- Type '`some`' in the search field, select it from the search results and install
+- Type `Some` in the search field, select it from the search results and install
 
 ![image](https://user-images.githubusercontent.com/111847207/229358935-9a6cfb57-4978-42fc-9197-a962c8ecca33.png)
 
@@ -94,6 +94,7 @@ Go to the [discussion](https://github.com/YU000jp/logseq-plugin-some-menu-extend
 
 ### My Logseq plugins
 
+- [Show Weekday and Week-number](https://github.com/YU000jp/logseq-plugin-show-weekday-and-week-number)
 - [Weekdays and Holidays (Templates)](https://github.com/YU000jp/logseq-plugin-weekdays-and-weekends)
 - [Sticky Popup](https://github.com/YU000jp/logseq-plugin-sticky-popup)
 - [SomeMenuExtender](https://github.com/YU000jp/logseq-plugin-some-menu-extender)
