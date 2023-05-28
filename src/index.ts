@@ -81,11 +81,17 @@ const main = () => {
             color: sweetAlert2color,
             background: sweetAlert2background,
             preConfirm: () => {
-              const input1 = document.getElementById('swal-input1') as HTMLInputElement;
-              const input2 = document.getElementById('swal-input2') as HTMLInputElement;
+              const input1 = (document.getElementById('swal-input1') as HTMLInputElement)!.value;
+              let input2;
+              const valueInput2 = (document.getElementById('swal-input2') as HTMLInputElement)!.value;
+              if (valueInput2) {
+                input2 = ` **${valueInput2}**`;
+              }else{
+                input2 = "";
+              }
               return {
-                input1: input1.value,
-                input2: ` **${input2.value}**`,
+                input1,
+                input2,
               };
             }
           });
