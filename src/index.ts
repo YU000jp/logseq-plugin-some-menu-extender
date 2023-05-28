@@ -417,13 +417,6 @@ const main = () => {
   //markdown link
   MarkdownLink(sweetAlert2background, sweetAlert2color);
 
-  //main support
-  parent.document.body.classList.add('is-plugin-some-menu-extender-enabled');
-  logseq.beforeunload(async () => {
-    parent.document.body.classList.remove('is-plugin-some-menu-extender-enabled');
-  });
-
-
 };/* end_main */
 
 
