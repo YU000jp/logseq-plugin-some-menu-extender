@@ -1,3 +1,10 @@
+## [0.6.2](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.6.1...v0.6.2) (2023-05-28)
+
+
+### Bug Fixes
+
+* **refactor:** delete body class plugin-enabled ([471acb2](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/471acb2d81e8734377a56b70a136f606f13e25da))
+
 ## [0.6.1](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.6.0...v0.6.1) (2023-05-22)
 
 
