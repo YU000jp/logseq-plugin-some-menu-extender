@@ -17,8 +17,6 @@
     1. For Outlines
         1. `Copy block reference and embed`
         1. `Make to next line blank`
-- [Slash command option](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#slash-command-option)
-    1. `create pdf link (online)`
  - [Command Pallet option](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#command-pallet-option)
     1. `select blocks to calculate`
 
