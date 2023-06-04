@@ -1,6 +1,6 @@
 # Logseq Plugin: SomeMenuExtender
 
- - A plugin that adds new functions to context menus and others, allowing for more efficient and convenient operations.
+ > This plugin will be split into multiple plugins and undergo significant disruptive changes in future updates.
 
 [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-some-menu-extender)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/releases)
 [![License](https://img.shields.io/github/license/YU000jp/logseq-plugin-some-menu-extender?color=blue)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/blob/main/LICENSE)
@@ -11,26 +11,12 @@
 
 ## Table of Features
 
-- Confirmation dialogue
-    1. [Automatic link title feature](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#automatic-link-title-feature)
-    1. [Add completed property to the DONE task](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#add-completed-proえerty-to-the-done-task)
 - Block Context menu option
     1. For repeat-task
         1. `repeat-task as LATER`
     1. For Outlines
         1. `Copy block reference and embed`
         1. `Make to next line blank`
-- Page Context menu option
-    1. [For PARA method pages. Quickly add to page-tags](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#for-para-method-pages-quickly-add-to-page-tags)
-        1. `add Project`
-        1. `add Area of responsibility`
-        1. `add Resource`
-        1. `add Archive`
-    1. [For Other pages. Quickly add to page-tags](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#for-other-pages-quickly-add-to-page-tags)
-        1. `add a page-tag by select list`
-    1. [Quickly create a page](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#quickly-create-a-page)
-        1. `create New Project`
-        1. `create child page (for hierarchy)`
 - [Slash command option](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#slash-command-option)
     1. `create pdf link (online)`
  - [Command Pallet option](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#command-pallet-option)
@@ -39,30 +25,6 @@
 ## Document
 
 > Check out [Document](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document)
-
----
-
-## Demo
-
-### Automatic link title feature
-
-> Paste the URL on the editing block
-
-![image](https://github.com/YU000jp/logseq-plugin-some-menu-extender/assets/111847207/1d67d7fb-bb2f-42d7-bc0c-f19e27bb5419)
-
-### Add completed property to the DONE task
-
-> Mark the task as `DONE`
-
-![image](https://github.com/YU000jp/logseq-plugin-some-menu-extender/assets/111847207/7cf6ec68-8441-4398-b195-15c757e1d2de)
-
-### Quickly add to page-tags
-
-> For PARA method pages
-
-#### `🎨 add Project`
-  
-![image](https://user-images.githubusercontent.com/111847207/226155740-02c6bc12-2930-4409-9acd-d3dc7f899514.gif)
 
 ---
 
@@ -83,10 +45,6 @@
 - Open the plugin settings screen and do the necessary changes. By default, several items are set to "off" in the initial configuration.
 
 ---
-
-## Showcase / Questions / Ideas / Help
-
-Go to the [discussion](https://github.com/YU000jp/logseq-plugin-some-menu-extender/discussions) tab to ask and find this kind of things.
 
 ## Author
 
