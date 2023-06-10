@@ -47,7 +47,7 @@
 
 - Type `Some` in the search field, select it from the search results and install
 
-![image](https://user-images.githubusercontent.com/111847207/229358935-9a6cfb57-4978-42fc-9197-a962c8ecca33.png)
+   ![image](https://github.com/YU000jp/logseq-plugin-some-menu-extender/assets/111847207/a67daf93-3dee-42e5-b1f4-4cfb03935204)
 
 ### Usage
 
