@@ -47,12 +47,7 @@
 
 - Type `Some` in the search field, select it from the search results and install
 
-   ![image](https://github.com/YU000jp/logseq-plugin-some-menu-extender/assets/111847207/a67daf93-3dee-42e5-b1f4-4cfb03935204)
-
-### Usage
-
-- Open the plugin settings screen and do the necessary changes. By default, several items are set to "off" in the initial configuration.
-
+   ![image](https://github.com/YU000jp/logseq-plugin-some-menu-extender/assets/111847207/a67daf93-3dee-42e5-b1f4-4cfb03935204) <!-- ### Usage -->
 ---
 
 ## Author
