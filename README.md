@@ -28,7 +28,7 @@
         1. `Copy block reference and embed`
         1. `Make to next line blank`
 
-- [Command Pallet option](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#command-pallet-option)
+- Command Pallet option
     1. `select blocks to calculate`
 
 ## Document
