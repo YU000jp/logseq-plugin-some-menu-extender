@@ -1,5 +1,7 @@
 # Logseq Plugin: Innovation Lab
 
+> Rename from `SomeMenuExtemder` at 2023/06/10
+
 - This plugin provides several features that are currently in the development stage.
 
 > This plugin still has room for improvement. Please let me know if you encounter any issues or have any ideas for enhancement.
@@ -11,6 +13,12 @@
 
 ---
 
+> ⚠️Split to some plugin
+
+- [Quickly PARA method⚓](https://github.com/YU000jp/logseq-plugin-quickly-para-method)
+- [Confirmation Hyperlink (Pastes URL)](https://github.com/YU000jp/logseq-plugin-confirmation-hyperlink)
+- [Confirmation DONE task](https://github.com/YU000jp/logseq-plugin-confirmation-done-task)
+
 ## Table of Features
 
 - Block Context menu option
@@ -20,7 +28,7 @@
         1. `Copy block reference and embed`
         1. `Make to next line blank`
 
-- [Command Pallet option](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#command-pallet-option)
+- Command Pallet option
     1. `select blocks to calculate`
 
 ## Document
@@ -39,7 +47,7 @@
 
 - Type `Some` in the search field, select it from the search results and install
 
-![image](https://user-images.githubusercontent.com/111847207/229358935-9a6cfb57-4978-42fc-9197-a962c8ecca33.png)
+   ![image](https://github.com/YU000jp/logseq-plugin-some-menu-extender/assets/111847207/a67daf93-3dee-42e5-b1f4-4cfb03935204)
 
 ### Usage
 
