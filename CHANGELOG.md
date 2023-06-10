@@ -1,3 +1,10 @@
+# [0.7.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.6.2...v0.7.0) (2023-06-10)
+
+
+### Features
+
+* Introduce breaking changes for plugin split ([0f707f5](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/0f707f5e2dbf4f66ab4c7516da32cc0188ff42b2))
+
 ## [0.6.2](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.6.1...v0.6.2) (2023-05-28)
 
 
