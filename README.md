@@ -1,6 +1,6 @@
 # Logseq Plugin: Innovation Lab
 
-> Rename from `SomeMenuExtemder`
+> Rename from `SomeMenuExtemder` at 2023/06/10
 
 - This plugin provides several features that are currently in the development stage.
 
