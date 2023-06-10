@@ -1,6 +1,8 @@
-# Logseq Plugin: SomeMenuExtender
+# Logseq Plugin: Innovation Lab
 
- > This plugin will be split into multiple plugins and undergo significant disruptive changes in future updates.
+- This plugin provides several features that are currently in the development stage.
+
+> This plugin still has room for improvement. Please let me know if you encounter any issues or have any ideas for enhancement.
 
 [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-some-menu-extender)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/releases)
 [![License](https://img.shields.io/github/license/YU000jp/logseq-plugin-some-menu-extender?color=blue)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/blob/main/LICENSE)
@@ -17,7 +19,8 @@
     1. For Outlines
         1. `Copy block reference and embed`
         1. `Make to next line blank`
- - [Command Pallet option](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#command-pallet-option)
+
+- [Command Pallet option](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document#command-pallet-option)
     1. `select blocks to calculate`
 
 ## Document
@@ -54,13 +57,6 @@
 
 - [@logseq/libs](https://logseq.github.io/plugins/)
 - [hkgnp/logseq-dateutils](https://github.com/hkgnp/logseq-dateutils)
-
-### Logseq-plugin
-
-- [DimitryDushkin/ task completion tracker](https://github.com/DimitryDushkin/logseq-plugin-task-check-date)
-- [0x7b1/ automatic url title](https://github.com/0x7b1/logseq-plugin-automatic-url-title)
-- [freder/ insert above](https://github.com/freder/logseq-plugin-insert-above)
-- [georgeguimaraes/ add PARA properties](https://github.com/georgeguimaraes/logseq-plugin-add-PARA-properties)
 
 ### Icon
 
