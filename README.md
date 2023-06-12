@@ -45,7 +45,7 @@
 
 - Select `Marketplace`
 
-- Type `Some` in the search field, select it from the search results and install
+- Type `Lab` in the search field, select it from the search results and install
 
    ![image](https://github.com/YU000jp/logseq-plugin-some-menu-extender/assets/111847207/a67daf93-3dee-42e5-b1f4-4cfb03935204) <!-- ### Usage -->
 ---
