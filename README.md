@@ -15,9 +15,9 @@
 
 > ⚠️Split to some plugin
 
-- [Quickly PARA method⚓](https://github.com/YU000jp/logseq-plugin-quickly-para-method)
-- [Confirmation Hyperlink (Pastes URL)](https://github.com/YU000jp/logseq-plugin-confirmation-hyperlink)
-- [Confirmation DONE task](https://github.com/YU000jp/logseq-plugin-confirmation-done-task)
+- 🔗[Confirmation Hyperlink (Pastes URL)](https://github.com/YU000jp/logseq-plugin-confirmation-hyperlink)
+- 💪[Confirmation DONE task](https://github.com/YU000jp/logseq-plugin-confirmation-done-task)
+- ⚓[Quickly PARA method](https://github.com/YU000jp/logseq-plugin-quickly-para-method)
 
 ## Table of Features
 
