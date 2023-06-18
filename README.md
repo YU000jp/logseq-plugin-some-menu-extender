@@ -48,6 +48,12 @@
 - Type `Lab` in the search field, select it from the search results and install
 
    ![image](https://github.com/YU000jp/logseq-plugin-some-menu-extender/assets/111847207/32afec53-20ad-41d0-ad54-44cd07a50c67)
+
+### Plugin Settings
+
+- Number of blank lines after the selected block: select
+   - `1`, `2`, `3` default, `4`, `5`, `6`, `7`, `8`, `9`, `10`
+
 ---
 
 ## Author
