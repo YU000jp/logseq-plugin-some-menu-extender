@@ -62,11 +62,6 @@
 
 ## Prior art & Credit
 
-### Library
-
-- [@logseq/libs](https://logseq.github.io/plugins/)
-- [hkgnp/logseq-dateutils](https://github.com/hkgnp/logseq-dateutils)
-
 ### Icon
 
 - [icooon-mono.com](https://icooon-mono.com/12611-%e3%83%a1%e3%83%8b%e3%83%a5%e3%83%bc%e3%81%ae%e3%83%95%e3%83%aa%e3%83%bc%e3%82%a2%e3%82%a4%e3%82%b3%e3%83%b316/)
