@@ -13,7 +13,7 @@
 
 ---
 
-> ⚠️Split to some plugin
+> ⚠️Split to some plugin at 2023/06/10
 
 - 🔗[Confirmation Hyperlink (Pastes URL)](https://github.com/YU000jp/logseq-plugin-confirmation-hyperlink)
 - 💪[Confirmation DONE task](https://github.com/YU000jp/logseq-plugin-confirmation-done-task)
