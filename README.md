@@ -29,7 +29,7 @@
         1. `Make to next line blank`
 
 - Command Pallet option
-    1. `select blocks to calculate`
+    1. `select blocks to calculate` > https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/39#issuecomment-1606044710
 
 ## Document
 
