@@ -1,6 +1,7 @@
 import '@logseq/libs'; //https://plugins-doc.logseq.com/
-import { BlockEntity, SettingSchemaDesc } from "@logseq/libs/dist/LSPlugin.user";
+import { BlockEntity, LSPluginBaseInfo, SettingSchemaDesc } from "@logseq/libs/dist/LSPlugin.user";
 import { evalExpression } from '@hkh12/node-calc'; //https://github.com/heokhe/node-calc
+const keyRemoveMenuGraphView = "removeMenuGraphView";
 
 const main = () => {
   logseq.useSettingsSchema(settingsTemplate);
@@ -13,6 +14,8 @@ const main = () => {
   div#main-content-container input.form-checkbox+div input.form-checkbox+a,div#main-content-container div:not(.page-blocks-inner) input.form-checkbox+a+div input.form-checkbox+a{text-decoration:line-through;font-size:small;pointer-events:none}
   div#main-content-container input.form-checkbox+div a{font-size:medium}
 `);
+
+  if (logseq.settings!.removeMenuGraphView === true) removeMenuGraphView();
 
   /* ContextMenuItem `repeat-task as LATER`  */
   logseq.Editor.registerBlockContextMenuItem('repeat-task as LATER', async ({ uuid }) => {
@@ -30,11 +33,6 @@ const main = () => {
   /* ContextMenuItem `Copy block reference and embed`  */
   logseq.Editor.registerBlockContextMenuItem('Copy block reference and embed', async ({ uuid }) => {
     const block = await logseq.Editor.getBlock(uuid);
-    //ブロックのtimestampsはオプション機能
-    //let timestamps = "";
-    //if(block?.meta?.timestamps){
-    //    timestamps = block?.meta?.timestamps;
-    //}
     // necessary to have the window focused in order to copy the content of the code block to the clipboard
     //https://github.com/vyleung/logseq-copy-code-plugin/blob/main/src/index.js#L219
     window.focus();
@@ -60,7 +58,6 @@ const main = () => {
   logseq.Editor.registerSlashCommand("Block Calculator", async ({ uuid }) => {
     calculator(uuid);
   });
-
 
 
   //コマンドパレット `select blocks to calculate`
@@ -107,9 +104,26 @@ const main = () => {
   //end コマンドパレット `select blocks to calculate`
 
 
-};
-/* end_main */
+  logseq.onSettingsChanged((newSet: LSPluginBaseInfo['settings'], oldSet: LSPluginBaseInfo['settings']) => {
 
+    if (oldSet.removeMenuGraphView !== true && newSet.removeMenuGraphView === true) {
+      removeMenuGraphView();
+    } else
+      if (oldSet.removeMenuGraphView === true && newSet.removeMenuGraphView !== true) {
+        removeProvideStyle(keyRemoveMenuGraphView);
+      }
+  });
+
+};/* end_main */
+
+
+const removeMenuGraphView = () => logseq.provideStyle({
+  key: keyRemoveMenuGraphView,
+  style: String.raw`
+div#left-sidebar div.graph-view-nav{
+  display:none;
+}
+`  });
 
 //calculator
 async function calculator(uuid) {
@@ -129,6 +143,16 @@ async function calculator(uuid) {
 }
 
 
+const removeProvideStyle = (className: string) => {
+  const doc = parent.document.head.querySelector(`style[data-injected-style^="${className}"]`) as HTMLStyleElement;
+  if (doc) doc.remove();
+};
+
+// const removeCSSclass = (className: string) => {
+//   if (parent.document.body.classList?.contains(className)) parent.document.body.classList.remove(className);
+// }
+
+
 //https://logseq.github.io/plugins/types/SettingSchemaDesc.html
 const settingsTemplate: SettingSchemaDesc[] = [
   {
@@ -138,7 +162,14 @@ const settingsTemplate: SettingSchemaDesc[] = [
     default: "3",
     enumChoices: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
     description: "Number of blank lines after the selected block",
-  }
+  },
+  {
+    key: "removeMenuGraphView",
+    title: "Remove `Graph View` from the menu",
+    type: "boolean",
+    default: false,
+    description: "",
+  },
 ];
 
 logseq.ready(main).catch(console.error);
