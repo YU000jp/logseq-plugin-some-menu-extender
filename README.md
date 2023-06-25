@@ -52,13 +52,16 @@
 ### Plugin Settings
 
 - Number of blank lines after the selected block: select
-   - `1`, `2`, `3` default, `4`, `5`, `6`, `7`, `8`, `9`, `10`
+  - `1`, `2`, `3` default, `4`, `5`, `6`, `7`, `8`, `9`, `10`
+- Remove "Graph View" from the menu
+  - `true`
+  - `false` default
 
 ---
 
 ## Author
 
-* GitHub: [YU000jp](https://github.com/YU000jp)
+- GitHub: [YU000jp](https://github.com/YU000jp)
 
 ## Prior art & Credit
 
