@@ -1,4 +1,4 @@
-# Logseq Plugin: `Innovation Lab` 🌱
+# Logseq Plugin: *Innovation Lab* 🌱
 
 > Rename from `SomeMenuExtemder` at 2023/06/10
 
