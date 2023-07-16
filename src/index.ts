@@ -281,7 +281,7 @@ const settingsTemplate: SettingSchemaDesc[] = [
     title: "Set child block on the DOING task",
     type: "heading",
     default: "",
-    description: "If the DOING block contains like `#tag` in the first line, use the next lines in the DOING block to insert some child blocks by user plugin settings.",
+    description: "If the DOING block contains like `#tag` in the first line, use the next lines to insert some child blocks in the DOING block by user plugin settings.",
   },
   {
     key: "shortcutKey",
