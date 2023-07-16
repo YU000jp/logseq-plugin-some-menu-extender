@@ -5,6 +5,13 @@
 
 * **Add:** *Set child block on the DOING task* ([#42](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/42)) ([3a961f6](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/3a961f63801ba4fe15305e98d9771b376c406191))
 
+# [0.9.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.8.0...v0.9.0) (2023-07-16)
+
+
+### Features
+
+* **Add:** *Set child block on the DOING task* ([#42](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/42)) ([3a961f6](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/3a961f63801ba4fe15305e98d9771b376c406191))
+
 # [0.8.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.7.0...v0.8.0) (2023-06-25)
 
 
