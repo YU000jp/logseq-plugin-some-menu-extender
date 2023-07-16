@@ -29,7 +29,8 @@
         1. `Make to next line blank`
 
 - Command Pallet option
-    1. `select blocks to calculate` > https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/39#issuecomment-1606044710
+    1. `select blocks to calculate` > [#39](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/39#issuecomment-1606044710)
+    1. `Rotate the task workflow state` > [41](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/41)
 
 ## Document
 
@@ -56,6 +57,23 @@
 - Remove "Graph View" from the menu
   - `true`
   - `false` default
+- Rotate the task workflow state: Shortcut key: string
+  - `Ctrl+Shift+Enter` default
+- Task workflow state: string
+  - `TODO,DOING,WAITING,CANCELED,DONE` default
+   > Separate with `,`. Only strings for Logseq built in task markers are valid. (`NOW`|`LATER`|`TODO`|`DOING`|`DONE`|`WAITING`|`WAIT`|`CANCELED`|`CANCELLED`|`IN-PROGRESS`)
+- Set child block on the DOING task: 01 - 06
+  - (default: blank)
+> Example:
+```
+#book
+TODO Reading %next week
+TODO Review %next 2weeks
+Read #Archive
+```
+> *Such as `%next week` require [datenlp plugin](https://github.com/hkgnp/logseq-datenlp-plugin).
+
+
 
 ---
 
