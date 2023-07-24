@@ -54,7 +54,6 @@ const main = () => {
   });
 
 
-  //TODO: Edit README.md
   //Prior art: https://github.com/hiway/logseq-calculator-plugin
   logseq.Editor.registerBlockContextMenuItem("Block Calculator", async ({ uuid }) => {
     calculator(uuid);
