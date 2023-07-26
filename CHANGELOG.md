@@ -1,3 +1,10 @@
+## [0.9.1](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.9.0...v0.9.1) (2023-07-26)
+
+
+### Bug Fixes
+
+* **Remove:** `Remove `Graph View` from the menu` ([9dc5e4a](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/9dc5e4a5c3f079606874bd273d8b96436f7843ea))
+
 # [0.9.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.8.0...v0.9.0) (2023-07-16)
 
 
