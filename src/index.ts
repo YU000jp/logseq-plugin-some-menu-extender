@@ -1,7 +1,6 @@
 import '@logseq/libs'; //https://plugins-doc.logseq.com/
 import { BlockEntity, LSPluginBaseInfo, SettingSchemaDesc } from "@logseq/libs/dist/LSPlugin.user";
 import { evalExpression } from '@hkh12/node-calc'; //https://github.com/heokhe/node-calc
-const keyRemoveMenuGraphView = "removeMenuGraphView";
 
 const main = () => {
   logseq.useSettingsSchema(settingsTemplate);
@@ -18,8 +17,6 @@ const main = () => {
     font-size: unset;
   }
 `);
-
-  if (logseq.settings!.removeMenuGraphView === true) removeMenuGraphView();
 
   /* ContextMenuItem `repeat-task as LATER`  */
   logseq.Editor.registerBlockContextMenuItem('repeat-task as LATER', async ({ uuid }) => {
@@ -107,15 +104,10 @@ const main = () => {
   //end コマンドパレット `select blocks to calculate`
 
 
-  logseq.onSettingsChanged((newSet: LSPluginBaseInfo['settings'], oldSet: LSPluginBaseInfo['settings']) => {
+  // logseq.onSettingsChanged((newSet: LSPluginBaseInfo['settings'], oldSet: LSPluginBaseInfo['settings']) => {
 
-    if (oldSet.removeMenuGraphView !== true && newSet.removeMenuGraphView === true) {
-      removeMenuGraphView();
-    } else
-      if (oldSet.removeMenuGraphView === true && newSet.removeMenuGraphView !== true) {
-        removeProvideStyle(keyRemoveMenuGraphView);
-      }
-  });
+
+  // });
 
 
   //Rotate the task workflow state
@@ -215,13 +207,6 @@ async function processBlockSet(uuid: string, blockSet: string[]): Promise<void> 
   }
 }
 
-const removeMenuGraphView = () => logseq.provideStyle({
-  key: keyRemoveMenuGraphView,
-  style: String.raw`
-div#left-sidebar div.graph-view-nav{
-  display:none;
-}
-`  });
 
 //calculator
 async function calculator(uuid) {
@@ -260,13 +245,6 @@ const settingsTemplate: SettingSchemaDesc[] = [
     default: "3",
     enumChoices: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
     description: "Number of blank lines after the selected block",
-  },
-  {
-    key: "removeMenuGraphView",
-    title: "Remove `Graph View` from the menu",
-    type: "boolean",
-    default: false,
-    description: "",
   },
   {
     key: "heading",

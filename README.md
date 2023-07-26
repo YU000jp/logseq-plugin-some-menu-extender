@@ -54,9 +54,6 @@
 
 - Number of blank lines after the selected block: select
   - `1`, `2`, `3` default, `4`, `5`, `6`, `7`, `8`, `9`, `10`
-- Remove "Graph View" from the menu
-  - `true`
-  - `false` default
 - Rotate the task workflow state: Shortcut key: string
   - `Ctrl+Shift+Enter` default
 - Task workflow state: string
@@ -64,13 +61,15 @@
    > Separate with `,`. Only strings for Logseq built in task markers are valid. (`NOW`|`LATER`|`TODO`|`DOING`|`DONE`|`WAITING`|`WAIT`|`CANCELED`|`CANCELLED`|`IN-PROGRESS`)
 - Set child block on the DOING task: 01 - 06
   - (default: blank)
+
 > Example:
-```
+
+```txt
 #book
 TODO Reading %next week
 TODO Review %next 2weeks
 Read #Archive
-```
+```txt
 > *Such as `%next week` require [datenlp plugin](https://github.com/hkgnp/logseq-datenlp-plugin).
 
 
