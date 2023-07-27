@@ -69,7 +69,7 @@
 TODO Reading %next week
 TODO Review %next 2weeks
 Read #Archive
-```txt
+```
 > *Such as `%next week` require [datenlp plugin](https://github.com/hkgnp/logseq-datenlp-plugin).
 
 
