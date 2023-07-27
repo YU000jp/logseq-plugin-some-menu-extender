@@ -1,3 +1,10 @@
+# [0.10.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.9.1...v0.10.0) (2023-07-27)
+
+
+### Features
+
+* **Add:** 'Create new the child page' ([#45](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/45)) ([8ba8fa3](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/8ba8fa3b593b99e318ef3fd2ca3aa52278e4e61e))
+
 ## [0.9.1](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.9.0...v0.9.1) (2023-07-26)
 
 
