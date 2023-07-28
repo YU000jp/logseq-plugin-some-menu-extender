@@ -32,6 +32,11 @@
     1. `select blocks to calculate` > [#39](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/39#issuecomment-1606044710)
     1. `Rotate the task workflow state` > [41](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/41)
 
+### *Create new child page shortcut* (in dropdown menu of 'create') [#16](https://github.com/YU000jp/logseq-plugin-quickly-para-method/issues/16)
+
+  ![newChildPage](https://github.com/YU000jp/logseq-plugin-quickly-para-method/assets/111847207/6c31e0be-cae1-45c1-85c5-93e61b118735)
+
+
 ## Document
 
 > Check out [Document](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document)
@@ -81,6 +86,8 @@ Read #Archive
 - GitHub: [YU000jp](https://github.com/YU000jp)
 
 ## Prior art & Credit
+
+[sawhney17/ logseq-custom-workflow-plugin](https://github.com/sawhney17/logseq-custom-workflow-plugin)
 
 ### Icon
 
