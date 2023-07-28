@@ -30,7 +30,11 @@
 
 - Command Pallet option
     1. `select blocks to calculate` > [#39](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/39#issuecomment-1606044710)
+
+       ![SUM](https://github.com/YU000jp/logseq-plugin-some-menu-extender/assets/111847207/ee09c4a9-933d-4fea-9f5b-a655669ef67d)
+       > This is a program that performs addition between blocks containing only numbers. First, select the first block and press the Esc key, then use the Ctrl key to select each subsequent block. Please move the block with the total value to any desired location by dragging it with the mouse.
     1. `Rotate the task workflow state` > [41](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/41)
+  　　　![rotateTask](https://github.com/YU000jp/logseq-plugin-some-menu-extender/assets/111847207/628e8f51-01a2-4f98-8d11-84a1b73333ad)
 
 ### *Create new child page shortcut* (in dropdown menu of 'create') [#16](https://github.com/YU000jp/logseq-plugin-quickly-para-method/issues/16)
 
