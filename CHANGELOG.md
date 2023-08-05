@@ -1,3 +1,10 @@
+## [0.10.1](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.10.0...v0.10.1) (2023-08-05)
+
+
+### Bug Fixes
+
+* **remove:** split to `Blank line` plugin ([bcb3fee](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/bcb3fee48ba4324168757cca35459f81ce375778))
+
 # [0.10.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.9.1...v0.10.0) (2023-07-27)
 
 
