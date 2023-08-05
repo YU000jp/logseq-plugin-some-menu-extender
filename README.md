@@ -18,6 +18,7 @@
 - 🔗[Confirmation Hyperlink (Pastes URL)](https://github.com/YU000jp/logseq-plugin-confirmation-hyperlink)
 - 💪[Confirmation DONE task](https://github.com/YU000jp/logseq-plugin-confirmation-done-task)
 - ⚓[Quickly PARA method](https://github.com/YU000jp/logseq-plugin-quickly-para-method)
+- 🔘[Blank line plugin](https://github.com/YU000jp/logseq-plugin-blank-line)
 
 ## Table of Features
 
@@ -26,7 +27,7 @@
         1. `repeat-task as LATER`
     1. For Outlines
         1. `Copy block reference and embed`
-        1. `Make to next line blank`
+        1. ~~`Make to next line blank`~~ split to [Blank line plugin](https://github.com/YU000jp/logseq-plugin-blank-line)
 
 - Command Pallet option
     1. `select blocks to calculate` > [#39](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/39#issuecomment-1606044710)
@@ -39,7 +40,6 @@
 ### *Create new child page shortcut* (in dropdown menu of 'create') [#16](https://github.com/YU000jp/logseq-plugin-quickly-para-method/issues/16)
 
   ![newChildPage](https://github.com/YU000jp/logseq-plugin-quickly-para-method/assets/111847207/6c31e0be-cae1-45c1-85c5-93e61b118735)
-
 
 ## Document
 

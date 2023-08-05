@@ -1,6 +1,7 @@
 import '@logseq/libs'; //https://plugins-doc.logseq.com/
-import { BlockEntity, LSPluginBaseInfo, PageEntity, SettingSchemaDesc } from "@logseq/libs/dist/LSPlugin.user";
+import { BlockEntity, PageEntity, } from "@logseq/libs/dist/LSPlugin.user";
 import { evalExpression } from '@hkh12/node-calc'; //https://github.com/heokhe/node-calc
+import { settingsTemplate } from './settings';
 
 const main = () => {
   logseq.useSettingsSchema(settingsTemplate);
@@ -41,14 +42,6 @@ const main = () => {
     logseq.UI.showMsg("Copied to clipboard\n(block reference and embed)", "info");
   });
 
-  /* ContextMenuItem `Make to next line blank`  */
-  logseq.Editor.registerBlockContextMenuItem('Make to next line blank', async ({ uuid }) => {
-    const array = logseq.settings?.nextLineBlank || "1";
-    for (let i = 0; i < parseInt(array); i++) {
-      logseq.Editor.insertBlock(uuid, "", { focus: true, sibling: true });
-    }
-    logseq.UI.showMsg("Done! (Make to next line blank)", "info");
-  });
 
 
   //Prior art: https://github.com/hiway/logseq-calculator-plugin
@@ -288,119 +281,5 @@ async function calculator(uuid) {
   }
 }
 
-
-const removeProvideStyle = (className: string) => {
-  const doc = parent.document.head.querySelector(`style[data-injected-style^="${className}"]`) as HTMLStyleElement;
-  if (doc) doc.remove();
-};
-
-// const removeCSSclass = (className: string) => {
-//   if (parent.document.body.classList?.contains(className)) parent.document.body.classList.remove(className);
-// }
-
-
-//https://logseq.github.io/plugins/types/SettingSchemaDesc.html
-const settingsTemplate: SettingSchemaDesc[] = [
-  {
-    key: "nextLineBlank",
-    title: "ContextMenuItem `Make to next line blank` option",
-    type: "enum",
-    default: "3",
-    enumChoices: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
-    description: "Number of blank lines after the selected block",
-  },
-  {
-    key: "heading",
-    title: "",
-    type: "heading",
-    default: "",
-    description: "",
-  },
-  {
-    key: "heading",
-    title: "Set child block on the DOING task",
-    type: "heading",
-    default: "",
-    description: "If the DOING block contains like `#tag` in the first line, use the next lines in the DOING block to insert some child blocks by user plugin settings.",
-  },
-  {
-    key: "shortcutKey",
-    title: "Rotate the task workflow state: Shortcut key",
-    type: "string",
-    default: "Ctrl+Shift+Enter",
-    description: "default: `Ctrl+Shift+Enter`",
-  },
-  {//task workflow state
-    key: "taskWorkflowState",
-    title: "Task workflow state",
-    type: "string",
-    default: "TODO,DOING,WAITING,CANCELED,DONE",
-    description: "Separate with `,`. Only strings for Logseq built in task markers are valid. (`NOW`|`LATER`|`TODO`|`DOING`|`DONE`|`WAITING`|`WAIT`|`CANCELED`|`CANCELLED`|`IN-PROGRESS`)",//Logseqで許可されたタスク用の文字列のみ有効
-  },
-  {
-    key: "heading",
-    title: "",
-    type: "heading",
-    default: "",
-    description: `
-    Example*:
-    #book
-    TODO Reading %next week
-    TODO Review %next 2weeks
-    Read #Archive
-
-    *Such as \`%next week\` require datenlp plugin.
-    `,
-  },
-  {//Set child block on the DOING task 「,」区切りで指定する
-    //https://github.com/sawhney17/logseq-custom-workflow-plugin/issues/4
-    key: "DOINGchildrenSet01",
-    title: "Set child block on the DOING task: 01",
-    type: "string",
-    default: "",
-    inputAs: "textarea",
-    description: "(default: blank) Separate with a newline.",
-  },
-  {
-    key: "DOINGchildrenSet02",
-    title: "Set child block on the DOING task: 02",
-    type: "string",
-    default: "",
-    inputAs: "textarea",
-    description: "(default: blank) Separate with a newline.",
-  },
-  {
-    key: "DOINGchildrenSet03",
-    title: "Set child block on the DOING task: 03",
-    type: "string",
-    default: "",
-    inputAs: "textarea",
-    description: "(default: blank) Separate with a newline.",
-  },
-  {
-    key: "DOINGchildrenSet04",
-    title: "Set child block on the DOING task: 04",
-    type: "string",
-    default: "",
-    inputAs: "textarea",
-    description: "(default: blank) Separate with a newline.",
-  },
-  {
-    key: "DOINGchildrenSet05",
-    title: "Set child block on the DOING task: 05",
-    type: "string",
-    default: "",
-    inputAs: "textarea",
-    description: "(default: blank) Separate with a newline.",
-  },
-  {
-    key: "DOINGchildrenSet06",
-    title: "Set child block on the DOING task: 06",
-    type: "string",
-    default: "",
-    inputAs: "textarea",
-    description: "(default: blank) Separate with a newline.",
-  },
-];
 
 logseq.ready(main).catch(console.error);
