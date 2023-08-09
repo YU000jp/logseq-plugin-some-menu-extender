@@ -1,10 +1,6 @@
-# Logseq Plugin: *Innovation Lab* 🌱
-
-> Rename from `SomeMenuExtender` at 2023/06/10
+# Logseq Plugin: ~~SomeMenuExtender~~ *Innovation Lab* 🌱
 
 - Provides several features that are currently in the development stage.
-
-> This plugin still has room for improvement. Please let me know if you encounter any issues or have any ideas for enhancement.
 
 [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-some-menu-extender)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/releases)
 [![License](https://img.shields.io/github/license/YU000jp/logseq-plugin-some-menu-extender?color=blue)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/blob/main/LICENSE)
@@ -13,32 +9,35 @@
 
 ---
 
-> ⚠️Split to some plugin at 2023/06/10
+> ⚠️Split to some plugin
 
 - 🔗[Confirmation Hyperlink (Pastes URL)](https://github.com/YU000jp/logseq-plugin-confirmation-hyperlink)
 - 💪[Confirmation DONE task](https://github.com/YU000jp/logseq-plugin-confirmation-done-task)
 - ⚓[Quickly PARA method](https://github.com/YU000jp/logseq-plugin-quickly-para-method)
-- 🔘[Blank line plugin](https://github.com/YU000jp/logseq-plugin-blank-line)
+- 🔘[Blank line plugin](https://github.com/YU000jp/logseq-plugin-blank-line) 🆕
 
-## Table of Features
+## Features
 
-- Slash command item
-  - Slash command `Current page title as a link`
+> This plugin still has room for improvement. Please let me know if you encounter any issues or have any ideas for enhancement.
+ 
+### Slash command `Current page title as a link` [#46](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/46) 🆕
 
-- Block (bullet) context menu item
-  1. For repeat-task
-     - `repeat-task as LATER`
-  1. For Outlines
-     1. `Copy block reference and embed`
-     1. ~~`Make to next line blank`~~ split to [Blank line plugin](https://github.com/YU000jp/logseq-plugin-blank-line)
+### Block (bullet) context menu item `repeat-task as LATER`
 
-- Command Pallet option
-   1. `select blocks to calculate` > [#39](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/39#issuecomment-1606044710)
+- For repeat-task
+ 
+### `Copy block reference and embed`
 
-       ![SUM](https://github.com/YU000jp/logseq-plugin-some-menu-extender/assets/111847207/ee09c4a9-933d-4fea-9f5b-a655669ef67d)
-       > This is a program that performs addition between blocks containing only numbers. First, select the first block and press the Esc key, then use the Ctrl key to select each subsequent block. Please move the block with the total value to any desired location by dragging it with the mouse.
-   1. `Rotate the task workflow state` > [41](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/41)
-  　　　![rotateTask](https://github.com/YU000jp/logseq-plugin-some-menu-extender/assets/111847207/628e8f51-01a2-4f98-8d11-84a1b73333ad)
+- For Outlines
+
+### Command Pallet menu item `select blocks to calculate` > [#39](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/39#issuecomment-1606044710)
+
+  ![SUM](https://github.com/YU000jp/logseq-plugin-some-menu-extender/assets/111847207/ee09c4a9-933d-4fea-9f5b-a655669ef67d)
+  > This is a program that performs addition between blocks containing only numbers. First, select the first block and press the Esc key, then use the Ctrl key to select each subsequent block. Please move the block with the total value to any desired location by dragging it with the mouse.
+
+### `Rotate the task workflow state` > [41](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/41)
+
+  ![rotateTask](https://github.com/YU000jp/logseq-plugin-some-menu-extender/assets/111847207/628e8f51-01a2-4f98-8d11-84a1b73333ad)
 
 ### *Create new child page shortcut* (in dropdown menu of 'create') [#16](https://github.com/YU000jp/logseq-plugin-quickly-para-method/issues/16)
 
