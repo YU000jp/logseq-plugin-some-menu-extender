@@ -20,7 +20,6 @@
         "prod": "npm run clean && vite build"
     },
     "dependencies": {
-        "@hkh12/node-calc": "^4.2.1",
         "@logseq/libs": "^0.0.14"
     },
     "devDependencies": {
