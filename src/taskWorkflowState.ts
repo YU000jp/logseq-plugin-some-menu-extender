@@ -31,6 +31,14 @@ async function processBlockSet(uuid: string, blockSet: string[]): Promise<void> 
 
 
 export function loadTaskWorkflowState() {
+
+  logseq.provideStyle(String.raw`
+    div#root main div[data-id="${logseq.baseInfo.id}"] textarea.form-input {
+      height: 12em;
+      font-size: unset;
+    }
+  `);
+  
   let processing: Boolean = false;
   //コマンドパレット `Rotate the Task Workflow State`
   logseq.App.registerCommandPalette({

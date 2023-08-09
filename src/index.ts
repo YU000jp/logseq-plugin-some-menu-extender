@@ -1,26 +1,17 @@
 import '@logseq/libs'; //https://plugins-doc.logseq.com/
 import { settingsTemplate } from './settings';
-import { repeatTask as loadRepeatTask } from './repeatTask';
-import { referenceEmbed as loadReferenceEmbed } from './referenceEmbed';
+import { loadRepeatTask } from './repeatTask';
+import { loadReferenceEmbed } from './referenceEmbed';
 import { loadCalculator } from './calculator';
-import { newChildPageButton } from './newChildPageButton';
+import { loadNewChildPageButton } from './newChildPageButton';
 import { loadTaskWorkflowState } from './taskWorkflowState';
+import { loadCurrentPageTitle } from './currentPageTitle';
+
+
 
 const main = () => {
-  logseq.useSettingsSchema(settingsTemplate);
+logseq.useSettingsSchema(settingsTemplate);
 
-  //for repeat task
-  logseq.provideStyle(String.raw`
-  div#main-content-container input.form-checkbox{transform:scale(1.1)}
-  div#main-content-container input.form-checkbox+div input.form-checkbox{transform:scale(0.6);pointer-events:none}
-  div#main-content-container div:not(.page-blocks-inner) input.form-checkbox+a+div input.form-checkbox{transform:scale(0.9)}
-  div#main-content-container input.form-checkbox+div input.form-checkbox+a,div#main-content-container div:not(.page-blocks-inner) input.form-checkbox+a+div input.form-checkbox+a{text-decoration:line-through;font-size:small;pointer-events:none}
-  div#main-content-container input.form-checkbox+div a{font-size:medium}
-  div#root main div[data-id="${logseq.baseInfo.id}"] textarea.form-input {
-    height: 12em;
-    font-size: unset;
-  }
-`);
 
   /* ContextMenuItem `repeat-task as LATER`  */
   loadRepeatTask();
@@ -28,24 +19,26 @@ const main = () => {
   /* ContextMenuItem `Copy block reference and embed`  */
   loadReferenceEmbed();
 
+    //コマンドパレット `select blocks to calculate`
+  //選択したブロックの数値を合計して、最後のブロックに追記する
+  //バレッドのコンテキストメニューではブロックの複数選択ができないため
   loadCalculator();
-
-  // logseq.onSettingsChanged((newSet: LSPluginBaseInfo['settings'], oldSet: LSPluginBaseInfo['settings']) => {
-
-  // });
-
 
   //Rotate the task workflow state
   //タスクのワークフロー状態を切り替える
   loadTaskWorkflowState();
 
+  //Slash command `Insert current page title as a link`
+  //現在のページタイトルをリンクとして挿入する
+  loadCurrentPageTitle();
 
   //新規作成ドロップダウンメニューにボタンを追加
-  setTimeout(() => newChildPageButton(), 600);
+  setTimeout(() => loadNewChildPageButton(), 600);
 
 
+ // logseq.onSettingsChanged((newSet: LSPluginBaseInfo['settings'], oldSet: LSPluginBaseInfo['settings']) => {
+
+  // });
 };/* end_main */
-
-
 
 logseq.ready(main).catch(console.error);

@@ -1,5 +1,5 @@
 
-export function referenceEmbed() {
+export function loadReferenceEmbed() {
   logseq.Editor.registerBlockContextMenuItem('Copy block reference and embed', async ({ uuid }) => {
     const block = await logseq.Editor.getBlock(uuid);
     // necessary to have the window focused in order to copy the content of the code block to the clipboard

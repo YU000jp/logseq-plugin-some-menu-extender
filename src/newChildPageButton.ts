@@ -1,7 +1,7 @@
 import { PageEntity } from "@logseq/libs/dist/LSPlugin.user";
 
 
-export const newChildPageButton = () => {
+export const loadNewChildPageButton = () => {
   //create-button エレメントはホワイトボード機能を有効にしている場合のみ
   const createButtonElement = parent.document.getElementById("create-button") as HTMLButtonElement | null;
   if (createButtonElement) {
