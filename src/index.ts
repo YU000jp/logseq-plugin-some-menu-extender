@@ -1,7 +1,10 @@
 import '@logseq/libs'; //https://plugins-doc.logseq.com/
-import { BlockEntity, PageEntity, } from "@logseq/libs/dist/LSPlugin.user";
-import { evalExpression } from '@hkh12/node-calc'; //https://github.com/heokhe/node-calc
 import { settingsTemplate } from './settings';
+import { repeatTask as loadRepeatTask } from './repeatTask';
+import { referenceEmbed as loadReferenceEmbed } from './referenceEmbed';
+import { loadCalculator } from './calculator';
+import { newChildPageButton } from './newChildPageButton';
+import { loadTaskWorkflowState } from './taskWorkflowState';
 
 const main = () => {
   logseq.useSettingsSchema(settingsTemplate);
@@ -20,266 +23,29 @@ const main = () => {
 `);
 
   /* ContextMenuItem `repeat-task as LATER`  */
-  logseq.Editor.registerBlockContextMenuItem('repeat-task as LATER', async ({ uuid }) => {
-    const block = await logseq.Editor.getBlock(uuid);
-    if (block?.marker == "LATER") {
-      logseq.UI.showMsg('This block is LATER', 'error');
-    } else {
-      await logseq.Editor.insertBlock(uuid, `LATER 🔁 ((` + uuid + `))`).then((block: any) => {
-        logseq.App.openInRightSidebar(block.uuid);
-        logseq.UI.showMsg("Mouse drag a bullet of the block to move it to the journal.", 'info');
-      });
-    }
-  });
+  loadRepeatTask();
 
   /* ContextMenuItem `Copy block reference and embed`  */
-  logseq.Editor.registerBlockContextMenuItem('Copy block reference and embed', async ({ uuid }) => {
-    const block = await logseq.Editor.getBlock(uuid);
-    // necessary to have the window focused in order to copy the content of the code block to the clipboard
-    //https://github.com/vyleung/logseq-copy-code-plugin/blob/main/src/index.js#L219
-    window.focus();
-    navigator.clipboard.writeText(`{{embed ((${uuid}))}}\nfrom ((${uuid}))`);
-    logseq.UI.showMsg("Copied to clipboard\n(block reference and embed)", "info");
-  });
+  loadReferenceEmbed();
 
-
-
-  //Prior art: https://github.com/hiway/logseq-calculator-plugin
-  logseq.Editor.registerBlockContextMenuItem("Block Calculator", async ({ uuid }) => {
-    calculator(uuid);
-  });
-  logseq.Editor.registerSlashCommand("Block Calculator", async ({ uuid }) => {
-    calculator(uuid);
-  });
-
-
-  //コマンドパレット `select blocks to calculate`
-  //選択したブロックの数値を合計して、最後のブロックに追記する
-  //バレッドのコンテキストメニューではブロックの複数選択ができないため
-  logseq.App.registerCommandPalette({
-    key: 'some-menu-extender-select-blocks-for-calculate',
-    label: 'Select blocks to SUM (calculate)',
-  }, async (event) => {
-    const blocks = await logseq.Editor.getSelectedBlocks() as BlockEntity[];
-    if (blocks) {
-      const amounts: { [key: string]: number } = {};
-      await Promise.all(blocks.map(async (block) => {
-        const match = block.content.match(/(\$|€)?([0-9,]+)(元|円|¥|\\￥)?/);
-        if (match) {
-          const amount = Number(match[2].replace(/,/g, ''));
-          const currency = match[1] || match[3] || '';
-          if (currency in amounts) {
-            amounts[currency] += amount;
-          } else {
-            amounts[currency] = amount;
-          }
-        }
-      }));
-      let output = '';
-      for (const currency in amounts) {
-        const amount = amounts[currency];
-        const formattedAmount = (currency === '$' || currency === '€') ? amount.toString() : amount.toLocaleString(undefined, { maximumFractionDigits: 0 });
-        if (output) {
-          output += ', ';
-        }
-        if (currency === '$' || currency === '€') {
-          output += currency + formattedAmount;
-        } else {
-          output += formattedAmount + currency;
-        }
-      }
-      await logseq.Editor.insertBlock(blocks[blocks.length - 1].uuid, ` = ${output}`, { sibling: true, focus: true });
-      logseq.UI.showMsg("Success", "success");
-    } else {
-      logseq.UI.showMsg("Failed", "error");
-    }
-  });
-  //end コマンドパレット `select blocks to calculate`
-
+  loadCalculator();
 
   // logseq.onSettingsChanged((newSet: LSPluginBaseInfo['settings'], oldSet: LSPluginBaseInfo['settings']) => {
-
 
   // });
 
 
   //Rotate the task workflow state
   //タスクのワークフロー状態を切り替える
-  let processing: Boolean = false;
-  //コマンドパレット `Rotate the Task Workflow State`
-  logseq.App.registerCommandPalette({
-    key: 'toggleTaskWorkflowState',
-    label: 'Rotate the task workflow state',
-    keybinding: {
-      binding: logseq.settings?.shortcutKey || 'Ctrl+Shift+Enter',
-    }
-  }, async ({ uuid }) => {
-    if (processing) return;
-    processing = true;
-    const block = await logseq.Editor.getBlock(uuid) as BlockEntity;
-    if (!block) return processing = false;
-    if (logseq.settings!.taskWorkflowState === "") return processing = false;
-    const states: string[] = (logseq.settings!.taskWorkflowState.replace(/\s+/g, "")).split(",");
-    const index: number = states.indexOf(block.marker);
-    if (index === -1) {//ユーザー指定のタスクに一致しない場合
-      if (!block.marker) {//タスクに一致しない場合
-        //「# 」や「## 」「### 」「#### 」「##### 」「######」で始まっていた場合は、そのマッチした部分の後ろに追加する
-        const match = block.content.match(/^(#+)\s/);
-        if (match) {
-          let content = block.content.replace(match[0], match[0] + states[0] + " ");
-          content.replace(block.marker + " ", "");
-          logseq.Editor.updateBlock(block.uuid, content);
-        } else {
-          logseq.Editor.updateBlock(block.uuid, states[0] + " " + block.content);
-        }
-      } else {
-        logseq.Editor.updateBlock(block.uuid,
-          block.content.replace(block.marker + " ", states[0] + " "));
-      }
+  loadTaskWorkflowState();
 
-    } else {
-      let content = "";
-      let DOING: boolean = false;
-      switch (states[index + 1]) {
-        case undefined:
-          content = "";
-          break;
-        case "DOING":
-          DOING = true;
-        default:
-          content = states[index + 1] + " ";
-          break;
-      }
-      logseq.Editor.updateBlock(block.uuid,
-        block.content.replace(block.marker + " ", content));
-      if (DOING === true) {
-        if (DOINGchildrenSet(block.uuid, block.content, logseq.settings!.DOINGchildrenSet01) as boolean === false) {
-          if (DOINGchildrenSet(block.uuid, block.content, logseq.settings!.DOINGchildrenSet02) as boolean === false) {
-            if (DOINGchildrenSet(block.uuid, block.content, logseq.settings!.DOINGchildrenSet03) as boolean === false) {
-              if (DOINGchildrenSet(block.uuid, block.content, logseq.settings!.DOINGchildrenSet04) as boolean === false) {
-                if (DOINGchildrenSet(block.uuid, block.content, logseq.settings!.DOINGchildrenSet05) as boolean === false) {
-                  DOINGchildrenSet(block.uuid, block.content, logseq.settings!.DOINGchildrenSet06);
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    processing = false;
-  });
 
   //新規作成ドロップダウンメニューにボタンを追加
-  setTimeout(() => newChildPageButton(), 10);
+  setTimeout(() => newChildPageButton(), 600);
 
 
 };/* end_main */
 
-
-
-const newChildPageButton = () => {
-  //create-button エレメントはホワイトボード機能を有効にしている場合のみ
-  const createButtonElement = parent.document.getElementById("create-button") as HTMLButtonElement | null;
-  if (createButtonElement) {
-    //新規作成ぼたんが押されたときの処理 
-    createButtonElement.addEventListener("click", async () => {
-      const page = await logseq.Editor.getCurrentPage() as PageEntity | null;
-      if (page) {//ページ名が取得できる場合のみ
-        setTimeout(() => {
-          const menuLinkElement = parent.document.querySelector("div#left-sidebar footer button#create-button+div.dropdown-wrapper div.menu-links-wrapper") as HTMLDivElement | null;
-          if (menuLinkElement) {
-            menuLinkElement.insertAdjacentHTML("beforeend", `
-        <a id="${logseq.baseInfo.id}--createPageButton" class="flex justify-between px-4 py-2 text-sm transition ease-in-out duration-150 cursor menu-link">
-        <span class="flex-1">
-        <div class="flex items-center">
-        <div class="type-icon highlight">
-        <span class="ui__icon tie tie-new-page"></span></div><div class="title-wrap" style="margin-right: 8px; margin-left: 4px;">New child page</span></div></div></a>
-        `);
-            setTimeout(() => {
-              const buttonElement = parent.document.getElementById(`${logseq.baseInfo.id}--createPageButton`) as HTMLAnchorElement | null;
-              if (buttonElement) {
-                buttonElement.addEventListener("click", async () => {
-                  buttonElement.remove();
-                  openSearchBoxInputHierarchy(true, page.originalName);
-                });
-              }
-            }, 50);
-          }
-        }, 30);
-      }
-    });
-  } else {
-    //ホワイトボード機能をオフにしている場合
-    const newPageLinkElement = parent.document.querySelector("div#left-sidebar footer a.new-page-link") as HTMLAnchorElement | null;
-    if (newPageLinkElement) {
-      newPageLinkElement.addEventListener("click", async () => {
-        const page = await logseq.Editor.getCurrentPage() as PageEntity | null;//ページ名が取得できる場合のみ
-        if (page && confirm("Insert current page title?\nFor create new the child page")) openSearchBoxInputHierarchy(false, page.originalName);//
-      });
-    }
-  }
-};
-
-
-function openSearchBoxInputHierarchy(openSearchUI: Boolean, pageName?: string) {
-  if (openSearchUI === true) logseq.App.invokeExternalCommand("logseq.go/search");
-  setTimeout(async () => {
-    const inputElement = parent.document.querySelector('div[label="ls-modal-search"] div.input-wrap input[type="text"]') as HTMLInputElement | null;
-    if (inputElement) {
-      if (pageName) inputElement.value = pageName + "/";
-      else {
-        const page = await logseq.Editor.getCurrentPage() as PageEntity | null;
-        if (page && page.originalName) inputElement.value = page.originalName + "/";
-      }
-    }
-  }, 50);
-}
-
-
-function DOINGchildrenSet(uuid: string, content: string, DOINGchildrenSet: string): Boolean {
-  if (DOINGchildrenSet !== "") {
-    const blockSet: string[] = DOINGchildrenSet.split("\n");
-    //blockSetの2つ目以降を使って処理する
-    //Support date-nlp plugin
-    if (content.includes(blockSet[0])) {
-      processBlockSet(uuid, blockSet);
-      return true;
-    }
-  }
-  return false;
-}
-
-async function processBlockSet(uuid: string, blockSet: string[]): Promise<void> {
-  for (let index = 1; index < blockSet.length; index++) {
-    const child = blockSet[index];
-    await new Promise<void>((resolve) => {
-      logseq.Editor.insertBlock(uuid, child, { before: false, sibling: false, focus: true });
-      setTimeout(() => {
-        logseq.Editor.exitEditingMode();
-        resolve();
-      }, 200);
-    });
-    await new Promise<void>((resolve) => setTimeout(resolve, 100));
-  }
-}
-
-
-//calculator
-async function calculator(uuid) {
-  let Success: boolean = false;
-  const text = await logseq.Editor.getBlock(uuid, { includeChildren: false });
-  if (text) {
-    const result = await evalExpression(text.content);
-    if (result) {
-      await logseq.Editor.insertBlock(uuid, ` = ${result}`, { sibling: false, focus: true });
-      Success = true;
-      logseq.UI.showMsg("Success", "success");
-    }
-  }
-  if (Success === false) {
-    logseq.UI.showMsg("Failed", "error");
-  }
-}
 
 
 logseq.ready(main).catch(console.error);
