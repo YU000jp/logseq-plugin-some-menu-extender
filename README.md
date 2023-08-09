@@ -27,17 +27,17 @@
 
 - Block (bullet) context menu item
   1. For repeat-task
-    - `repeat-task as LATER`
+     - `repeat-task as LATER`
   1. For Outlines
-        1. `Copy block reference and embed`
-        1. ~~`Make to next line blank`~~ split to [Blank line plugin](https://github.com/YU000jp/logseq-plugin-blank-line)
+     1. `Copy block reference and embed`
+     1. ~~`Make to next line blank`~~ split to [Blank line plugin](https://github.com/YU000jp/logseq-plugin-blank-line)
 
 - Command Pallet option
-    1. `select blocks to calculate` > [#39](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/39#issuecomment-1606044710)
+   1. `select blocks to calculate` > [#39](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/39#issuecomment-1606044710)
 
        ![SUM](https://github.com/YU000jp/logseq-plugin-some-menu-extender/assets/111847207/ee09c4a9-933d-4fea-9f5b-a655669ef67d)
        > This is a program that performs addition between blocks containing only numbers. First, select the first block and press the Esc key, then use the Ctrl key to select each subsequent block. Please move the block with the total value to any desired location by dragging it with the mouse.
-    1. `Rotate the task workflow state` > [41](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/41)
+   1. `Rotate the task workflow state` > [41](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/41)
   　　　![rotateTask](https://github.com/YU000jp/logseq-plugin-some-menu-extender/assets/111847207/628e8f51-01a2-4f98-8d11-84a1b73333ad)
 
 ### *Create new child page shortcut* (in dropdown menu of 'create') [#16](https://github.com/YU000jp/logseq-plugin-quickly-para-method/issues/16)
@@ -82,9 +82,8 @@ TODO Reading %next week
 TODO Review %next 2weeks
 Read #Archive
 ```
+
 > *Such as `%next week` require [datenlp plugin](https://github.com/hkgnp/logseq-datenlp-plugin).
-
-
 
 ---
 
