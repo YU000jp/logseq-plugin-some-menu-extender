@@ -1,3 +1,10 @@
+# [0.11.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.10.1...v0.11.0) (2023-08-09)
+
+
+### Features
+
+* **Add:** Slash command `Current page title as a link` ([#47](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/47)) ([8b49659](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/8b496594a5b3d4227636e705c027d68cd885f2d2))
+
 ## [0.10.1](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.10.0...v0.10.1) (2023-08-05)
 
 
