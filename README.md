@@ -22,10 +22,13 @@
 
 ## Table of Features
 
-- Block Context menu option
-    1. For repeat-task
-        1. `repeat-task as LATER`
-    1. For Outlines
+- Slash command item
+  - Slash command Current page title as a link
+
+- Block (bullet) context menu item
+  1. For repeat-task
+    - `repeat-task as LATER`
+  1. For Outlines
         1. `Copy block reference and embed`
         1. ~~`Make to next line blank`~~ split to [Blank line plugin](https://github.com/YU000jp/logseq-plugin-blank-line)
 
