@@ -23,7 +23,7 @@
 ## Table of Features
 
 - Slash command item
-  - Slash command `0Current page title as a link`
+  - Slash command `Current page title as a link`
 
 - Block (bullet) context menu item
   1. For repeat-task
