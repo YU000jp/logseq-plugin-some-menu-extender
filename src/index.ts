@@ -6,11 +6,12 @@ import { loadCalculator } from './calculator';
 import { loadNewChildPageButton } from './newChildPageButton';
 import { loadTaskWorkflowState } from './taskWorkflowState';
 import { loadCurrentPageTitle } from './currentPageTitle';
+import { loadPageInfo } from './pageInfo';
 
 
 
 const main = () => {
-logseq.useSettingsSchema(settingsTemplate);
+  logseq.useSettingsSchema(settingsTemplate);
 
 
   /* ContextMenuItem `repeat-task as LATER`  */
@@ -19,7 +20,7 @@ logseq.useSettingsSchema(settingsTemplate);
   /* ContextMenuItem `Copy block reference and embed`  */
   loadReferenceEmbed();
 
-    //コマンドパレット `select blocks to calculate`
+  //コマンドパレット `select blocks to calculate`
   //選択したブロックの数値を合計して、最後のブロックに追記する
   //バレッドのコンテキストメニューではブロックの複数選択ができないため
   loadCalculator();
@@ -32,13 +33,17 @@ logseq.useSettingsSchema(settingsTemplate);
   //現在のページタイトルをリンクとして挿入する
   loadCurrentPageTitle();
 
+  //ページ情報を表示する
+  loadPageInfo();
+
   //新規作成ドロップダウンメニューにボタンを追加
   setTimeout(() => loadNewChildPageButton(), 600);
 
 
- // logseq.onSettingsChanged((newSet: LSPluginBaseInfo['settings'], oldSet: LSPluginBaseInfo['settings']) => {
+  // logseq.onSettingsChanged((newSet: LSPluginBaseInfo['settings'], oldSet: LSPluginBaseInfo['settings']) => {
 
   // });
 };/* end_main */
+
 
 logseq.ready(main).catch(console.error);
