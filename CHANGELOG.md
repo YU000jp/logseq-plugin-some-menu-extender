@@ -1,3 +1,10 @@
+# [0.12.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.11.0...v0.12.0) (2023-08-10)
+
+
+### Features
+
+* **Add:** Page Info button (page bar) ([9c3920f](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/9c3920f3deda4d9e78daec147a7fac9abdd178a4))
+
 # [0.11.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.10.1...v0.11.0) (2023-08-09)
 
 
