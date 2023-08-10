@@ -1,4 +1,4 @@
-# Logseq Plugin: ~~SomeMenuExtender~~ *Innovation Lab* 🌱
+![image](https://github.com/YU000jp/logseq-plugin-some-menu-extender/assets/111847207/a66b711b-36dd-4204-a96b-62754f9be256)# Logseq Plugin: ~~SomeMenuExtender~~ *Innovation Lab* 🌱
 
 - Provides several features that are currently in the development stage.
 
@@ -42,6 +42,10 @@
 ### *Create new child page shortcut* (in dropdown menu of 'create') [#16](https://github.com/YU000jp/logseq-plugin-quickly-para-method/issues/16)
 
   ![newChildPage](https://github.com/YU000jp/logseq-plugin-quickly-para-method/assets/111847207/6c31e0be-cae1-45c1-85c5-93e61b118735)
+
+### Page Info
+
+![image](https://github.com/YU000jp/logseq-plugin-some-menu-extender/assets/111847207/373990ba-ef3d-46aa-9b47-0b8b6ee29261)
 
 ## Document
 
