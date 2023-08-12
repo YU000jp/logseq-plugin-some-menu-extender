@@ -1,4 +1,4 @@
-import { PageEntity } from '@logseq/libs/dist/LSPlugin';
+import { PageEntity } from "@logseq/libs/dist/LSPlugin";
 
 export function loadPageInfo() {
   logseq.App.registerUIItem("pagebar", {
@@ -9,13 +9,15 @@ export function loadPageInfo() {
   });
   logseq.provideModel({
     modelPageInfo: async () => {
-      const currentPage = await logseq.Editor.getCurrentPage() as PageEntity | null;
+      const currentPage =
+        (await logseq.Editor.getCurrentPage()) as PageEntity | null;
       if (currentPage != null) {
         const updatedAt = new Date(currentPage.updatedAt as number);
         const updatedAtStr = updatedAt.toLocaleString();
         const createdAt = new Date(currentPage.createdAt as number);
         const createdAtStr = createdAt.toLocaleString();
-        logseq.UI.showMsg(`--- Page info ---
+        logseq.UI.showMsg(
+          `--- Page info ---
 
         format:
         ${currentPage.format}
@@ -28,8 +30,11 @@ export function loadPageInfo() {
         ${createdAt}
         ${createdAtStr}
 
-        `, "info", { timeout: 1000 * 60 });
-      }else logseq.UI.showMsg("Not found", "error", { timeout: 1200 });
+        `,
+          "info",
+          { timeout: 1000 * 60 }
+        );
+      } else logseq.UI.showMsg("Not found", "error", { timeout: 1200 });
     },
   });
 }

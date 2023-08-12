@@ -1,6 +1,5 @@
 import { SettingSchemaDesc } from "@logseq/libs/dist/LSPlugin.user";
 
-
 //https://logseq.github.io/plugins/types/SettingSchemaDesc.html
 export const settingsTemplate: SettingSchemaDesc[] = [
   {
@@ -8,7 +7,8 @@ export const settingsTemplate: SettingSchemaDesc[] = [
     title: "Set child block on the DOING task",
     type: "heading",
     default: "",
-    description: "If the DOING block contains like `#tag` in the first line, use the next lines in the DOING block to insert some child blocks by user plugin settings.",
+    description:
+      "If the DOING block contains like `#tag` in the first line, use the next lines in the DOING block to insert some child blocks by user plugin settings.",
   },
   {
     key: "shortcutKey",
@@ -22,7 +22,8 @@ export const settingsTemplate: SettingSchemaDesc[] = [
     title: "Task workflow state",
     type: "string",
     default: "TODO,DOING,WAITING,CANCELED,DONE",
-    description: "Separate with `,`. Only strings for Logseq built in task markers are valid. (`NOW`|`LATER`|`TODO`|`DOING`|`DONE`|`WAITING`|`WAIT`|`CANCELED`|`CANCELLED`|`IN-PROGRESS`)", //Logseqで許可されたタスク用の文字列のみ有効
+    description:
+      "Separate with `,`. Only strings for Logseq built in task markers are valid. (`NOW`|`LATER`|`TODO`|`DOING`|`DONE`|`WAITING`|`WAIT`|`CANCELED`|`CANCELLED`|`IN-PROGRESS`)", //Logseqで許可されたタスク用の文字列のみ有効
   },
   {
     key: "heading",

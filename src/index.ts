@@ -1,18 +1,15 @@
-import '@logseq/libs'; //https://plugins-doc.logseq.com/
-import { settingsTemplate } from './settings';
-import { loadRepeatTask } from './repeatTask';
-import { loadReferenceEmbed } from './referenceEmbed';
-import { loadCalculator } from './calculator';
-import { loadNewChildPageButton } from './newChildPageButton';
-import { loadTaskWorkflowState } from './taskWorkflowState';
-import { loadCurrentPageTitle } from './currentPageTitle';
-import { loadPageInfo } from './pageInfo';
-
-
+import "@logseq/libs"; //https://plugins-doc.logseq.com/
+import { settingsTemplate } from "./settings";
+import { loadRepeatTask } from "./repeatTask";
+import { loadReferenceEmbed } from "./referenceEmbed";
+import { loadCalculator } from "./calculator";
+import { loadNewChildPageButton } from "./newChildPageButton";
+import { loadTaskWorkflowState } from "./taskWorkflowState";
+import { loadCurrentPageTitle } from "./currentPageTitle";
+import { loadPageInfo } from "./pageInfo";
 
 const main = () => {
   logseq.useSettingsSchema(settingsTemplate);
-
 
   /* ContextMenuItem `repeat-task as LATER`  */
   loadRepeatTask();
@@ -39,11 +36,9 @@ const main = () => {
   //新規作成ドロップダウンメニューにボタンを追加
   setTimeout(() => loadNewChildPageButton(), 600);
 
-
   // logseq.onSettingsChanged((newSet: LSPluginBaseInfo['settings'], oldSet: LSPluginBaseInfo['settings']) => {
 
   // });
-};/* end_main */
-
+}; /* end_main */
 
 logseq.ready(main).catch(console.error);
