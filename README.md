@@ -22,6 +22,8 @@
  
 ### Slash command item  `Current page title as a link` [#46](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/46) 🆕
 
+- To current block
+
 ### Block (bullet) context menu item `repeat-task as LATER`
 
 - For repeat-task
