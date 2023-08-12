@@ -1,3 +1,10 @@
+# [0.13.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.12.0...v0.13.0) (2023-08-12)
+
+
+### Features
+
+* **Add:** `📋 Copy page title as a link` to page menu ([ea256a6](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/ea256a6fb2b66f92ab2ed66581d24e10cfd844db))
+
 # [0.12.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.11.0...v0.12.0) (2023-08-10)
 
 
