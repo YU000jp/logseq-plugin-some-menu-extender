@@ -30,7 +30,7 @@
 
 - For Outlines
 
-### Page (title) menu item `📋 Copy page title as a link` 🆕
+### Page (title) menu item `📋 Copy page title as a link` [#49](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/49) 🆕
 
 - To clipboard
 
