@@ -7,6 +7,7 @@ import { loadNewChildPageButton } from "./newChildPageButton";
 import { loadTaskWorkflowState } from "./taskWorkflowState";
 import { loadCurrentPageTitle } from "./currentPageTitle";
 import { loadPageInfo } from "./pageInfo";
+import { loadCopyPageTitle } from "./CopyPageTitle";
 
 const main = () => {
   logseq.useSettingsSchema(settingsTemplate);
@@ -35,6 +36,9 @@ const main = () => {
 
   //新規作成ドロップダウンメニューにボタンを追加
   setTimeout(() => loadNewChildPageButton(), 600);
+
+  //ページタイトルをリンクとしてコピーする
+  loadCopyPageTitle();
 
   // logseq.onSettingsChanged((newSet: LSPluginBaseInfo['settings'], oldSet: LSPluginBaseInfo['settings']) => {
 

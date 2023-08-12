@@ -20,15 +20,19 @@
 
 > This plugin still has room for improvement. Please let me know if you encounter any issues or have any ideas for enhancement.
  
-### Slash command `Current page title as a link` [#46](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/46) 🆕
+### Slash command item  `Current page title as a link` [#46](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/46) 🆕
 
 ### Block (bullet) context menu item `repeat-task as LATER`
 
 - For repeat-task
  
-### `Copy block reference and embed`
+### Block (bullet) context menu item `Copy block reference and embed`
 
 - For Outlines
+
+### Page (title) menu item `📋 Copy page title as a link` 🆕
+
+- To clipboard
 
 ### Command Pallet menu item `select blocks to calculate` > [#39](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/39#issuecomment-1606044710)
 
@@ -39,11 +43,11 @@
 
   ![rotateTask](https://github.com/YU000jp/logseq-plugin-some-menu-extender/assets/111847207/628e8f51-01a2-4f98-8d11-84a1b73333ad)
 
-### *Create new child page shortcut* (in dropdown menu of 'create') [#16](https://github.com/YU000jp/logseq-plugin-quickly-para-method/issues/16)
+### *Create new child page shortcut* (in dropdown menu of 'create') [#16](https://github.com/YU000jp/logseq-plugin-quickly-para-method/issues/16) 🆕
 
   ![newChildPage](https://github.com/YU000jp/logseq-plugin-quickly-para-method/assets/111847207/6c31e0be-cae1-45c1-85c5-93e61b118735)
 
-### Page Info
+### Page Info 🆕
 
 ![image](https://github.com/YU000jp/logseq-plugin-some-menu-extender/assets/111847207/373990ba-ef3d-46aa-9b47-0b8b6ee29261)
 
