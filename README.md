@@ -19,44 +19,8 @@
 ## Features
 
 > This plugin still has room for improvement. Please let me know if you encounter any issues or have any ideas for enhancement.
- 
-### Slash command item  `Current page title as a link` [#46](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/46) 🆕
 
-- To current block
-
-### Block (bullet) context menu item `repeat-task as LATER`
-
-- For repeat-task
- 
-### Block (bullet) context menu item `Copy block reference and embed`
-
-- For Outlines
-
-### Page (title) menu item `📋 Copy page title as a link` [#49](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/49) 🆕
-
-- To clipboard
-
-### Command Pallet menu item `select blocks to calculate` > [#39](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/39#issuecomment-1606044710)
-
-- This is a program that performs addition between blocks containing only numbers.
-> First, select the first block and press the Esc key, then use the Ctrl key to select each subsequent block. Please move the block with the total value to any desired location by dragging it with the mouse.
-  ![SUM](https://github.com/YU000jp/logseq-plugin-some-menu-extender/assets/111847207/ee09c4a9-933d-4fea-9f5b-a655669ef67d)
-
-### `Rotate the task workflow state` > [41](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/41)
-
-  ![rotateTask](https://github.com/YU000jp/logseq-plugin-some-menu-extender/assets/111847207/628e8f51-01a2-4f98-8d11-84a1b73333ad)
-
-### *Create new child page shortcut* (in dropdown menu of 'create') [#16](https://github.com/YU000jp/logseq-plugin-quickly-para-method/issues/16) 🆕
-
-  ![newChildPage](https://github.com/YU000jp/logseq-plugin-quickly-para-method/assets/111847207/6c31e0be-cae1-45c1-85c5-93e61b118735)
-
-### Page Info 🆕
-
-![image](https://github.com/YU000jp/logseq-plugin-some-menu-extender/assets/111847207/373990ba-ef3d-46aa-9b47-0b8b6ee29261)
-
-## Document
-
-> Check out [Document](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document)
+- Check out [Document](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document)
 
 ---
 
