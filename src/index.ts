@@ -6,9 +6,10 @@ import { loadCalculator } from "./calculator";
 import { loadNewChildPageButton } from "./newChildPageButton";
 import { loadTaskWorkflowState } from "./taskWorkflowState";
 import { loadCurrentPageTitle } from "./currentPageTitle";
-import { loadPageInfo } from "./pageInfo";
+import { loadPageInfoButton } from "./pageInfoButton";
 import { loadCopyPageTitle } from "./CopyPageTitle";
 import { mainCSS } from "./mainCSS";
+import { loadPageDateNotifier } from "./pageDateNotifier";
 
 const main = () => {
   //設定画面の読み込み
@@ -32,7 +33,7 @@ const main = () => {
 
   //Page bar item
   //ページ情報を表示する
-  if (logseq.settings!.loadPageInfo === true) loadPageInfo();
+  if (logseq.settings!.loadPageInfoButton === true) loadPageInfoButton();
 
   //In dropdown of 'create' item
   //新規作成ドロップダウンメニューにボタンを追加
@@ -51,6 +52,9 @@ const main = () => {
   //`Rotate the task workflow state`
   //タスクのワークフロー状態を切り替える
   if (logseq.settings!.loadTaskWorkflowState === true) loadTaskWorkflowState();
+
+  //Page date notifier
+  if (logseq.settings!.loadPageDateNotifier === true) loadPageDateNotifier();
 }; /* end_main */
 
 logseq.ready(main).catch(console.error);

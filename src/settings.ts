@@ -3,6 +3,40 @@ import { SettingSchemaDesc } from "@logseq/libs/dist/LSPlugin.user";
 //https://logseq.github.io/plugins/types/SettingSchemaDesc.html
 export const settingsTemplate: SettingSchemaDesc[] = [
   {
+    //loadPageDateNotifier
+    key: "headingLoadPageDateNotifier",
+    title: "Page Date Notifier",
+    type: "heading",
+    default: "",
+    description: "",
+  },
+  {
+    //loadPageDateNotifier
+    key: "loadPageDateNotifier",
+    title: "Enable",
+    type: "boolean",
+    default: "false",
+    description: "(⚠️need to restart Logseq to take effect)",
+  },
+
+  {
+    //loadPageInfo
+    key: "headingLoadPageInfoButton",
+    title: "Show the page info when click 📋 icon on the right of page title",
+    type: "heading",
+    default: "",
+    //ページタイトルの横にある📋アイコンをクリックしたときに表示されるページ情報を表示する
+    description: "",
+  },
+  {
+    //loadPageInfo
+    key: "loadPageInfoButton",
+    title: "Enable *Duplicate with the item above",
+    type: "boolean",
+    default: false,
+    description: "(⚠️need to restart Logseq to take effect)",
+  },
+  {
     //loadRepeatTask
     key: "headingLoadRepeatTask",
     title: "Context menu item `repeat-task as LATER`",
@@ -45,23 +79,6 @@ export const settingsTemplate: SettingSchemaDesc[] = [
   {
     //loadCurrentPageTitle
     key: "loadCurrentPageTitle",
-    title: "Enable",
-    type: "boolean",
-    default: true,
-    description: "(⚠️need to restart Logseq to take effect)",
-  },
-  {
-    //loadPageInfo
-    key: "headingLoadPageInfo",
-    title: "Show the page info when click 📋 icon on the right of page title",
-    type: "heading",
-    default: "",
-    //ページタイトルの横にある📋アイコンをクリックしたときに表示されるページ情報を表示する
-    description: "",
-  },
-  {
-    //loadPageInfo
-    key: "loadPageInfo",
     title: "Enable",
     type: "boolean",
     default: true,

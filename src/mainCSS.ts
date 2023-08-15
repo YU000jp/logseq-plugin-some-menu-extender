@@ -10,5 +10,8 @@ export const mainCSS = (baseId: string) => {
     height: 12em;
     font-size: unset;
   }
+  div#root main div#injected-ui-item-pageInfoBarSpace-${logseq.baseInfo.id}.injected-ui-item-pagebar {
+    order:-1;
+  }
   `);
 };
