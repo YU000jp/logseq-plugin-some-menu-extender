@@ -1,3 +1,10 @@
+# [0.14.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.13.0...v0.14.0) (2023-08-15)
+
+
+### Features
+
+* **plugin settings:** Add features toggle ([873ecf2](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/873ecf2291598b843322ecc88041e662ac8e594c))
+
 # [0.13.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.12.0...v0.13.0) (2023-08-12)
 
 
