@@ -66,10 +66,12 @@ const insertPageBar = async () => {
         "</td></tr>"
       : ""
   }${
-    createdString
-      ? "<tr title=\"⚠️After running 're-index'\"><th>created-at</th><td>" +
-        createdString +
-        "</td></tr>"
+    logseq.settings!.pageDateNotifierCreatedAt === true
+      ? createdString
+        ? "<tr title=\"⚠️After running 're-index'\"><th>created-at</th><td>" +
+          createdString +
+          "</td></tr>"
+        : ""
       : ""
   }</table>`;
   elementPageBarSpace.dataset.pageInfoCheck = "true";

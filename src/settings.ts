@@ -18,7 +18,16 @@ export const settingsTemplate: SettingSchemaDesc[] = [
     default: "false",
     description: "(⚠️need to restart Logseq to take effect)",
   },
-
+  {
+    //created-atを表示しない
+    key: "pageDateNotifierCreatedAt",
+    title: "created-at",
+    type: "boolean",
+    default: "Enable",
+    description: `Enable
+      ⚠️Performing a "re-index" in Logseq updates the dates of "created-at" for all pages, causing them to be inadvertently changed.
+      `,
+  },
   {
     //loadPageInfo
     key: "headingLoadPageInfoButton",
@@ -26,7 +35,7 @@ export const settingsTemplate: SettingSchemaDesc[] = [
     type: "heading",
     default: "",
     //ページタイトルの横にある📋アイコンをクリックしたときに表示されるページ情報を表示する
-    description: "",
+    description: "⚠️After running 're-index",
   },
   {
     //loadPageInfo

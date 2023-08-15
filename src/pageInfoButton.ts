@@ -36,8 +36,6 @@ export function loadPageInfoButton() {
         createdAt:
         ${createdAtStr}
 
-
-        ⚠️After running 're-index
         `,
           "info",
           { timeout: 1000 * 60 }
