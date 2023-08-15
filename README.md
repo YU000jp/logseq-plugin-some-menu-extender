@@ -38,6 +38,8 @@
 
 ### Plugin Settings
 
+#### Rotate the task workflow state
+
 - Number of blank lines after the selected block: select
   - `1`, `2`, `3` default, `4`, `5`, `6`, `7`, `8`, `9`, `10`
 - Rotate the task workflow state: Shortcut key: string
