@@ -1,3 +1,10 @@
+# [0.15.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.14.0...v0.15.0) (2023-08-15)
+
+
+### Features
+
+* **Add:** Page date notifier feature ([587b751](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/587b7519ba59a537bd12ed4ae16a9d108df6dd80))
+
 # [0.14.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.13.0...v0.14.0) (2023-08-15)
 
 
