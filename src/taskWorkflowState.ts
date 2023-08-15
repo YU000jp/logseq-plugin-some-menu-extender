@@ -39,7 +39,6 @@ async function processBlockSet(
 }
 
 export function loadTaskWorkflowState() {
-
   let processing: Boolean = false;
   //コマンドパレット `Rotate the Task Workflow State`
   logseq.App.registerCommandPalette(
