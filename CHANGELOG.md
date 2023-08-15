@@ -1,3 +1,10 @@
+# [0.16.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.15.0...v0.16.0) (2023-08-15)
+
+
+### Features
+
+* **Add to plugin settings:** hide created-at (Page date notifier) ([838d6a5](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/838d6a52589011e79e9b0592fcbf2c294a05a629))
+
 # [0.15.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.14.0...v0.15.0) (2023-08-15)
 
 
