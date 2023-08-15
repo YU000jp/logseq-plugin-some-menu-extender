@@ -8,37 +8,40 @@ import { loadTaskWorkflowState } from "./taskWorkflowState";
 import { loadCurrentPageTitle } from "./currentPageTitle";
 import { loadPageInfo } from "./pageInfo";
 import { loadCopyPageTitle } from "./CopyPageTitle";
+import { mainCSS } from "./mainCSS";
 
 const main = () => {
   logseq.useSettingsSchema(settingsTemplate);
 
+  mainCSS(logseq.baseInfo.id);
+
   /* ContextMenuItem `repeat-task as LATER`  */
-  loadRepeatTask();
+  if (logseq.settings!.loadRepeatTask === true) loadRepeatTask();
 
   /* ContextMenuItem `Copy block reference and embed`  */
-  loadReferenceEmbed();
+  if (logseq.settings!.loadReferenceEmbed === true) loadReferenceEmbed();
 
   //コマンドパレット `select blocks to calculate`
   //選択したブロックの数値を合計して、最後のブロックに追記する
   //バレッドのコンテキストメニューではブロックの複数選択ができないため
-  loadCalculator();
-
-  //Rotate the task workflow state
-  //タスクのワークフロー状態を切り替える
-  loadTaskWorkflowState();
+  if (logseq.settings!.loadCalculator === true) loadCalculator();
 
   //Slash command `Insert current page title as a link`
   //現在のページタイトルをリンクとして挿入する
-  loadCurrentPageTitle();
+  if(logseq.settings!.loadCurrentPageTitle === true)loadCurrentPageTitle();
 
   //ページ情報を表示する
-  loadPageInfo();
+  if(logseq.settings!.loadPageInfo === true)loadPageInfo();
 
   //新規作成ドロップダウンメニューにボタンを追加
-  setTimeout(() => loadNewChildPageButton(), 600);
+  if(logseq.settings!.loadNewChildPageButton === true)loadNewChildPageButton();
 
-  //ページタイトルをリンクとしてコピーする
-  loadCopyPageTitle();
+  //Page title menu項目追加。ページタイトルをリンクとしてコピーする
+  if(logseq.settings!.loadCopyPageTitle === true)loadCopyPageTitle();
+
+  //Rotate the task workflow state
+  //タスクのワークフロー状態を切り替える
+  if (logseq.settings!.loadTaskWorkflowState === true) loadTaskWorkflowState();
 
   // logseq.onSettingsChanged((newSet: LSPluginBaseInfo['settings'], oldSet: LSPluginBaseInfo['settings']) => {
 

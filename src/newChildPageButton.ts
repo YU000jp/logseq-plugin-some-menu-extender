@@ -1,6 +1,7 @@
 import { PageEntity } from "@logseq/libs/dist/LSPlugin.user";
 
-export const loadNewChildPageButton = () => {
+export const loadNewChildPageButton = () => setTimeout(() => {
+  
   //create-button エレメントはホワイトボード機能を有効にしている場合のみ
   const createButtonElement = parent.document.getElementById(
     "create-button"
@@ -58,7 +59,7 @@ export const loadNewChildPageButton = () => {
       });
     }
   }
-};
+}, 600);
 
 function openSearchBoxInputHierarchy(openSearchUI: Boolean, pageName?: string) {
   if (openSearchUI === true)

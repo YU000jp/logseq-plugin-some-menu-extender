@@ -39,12 +39,6 @@ async function processBlockSet(
 }
 
 export function loadTaskWorkflowState() {
-  logseq.provideStyle(String.raw`
-    div#root main div[data-id="${logseq.baseInfo.id}"] textarea.form-input {
-      height: 12em;
-      font-size: unset;
-    }
-  `);
 
   let processing: Boolean = false;
   //コマンドパレット `Rotate the Task Workflow State`
@@ -53,7 +47,7 @@ export function loadTaskWorkflowState() {
       key: "toggleTaskWorkflowState",
       label: "Rotate the task workflow state",
       keybinding: {
-        binding: logseq.settings?.shortcutKey || "Ctrl+Shift+Enter",
+        binding: "Ctrl+Shift+Enter",
       },
     },
     async ({ uuid }) => {
