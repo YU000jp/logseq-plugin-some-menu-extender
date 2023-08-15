@@ -1,35 +1,43 @@
 import { PageEntity } from "@logseq/libs/dist/LSPlugin";
+import { dateFormatter, timeFormatter } from "./pageDateNotifier";
 
-export function loadPageInfo() {
+//Page info button
+export function loadPageInfoButton() {
   logseq.App.registerUIItem("pagebar", {
     key: "pageInfo",
     template: `
-    <div id="pageBar--pageInfo" data-on-click="modelPageInfo" title="Page info"><a class="button icon">📑</a></div>
+    <div id="pageBar--pageInfoButton" data-on-click="modelPageInfo" title="Page info"><a class="button icon">📑</a></div>
     `,
   });
   logseq.provideModel({
     modelPageInfo: async () => {
       const currentPage =
         (await logseq.Editor.getCurrentPage()) as PageEntity | null;
-      if (currentPage != null) {
+      if (currentPage) {
         const updatedAt = new Date(currentPage.updatedAt as number);
-        const updatedAtStr = updatedAt.toLocaleString();
+        const updatedAtStr =
+          dateFormatter.format(updatedAt) +
+          " " +
+          timeFormatter.format(updatedAt);
         const createdAt = new Date(currentPage.createdAt as number);
-        const createdAtStr = createdAt.toLocaleString();
+        const createdAtStr =
+          dateFormatter.format(createdAt) +
+          " " +
+          timeFormatter.format(createdAt);
         logseq.UI.showMsg(
           `--- Page info ---
 
         format:
         ${currentPage.format}
 
-        updatedAt:
-        ${updatedAt}
+        updatedAt (Last modified):
         ${updatedAtStr}
 
         createdAt:
-        ${createdAt}
         ${createdAtStr}
 
+
+        ⚠️After running 're-index
         `,
           "info",
           { timeout: 1000 * 60 }
