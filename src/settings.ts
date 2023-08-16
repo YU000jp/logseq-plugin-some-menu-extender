@@ -5,7 +5,7 @@ export const settingsTemplate: SettingSchemaDesc[] = [
   {
     //loadLegacyDateFormat
     key: "headingLoadLegacyDateFormat",
-    title: "Legacy date format",
+    title: "Use legacy date format links",
     type: "heading",
     default: "",
     description: "Support links by legacy date format.",
