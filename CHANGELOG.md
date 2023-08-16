@@ -1,3 +1,10 @@
+# [0.17.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.16.0...v0.17.0) (2023-08-16)
+
+
+### Features
+
+* **Add:** `Use legacy date format links` ([b2a003f](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/b2a003febfd2ab097c4dfb4b9befdc068b9ae77e))
+
 # [0.16.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.15.0...v0.16.0) (2023-08-15)
 
 
