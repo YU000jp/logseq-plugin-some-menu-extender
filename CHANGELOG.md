@@ -1,3 +1,10 @@
+# [0.18.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.17.0...v0.18.0) (2023-08-19)
+
+
+### Features
+
+* **remove:** Split to `Legacy date format` plugin ([71047e8](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/71047e8c2b73ce1b65fa460380173f58a2e43df0))
+
 # [0.17.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.16.0...v0.17.0) (2023-08-16)
 
 
