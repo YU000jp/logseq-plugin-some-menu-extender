@@ -25,6 +25,7 @@
 - 💪[Confirmation DONE task](https://github.com/YU000jp/logseq-plugin-confirmation-done-task)
 - ⚓[Quickly PARA method](https://github.com/YU000jp/logseq-plugin-quickly-para-method)
 - 🦢[Blank line plugin](https://github.com/YU000jp/logseq-plugin-blank-line) 🆕
+- 🗝️[Legacy date format](https://github.com/YU000jp/logseq-plugin-legacy-date-format) 🆕
 
 ---
 

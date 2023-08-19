@@ -10,7 +10,6 @@ import { loadPageInfoButton } from "./pageInfoButton";
 import { loadCopyPageTitle } from "./CopyPageTitle";
 import { mainCSS } from "./mainCSS";
 import { loadPageDateNotifier } from "./pageDateNotifier";
-import { loadLegacyDateFormat } from "./legacyDateFormat";
 
 const main = () => {
   //設定画面の読み込み
@@ -56,10 +55,6 @@ const main = () => {
 
   //Page date notifier
   if (logseq.settings!.loadPageDateNotifier === true) loadPageDateNotifier();
-
-  //Legacy date format
-  //トリガー: 設定項目がオンになったとき
-  if (logseq.settings!.loadLegacyDateFormat === true) loadLegacyDateFormat();
 }; /* end_main */
 
 logseq.ready(main).catch(console.error);
