@@ -16,7 +16,7 @@
 #### New features
 
 - ~~Use legacy date format links [#50](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/50) 🆕~~
-- Split to [`Legacy date format` plugin](https://github.com/YU000jp/logseq-plugin-legacy-date-format)
+  - Split to [`Legacy date format` plugin](https://github.com/YU000jp/logseq-plugin-legacy-date-format)
 
 - Page Date Notifier [#48](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/48) 🆕
 
