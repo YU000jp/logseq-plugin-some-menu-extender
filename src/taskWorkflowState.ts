@@ -46,7 +46,7 @@ export function loadTaskWorkflowState() {
       key: "toggleTaskWorkflowState",
       label: "Rotate the task workflow state",
       keybinding: {
-        binding: "Ctrl+Shift+Enter",
+        binding: "ctrl+shift+enter",
       },
     },
     async ({ uuid }) => {
