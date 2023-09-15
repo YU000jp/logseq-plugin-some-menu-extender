@@ -1,3 +1,10 @@
+## [0.18.1](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.18.0...v0.18.1) (2023-09-15)
+
+
+### Bug Fixes
+
+* **Support Logseq v0.9.17:** reset shortcut key ([04519bc](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/04519bc109df8f9f851946bd0e3d105a1b49e528))
+
 # [0.18.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.17.0...v0.18.0) (2023-08-19)
 
 
