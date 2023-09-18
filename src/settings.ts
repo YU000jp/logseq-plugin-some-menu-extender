@@ -3,6 +3,21 @@ import { SettingSchemaDesc } from "@logseq/libs/dist/LSPlugin.user";
 //https://logseq.github.io/plugins/types/SettingSchemaDesc.html
 export const settingsTemplate: SettingSchemaDesc[] = [
   {
+    //loadTwoHopLInk
+    key: "headingLoadTwoHopLink",
+    title: "2 hop link",
+    type: "heading",
+    default: "",
+    description: "",
+  },
+  {
+    key: "loadTwoHopLink",
+    title: "Enable",
+    type: "boolean",
+    default: true,
+    description: "(⚠️need to restart Logseq to take effect)",
+  },
+  {
     //loadPageDateNotifier
     key: "headingLoadPageDateNotifier",
     title: "Page Date Notifier",
@@ -90,7 +105,7 @@ export const settingsTemplate: SettingSchemaDesc[] = [
     key: "loadCurrentPageTitle",
     title: "Enable",
     type: "boolean",
-    default: true,
+    default: false,
     description: "(⚠️need to restart Logseq to take effect)",
   },
   {
@@ -125,7 +140,7 @@ export const settingsTemplate: SettingSchemaDesc[] = [
     key: "loadCopyPageTitle",
     title: "Enable",
     type: "boolean",
-    default: true,
+    default: false,
     description: "(⚠️need to restart Logseq to take effect)",
   },
   {

@@ -10,6 +10,7 @@ import { loadPageInfoButton } from "./pageInfoButton";
 import { loadCopyPageTitle } from "./CopyPageTitle";
 import { mainCSS } from "./mainCSS";
 import { loadPageDateNotifier } from "./pageDateNotifier";
+import { loadTwoHopLink } from "./hopLinks";
 
 const main = () => {
   //設定画面の読み込み
@@ -37,8 +38,7 @@ const main = () => {
 
   //In dropdown of 'create' item
   //新規作成ドロップダウンメニューにボタンを追加
-  if (logseq.settings!.loadNewChildPageButton === true)
-    loadNewChildPageButton();
+  if (logseq.settings!.loadNewChildPageButton === true) loadNewChildPageButton();
 
   //Page title menu項目追加。ページタイトルをリンクとしてコピーする
   if (logseq.settings!.loadCopyPageTitle === true) loadCopyPageTitle();
@@ -55,6 +55,10 @@ const main = () => {
 
   //Page date notifier
   if (logseq.settings!.loadPageDateNotifier === true) loadPageDateNotifier();
+
+  //2 hop link
+  if (logseq.settings!.loadTwoHopLink === true) loadTwoHopLink();
+
 }; /* end_main */
 
 logseq.ready(main).catch(console.error);
