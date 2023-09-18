@@ -13,7 +13,13 @@
 
 > This plugin still has room for improvement. Please let me know if you encounter any issues or have any ideas for enhancement.
 
-#### New features
+### New features
+
+#### 2 hop link [test]
+
+- Include from [2 hop link plugin](https://github.com/YU000jp/logseq-plugin-two-hop-link)
+
+#### Others
 
 - ~~Use legacy date format links [#50](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/50) 🆕~~
   - Split to [`Legacy date format` plugin](https://github.com/YU000jp/logseq-plugin-legacy-date-format)
