@@ -1,3 +1,10 @@
+# [0.19.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.18.1...v0.19.0) (2023-09-18)
+
+
+### Features
+
+* **2 hop link test:** As a published plugin ([5b9274f](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/5b9274f8b956858aeac8bf5ddf35f1dc3039b666))
+
 ## [0.18.1](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.18.0...v0.18.1) (2023-09-15)
 
 
