@@ -13,20 +13,18 @@
 
 > This plugin still has room for improvement. Please let me know if you encounter any issues or have any ideas for enhancement.
 
-#### New features
+### New features
+
+#### 2 hop link [test]
+
+- Include from [2 hop link plugin](https://github.com/YU000jp/logseq-plugin-two-hop-link)
+
+#### Others
 
 - ~~Use legacy date format links [#50](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/50) 🆕~~
   - Split to [`Legacy date format` plugin](https://github.com/YU000jp/logseq-plugin-legacy-date-format)
 
 - Page Date Notifier [#48](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/48) 🆕
-
-#### Split to some plugin
-
-- 🔗[Confirmation Hyperlink (Pastes URL)](https://github.com/YU000jp/logseq-plugin-confirmation-hyperlink)
-- 💪[Confirmation DONE task](https://github.com/YU000jp/logseq-plugin-confirmation-done-task)
-- ⚓[Quickly PARA method](https://github.com/YU000jp/logseq-plugin-quickly-para-method)
-- 🦢[Blank line plugin](https://github.com/YU000jp/logseq-plugin-blank-line) 🆕
-- 🗝️[Legacy date format](https://github.com/YU000jp/logseq-plugin-legacy-date-format) 🆕
 
 ---
 
@@ -66,6 +64,16 @@ Read #Archive
 ```
 
 > *Such as `%next week` require [datenlp plugin](https://github.com/hkgnp/logseq-datenlp-plugin).
+
+---
+
+### Split to some plugin
+
+- 🔗[Confirmation Hyperlink (Pastes URL)](https://github.com/YU000jp/logseq-plugin-confirmation-hyperlink)
+- 💪[Confirmation DONE task](https://github.com/YU000jp/logseq-plugin-confirmation-done-task)
+- ⚓[Quickly PARA method](https://github.com/YU000jp/logseq-plugin-quickly-para-method)
+- 🦢[Blank line plugin](https://github.com/YU000jp/logseq-plugin-blank-line) 🆕
+- 🗝️[Legacy date format](https://github.com/YU000jp/logseq-plugin-legacy-date-format) 🆕
 
 ---
 
