@@ -1,3 +1,10 @@
+# [0.20.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.19.0...v0.20.0) (2023-09-19)
+
+
+### Features
+
+* **Add:** 2 hop link Type select ([1936ef2](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/1936ef2522e87ee1cba17053161e8bdbe6292358))
+
 # [0.19.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.18.1...v0.19.0) (2023-09-18)
 
 
