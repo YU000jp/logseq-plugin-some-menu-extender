@@ -1,3 +1,10 @@
+# [0.21.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.20.0...v0.21.0) (2023-09-20)
+
+
+### Features
+
+* **plugin settings:** exclude pages ([2e8d0b7](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/2e8d0b7488b43bf0bbf8247c4acf097f7af3a642))
+
 # [0.20.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.19.0...v0.20.0) (2023-09-19)
 
 
