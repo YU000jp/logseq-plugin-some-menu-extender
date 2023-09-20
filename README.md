@@ -1,4 +1,4 @@
-# Logseq Plugin: ~~SomeMenuExtender~~ *Innovation Lab* 🌱
+# Logseq Plugin: *Innovation Lab* 🌱
 
 - Provides several features that are currently in the development stage.
 
