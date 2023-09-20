@@ -38,8 +38,8 @@ export const settingsTemplate: SettingSchemaDesc[] = [
     type: "string",
     title: "exclude pages",
     default: "",
-    //「,」で区切る
-    description: "split by comma(,)",
+    inputAs: "textarea",//改行で区切る
+    description: "split by newline",
   },
   {
     //loadPageDateNotifier
