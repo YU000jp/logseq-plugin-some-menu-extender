@@ -1,3 +1,10 @@
+# [0.22.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.21.0...v0.22.0) (2023-09-22)
+
+
+### Features
+
+* **2hopLinks:** Add "BackLinks" ([77ac903](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/77ac90332a6aa91e4475501dc2d5bb10a227a9f3))
+
 # [0.21.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.20.0...v0.21.0) (2023-09-20)
 
 
