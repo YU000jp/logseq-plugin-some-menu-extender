@@ -1,3 +1,10 @@
+## [0.22.1](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.22.0...v0.22.1) (2023-09-22)
+
+
+### Bug Fixes
+
+* **bug:** provide style ([7236be2](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/7236be245d2dc157857289b6f453096bf2fc0064))
+
 # [0.22.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.21.0...v0.22.0) (2023-09-22)
 
 
