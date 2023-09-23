@@ -1,3 +1,10 @@
+# [0.23.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.22.1...v0.23.0) (2023-09-23)
+
+
+### Features
+
+* **2 hop links:** redesign etc ([b7afc96](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/b7afc96de8eda1eb430a24104c8acd8ee8eb916d))
+
 ## [0.22.1](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.22.0...v0.22.1) (2023-09-22)
 
 
