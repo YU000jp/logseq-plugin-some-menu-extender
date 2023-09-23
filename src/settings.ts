@@ -36,10 +36,38 @@ export const settingsTemplate: SettingSchemaDesc[] = [
   {//除外するページ
     key: "excludePages",
     type: "string",
-    title: "exclude pages",
+    title: "exclude page title Keywords",
     default: "",
     inputAs: "textarea",//改行で区切る
     description: "split by newline",
+  },
+  {//outgoingLinksからジャーナルを除外する
+    key: "excludeJournalFromOutgoingLinks",
+    type: "boolean",
+    title: "exclude journal from outgoing links",
+    default: true,
+    description: "default: true",
+  },
+  {//outgoingLinksからyyyyやyyyy/MMのような形式を除外する
+    key: "excludeDateFromOutgoingLinks",
+    type: "boolean",
+    title: "exclude date from outgoing links",
+    default: true,
+    description: "default: true",
+  },
+  {//Resultからジャーナルを除外する
+    key: "excludeJournalFromResult",
+    type: "boolean",
+    title: "exclude journal from result",
+    default: true,
+    description: "default: true",
+  },
+  {//Resultからyyyyやyyyy/MMのような形式を除外する
+    key: "excludeDateFromResult",
+    type: "boolean",
+    title: "exclude date from result",
+    default: true,
+    description: "default: true",
   },
   {
     //loadPageDateNotifier

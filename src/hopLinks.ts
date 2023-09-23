@@ -1,8 +1,8 @@
 import { BlockEntity, PageEntity } from "@logseq/libs/dist/LSPlugin";
 import CSSfile from "./style.css?inline";
-import { stringLimit } from "./lib";
+import { getBlockContent, getPageContent, stringLimitAndRemoveProperties } from "./lib";
 import { includeReference } from "./lib";
-import { create } from "domain";
+
 export const loadTwoHopLink = async () => {
 
     //ページ読み込み時に実行コールバック
@@ -22,7 +22,7 @@ export const loadTwoHopLink = async () => {
     logseq.provideStyle(CSSfile);
 };
 
-export const hopLinks = async (select?: string) => {
+const hopLinks = async (select?: string) => {
 
     //アウトゴーイングリンクを表示する場所
     const mainElement = parent.document.getElementById("main-content-container") as HTMLDivElement | null;
@@ -44,6 +44,16 @@ export const hopLinks = async (select?: string) => {
         try {
             const thisPage = await logseq.Editor.getPage(pageLinkRef) as PageEntity | undefined;
             if (!thisPage) return undefined;
+
+            //ジャーナルを除外する
+            if (logseq.settings!.excludeJournalFromOutgoingLinks === true && thisPage["journal?"] === true) return undefined;
+            if (logseq.settings!.excludeDateFromOutgoingLinks === true) {
+                //2024/01のような形式のページを除外する
+                if (thisPage.originalName.match(/^\d{4}\/\d{2}$/) !== null) return undefined;
+                //2024のような数値を除外する
+                if (thisPage.originalName.match(/^\d{4}$/) !== null) return undefined;
+            }
+
             // 重複を除外する
             if (newSet.has(thisPage.uuid)) return undefined;
             newSet.add(thisPage.uuid);
@@ -71,6 +81,7 @@ export const hopLinks = async (select?: string) => {
         hopLinks();
     }, { once: true });
     hopLinksElement.prepend(updateButtonElement);
+
     //filteredBlocksが空の場合は処理を終了する
     if (filteredPageLinksSet.length === 0) {
         const pElement: HTMLElement = document.createElement("p");
@@ -85,7 +96,7 @@ export const hopLinks = async (select?: string) => {
         if (a.name < b.name) return -1;
         return 0;
     });
-
+    excludePages(filteredPageLinksSet);
     if (logseq.settings!.outgoingLinks === true) outgoingLInks(filteredPageLinksSet, hopLinksElement);
 
     /*
@@ -145,10 +156,11 @@ export const hopLinks = async (select?: string) => {
 
 //outgoingLinks
 const outgoingLInks = (filteredPageLinksSet: ({ uuid: string; name: string; } | undefined)[], hopLinksElement: HTMLDivElement) => {
+
     //outgoingLinksElementを作成
     const outgoingLinksElement: HTMLDivElement = document.createElement("div");
     outgoingLinksElement.id = "outgoingLinks";
-    outgoingLinksElement.innerHTML += `<div class="hopLinksTh" id="hopLinksKeyword">OutgoingLinks (Keyword)</div>`;
+    outgoingLinksElement.innerHTML += `<div class="hopLinksTh" id="hopLinksKeyword">Outgoing Links (Keyword)</div>`;
 
     filteredPageLinksSet.forEach(async (pageLink) => {
         if (!pageLink) return;
@@ -204,6 +216,19 @@ const typeReferencesByBlock = (filteredPageLinksSet: ({ uuid: string; name: stri
         //blocksをフィルターする
         const filteredBlocks = page.filter((page) => page[1].length !== 0).map((page) => page[1][0]);
         if (filteredBlocks.length === 0) return;
+        //現在のページ名に一致するものを削除する
+        const current = await logseq.Editor.getCurrentPage() as PageEntity | null;
+        if (current) {
+            const currentPageName = current.originalName;
+            filteredBlocks.forEach((block, i) => {
+                if (block.page.originalName === currentPageName) {
+                    filteredBlocks.splice(i, 1);
+                }
+            });
+        }
+        //ページを除外する
+        excludePageForBlockEntity(filteredBlocks);
+        if (filteredBlocks.length === 0) return;
 
         //PageBlocksInnerElementにelementを追加
         const tokenLinkElement: HTMLDivElement = document.createElement("div");
@@ -220,6 +245,7 @@ const typeReferencesByBlock = (filteredPageLinksSet: ({ uuid: string; name: stri
         divElement.append(anchorElement);
         tokenLinkElement.append(divElement);
         //end of 行タイトル(左ヘッダー)
+
         //右側
         filteredBlocks.forEach(async (block) => {
             if (!block || block.content === "") return;
@@ -242,8 +268,10 @@ const typeReferencesByBlock = (filteredPageLinksSet: ({ uuid: string; name: stri
             if (isReference) block.content = isReference;
 
             //block.contentの文字数制限
-            block.content = stringLimit(block.content, 200);
+            block.content = stringLimitAndRemoveProperties(block.content, 500);
 
+            //\nを改行に変換する
+            block.content = block.content.replace(/\n/g, "<br/>");
             blockElement.innerHTML += `<a data-uuid="${block.uuid}">${block.content}</a>`;
             blockElement.addEventListener("click", openTooltipEventFromBlock(popupElement));
             labelElement.append(blockElement, inputElement, popupElement);
@@ -266,9 +294,19 @@ const typeBackLink = (filteredPageLinksSet: ({ uuid: string; name: string; } | u
         //ページ名を取得し、リストにする
         const pageList = page.map((page) => page[0].originalName);
         if (!pageList || pageList.length === 0) return;
+        //現在のページ名に一致するものを削除する
+        const current = await logseq.Editor.getCurrentPage() as PageEntity | null;
+        if (current) {
+            const currentPageName = current.originalName;
+            pageList.forEach((page, i) => {
+                if (page === currentPageName) {
+                    pageList.splice(i, 1);
+                }
+            });
+        }
 
-        //pageTagsからexcludePagesの配列に含まれるページも除外する
-        excludePages(pageList);
+        //excludePagesの配列に含まれるページを除外する
+        excludePagesForPageList(pageList);
         if (pageList.length === 0) return;
 
         //th
@@ -290,6 +328,12 @@ const typeBackLink = (filteredPageLinksSet: ({ uuid: string; name: string; } | u
             const name = pageList;
             const page = await logseq.Editor.getPage(name) as PageEntity | null;
             if (!page) return;
+
+            //ジャーナルを除外する
+            if (logseq.settings!.excludeJournalFromResult === true && page["journal?"] === true
+                || logseq.settings!.excludeDateFromResult === true && page.originalName.match(/^\d{4}\/\d{2}$/) !== null || page.originalName.match(/^\d{4}$/) !== null
+            ) return;
+
             const uuid = page.uuid;
             const divElementTag: HTMLDivElement = document.createElement("div");
             divElementTag.classList.add("hopLinksTd");
@@ -324,6 +368,11 @@ const typeHierarchy = (filteredPageLinksSet: ({ uuid: string; name: string; } | 
         // namespace.nameが2024/01のような形式だったら除外する。また2024のような数値も除外する
         PageEntity = PageEntity.filter((page) => page["journal?"] === false && page.originalName.match(/^\d{4}\/\d{2}$/) === null && page.originalName.match(/^\d{4}$/) === null);
         if (!PageEntity || PageEntity.length === 0) return;
+
+        //ページを除外する
+        excludePageForPageEntity(PageEntity);
+        if (PageEntity.length === 0) return;
+
         //sortする
         PageEntity.sort((a, b) => {
             if (a.name > b.name) return 1;
@@ -368,14 +417,20 @@ const typePageTags = (filteredPageLinksSet: ({ uuid: string; name: string; } | u
             });
         }
         //そのページにタグ漬けされている
-        let PageEntity = await logseq.DB.q(`(page-tags "${pageLink.name}")`) as unknown as PageEntity[] | undefined;
-        if (!PageEntity || PageEntity.length === 0) return;
-        // pageTags.nameが2024/01のような形式だったら除外する。また2024のような数値も除外する
-        PageEntity = PageEntity.filter((page) => page["journal?"] === false && page.originalName.match(/^\d{4}\/\d{2}$/) === null && page.originalName.match(/^\d{4}$/) === null);
+        let PageEntity = await logseq.DB.q(`(page-tags "${pageLink.name}")`) as unknown as PageEntity[];
+        if (PageEntity && PageEntity.length !== 0) {
+            // pageTags.nameが2024/01のような形式だったら除外する。また2024のような数値も除外する
+            PageEntity = PageEntity.filter((page) => page["journal?"] === false && page.originalName.match(/^\d{4}\/\d{2}$/) === null && page.originalName.match(/^\d{4}$/) === null);
+        }
+        //PageEntityとPageEntityFromPropertyが両方とも空の場合は処理を終了する
+        if ((!PageEntity || PageEntity.length === 0) && (!PageEntityFromProperty || PageEntityFromProperty.length === 0)) return;
 
-        if (!PageEntity || PageEntity.length === 0) return;
+        //ページを除外する
+        if (PageEntity) excludePageForPageEntity(PageEntity);
+        if (PageEntityFromProperty) excludePageForPageEntity(PageEntityFromProperty);
+        if (PageEntity.length === 0 && PageEntityFromProperty.length === 0) return;
         //sortする
-        PageEntity.sort((a, b) => {
+        if (PageEntity) PageEntity.sort((a, b) => {
             if (a.name > b.name) return 1;
             if (a.name < b.name) return -1;
             return 0;
@@ -395,7 +450,7 @@ const typePageTags = (filteredPageLinksSet: ({ uuid: string; name: string; } | u
         tokenLinkElement.append(divElement);
 
         //td
-        PageEntity.forEach((page) => createTd(page, tokenLinkElement));
+        if (PageEntity) PageEntity.forEach((page) => createTd(page, tokenLinkElement));
         PageEntityFromProperty.forEach((page) => createTd(page, tokenLinkElement));
 
         hopLinksElement.append(tokenLinkElement);
@@ -403,13 +458,62 @@ const typePageTags = (filteredPageLinksSet: ({ uuid: string; name: string; } | u
 }
 
 
-const excludePages = (pageList: string[]) => {
+const excludePagesForPageList = (pageList: string[]) => {
     const excludePages = logseq.settings!.excludePages.split("\n") as string[] | undefined; //除外するページ
     if (excludePages && excludePages.length !== 0) {
         pageList.forEach((pageName) => {
             if (excludePages.includes(pageName)) {
                 pageList.splice(pageList.indexOf(pageName), 1);
             }
+        });
+    }
+}
+
+function excludePageForPageEntity(PageEntity: PageEntity[]) {
+    const excludePages = logseq.settings!.excludePages.split("\n") as string[] | undefined; //除外するページ
+    if (excludePages && excludePages.length !== 0) {
+        PageEntity.forEach((page) => {
+            if (excludePages.includes(page.originalName)) {
+                PageEntity!.splice(PageEntity!.indexOf(page), 1);
+            }
+            //ジャーナルを除外する
+            if (logseq.settings!.excludeJournalFromResult === true && page["journal?"] === true) {
+                PageEntity!.splice(PageEntity!.indexOf(page), 1);
+            }
+        });
+    } else {
+        //ジャーナルを除外する
+        if (logseq.settings!.excludeJournalFromResult === true) {
+            PageEntity.forEach((page) => {
+                if (page["journal?"] === true) {
+                    PageEntity!.splice(PageEntity!.indexOf(page), 1);
+                }
+            });
+        }
+    }
+}
+
+function excludePageForBlockEntity(filteredBlocks: BlockEntity[]) {
+    const excludePages = logseq.settings!.excludePages.split("\n") as string[] | undefined; //除外するページ
+    if (excludePages && excludePages.length !== 0) {
+        filteredBlocks.forEach((block) => {
+            if (excludePages.includes(block.page.originalName)) {
+                filteredBlocks.splice(filteredBlocks.indexOf(block), 1);
+            }
+        });
+    }
+
+}
+
+function excludePages(filteredPageLinksSet: ({ uuid: string; name: string; } | undefined)[]) {
+    const excludePages = logseq.settings!.excludePages.split("\n") as string[] | undefined; //除外するページ
+    if (excludePages && excludePages.length !== 0) {
+        excludePages.forEach((excludePage) => {
+            filteredPageLinksSet.forEach((pageLink, i) => {
+                if (pageLink?.name === excludePage) {
+                    filteredPageLinksSet.splice(i, 1);
+                }
+            });
         });
     }
 }
@@ -428,7 +532,7 @@ function createTd(page: PageEntity, tokenLinkElement: HTMLDivElement) {
     //div ポップアップの内容
     const popupElement: HTMLDivElement = document.createElement("div");
     popupElement.classList.add("hopLinks-popup-content");
-    divElementTag.innerHTML += `<a data-tag="${page.originalName}">${page.originalName}</a>`;
+    divElementTag.innerHTML += `<a data-uuid="${page.originalName}">${page.originalName}</a>`;
     inputElement.addEventListener("change", openTooltipEventFromPageName(popupElement));
 
     labelElement.append(divElementTag, inputElement, popupElement);
@@ -502,32 +606,27 @@ function openTooltipEventFromPageName(popupElement: HTMLDivElement): (this: HTML
         if (!uuid) return;
 
         //ページを開くリンク
-        const thisPage = await logseq.Editor.getPage(uuid) as PageEntity | null;
+        const thisPage = await logseq.Editor.getPage(name) as PageEntity | null;
         if (!thisPage) return;
         const openLinkContainerElement: HTMLDivElement = createAnchorContainer(uuid, thisPage); //ページを開くリンク(Hierarchy対応)と画像を表示する
         popupElement.append(openLinkContainerElement);
 
-        //ページの内容を表示する
-        const Blocks = await logseq.Editor.getPageBlocksTree(uuid) as BlockEntity[] | null;
-        if (!Blocks) return;
+        //ページの内容を取得する
         const content: HTMLPreElement = document.createElement("pre");
-        //Blocks[i].contentが空であるか、「::」が含まれている場合はBlocks[i+1].contentにする 10行までにする
-        Blocks.forEach(async (block, i) => {
-            if (i > 10) return;
-            if (block.content === "" || block.content.match(/::/) !== null) return;
-            // {{embed ((何らかの英数値))}} であるか ((何らかの英数値)) だった場合はuuidとしてブロックを取得する
-            const match = block.content.match(/{{embed \(\((.+?)\)\)}}/) || block.content.match(/\(\((.+?)\)\)/);
-            if (match) {
-                const thisBlock = await logseq.Editor.getBlock(match[1]) as BlockEntity | null;
-                if (!thisBlock) return;
-                block.content = thisBlock.content;
-            }
-            //文字数制限
-            block.content = stringLimit(block.content, 200);
+        let pageContents = await getPageContent(thisPage);
+        if (pageContents) {
+            //リファレンスかどうか
+            const isReference: string | null = await includeReference(pageContents);
+            if (isReference) pageContents = isReference;
 
-            content.innerHTML += block.content + "\n";
-        });
-        popupElement.append(content);
+            //pageContentの文字数制限
+            pageContents = stringLimitAndRemoveProperties(pageContents, 700);
+
+            content.innerText += pageContents + "\n";
+
+        }
+
+        if (content.innerText !== "") popupElement.append(content);
     };
 }
 
@@ -550,6 +649,8 @@ function openTooltipEventFromBlock(popupElement: HTMLDivElement): (this: HTMLDiv
             //リファレンスかどうか
             const isReference: string | null = await includeReference(parentBlock.content);
             if (isReference) parentBlock.content = isReference;
+            //parentBlock.contentの文字数制限と一部のプロパティを削除する
+            parentBlock.content = stringLimitAndRemoveProperties(parentBlock.content, 600);
 
             const pElement: HTMLParagraphElement = document.createElement("p");
             //pElementをクリックしたら、親ブロックを開く
@@ -574,10 +675,12 @@ function openTooltipEventFromBlock(popupElement: HTMLDivElement): (this: HTMLDiv
         anchorElement.addEventListener("click", function () { logseq.Editor.openInRightSidebar(thisBlock.uuid) });
         pElement.append(anchorElement);
         const preElement: HTMLPreElement = document.createElement("pre");
-
+        const content = await getBlockContent(thisBlock);
         //リファレンスかどうか
-        const isReference: string | null = await includeReference(thisBlock.content);
+        const isReference: string | null = await includeReference(content);
         if (isReference) thisBlock.content = isReference;
+        //thisBlock.contentの文字数制限と一部のプロパティを削除する
+        thisBlock.content = stringLimitAndRemoveProperties(thisBlock.content, 600);
 
         preElement.innerText = thisBlock.content;
         popupElement.append(pElement, preElement);
