@@ -15,9 +15,9 @@
 
 ### New features
 
-#### 2 hop link [test]
+#### ~~2 hop link [test]~~
 
-- Include from [2 hop link plugin](https://github.com/YU000jp/logseq-plugin-two-hop-link)
+- [2 hop link plugin](https://github.com/YU000jp/logseq-plugin-two-hop-link) published
 
 #### Others
 
