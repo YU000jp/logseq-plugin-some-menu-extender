@@ -1,3 +1,10 @@
+## [0.23.1](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.23.0...v0.23.1) (2023-09-26)
+
+
+### Bug Fixes
+
+* **Remove:** 2 hop links & new child page assist ([c59518b](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/c59518b3b074c94f10f56c22fde9906052c85309))
+
 # [0.23.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.22.1...v0.23.0) (2023-09-23)
 
 
