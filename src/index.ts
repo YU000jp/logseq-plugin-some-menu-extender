@@ -3,18 +3,16 @@ import { settingsTemplate } from "./settings";
 import { loadRepeatTask } from "./repeatTask";
 import { loadReferenceEmbed } from "./referenceEmbed";
 import { loadCalculator } from "./calculator";
-import { loadNewChildPageButton } from "./newChildPageButton";
 import { loadTaskWorkflowState } from "./taskWorkflowState";
 import { loadCurrentPageTitle } from "./currentPageTitle";
 import { loadPageInfoButton } from "./pageInfoButton";
 import { loadCopyPageTitle } from "./CopyPageTitle";
 import { mainCSS } from "./mainCSS";
 import { loadPageDateNotifier } from "./pageDateNotifier";
-import { loadTwoHopLink } from "./hopLinks";
 
 const main = () => {
   //設定画面の読み込み
-  logseq.useSettingsSchema(settingsTemplate);
+  logseq.useSettingsSchema(settingsTemplate());
 
   //CSSを読み込む
   mainCSS(logseq.baseInfo.id);
@@ -36,10 +34,6 @@ const main = () => {
   //ページ情報を表示する
   if (logseq.settings!.loadPageInfoButton === true) loadPageInfoButton();
 
-  //In dropdown of 'create' item
-  //新規作成ドロップダウンメニューにボタンを追加
-  if (logseq.settings!.loadNewChildPageButton === true) loadNewChildPageButton();
-
   //Page title menu項目追加。ページタイトルをリンクとしてコピーする
   if (logseq.settings!.loadCopyPageTitle === true) loadCopyPageTitle();
 
@@ -55,9 +49,6 @@ const main = () => {
 
   //Page date notifier
   if (logseq.settings!.loadPageDateNotifier === true) loadPageDateNotifier();
-
-  //2 hop link
-  if (logseq.settings!.loadTwoHopLink === true) loadTwoHopLink();
 
 }; /* end_main */
 
