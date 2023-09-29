@@ -9,20 +9,11 @@
 
 ---
 
-## Check out [ [Document](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document) ]
+## [Document here](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document)
 
 > This plugin still has room for improvement. Please let me know if you encounter any issues or have any ideas for enhancement.
 
 ### New features
-
-#### ~~2 hop link [test]~~
-
-- [2 hop link plugin](https://github.com/YU000jp/logseq-plugin-two-hop-link) published
-
-#### Others
-
-- ~~Use legacy date format links [#50](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/50) 🆕~~
-  - Split to [`Legacy date format` plugin](https://github.com/YU000jp/logseq-plugin-legacy-date-format)
 
 - Page Date Notifier [#48](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/48) 🆕
 
@@ -74,6 +65,7 @@ Read #Archive
 - ⚓[Quickly PARA method](https://github.com/YU000jp/logseq-plugin-quickly-para-method)
 - 🦢[Blank line plugin](https://github.com/YU000jp/logseq-plugin-blank-line) 🆕
 - 🗝️[Legacy date format](https://github.com/YU000jp/logseq-plugin-legacy-date-format) 🆕
+- [2 hop link plugin](https://github.com/YU000jp/logseq-plugin-two-hop-link)
 
 ---
 
