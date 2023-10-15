@@ -3,6 +3,15 @@
 
 ### Bug Fixes
 
+* **bug:** CSS ([e3634cc](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/e3634cc9ea0862fba012a286882cdee495bd650d))
+* **cleanup:** CSS ([7b00bd8](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/7b00bd82bad2fbf3b33bfafae1aa1f46b909547a))
+* **remove:** DOING blocks set ([917c605](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/917c60548c8195699faca2d028a16929f715b9a0))
+
+## [0.23.2](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.23.1...v0.23.2) (2023-10-15)
+
+
+### Bug Fixes
+
 * **cleanup:** CSS ([7b00bd8](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/7b00bd82bad2fbf3b33bfafae1aa1f46b909547a))
 * **remove:** DOING blocks set ([917c605](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/917c60548c8195699faca2d028a16929f715b9a0))
 
