@@ -1,6 +1,6 @@
 # Logseq Plugin: *Innovation Lab* 🌱
 
-- Provides several features that are currently in the development stage.
+- Provides several features that are currently in the development stage, or bug-fixed versions of other plugins.
 
 [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-some-menu-extender)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/releases)
 [![License](https://img.shields.io/github/license/YU000jp/logseq-plugin-some-menu-extender?color=blue)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/blob/main/LICENSE)
@@ -8,14 +8,16 @@
  Published 2023/04/01
 
 ---
+> This plugin has many features that still have room for improvement. Let us know if you run into any issues or have ideas for enhancements. If the functionality is similar, it shows that it is possible. [[discussions here](https://github.com/YU000jp/logseq-plugin-some-menu-extender/discussions)]
 
-## [Document here](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document)
+## [Document here (Functions list)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document)
 
-> This plugin still has room for improvement. Please let me know if you encounter any issues or have any ideas for enhancement.
+### Bug-fixed versions of other plugin
 
-### New features
+#### Rotate the task workflow state [41](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/41)
 
-- Page Date Notifier [#48](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/48) 🆕
+> A lite version of [Custom Workflow plugin](https://github.com/sawhney17/logseq-custom-workflow-plugin) (Some bug fixes.)
+- Shortcut `Ctrl+Shift+Enter`
 
 ---
 
@@ -23,11 +25,7 @@
 
 ### Install from Logseq Marketplace
 
-- Press `---` on the top right toolbar to open `Plugins`
-
-- Select `Marketplace`
-
-- Type `Lab` in the search field, select it from the search results and install
+- Press `---` on the top right toolbar to open `Plugins`. Select `Marketplace`. Type `Lab` in the search field, select it from the search results and install.
 
    ![image](https://github.com/YU000jp/logseq-plugin-some-menu-extender/assets/111847207/32afec53-20ad-41d0-ad54-44cd07a50c67)
 
@@ -35,26 +33,11 @@
 
 #### Rotate the task workflow state
 
-- Number of blank lines after the selected block: select
-  - `1`, `2`, `3` default, `4`, `5`, `6`, `7`, `8`, `9`, `10`
 - Rotate the task workflow state: Shortcut key: string
   - `Ctrl+Shift+Enter` default
 - Task workflow state: string
   - `TODO,DOING,WAITING,CANCELED,DONE` default
    > Separate with `,`. Only strings for Logseq built in task markers are valid. (`NOW`|`LATER`|`TODO`|`DOING`|`DONE`|`WAITING`|`WAIT`|`CANCELED`|`CANCELLED`|`IN-PROGRESS`)
-- Set child block on the DOING task: 01 - 06
-  - (default: blank)
-
-> Example:
-
-```txt
-#book
-TODO Reading %next week
-TODO Review %next 2weeks
-Read #Archive
-```
-
-> *Such as `%next week` require [datenlp plugin](https://github.com/hkgnp/logseq-datenlp-plugin).
 
 ---
 
