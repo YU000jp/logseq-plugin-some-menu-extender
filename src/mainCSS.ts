@@ -1,7 +1,7 @@
 
 export const mainCSS = (baseId: string) => {
   logseq.provideStyle(String.raw`
-  body>div#root>div>main>div#app-container {
+  body>div#root>div>main {
     & article>div[data-id="${baseId}"] {
         & div.heading-item {
           margin-top: 3em;
@@ -22,10 +22,9 @@ export const mainCSS = (baseId: string) => {
           }
         }
     }
+    & div#injected-ui-item-pageInfoBarSpace-${baseId}.injected-ui-item-pagebar {
+      order:-1;
+    }
   }
-  & div#injected-ui-item-pageInfoBarSpace-${baseId}.injected-ui-item-pagebar {
-    order:-1;
-  }
-}
   `);
 };
