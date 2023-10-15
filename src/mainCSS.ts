@@ -1,3 +1,4 @@
+
 export const mainCSS = (baseId: string) => {
   logseq.provideStyle(String.raw`
   body>div#root>div>main>div#app-container {
