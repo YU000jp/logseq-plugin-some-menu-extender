@@ -1,4 +1,4 @@
-[日本語](https://github.com/YU000jp/logseq-plugin-some-menu-extender/blob/main/README.md)
+[日本語](https://github.com/YU000jp/logseq-plugin-some-menu-extender/blob/main/README.ja.md)
 
 # Logseq Plugin: *Innovation Lab* 🌱
 
