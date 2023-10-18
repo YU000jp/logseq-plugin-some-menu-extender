@@ -1,8 +1,9 @@
 import { PageEntity } from "@logseq/libs/dist/LSPlugin.user";
+import { t } from "logseq-l10n"
 
 export function loadCurrentPageTitle() {
   logseq.Editor.registerSlashCommand(
-    "Current page title as a link",
+    t("Current page title as a link"),
     async () => {
       const current =
         (await logseq.Editor.getCurrentPage()) as PageEntity | null;

@@ -1,4 +1,5 @@
 import { PageEntity } from "@logseq/libs/dist/LSPlugin";
+import { t } from "logseq-l10n"
 
 export const loadPageDateNotifier = () => {
   //ページを開いたときに、ページの作成日時、更新日時を表示する
@@ -61,14 +62,14 @@ const insertPageBar = async () => {
     dateFormatter.format(created) + " " + timeFormatter.format(created);
   elementPageBarSpace.innerHTML = `<table>${
     updatedString
-      ? '<tr title="last updated"><th>updated-at</th><td>' +
+      ? `<tr title="last updated"><th>${t("updated-at")}</th><td>` +
         updatedString +
         "</td></tr>"
       : ""
   }${
     logseq.settings!.pageDateNotifierCreatedAt === true
       ? createdString
-        ? "<tr title=\"⚠️After running 're-index'\"><th>created-at</th><td>" +
+        ? `<tr title="${t("⚠️After running 're-index'")}"><th>${t("created-at")}</th><td>` +
           createdString +
           "</td></tr>"
         : ""

@@ -1,3 +1,5 @@
+import { t } from "logseq-l10n"
+
 export function loadRepeatTask() {
   //for repeat task
   logseq.provideStyle(String.raw`
@@ -9,17 +11,17 @@ export function loadRepeatTask() {
   `);
 
   logseq.Editor.registerBlockContextMenuItem(
-    "repeat-task as LATER",
+    t("repeat-task as LATER"),
     async ({ uuid }) => {
       const block = await logseq.Editor.getBlock(uuid);
       if (block?.marker == "LATER") {
-        logseq.UI.showMsg("This block is LATER", "error");
+        logseq.UI.showMsg(t("This block is LATER task"), "error");
       } else {
         await logseq.Editor.insertBlock(uuid, `LATER 🔁 ((` + uuid + `))`).then(
           (block: any) => {
             logseq.App.openInRightSidebar(block.uuid);
             logseq.UI.showMsg(
-              "Mouse drag a bullet of the block to move it to the journal.",
+              t("Mouse drag a bullet of the block to move it to the journal."),
               "info"
             );
           }

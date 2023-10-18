@@ -1,6 +1,8 @@
+import { t } from "logseq-l10n"
+
 export function loadReferenceEmbed() {
   logseq.Editor.registerBlockContextMenuItem(
-    "Copy block reference and embed",
+    t("Copy block reference and embed"),
     async ({ uuid }) => {
       const block = await logseq.Editor.getBlock(uuid);
       // necessary to have the window focused in order to copy the content of the code block to the clipboard
@@ -8,7 +10,7 @@ export function loadReferenceEmbed() {
       window.focus();
       navigator.clipboard.writeText(`{{embed ((${uuid}))}}\nfrom ((${uuid}))`);
       logseq.UI.showMsg(
-        "Copied to clipboard\n(block reference and embed)",
+        t("Copied to clipboard\n(block reference and embed)"),
         "info"
       );
     }

@@ -1,6 +1,8 @@
+import { t } from "logseq-l10n"
+
 export const loadCopyPageTitle = () => {
   logseq.App.registerPageMenuItem(
-    "📋 Copy page title as a link",
+    t("📋 Copy page title as a link"),
     ({ page }) => {
       //クリップボードにページタイトルをコピーする
       //Copy the page title to the clipboard

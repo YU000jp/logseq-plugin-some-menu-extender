@@ -1,45 +1,46 @@
 import { SettingSchemaDesc } from "@logseq/libs/dist/LSPlugin.user";
+import { t } from "logseq-l10n"
 
 //https://logseq.github.io/plugins/types/SettingSchemaDesc.html
 export const settingsTemplate = (): SettingSchemaDesc[] => [
   {//注意事項
     key: "headingHead",
-    title: "⚠️Attention",
+    title: t("⚠️Attention"),
     type: "heading",
     default: "",
-    description: "Need to restart Logseq to take effect.",
+    description: t("Need to restart Logseq to take effect."),
   },
   {//ドキュメントへのリンク
     key: "headingDocumentLink",
-    title: "📖Document",
+    title: t("📖Document"),
     type: "heading",
     default: "",
-    description: "[Document here](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document)",
+    description: t("[Document here](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document)"),
   },
 
   {
     //loadTaskWorkflowState
     key: "headingLoadTaskWorkflowState",
-    title: "Rotate task workflow state",
+    title: t("Move task state to next"),
     type: "heading",
     default: "",
-    description: "Shortcut key: `Ctrl+Shift+Enter`",
+    description: t("Shortcut key: `Ctrl+Shift+Enter`(Windows) or `Cmd+Shift+Enter`(Mac)"),
   },
   {
     //loadTaskWorkflowState
     key: "loadTaskWorkflowState",
-    title: "Enable",
+    title: t("Enable"),
     type: "boolean",
     default: false,
     description: "",
   },
   {
     key: "taskWorkflowState",
-    title: "Set state items",
+    title: t("Set state items (Strings used when moving a task to the next state)"),
     type: "string",
     default: "TODO,DOING,WAITING,CANCELED,DONE",
     description:
-      "Separate with `,`. Only strings for Logseq built in task markers are valid. (`NOW`|`LATER`|`TODO`|`DOING`|`DONE`|`WAITING`|`WAIT`|`CANCELED`|`CANCELLED`|`IN-PROGRESS`)", //Logseqで許可されたタスク用の文字列のみ有効
+      t("Separate with `,`. Only strings for Logseq built in task markers are valid. (`NOW`|`LATER`|`TODO`|`DOING`|`DONE`|`WAITING`|`WAIT`|`CANCELED`|`CANCELLED`|`IN-PROGRESS`)"), //Logseqで許可されたタスク用の文字列のみ有効
   },
   // {
   //   key: "headingTaskWorkflowStateSetChildBlock",
@@ -110,17 +111,17 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
   {
     //loadPageInfo
     key: "headingLoadPageInfoButton",
-    title: "Page Info Button  ",
+    title: t("Page Info Button feature"),
     type: "heading",
     default: "",
     //ページタイトルの横にある📋アイコンをクリックしたときに表示されるページ情報を表示する
     //日付はre-indexを実行すると更新される
-    description: "Show the page info when click 📋 icon on the right of page title. ⚠️After running 're-index' in Logseq, the date will be updated.",
+    description: t("Show the page info when click 📋 icon on the right of page title. ⚠️After running 're-index' in Logseq, the date will be updated."),
   },
   {
     //loadPageInfo
     key: "loadPageInfoButton",
-    title: "Enable",
+    title: t("Enable"),
     type: "boolean",
     default: false,
     description: "",
@@ -129,15 +130,15 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
   {
     //loadPageDateNotifier
     key: "headingLoadPageDateNotifier",
-    title: "Page Date Notifier",
+    title: t("Page Date Notifier feature"),
     type: "heading",
     default: "",
-    description: "Show the date when a page opens",
+    description: t("Show the date when a page opens"),
   },
   {
     //loadPageDateNotifier
     key: "loadPageDateNotifier",
-    title: "Enable",
+    title: t("Enable"),
     type: "boolean",
     default: "false",
     description: "",
@@ -145,24 +146,24 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
   {
     //created-atを表示しない
     key: "pageDateNotifierCreatedAt",
-    title: "created-at",
+    title: t("created-at"),
     type: "boolean",
-    default: "Enable",
-    description: "⚠️Performing a `re-index` in Logseq updates the dates of `created-at` for all pages, causing them to be inadvertently changed.",
+    default: t("Enable"),
+    description: t("⚠️Performing a `re-index` in Logseq updates the dates of `created-at` for all pages, causing them to be inadvertently changed."),
   },
 
   {
     //loadRepeatTask
     key: "headingLoadRepeatTask",
-    title: "`repeat-task as LATER`",
+    title: t("`repeat-task as LATER` item"),
     type: "heading",
     default: "",
-    description: "Context menu item",
+    description: t("Context menu item"),
   },
   {
     //loadRepeatTask
     key: "loadRepeatTask",
-    title: "Enable",
+    title: t("Enable"),
     type: "boolean",
     default: false,
     description: "",
@@ -171,15 +172,15 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
   {
     //loadReferenceEmbed
     key: "headingLoadRepeatTask",
-    title: "`Copy block reference and embed`",
+    title: t("`Copy block reference and embed` item"),
     type: "heading",
     default: "",
-    description: "Context menu item",
+    description: t("Context menu item"),
   },
   {
     //loadReferenceEmbed
     key: "loadReferenceEmbed",
-    title: "Enable",
+    title: t("Enable"),
     type: "boolean",
     default: false,
     description: "",
@@ -188,15 +189,15 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
   {
     //loadCurrentPageTitle
     key: "headingLoadCurrentPageTitle",
-    title: "`/Insert current page title as a link`",
+    title: t("`/Insert current page title as a link` item"),
     type: "heading",
     default: "",
-    description: "Slash command ",
+    description: t("Slash command "),
   },
   {
     //loadCurrentPageTitle
     key: "loadCurrentPageTitle",
-    title: "Enable",
+    title: t("Enable"),
     type: "boolean",
     default: false,
     description: "",
@@ -206,15 +207,15 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
     //loadCopyPageTitle
     //ページメニューに、「ページタイトルをリンクとしてコピーする」項目を追加
     key: "headingLoadCopyPageTitle",
-    title: "`📋 Copy page title as a link`",
+    title: t("`📋 Copy page title as a link` item"),
     type: "heading",
     default: "",
-    description: "Page title menu",
+    description: t("Page title menu"),
   },
   {
     //loadCopyPageTitle
     key: "loadCopyPageTitle",
-    title: "Enable",
+    title: t("Enable"),
     type: "boolean",
     default: false,
     description: "",
@@ -223,15 +224,15 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
   {
     //loadCalculator
     key: "headingLoadCalculator",
-    title: "`select blocks to calculate`",
+    title: t("`select blocks to calculate` item"),
     type: "heading",
     default: "",
-    description: "Command pallet menu item (shortcut key: `Ctrl+Shift+P`)",
+    description: t("Command pallet menu item (shortcut key: `Ctrl+Shift+P`)"),
   },
   {
     //loadCalculator
     key: "loadCalculator",
-    title: "Enable",
+    title: t("Enable"),
     type: "boolean",
     default: false,
     description: "",

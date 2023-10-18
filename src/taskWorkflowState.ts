@@ -1,4 +1,5 @@
 import { BlockEntity } from "@logseq/libs/dist/LSPlugin.user";
+import { t } from "logseq-l10n"
 
 // export function DOINGchildrenSet(
 //   uuid: string,
@@ -44,9 +45,9 @@ export const loadTaskWorkflowState = () => {
   logseq.App.registerCommandPalette(
     {
       key: "toggleTaskWorkflowState",
-      label: "Rotate the task workflow state",
+      label: t("Move task state to next"),
       keybinding: {
-        binding: "ctrl+shift+enter",
+        binding: "mod+shift+enter",
       },
     },
     async ({ uuid }) => {

@@ -1,3 +1,5 @@
+[日本語](https://github.com/YU000jp/logseq-plugin-some-menu-extender/blob/main/README.md)
+
 # Logseq Plugin: *Innovation Lab* 🌱
 
 - Provides several features that are currently in the development stage, or bug-fixed versions of other plugins.
@@ -14,7 +16,7 @@
 
 ### Bug-fixed versions of other plugin
 
-#### Rotate the task workflow state [41](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/41)
+#### Move task state to next [41](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/41)
 
 > A lite version of [Custom Workflow plugin](https://github.com/sawhney17/logseq-custom-workflow-plugin) (Some bug fixes.)
 - Shortcut `Ctrl+Shift+Enter`
@@ -31,11 +33,11 @@
 
 ### Plugin Settings
 
-#### Rotate the task workflow state
+#### Move task state to next
 
-- Rotate the task workflow state: Shortcut key: string
+- Shortcut key: string
   - `Ctrl+Shift+Enter` default
-- Task workflow state: string
+- Set state items (Strings used when moving a task to the next state): string
   - `TODO,DOING,WAITING,CANCELED,DONE` default
    > Separate with `,`. Only strings for Logseq built in task markers are valid. (`NOW`|`LATER`|`TODO`|`DOING`|`DONE`|`WAITING`|`WAIT`|`CANCELED`|`CANCELLED`|`IN-PROGRESS`)
 

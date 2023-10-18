@@ -1,4 +1,6 @@
-import "@logseq/libs"; //https://plugins-doc.logseq.com/
+import "@logseq/libs" //https://plugins-doc.logseq.com/
+import { setup as l10nSetup, t } from "logseq-l10n"; //https://github.com/sethyuan/logseq-l10n
+import ja from "./translations/ja.json";
 import { settingsTemplate } from "./settings";
 import { loadRepeatTask } from "./repeatTask";
 import { loadReferenceEmbed } from "./referenceEmbed";
@@ -10,7 +12,8 @@ import { loadCopyPageTitle } from "./CopyPageTitle";
 import { mainCSS } from "./mainCSS";
 import { loadPageDateNotifier } from "./pageDateNotifier";
 
-const main = () => {
+const main = async() => {
+  await l10nSetup({ builtinTranslations: { ja } });
   //設定画面の読み込み
   logseq.useSettingsSchema(settingsTemplate());
 

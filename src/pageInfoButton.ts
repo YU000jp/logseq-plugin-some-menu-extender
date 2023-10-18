@@ -1,12 +1,13 @@
 import { PageEntity } from "@logseq/libs/dist/LSPlugin";
 import { dateFormatter, timeFormatter } from "./pageDateNotifier";
+import { t } from "logseq-l10n"
 
 //Page info button
 export function loadPageInfoButton() {
   logseq.App.registerUIItem("pagebar", {
     key: "pageInfo",
     template: `
-    <div id="pageBar--pageInfoButton" data-on-click="modelPageInfo" title="Page info"><a class="button icon">📑</a></div>
+    <div id="pageBar--pageInfoButton" data-on-click="modelPageInfo" title="${t("Page info")}"><a class="button icon">📑</a></div>
     `,
   });
   logseq.provideModel({
@@ -25,15 +26,15 @@ export function loadPageInfoButton() {
           " " +
           timeFormatter.format(createdAt);
         logseq.UI.showMsg(
-          `--- Page info ---
+          `--- ${t("Page info")} ---
 
-        format:
+        ${t("format")}:
         ${currentPage.format}
 
-        updatedAt (Last modified):
+        ${t("updated-at")} (${t("Last modified")}):
         ${updatedAtStr}
 
-        createdAt:
+        ${t("created-at")}:
         ${createdAtStr}
 
         `,

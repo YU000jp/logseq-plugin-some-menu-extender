@@ -1,10 +1,11 @@
 import { BlockEntity } from "@logseq/libs/dist/LSPlugin.user";
+import { t } from "logseq-l10n"
 
 export function loadCalculator() {
   logseq.App.registerCommandPalette(
     {
       key: "some-menu-extender-select-blocks-for-calculate",
-      label: "Select blocks to SUM (calculate)",
+      label: t("Select blocks to SUM (calculate)"),
     },
     async (event) => {
       const blocks = (await logseq.Editor.getSelectedBlocks()) as BlockEntity[];
