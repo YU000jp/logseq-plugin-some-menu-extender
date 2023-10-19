@@ -31,6 +31,10 @@
 
    ![image](https://github.com/YU000jp/logseq-plugin-some-menu-extender/assets/111847207/32afec53-20ad-41d0-ad54-44cd07a50c67)
 
+### Usage
+
+   [document](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document)
+
 ### Plugin Settings
 
 #### "Move task state to next" feature
