@@ -1,3 +1,10 @@
+# [0.24.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.23.2...v0.24.0) (2023-10-19)
+
+
+### Features
+
+* **Translation:** Japanese / plugin settings ([b6c09d8](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/b6c09d883e7765a577ecc13ccdb71eb9339abe20))
+
 ## [0.23.2](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.23.1...v0.23.2) (2023-10-15)
 
 
