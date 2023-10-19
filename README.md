@@ -51,6 +51,7 @@
 - 🦢[Blank line plugin](https://github.com/YU000jp/logseq-plugin-blank-line) 🆕
 - 🗝️[Legacy date format](https://github.com/YU000jp/logseq-plugin-legacy-date-format) 🆕
 - [2 hop link plugin](https://github.com/YU000jp/logseq-plugin-two-hop-link)
+- [Left-sidebar Enhance plugin](https://github.com/YU000jp/logseq-plugin-left-sidebar-enhance)
 
 ---
 
