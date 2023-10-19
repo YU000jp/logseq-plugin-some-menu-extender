@@ -48,9 +48,9 @@
 - 🔗[Confirmation Hyperlink (Pastes URL)](https://github.com/YU000jp/logseq-plugin-confirmation-hyperlink)
 - 💪[Confirmation DONE task](https://github.com/YU000jp/logseq-plugin-confirmation-done-task)
 - ⚓[Quickly PARA method](https://github.com/YU000jp/logseq-plugin-quickly-para-method)
-- 🦢[Blank line plugin](https://github.com/YU000jp/logseq-plugin-blank-line) 🆕
-- 🗝️[Legacy date format](https://github.com/YU000jp/logseq-plugin-legacy-date-format) 🆕
-- [2 hop link plugin](https://github.com/YU000jp/logseq-plugin-two-hop-link)
+- 🦢[Blank line plugin](https://github.com/YU000jp/logseq-plugin-blank-line)
+- 🗝️[Legacy date format](https://github.com/YU000jp/logseq-plugin-legacy-date-format)
+- [2 hop link plugin](https://github.com/YU000jp/logseq-plugin-two-hop-link)🆕
 - [Left-sidebar Enhance plugin](https://github.com/YU000jp/logseq-plugin-left-sidebar-enhance)
 
 ---
