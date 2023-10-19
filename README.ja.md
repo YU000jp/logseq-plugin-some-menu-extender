@@ -52,7 +52,7 @@
 - 🦢[空の行を作成する プラグイン](https://github.com/YU000jp/logseq-plugin-blank-line) 🆕
 - 🗝️[レガシー日付フォーマット プラグイン](https://github.com/YU000jp/logseq-plugin-legacy-date-format) 🆕
 - [2ホップリンク プラグイン](https://github.com/YU000jp/logseq-plugin-two-hop-link)
-
+- [左サイドメニューの強化プラグイン](https://github.com/YU000jp/logseq-plugin-left-sidebar-enhance)
 ---
 
 ## 作者
