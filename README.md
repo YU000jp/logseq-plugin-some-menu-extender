@@ -33,7 +33,7 @@
 
 ### Plugin Settings
 
-#### Move task state to next
+#### "Move task state to next" feature
 
 - Shortcut key: string
   - `Ctrl+Shift+Enter` default
