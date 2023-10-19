@@ -37,7 +37,7 @@
 #### タスクの状態を次に移行させる
 
 - タスクの状態を次に移行させる ショートカットキー: 文字列
-  - デフォルトは `Ctrl+Shift+Enter`
+  - デフォルトは `Ctrl+Shift+Enter`(Windows)もしくは`Cmd+Shift+Enter`(Mac)
 - タスクの状態を次に移行させる際の文字列: 文字列
   - デフォルトは `TODO,DOING,WAITING,CANCELED,DONE`
    > `,` で区切ってください。Logseqが提供しているタスクマークの文字列のみが有効です。 (`NOW`|`LATER`|`TODO`|`DOING`|`DONE`|`WAITING`|`WAIT`|`CANCELED`|`CANCELLED`|`IN-PROGRESS`)
