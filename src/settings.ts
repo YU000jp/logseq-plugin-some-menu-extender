@@ -187,23 +187,6 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
   },
 
   {
-    //loadReferenceEmbed
-    key: "headingLoadRepeatTask",
-    title: t("`Copy block reference and embed` item"),
-    type: "heading",
-    default: "",
-    description: t("Context menu item"),
-  },
-  {
-    //loadReferenceEmbed
-    key: "loadReferenceEmbed",
-    title: t("Enable"),
-    type: "boolean",
-    default: false,
-    description: "",
-  },
-
-  {
     //loadCurrentPageTitle
     key: "headingLoadCurrentPageTitle",
     title: t("`/Insert current page title as a link` item"),
@@ -214,24 +197,6 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
   {
     //loadCurrentPageTitle
     key: "loadCurrentPageTitle",
-    title: t("Enable"),
-    type: "boolean",
-    default: false,
-    description: "",
-  },
-
-  {
-    //loadCopyPageTitle
-    //ページメニューに、「ページタイトルをリンクとしてコピーする」項目を追加
-    key: "headingLoadCopyPageTitle",
-    title: t("`📋 Copy page title as a link` item"),
-    type: "heading",
-    default: "",
-    description: t("Page title menu"),
-  },
-  {
-    //loadCopyPageTitle
-    key: "loadCopyPageTitle",
     title: t("Enable"),
     type: "boolean",
     default: false,
