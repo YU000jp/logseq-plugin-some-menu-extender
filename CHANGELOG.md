@@ -1,3 +1,11 @@
+# [0.25.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.24.0...v0.25.0) (2023-10-25)
+
+
+### Features
+
+* **Add:** clear block feature ([89dc2ac](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/89dc2acd80b59fd7ac5db37cb0f70b588f6f715f))
+* **Add:** Clear Blocks ([16d3159](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/16d31596c00aa4dee9bfea35ed2416b1e112d24c))
+
 # [0.24.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.23.2...v0.24.0) (2023-10-19)
 
 
