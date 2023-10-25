@@ -7,12 +7,12 @@ import { t } from "logseq-l10n"
 
 export const loadClearBlocks = () => {
     // ブロックをひとつクリアする
-    logseq.Editor.registerBlockContextMenuItem(t("Clear the block"), async ({ uuid }) => logseq.Editor.updateBlock(uuid, "", {}))
+    logseq.Editor.registerBlockContextMenuItem(`🧹 ${t("Clear the block")}`, async ({ uuid }) => logseq.Editor.updateBlock(uuid, "", {}))
 
     // ブロックを複数クリアする
     logseq.App.registerCommandPalette({
         key: "clearBlocks",
-        label: "",
+        label: `🧹 ${t("Clear blocks (selected)")}`,
     }, async () => {
         // 選択したブロックを取得
         const blocks = await logseq.Editor.getSelectedBlocks() as BlockEntity[] | null

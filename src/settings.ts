@@ -30,7 +30,9 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
     title: t("Enable"),
     type: "boolean",
     default: true,
-    description: "",
+    description:
+    //どこかのブロックにカーソルがある状態でEscキーを押すと、そのブロックが選択される。ShiftキーやCtrl(Cmd)キーを押しながら、カーソルキーやマウスでその他のブロックを選択する。コマンドパレットを起動する(Ctrl + Shift + P)。"Block"を検索し、実行する。ブロックの内容が消去される。
+    t("Any block is selected by pressing the Esc key while the cursor is on any block. Select other blocks with the cursor key or mouse while pressing the Shift or Ctrl (Cmd) key. Launch the command palette (Ctrl + Shift + P). Search for \"Block\" and run it. The contents of the block will be erased."),
   },
 
   {

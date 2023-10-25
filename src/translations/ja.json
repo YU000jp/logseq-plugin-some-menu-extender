@@ -7,7 +7,6 @@
   "`📋 Copy page title as a link` item": "`📋 ページタイトルをリンクとしてコピー`項目",
   "Clear block": "ブロックをクリア",
   "Clear block from the bullet menu item and command pallet menu item": "ブロックをクリアするための箇条書きメニュー項目とコマンドパレットメニュー項目",
-  "Clear the block": "そのブロックをクリア",
   "Cleared the blocks": "ブロックをクリアしました",
   "Command pallet menu item (shortcut key: `Ctrl+Shift+P`)": "コマンドパレットのメニュー項目 (ショートカットキー：`Ctrl+Shift+P`)",
   "Context menu item": "コンテキストメニュー項目",
@@ -19,7 +18,7 @@
   "Last modified": "最終更新日時",
   "Mouse drag a bullet of the block to move it to the journal.": "ブロックのバレットをドラッグしてジャーナルに移動します。",
   "Move task state to next": "タスクの状態を次に移行",
-  "Need to restart Logseq or turn this plugin off to take effect.": "Logseqを再起動するか、このプラグインをオフにしてください。",
+  "Need to restart Logseq or turn this plugin off to take effect.": "反映するには、Logseqを再起動するか、このプラグインをオフにしてください。",
   "No blocks selected": "ブロックが選択されていません",
   "Page Date Notifier feature": "ページの日付を通知する機能",
   "Page info": "ページ情報",
@@ -40,5 +39,8 @@
   "⚠️Attention": "⚠️注意",
   "⚠️Performing a `re-index` in Logseq updates the dates of `created-at` for all pages, causing them to be inadvertently changed.": "⚠️Logseqで're-index'を実行すると、すべてのページの`created-at`の日付が更新され、誤って変更されている可能性があります。",
   "📋 Copy page title as a link": "📋 ページタイトルをリンクとしてコピー",
-  "📖Document": "📖ドキュメント"
+  "📖Document": "📖ドキュメント",
+  "Clear blocks (selected)": "選択したブロックをクリアする",
+  "Clear the block": "この行のブロックをクリアする",
+  "Any block is selected by pressing the Esc key while the cursor is on any block. Select other blocks with the cursor key or mouse while pressing the Shift or Ctrl (Cmd) key. Launch the command palette (Ctrl + Shift + P). Search for \"Block\" and run it. The contents of the block will be erased." : "カーソルがブロック上にあるときにEscキーを押すと、任意のブロックが選択されます。ShiftキーまたはCtrl(Cmd)キーを押しながらカーソルキーまたはマウスで他のブロックを選択します。コマンドパレット(Ctrl+Shift+P)を起動します。\"Block\"を検索して実行します。ブロックの内容が消去されます。"
 }
