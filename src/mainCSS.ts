@@ -6,6 +6,7 @@ export const mainCSS = (baseId: string) => {
         & div.heading-item {
           margin-top: 3em;
           border-top-width: 1px;
+          border-bottom-width: 0;
           padding-top: 1em;
           &>h2 {
             margin-bottom: 0.5em;
