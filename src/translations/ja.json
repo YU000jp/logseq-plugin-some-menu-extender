@@ -1,17 +1,10 @@
 {
   "[Document here](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document)": "[ドキュメントは、こちら](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/%E6%97%A5%E6%9C%AC%E8%AA%9E%E3%83%89%E3%82%AD%E3%83%A5%E3%83%A1%E3%83%B3%E3%83%88)",
-  "`/Insert current page title as a link` item": "`Insert current page title as a link`項目 (現在のページタイトルをリンクとして挿入)",
-  "`Copy block reference and embed` item": "`行の引用と埋め込みをコピー`項目",
+  "`/Insert current page title as a link` item": "`Insert current page title as a link`項目 (現在のページ名をリンクとして挿入)",
   "`repeat-task as LATER` item": "`リピートタスクをLATERにする`項目",
   "`select blocks to calculate` item": "`計算する行を選択`項目",
-  "`📋 Copy page title as a link` item": "`📋 ページタイトルをリンクとしてコピー`項目",
-  "Clear block": "行をクリア",
-  "Clear block from the bullet menu item and command pallet menu item": "行をクリアするための箇条書きメニュー項目とコマンドパレットメニュー項目",
-  "Cleared the blocks": "指定した行をクリアしました",
   "Command pallet menu item (shortcut key: `Ctrl+Shift+P`)": "コマンドパレットのメニュー項目 (ショートカットキー：`Ctrl+Shift+P`)",
   "Context menu item": "コンテキストメニュー項目",
-  "Copied to clipboard\n(block reference and embed)": "クリップボードにコピーしました\n(行の引用と埋め込み)",
-  "Copy block reference and embed": "行の引用と埋め込みをコピー",
   "created-at": "作成日時",
   "Enable": "有効にする",
   "format": "フォーマット",
@@ -19,7 +12,6 @@
   "Mouse drag a bullet of the block to move it to the journal.": "その行の(・)をドラッグしてジャーナルに移動します。",
   "Move task state to next": "タスクの状態を次に移行",
   "Need to restart Logseq or turn this plugin off to take effect.": "反映するには、Logseqを再起動するか、このプラグインをオフにしてください。",
-  "No blocks selected": "行が選択されていません",
   "Page Date Notifier feature": "ページに関する日付を通知する機能",
   "Page info": "ページ情報",
   "Page Info Button feature": "ページ情報ボタンの機能",
@@ -39,8 +31,5 @@
   "⚠️Attention": "⚠️注意",
   "⚠️Performing a `re-index` in Logseq updates the dates of `created-at` for all pages, causing them to be inadvertently changed.": "⚠️Logseqで're-index'を実行すると、すべてのページの`created-at`の日付が更新され、誤って変更されている可能性があります。",
   "📋 Copy page title as a link": "📋 ページタイトルをリンクとしてコピー",
-  "📖Document": "📖ドキュメント",
-  "Clear blocks (selected)": "選択した行をクリアする",
-  "Clear the block": "この行をクリアする",
-  "Any block is selected by pressing the Esc key while the cursor is on a block. Select other blocks with the cursor key or mouse while pressing the Shift or Ctrl (Cmd) key. Press the shortcut 🖱️`Ctrl(Cmd)+Del` to clear the contents of the block.": "どこかの行にカーソルがある状態でEscキーを押すと、その行が選択されます。ShiftキーやCtrl(Cmd)キーを押しながら、カーソルキーやマウスでその他の行を選択します。ショートカット🖱️「Ctrl(Cmd)+Del」を押すと、それらの行の内容が消去されます。"
+  "📖Document": "📖ドキュメント"
 }
