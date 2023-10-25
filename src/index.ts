@@ -11,6 +11,7 @@ import { loadPageInfoButton } from "./pageInfoButton";
 import { loadCopyPageTitle } from "./CopyPageTitle";
 import { mainCSS } from "./mainCSS";
 import { loadPageDateNotifier } from "./pageDateNotifier";
+import { loadClearBlocks } from "./clearBlocks"
 
 const main = async() => {
   await l10nSetup({ builtinTranslations: { ja } });
@@ -53,6 +54,10 @@ const main = async() => {
   //Page date notifier
   if (logseq.settings!.loadPageDateNotifier === true) loadPageDateNotifier();
 
+  // ブロッククリアの箇条書きメニューと、コマンドパレットメニュー
+  if (logseq.settings!.loadClearBlocks === true) loadClearBlocks();
+
 }; /* end_main */
 
 logseq.ready(main).catch(console.error);
+

@@ -8,7 +8,7 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
     title: t("⚠️Attention"),
     type: "heading",
     default: "",
-    description: t("Need to restart Logseq to take effect."),
+    description: t("Need to restart Logseq or turn this plugin off to take effect."),
   },
   {//ドキュメントへのリンク
     key: "headingDocumentLink",
@@ -16,6 +16,21 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
     type: "heading",
     default: "",
     description: t("[Document here](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document)"),
+  },
+
+  {// ブロッククリアの箇条書きメニューと、コマンドパレットメニュー
+    key: "headingClearBlocks",
+    title: t("Clear block"),
+    type: "heading",
+    default: "",
+    description: t("Clear block from the bullet menu item and command pallet menu item"),
+  },
+  {
+    key: "loadClearBlocks",
+    title: t("Enable"),
+    type: "boolean",
+    default: true,
+    description: "",
   },
 
   {
