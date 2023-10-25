@@ -1,3 +1,12 @@
+## [0.25.1](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.25.0...v0.25.1) (2023-10-25)
+
+
+### Bug Fixes
+
+* Clear Blocks feature > set keybinding ([1cbedcd](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/1cbedcd23e6bc3756227e67c2035f204be0cbf85))
+* **remove:** 2 feature ([402d4ff](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/402d4ff09d873520249927291c553af27cf98d3c))
+* **Remove:** Clear Block feature (Split to "blank line" plugin) ([a3443f1](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/a3443f1e1a70c2f99b011e14482f2246f4aa84d0))
+
 # [0.25.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.24.0...v0.25.0) (2023-10-25)
 
 
