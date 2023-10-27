@@ -1,4 +1,4 @@
-import { BlockEntity } from "@logseq/libs/dist/LSPlugin.user";
+import { BlockEntity } from "@logseq/libs/dist/LSPlugin.user"
 import { t } from "logseq-l10n"
 
 // export function DOINGchildrenSet(
@@ -40,7 +40,7 @@ import { t } from "logseq-l10n"
 // }
 
 export const loadTaskWorkflowState = () => {
-  let processing: Boolean = false;
+  let processing: Boolean = false
   //コマンドパレット `Rotate the Task Workflow State`
   logseq.App.registerCommandPalette(
     {
@@ -51,58 +51,58 @@ export const loadTaskWorkflowState = () => {
       },
     },
     async ({ uuid }) => {
-      if (processing) return;
-      processing = true;
-      const block = (await logseq.Editor.getBlock(uuid)) as BlockEntity;
-      if (!block) return (processing = false);
+      if (processing) return
+      processing = true
+      const block = (await logseq.Editor.getBlock(uuid)) as BlockEntity
+      if (!block) return (processing = false)
       if (logseq.settings!.taskWorkflowState === "")
-        return (processing = false);
+        return (processing = false)
       const states: string[] = logseq
         .settings!.taskWorkflowState.replace(/\s+/g, "")
-        .split(",");
-      const index: number = states.indexOf(block.marker);
+        .split(",")
+      const index: number = states.indexOf(block.marker)
       if (index === -1) {
         //ユーザー指定のタスクに一致しない場合
         if (!block.marker) {
           //タスクに一致しない場合
           //「# 」や「## 」「### 」「#### 」「##### 」「######」で始まっていた場合は、そのマッチした部分の後ろに追加する
-          const match = block.content.match(/^(#+)\s/);
+          const match = block.content.match(/^(#+)\s/)
           if (match) {
             let content = block.content.replace(
               match[0],
               match[0] + states[0] + " "
-            );
-            content.replace(block.marker + " ", "");
-            logseq.Editor.updateBlock(block.uuid, content);
+            )
+            content.replace(block.marker + " ", "")
+            logseq.Editor.updateBlock(block.uuid, content)
           } else {
             logseq.Editor.updateBlock(
               block.uuid,
               states[0] + " " + block.content
-            );
+            )
           }
         } else {
           logseq.Editor.updateBlock(
             block.uuid,
             block.content.replace(block.marker + " ", states[0] + " ")
-          );
+          )
         }
       } else {
-        let content = "";
+        let content = ""
         //let DOING: boolean = false;
         switch (states[index + 1]) {
           case undefined:
-            content = "";
-            break;
+            content = ""
+            break
           //case "DOING":
           //DOING = true;
           default:
-            content = states[index + 1] + " ";
-            break;
+            content = states[index + 1] + " "
+            break
         }
         logseq.Editor.updateBlock(
           block.uuid,
           block.content.replace(block.marker + " ", content)
-        );
+        )
         // if (DOING === true) {
         //   if (
         //     (DOINGchildrenSet(
@@ -151,7 +151,7 @@ export const loadTaskWorkflowState = () => {
         //   }
         // }
       }
-      processing = false;
+      processing = false
     }
-  );
+  )
 }
