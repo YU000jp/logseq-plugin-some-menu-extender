@@ -151,7 +151,7 @@ export const loadTaskWorkflowState = () => {
         //   }
         // }
       }
-      processing = false
+      setTimeout(() => processing = false, 200)
     }
   )
 }
