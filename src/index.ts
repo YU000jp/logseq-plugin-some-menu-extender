@@ -4,7 +4,7 @@ import ja from "./translations/ja.json";
 import { settingsTemplate } from "./settings";
 import { loadRepeatTask } from "./repeatTask";
 import { loadCalculator } from "./calculator";
-import { loadTaskWorkflowState } from "./taskWorkflowState";
+import { loadTaskWorkflowState } from "./moveTaskState";
 import { loadCurrentPageTitle } from "./currentPageTitle";
 import { loadPageInfoButton } from "./pageInfoButton";
 import { mainCSS } from "./mainCSS";
