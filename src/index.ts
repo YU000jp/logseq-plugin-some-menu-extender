@@ -5,7 +5,6 @@ import { settingsTemplate } from "./settings";
 import { loadRepeatTask } from "./repeatTask";
 import { loadCalculator } from "./calculator";
 import { loadTaskWorkflowState } from "./moveTaskState";
-import { loadCurrentPageTitle } from "./currentPageTitle";
 import { loadPageInfoButton } from "./pageInfoButton";
 import { mainCSS } from "./mainCSS";
 import { loadPageDateNotifier } from "./pageDateNotifier";
@@ -21,11 +20,6 @@ const main = async() => {
   /* ContextMenuItem
   `repeat-task as LATER`  */
   if (logseq.settings!.loadRepeatTask === true) loadRepeatTask();
-
-  //Slash command
-  //`Insert current page title as a link`
-  //現在のページタイトルをリンクとして挿入する
-  if (logseq.settings!.loadCurrentPageTitle === true) loadCurrentPageTitle();
 
   //Page bar item
   //ページ情報を表示する

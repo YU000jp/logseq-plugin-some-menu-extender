@@ -170,23 +170,6 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
   },
 
   {
-    //loadCurrentPageTitle
-    key: "headingLoadCurrentPageTitle",
-    title: t("`/Insert current page title as a link` item"),
-    type: "heading",
-    default: "",
-    description: t("Slash command "),
-  },
-  {
-    //loadCurrentPageTitle
-    key: "loadCurrentPageTitle",
-    title: t("Enable"),
-    type: "boolean",
-    default: false,
-    description: "",
-  },
-
-  {
     //loadCalculator
     key: "headingLoadCalculator",
     title: t("`select blocks to calculate` item"),
