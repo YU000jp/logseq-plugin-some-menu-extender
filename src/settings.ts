@@ -114,7 +114,7 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
     title: t("Page Info Button feature"),
     type: "heading",
     default: "",
-    //ページタイトルの横にある📋アイコンをクリックしたときに表示されるページ情報を表示する
+    //ページ名の横にある📋アイコンをクリックしたときに表示されるページ情報を表示する
     //日付はre-indexを実行すると更新される
     description: t("Show the page info when click 📋 icon on the right of page title. ⚠️After running 're-index' in Logseq, the date will be updated."),
   },
