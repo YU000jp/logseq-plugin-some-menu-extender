@@ -9,7 +9,7 @@
   "Enable": "有効にする",
   "format": "フォーマット",
   "Last modified": "最終更新日時",
-  "Mouse drag a bullet of the block to move it to the journal.": "その行の(・)をドラッグしてジャーナルに移動します。",
+  "Mouse drag a bullet of the block to move it to the journal.": "その行の(・)をドラッグして日誌に移動します。",
   "Move task state to next": "タスクの状態を次に移行",
   "Need to restart Logseq or turn this plugin off to take effect.": "反映するには、Logseqを再起動するか、このプラグインをオフにしてください。",
   "Page Date Notifier feature": "ページに関する日付を通知する機能",
