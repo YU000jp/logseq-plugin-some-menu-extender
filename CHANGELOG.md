@@ -1,3 +1,16 @@
+# [0.26.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.25.1...v0.26.0) (2023-11-04)
+
+
+### Bug Fixes
+
+* **Page Date Notifier:** when created-at = updated-at ([d24d362](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/d24d362369c4f072909e010c6ea59ba7ae213ccf))
+* **remove:** "Current page title as a link" slash command ([a8b347c](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/a8b347c8cabfe6dd4d1101b1558e0556f245e2d2))
+
+
+### Features
+
+* **Remove:** Page Notifier / Page info button ([a4e7060](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/a4e70600448cbbcb08cc12c64d51b60ba37db2a6))
+
 ## [0.25.1](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.25.0...v0.25.1) (2023-10-25)
 
 
