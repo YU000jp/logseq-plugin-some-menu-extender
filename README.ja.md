@@ -46,27 +46,23 @@
 
 ### 他のプラグインに分割
 
-- 🔗[ハイパーリンク プラグイン](https://github.com/YU000jp/logseq-plugin-confirmation-hyperlink)
-- 💪[完了タスク プラグイン](https://github.com/YU000jp/logseq-plugin-confirmation-done-task)
-- ⚓[クイック PARAメソッド プラグイン](https://github.com/YU000jp/logseq-plugin-quickly-para-method)
-- 🦢[空の行を作成する プラグイン](https://github.com/YU000jp/logseq-plugin-blank-line) 🆕
-- 🗝️[レガシー日付フォーマット プラグイン](https://github.com/YU000jp/logseq-plugin-legacy-date-format) 🆕
-- [2ホップリンク プラグイン](https://github.com/YU000jp/logseq-plugin-two-hop-link)
+- [ページの日付を表示するプラグイン](https://github.com/YU000jp/logseq-plugin-show-page-date)
 - [左サイドメニューの強化プラグイン](https://github.com/YU000jp/logseq-plugin-left-sidebar-enhance)
+- [2ホップリンク プラグイン](https://github.com/YU000jp/logseq-plugin-two-hop-link)
+- 🗝️[レガシー日付フォーマット プラグイン](https://github.com/YU000jp/logseq-plugin-legacy-date-format)
+- 🦢[空の行を作成する プラグイン](https://github.com/YU000jp/logseq-plugin-blank-line)
+- ⚓[クイック PARAメソッド プラグイン](https://github.com/YU000jp/logseq-plugin-quickly-para-method)
+- 💪[完了タスク プラグイン](https://github.com/YU000jp/logseq-plugin-confirmation-done-task)
+- 🔗[ハイパーリンク プラグイン](https://github.com/YU000jp/logseq-plugin-confirmation-hyperlink)
+
 ---
-
-## 作者
-
-- GitHub: [YU000jp](https://github.com/YU000jp)
 
 ## 先行研究とクレジット
 
 [sawhney17/ logseq-custom-workflow-plugin](https://github.com/sawhney17/logseq-custom-workflow-plugin)
 
-### アイコン
+アイコン > [icooon-mono.com](https://icooon-mono.com/12611-%e3%83%a1%e3%83%8b%e3%83%a5%e3%83%bc%e3%81%ae%e3%83%95%e3%83%aa%e3%83%bc%e3%82%a2%e3%82%a4%e3%82%b3%e3%83%b316/)
 
-- [icooon-mono.com](https://icooon-mono.com/12611-%e3%83%a1%e3%83%8b%e3%83%a5%e3%83%bc%e3%81%ae%e3%83%95%e3%83%aa%e3%83%bc%e3%82%a2%e3%82%a4%e3%82%b3%e3%83%b316/)
-
----
+作者 > GitHub: [YU000jp](https://github.com/YU000jp)
 
 <a href="https://www.buymeacoffee.com/yu000japan" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-violet.png" alt="🍌コーヒーを買ってくれ" style="height: 42px;width: 152px" ></a>

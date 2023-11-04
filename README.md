@@ -49,28 +49,23 @@
 
 ### Split to some plugin
 
-- 🔗[Confirmation Hyperlink (Pastes URL)](https://github.com/YU000jp/logseq-plugin-confirmation-hyperlink)
-- 💪[Confirmation DONE task](https://github.com/YU000jp/logseq-plugin-confirmation-done-task)
-- ⚓[Quickly PARA method](https://github.com/YU000jp/logseq-plugin-quickly-para-method)
-- 🦢[Blank line plugin](https://github.com/YU000jp/logseq-plugin-blank-line)
-- 🗝️[Legacy date format](https://github.com/YU000jp/logseq-plugin-legacy-date-format)
-- [2 hop link plugin](https://github.com/YU000jp/logseq-plugin-two-hop-link)🆕
+- [Show page date](https://github.com/YU000jp/logseq-plugin-show-page-date)
 - [Left-sidebar Enhance plugin](https://github.com/YU000jp/logseq-plugin-left-sidebar-enhance)
+- [2 hop link plugin](https://github.com/YU000jp/logseq-plugin-two-hop-link)
+- 🗝️[Legacy date format](https://github.com/YU000jp/logseq-plugin-legacy-date-format)
+- 🦢[Blank line plugin](https://github.com/YU000jp/logseq-plugin-blank-line)
+- ⚓[Quickly PARA method](https://github.com/YU000jp/logseq-plugin-quickly-para-method)
+- 💪[Confirmation DONE task](https://github.com/YU000jp/logseq-plugin-confirmation-done-task)
+- 🔗[Confirmation Hyperlink (Pastes URL)](https://github.com/YU000jp/logseq-plugin-confirmation-hyperlink)
 
 ---
-
-## Author
-
-- GitHub: [YU000jp](https://github.com/YU000jp)
 
 ## Prior art & Credit
 
-[sawhney17/ logseq-custom-workflow-plugin](https://github.com/sawhney17/logseq-custom-workflow-plugin)
+[@sawhney17/ logseq-custom-workflow-plugin](https://github.com/sawhney17/logseq-custom-workflow-plugin)
 
-### Icon
+Icon > [icooon-mono.com](https://icooon-mono.com/12611-%e3%83%a1%e3%83%8b%e3%83%a5%e3%83%bc%e3%81%ae%e3%83%95%e3%83%aa%e3%83%bc%e3%82%a2%e3%82%a4%e3%82%b3%e3%83%b316/)
 
-- [icooon-mono.com](https://icooon-mono.com/12611-%e3%83%a1%e3%83%8b%e3%83%a5%e3%83%bc%e3%81%ae%e3%83%95%e3%83%aa%e3%83%bc%e3%82%a2%e3%82%a4%e3%82%b3%e3%83%b316/)
-
----
+Author > [@YU000jp](https://github.com/YU000jp)
 
 <a href="https://www.buymeacoffee.com/yu000japan" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-violet.png" alt="🍌Buy Me A Coffee" style="height: 42px;width: 152px" ></a>
