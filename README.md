@@ -19,7 +19,7 @@
 #### Move task state to next [41](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/41)
 
 > A lite version of [Custom Workflow plugin](https://github.com/sawhney17/logseq-custom-workflow-plugin) (Some bug fixes.)
-- Shortcut `Ctrl+Shift+Enter`
+- Shortcut `Ctrl + Shift + Enter`
 
 ---
 
