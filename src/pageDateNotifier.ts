@@ -10,27 +10,34 @@ export const loadPageDateNotifier = () => {
         `,
   })
   logseq.provideStyle(`
-        div#root div#main-content-container{
-        & div#pageBar--pageInfoBarSpace {
-          width: fit-content;
-          height: 80px;
-          user-select: none;
-          & table tr {
-            & th {
-              font-size:.83em;
-            }
-            & td {
-              font-size:.9em;
+      body>div#root>div>main div#main-content-container {
+        & div {
+          &#pageBar--pageInfoBarSpace {
+            height: 80px;
+            user-select: none;
+            overflow: auto;
+            & table {
+              width: fit-content;
+              overflow: auto;
+              &>tbody>tr {
+                &>th,
+                &>td {
+                  font-size:.8em;
+                  padding: unset;
+                  padding-left: .8em;
+                  width: fit-content;
+                }
+              }
             }
           }
-        }
-        & div.list-wrap:has(div#pageBar--pageInfoBarSpace) {
-          padding-top:unset;
+          &.list-wrap:has(div#pageBar--pageInfoBarSpace) {
+            padding-top:unset;
+            overflow:hidden;
+            height:100px;
+          }
+          &[data-type="pagebar"] div.list-wrap:has(div#pageBar--pageInfoBarSpace) {
           overflow:hidden;
-          height:100px;
-        }
-        & div[data-type="pagebar"] div.list-wrap:has(div#pageBar--pageInfoBarSpace) {
-        overflow:hidden;
+          }
         }
       }
   `)
@@ -54,14 +61,12 @@ const insertPageBar = async () => {
   if (!current.updatedAt && !current.createdAt) return
   const updated: Date = new Date(current.updatedAt as number)
   //updatedをフォーマットする(最後の3文字を削除する)
-  const updatedString =
-    dateFormatter.format(updated) + " " + timeFormatter.format(updated)
+  const updatedString = dateFormatter.format(updated) + " " + timeFormatter.format(updated)
   const created: Date = new Date(current.createdAt as number)
   //createdをフォーマットする
-  const createdString =
-    dateFormatter.format(created) + " " + timeFormatter.format(created)
+  const createdString = dateFormatter.format(created) + " " + timeFormatter.format(created)
   elementPageBarSpace.innerHTML = `<table>${updatedString
-    ? `<tr title="last updated"><th>${t("updated-at")}</th><td>` +
+    ? `<tr title="${t("last updated")}"><th>${t("updated-at")}</th><td>` +
     updatedString +
     "</td></tr>"
     : ""
