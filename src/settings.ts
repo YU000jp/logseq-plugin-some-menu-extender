@@ -109,50 +109,6 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
   // },
 
   {
-    //loadPageInfo
-    key: "headingLoadPageInfoButton",
-    title: t("Page Info Button feature"),
-    type: "heading",
-    default: "",
-    //ページ名の横にある📋アイコンをクリックしたときに表示されるページ情報を表示する
-    //日付はre-indexを実行すると更新される
-    description: t("Show the page info when click 📋 icon on the right of page title. ⚠️After running 're-index' in Logseq, the date will be updated."),
-  },
-  {
-    //loadPageInfo
-    key: "loadPageInfoButton",
-    title: t("Enable"),
-    type: "boolean",
-    default: false,
-    description: "",
-  },
-
-  {
-    //loadPageDateNotifier
-    key: "headingLoadPageDateNotifier",
-    title: t("Page Date Notifier feature"),
-    type: "heading",
-    default: "",
-    description: t("Show the date when a page opens"),
-  },
-  {
-    //loadPageDateNotifier
-    key: "loadPageDateNotifier",
-    title: t("Enable"),
-    type: "boolean",
-    default: "false",
-    description: "",
-  },
-  {
-    //created-atを表示しない
-    key: "pageDateNotifierCreatedAt",
-    title: t("created-at"),
-    type: "boolean",
-    default: t("Enable"),
-    description: t("⚠️Performing a `re-index` in Logseq updates the dates of `created-at` for all pages, causing them to be inadvertently changed."),
-  },
-
-  {
     //loadRepeatTask
     key: "headingLoadRepeatTask",
     title: t("`repeat-task as LATER` item"),
