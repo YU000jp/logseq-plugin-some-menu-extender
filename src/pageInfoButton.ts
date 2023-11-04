@@ -29,7 +29,7 @@ export function loadPageInfoButton() {
           `--- ${t("Page info")} ---
 
         ${t("format")}:
-        ${currentPage.format === undefined ? "Markdown" : currentPage.format}
+        ${currentPage.format}
 
         ${t("updated-at")} (${t("Last modified")}):
         ${updatedAtStr}
