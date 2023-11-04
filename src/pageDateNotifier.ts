@@ -66,12 +66,12 @@ const insertPageBar = async () => {
   //createdをフォーマットする
   const createdString = dateFormatter.format(created) + " " + timeFormatter.format(created)
   elementPageBarSpace.innerHTML = `<table>${updatedString
-    ? `<tr title="${t("last updated")}"><th>${t("updated-at")}</th><td>` +
+    ? `<tr title="${t("Last modified")}"><th>${t("Last modified")}</th><td>` +
     updatedString +
     "</td></tr>"
     : ""
     }${logseq.settings!.pageDateNotifierCreatedAt === true && updated !== created && createdString
-      ? `<tr title="${t("⚠️After running 're-index'")}"><th>${t("created-at")}</th><td>` +
+      ? `<tr title="${t("⚠️After running 're-index'")}"><th>${t("Created-at")}</th><td>` +
       createdString +
       "</td></tr>"
       : ""

@@ -28,13 +28,10 @@ export function loadPageInfoButton() {
         logseq.UI.showMsg(
           `--- ${t("Page info")} ---
 
-        ${t("format")}:
-        ${currentPage.format}
-
-        ${t("updated-at")} (${t("Last modified")}):
+        (${t("Last modified")}:
         ${updatedAtStr}
 
-        ${t("created-at")}:
+        ${t("Created-at")}:
         ${createdAtStr}
 
         `,

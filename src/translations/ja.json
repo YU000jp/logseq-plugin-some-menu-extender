@@ -10,11 +10,9 @@
   "📖Document": "📖ドキュメント",
   "Command pallet menu item (shortcut key: `Ctrl+Shift+P`)": "コマンドパレットのメニュー項目 (ショートカットキー：`Ctrl+Shift+P`)",
   "Context menu item": "コンテキストメニュー項目",
-  "created-at": "作成日時",
+  "Created-at": "作成日時",
   "Enable": "有効にする",
-  "format": "フォーマット",
   "Last modified": "最終更新日時",
-  "last updated": "最終更新日時",
   "Mouse drag a bullet of the block to move it to the journal.": "その行の(・)をドラッグして日誌に移動します。",
   "Move task state to next": "タスクの状態を次に移行",
   "Need to restart Logseq or turn this plugin off to take effect.": "反映するには、Logseqを再起動するか、このプラグインをオフにしてください。",
@@ -32,5 +30,5 @@
   "Slash command ": "スラッシュコマンド",
   "This block is LATER task": "この行はLATERタスクです",
   "TODO,DOING,WAITING,CANCELED,DONE": "TODO, DOING, WAITING, CANCELED, DONE",
-  "updated-at": "更新日時"
+  "Updated-at": "更新日時"
 }
