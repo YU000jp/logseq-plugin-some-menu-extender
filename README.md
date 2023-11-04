@@ -40,7 +40,7 @@
 #### "Move task state to next" feature
 
 - Shortcut key: string
-  - `mod+Shift+Enter` default (mod= Win or Cmd)
+  - `Win / Cmd + Shift + Enter` default
 - Set state items (Strings used when moving a task to the next state): string
   - `TODO,DOING,WAITING,CANCELED,DONE` default
    > Separate with `,`. Only strings for Logseq built in task markers are valid. (`NOW`|`LATER`|`TODO`|`DOING`|`DONE`|`WAITING`|`WAIT`|`CANCELED`|`CANCELLED`|`IN-PROGRESS`)
