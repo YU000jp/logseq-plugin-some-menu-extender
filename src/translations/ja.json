@@ -17,7 +17,6 @@
   "Separate with `,`. Only strings for Logseq built in task markers are valid. (`NOW`|`LATER`|`TODO`|`DOING`|`DONE`|`WAITING`|`WAIT`|`CANCELED`|`CANCELLED`|`IN-PROGRESS`)": "カンマ`,`で区切ってください。Logseqに組み込まれたタスクマーカーの文字列のみ有効です。(`NOW`|`LATER`|`TODO`|`DOING`|`DONE`|`WAITING`|`WAIT`|`CANCELED`|`CANCELLED`|`IN-PROGRESS`)",
   "Set state items (Strings used when moving a task to the next state)": "タスクの状態を変更するときに使用される文字列を設定(ワークフロー)",
   "Shortcut key: `Ctrl+Shift+Enter`(Windows) or `Cmd+Shift+Enter`(Mac)": "ショートカットキー：`Ctrl+Shift+Enter`(Windows)または`Cmd+Shift+Enter`(Mac)",
-  "Show the page info when click 📋 icon on the right of page title. ⚠️After running 're-index' in Logseq, the date will be updated.": "ページ名の右にある📋アイコンをクリックしたときにページ情報を表示します。⚠️Logseqで're-index'を実行した後、日付が更新されます。",
   "Slash command ": "スラッシュコマンド",
   "This block is LATER task": "この行はLATERタスクです",
   "TODO,DOING,WAITING,CANCELED,DONE": "TODO, DOING, WAITING, CANCELED, DONE"
