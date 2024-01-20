@@ -46,23 +46,21 @@
 
 ### 他のプラグインに分割
 
-- [ページの日付を表示するプラグイン](https://github.com/YU000jp/logseq-plugin-show-page-date)
-- [左サイドメニューの強化プラグイン](https://github.com/YU000jp/logseq-plugin-left-sidebar-enhance)
-- [2ホップリンク プラグイン](https://github.com/YU000jp/logseq-plugin-two-hop-link)
-- 🗝️[レガシー日付フォーマット プラグイン](https://github.com/YU000jp/logseq-plugin-legacy-date-format)
-- 🦢[空の行を作成する プラグイン](https://github.com/YU000jp/logseq-plugin-blank-line)
-- ⚓[クイック PARAメソッド プラグイン](https://github.com/YU000jp/logseq-plugin-quickly-para-method)
-- 💪[完了タスク プラグイン](https://github.com/YU000jp/logseq-plugin-confirmation-done-task)
-- 🔗[ハイパーリンク プラグイン](https://github.com/YU000jp/logseq-plugin-confirmation-hyperlink)
+1. [ページの日付を表示するプラグイン](https://github.com/YU000jp/logseq-plugin-show-page-date)
+1. [左サイドメニューの強化プラグイン](https://github.com/YU000jp/logseq-plugin-left-sidebar-enhance)
+1. [2ホップリンク プラグイン](https://github.com/YU000jp/logseq-plugin-two-hop-link)
+1. 🗝️[レガシー日付フォーマット プラグイン](https://github.com/YU000jp/logseq-plugin-legacy-date-format)
+1. 🦢[空の行を作成する プラグイン](https://github.com/YU000jp/logseq-plugin-blank-line)
+1. ⚓[クイック PARAメソッド プラグイン](https://github.com/YU000jp/logseq-plugin-quickly-para-method)
+1. 💪[完了タスク プラグイン](https://github.com/YU000jp/logseq-plugin-confirmation-done-task)
+1. 🔗[ハイパーリンク プラグイン](https://github.com/YU000jp/logseq-plugin-confirmation-hyperlink)
 
 ---
 
-## 先行研究とクレジット
+## 先行技術とクレジット
 
-[sawhney17/ logseq-custom-workflow-plugin](https://github.com/sawhney17/logseq-custom-workflow-plugin)
+1. [@sawhney17/ logseq-custom-workflow-plugin](https://github.com/sawhney17/logseq-custom-workflow-plugin)
+1. アイコン > [icooon-mono.com](https://icooon-mono.com/12611-%e3%83%a1%e3%83%8b%e3%83%a5%e3%83%bc%e3%81%ae%e3%83%95%e3%83%aa%e3%83%bc%e3%82%a2%e3%82%a4%e3%82%b3%e3%83%b316/)
+1. 作者 > [@YU000jp](https://github.com/YU000jp)
 
-アイコン > [icooon-mono.com](https://icooon-mono.com/12611-%e3%83%a1%e3%83%8b%e3%83%a5%e3%83%bc%e3%81%ae%e3%83%95%e3%83%aa%e3%83%bc%e3%82%a2%e3%82%a4%e3%82%b3%e3%83%b316/)
-
-作者 > GitHub: [YU000jp](https://github.com/YU000jp)
-
-<a href="https://www.buymeacoffee.com/yu000japan" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-violet.png" alt="🍌コーヒーを買ってくれ" style="height: 42px;width: 152px" ></a>
+<a href="https://www.buymeacoffee.com/yu000japan"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a pizza&emoji=🍕&slug=yu000japan&button_colour=FFDD00&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=ffffff" /></a>
