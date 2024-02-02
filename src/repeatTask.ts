@@ -1,6 +1,6 @@
 import { t } from "logseq-l10n"
 
-export function loadRepeatTask() {
+export const loadRepeatTask = () => {
   //for repeat task
   logseq.provideStyle(String.raw`
     div#main-content-container input.form-checkbox{transform:scale(1.1)}
@@ -17,15 +17,10 @@ export function loadRepeatTask() {
       if (block?.marker == "LATER")
         logseq.UI.showMsg(t("This block is LATER task"), "error")
       else
-        await logseq.Editor.insertBlock(uuid, `LATER 🔁 ((` + uuid + `))`).then(
-          (block: any) => {
-            logseq.App.openInRightSidebar(block.uuid)
-            logseq.UI.showMsg(
-              t("Mouse drag a bullet of the block to move it to the journal."),
-              "info"
-            )
-          }
-        )
+        await logseq.Editor.insertBlock(uuid, `LATER 🔁 ((` + uuid + `))`).then((block: any) => {
+          logseq.Editor.openInRightSidebar(block.uuid)
+          logseq.UI.showMsg(t("Mouse drag a bullet of the block to move it to the journal."), "info")
+        })
     }
   )
 }

@@ -55,12 +55,11 @@ export const loadTaskWorkflowState = () => {
       processing = true
       const block = (await logseq.Editor.getBlock(uuid)) as BlockEntity
       if (!block) return (processing = false)
-      if (logseq.settings!.taskWorkflowState === "")
-        return (processing = false)
-      const states: string[] = logseq
-        .settings!.taskWorkflowState.replace(/\s+/g, "")
+      if (logseq.settings!.taskWorkflowState === "") return (processing = false)
+      
+      const states: string[] = (logseq.settings!.taskWorkflowState as string).replace(/\s+/g, "")
         .split(",")
-      const index: number = states.indexOf(block.marker)
+      const index: number = block.marker ? states.indexOf(block.marker) : -1
       if (index === -1) {
         //ユーザー指定のタスクに一致しない場合
         if (!block.marker) {
@@ -68,15 +67,11 @@ export const loadTaskWorkflowState = () => {
           //「# 」や「## 」「### 」「#### 」「##### 」「######」で始まっていた場合は、そのマッチした部分の後ろに追加する
           const match = block.content.match(/^(#+)\s/)
           if (match) {
-            let content = block.content.replace(
-              match[0],
-              match[0] + states[0] + " "
-            )
+            let content = block.content.replace(match[0], match[0] + states[0] + " ")
             content.replace(block.marker + " ", "")
             logseq.Editor.updateBlock(block.uuid, content)
           } else
-            logseq.Editor.updateBlock(block.uuid, states[0] + " " + block.content
-            )
+            logseq.Editor.updateBlock(block.uuid, states[0] + " " + block.content)
         } else
           logseq.Editor.updateBlock(block.uuid, block.content.replace(block.marker + " ", states[0] + " "))
 
@@ -85,7 +80,7 @@ export const loadTaskWorkflowState = () => {
         //let DOING: boolean = false;
         switch (states[index + 1]) {
           case undefined:
-            content = ""
+            content = "" //最後の状態の場合はタスクマーカーを削除する
             break
           //case "DOING":
           //DOING = true;
@@ -93,7 +88,7 @@ export const loadTaskWorkflowState = () => {
             content = states[index + 1] + " "
             break
         }
-        
+
         logseq.Editor.updateBlock(block.uuid, block.content.replace(block.marker + " ", content))
         // if (DOING === true) {
         //   if (

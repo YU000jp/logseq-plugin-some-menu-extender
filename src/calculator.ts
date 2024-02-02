@@ -33,7 +33,8 @@ export function loadCalculator() {
               : amount.toLocaleString(undefined, { maximumFractionDigits: 0 })
           if (output)
             output += ", "
-          if (currency === "$" || currency === "€")
+          if (currency === "$"
+            || currency === "€")
             output += currency + formattedAmount
           else
             output += formattedAmount + currency
