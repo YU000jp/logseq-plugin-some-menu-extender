@@ -1,8 +1,6 @@
-[日本語](https://github.com/YU000jp/logseq-plugin-some-menu-extender/blob/main/README.ja.md)
+# Logseq Plugin: Logseq Power Toys ~~Innovation Lab~~ 🌱
 
-# Logseq Plugin: *Innovation Lab* 🌱
-
-- Provides several features that are currently in the development stage, or bug-fixed versions of other plugins.
+- It aims to provide users with a variety of advanced features and customization options.
 
 [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-some-menu-extender)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/releases)
 [![License](https://img.shields.io/github/license/YU000jp/logseq-plugin-some-menu-extender?color=blue)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/blob/main/LICENSE)
@@ -10,13 +8,12 @@
  Published 2023/04/01
 
 ---
-> This plugin has many features that still have room for improvement. Let us know if you run into any issues or have ideas for enhancements. If the functionality is similar, it shows that it is possible. [[discussions here](https://github.com/YU000jp/logseq-plugin-some-menu-extender/discussions)]
 
 ## [Document here (Functions list)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document)
 
 ### Bug-fixed versions of other plugin
 
-#### Move task state to next [41](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/41)
+#### Move task state to next by the shortcut key [41](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/41)
 
 > A lite version of [Custom Workflow plugin](https://github.com/sawhney17/logseq-custom-workflow-plugin) (Some bug fixes.)
 - Shortcut `Ctrl + Shift + Enter`
@@ -47,18 +44,18 @@
 
 ---
 
-### Split to some plugin
+### Derivative plugin
 
-1. [Show page date](https://github.com/YU000jp/logseq-plugin-show-page-date)
+1. [Show page date plugin](https://github.com/YU000jp/logseq-plugin-show-page-date)
 1. [Left-sidebar Enhance plugin](https://github.com/YU000jp/logseq-plugin-left-sidebar-enhance)
 1. [2 hop link plugin](https://github.com/YU000jp/logseq-plugin-two-hop-link)
-1. 🗝️[Legacy date format](https://github.com/YU000jp/logseq-plugin-legacy-date-format)
+1. 🗝️[Legacy date format plugin](https://github.com/YU000jp/logseq-plugin-legacy-date-format)
 1. 🦢[Blank line plugin](https://github.com/YU000jp/logseq-plugin-blank-line)
-1. ⚓[Quickly PARA method](https://github.com/YU000jp/logseq-plugin-quickly-para-method)
-1. 💪[Confirmation DONE task](https://github.com/YU000jp/logseq-plugin-confirmation-done-task)
-1. 🔗[Confirmation Hyperlink (Pastes URL)](https://github.com/YU000jp/logseq-plugin-confirmation-hyperlink)
+1. ⚓[Quickly PARA method plugin](https://github.com/YU000jp/logseq-plugin-quickly-para-method)
+1. 💪[DONE task property plugin](https://github.com/YU000jp/logseq-plugin-confirmation-done-task)
+1. 🔗[Hyperlink URL plugin](https://github.com/YU000jp/logseq-plugin-confirmation-hyperlink)
 
----
+> This plugin has many features that still have room for improvement. Let us know if you run into any issues or have ideas for enhancements. If the functionality is similar, it shows that it is possible. [[discussions here](https://github.com/YU000jp/logseq-plugin-some-menu-extender/discussions)]
 
 ## Prior art & Credit
 
