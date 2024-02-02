@@ -74,18 +74,12 @@ export const loadTaskWorkflowState = () => {
             )
             content.replace(block.marker + " ", "")
             logseq.Editor.updateBlock(block.uuid, content)
-          } else {
-            logseq.Editor.updateBlock(
-              block.uuid,
-              states[0] + " " + block.content
+          } else
+            logseq.Editor.updateBlock(block.uuid, states[0] + " " + block.content
             )
-          }
-        } else {
-          logseq.Editor.updateBlock(
-            block.uuid,
-            block.content.replace(block.marker + " ", states[0] + " ")
-          )
-        }
+        } else
+          logseq.Editor.updateBlock(block.uuid, block.content.replace(block.marker + " ", states[0] + " "))
+
       } else {
         let content = ""
         //let DOING: boolean = false;
@@ -99,10 +93,8 @@ export const loadTaskWorkflowState = () => {
             content = states[index + 1] + " "
             break
         }
-        logseq.Editor.updateBlock(
-          block.uuid,
-          block.content.replace(block.marker + " ", content)
-        )
+        
+        logseq.Editor.updateBlock(block.uuid, block.content.replace(block.marker + " ", content))
         // if (DOING === true) {
         //   if (
         //     (DOINGchildrenSet(
