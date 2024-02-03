@@ -1,12 +1,12 @@
 {
-    "name": "logseq-plugin-power-toys",
+    "name": "logseq-plugin-innovation-lab",
     "description": "It aims to provide users with a variety of advanced features and customization options.",
     "repository": "https://github.com/YU000jp/logseq-plugin-some-menu-extender.git",
     "author": "YU000jp",
     "license": "MIT",
     "logseq": {
         "id": "some-menu-extender",
-        "title": "Logseq Power Toys",
+        "title": "Innovation Lab",
         "icon": "./icon.svg",
         "main": "./dist/index.html"
     },
@@ -21,6 +21,7 @@
     },
     "dependencies": {
         "@logseq/libs": "^0.0.17",
+        "date-fns": "^3.3.1",
         "logseq-l10n": "^0.2.0"
     },
     "devDependencies": {
