@@ -1,4 +1,4 @@
-import { SettingSchemaDesc } from "@logseq/libs/dist/LSPlugin.user";
+import { SettingSchemaDesc } from "@logseq/libs/dist/LSPlugin.user"
 import { t } from "logseq-l10n"
 
 //https://logseq.github.io/plugins/types/SettingSchemaDesc.html
@@ -17,7 +17,82 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
     default: "",
     description: t("[Document here](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document)"),
   },
-  
+
+  //DONEになったときに、DEADLINEやSCHEDULEを削除する機能
+  {
+    key: "headingLoadAutoRemoveDeadline",
+    title: t("Auto Remove DEADLINE or SCHEDULED when a task is DONE"),
+    type: "heading",
+    default: "",
+    description: t(""),
+  },
+  {
+    //トグル オンオフ
+    key: "loadAutoRemoveDeadline",
+    title: t("Enable"),
+    type: "boolean",
+    default: true,
+    description: "",
+  },
+  {
+    //DEADLINEを削除するかどうか
+    key: "removeDeadline",
+    title: t("Remove DEADLINE when a task is DONE"),
+    type: "boolean",
+    default: true,
+    description: "",
+  },
+  {
+    //SCHEDULEを削除するかどうか
+    key: "removeScheduled",
+    title: t("Remove SCHEDULED when a task is DONE"),
+    type: "boolean",
+    default: true,
+    description: "",
+  },
+  {
+    // 次の行にコピーを書きだす
+    key: "timeCopyToTheLine",
+    title: t("Copy to the line when remove DEADLINE or SCHEDULED"),
+    type: "boolean",
+    default: true,
+    description: t("Finish the effectiveness of the task by removing the `:`. If you want to change it back, replace `✔️` with `:`."),
+  },
+
+
+  // リピートタスクをDONEにしたときに、その子ブロックに、引用を持たせて完了ステータスを作成し(DONEをつける場合とそうでない場合)、サイドバーで開く機能
+  {
+    key: "headingRepeatTaskDONE",
+    title: t("Repeat Task Auto Status"),
+    type: "heading",
+    default: "",
+    // リピートタスクにチェックを入れると、その次の行に、引用を持たせて完了ステータスを作成する
+    description: t("When a repeat-task is checked, the next line is created with a quote and a DONE status. Move that reference to a journal or something."),
+  },
+  {
+    //トグル オンオフ
+    key: "loadRepeatTaskDONE",
+    title: t("Enable"),
+    type: "boolean",
+    default: true,
+    description: "",
+  },
+  {//DONEをつけるかどうか
+    key: "repeatTaskDONEadd",
+    title: t("Add DONE or Add today journal link, to the reference of the repeat task"),
+    type: "enum",
+    default: "Today journal link",
+    enumChoices: ["Today journal link", "Add DONE", "None"],
+    description: t(""),
+  },
+  {//サイドバーで開くかどうか
+    key: "repeatTaskDONEopenSidebar",
+    title: t("Open the sidebar when the repeat task is DONE"),
+    type: "boolean",
+    default: false,
+    description: "",
+  },
+
   {
     //loadTaskWorkflowState
     key: "headingLoadTaskWorkflowState",
@@ -121,7 +196,7 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
     key: "loadRepeatTask",
     title: t("Enable"),
     type: "boolean",
-    default: false,
+    default: true,
     description: "",
   },
 
@@ -142,4 +217,4 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
     description: "",
   },
 
-];
+]

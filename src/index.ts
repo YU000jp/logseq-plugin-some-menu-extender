@@ -6,6 +6,8 @@ import { loadRepeatTask } from "./repeatTask"
 import { loadCalculator } from "./calculator"
 import { loadTaskWorkflowState } from "./moveTaskState"
 import { mainCSS } from "./mainCSS"
+import { loadAutoRemoveDeadline } from "./autoRemoveDeadline"
+import { loadRepeatTaskDONE } from "./repeatTaskDONE"
 
 
 const main = async () => {
@@ -29,6 +31,13 @@ const main = async () => {
   //`Rotate the task workflow state`
   //タスクのワークフロー状態を切り替える
   if (logseq.settings!.loadTaskWorkflowState === true) loadTaskWorkflowState()
+
+
+  //タスクがDONEになったときに、DEADLINEやSCHEDULEを削除する機能
+  if (logseq.settings!.loadAutoRemoveDeadline === true) loadAutoRemoveDeadline()
+
+  //リピートタスクをDONEにしたときに、その子ブロックに、引用を持たせて完了ステータスを作成します
+  if (logseq.settings!.loadRepeatTaskDONE === true) loadRepeatTaskDONE()
 
 } /* end_main */
 
