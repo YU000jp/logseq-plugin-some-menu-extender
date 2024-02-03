@@ -2,7 +2,7 @@ import "@logseq/libs" //https://plugins-doc.logseq.com/
 import { setup as l10nSetup, t } from "logseq-l10n" //https://github.com/sethyuan/logseq-l10n
 import ja from "./translations/ja.json"
 import { settingsTemplate } from "./settings"
-import { loadRepeatTask } from "./repeatTask"
+import { loadRepeatTaskLATER } from "./repeatTaskLATER"
 import { loadCalculator } from "./calculator"
 import { loadTaskWorkflowState } from "./moveTaskState"
 import { mainCSS } from "./mainCSS"
@@ -20,7 +20,7 @@ const main = async () => {
 
   /* ContextMenuItem
   `repeat-task as LATER`  */
-  if (logseq.settings!.loadRepeatTask === true) loadRepeatTask()
+  if (logseq.settings!.loadRepeatTask === true) loadRepeatTaskLATER()
 
   //コマンドパレット
   //`select blocks to calculate`

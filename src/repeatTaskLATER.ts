@@ -1,6 +1,7 @@
+import { BlockEntity } from "@logseq/libs/dist/LSPlugin.user"
 import { t } from "logseq-l10n"
 
-export const loadRepeatTask = () => {
+export const loadRepeatTaskLATER = () => {
   //for repeat task
   logseq.provideStyle(String.raw`
     div#main-content-container input.form-checkbox{transform:scale(1.1)}
@@ -10,17 +11,16 @@ export const loadRepeatTask = () => {
     div#main-content-container input.form-checkbox+div a{font-size:medium}
   `)
 
-  logseq.Editor.registerBlockContextMenuItem(
-    t("repeat-task as LATER"),
-    async ({ uuid }) => {
-      const block = await logseq.Editor.getBlock(uuid)
-      if (block?.marker == "LATER")
-        logseq.UI.showMsg(t("This block is LATER task"), "error")
-      else
-        await logseq.Editor.insertBlock(uuid, `LATER 🔁 ((` + uuid + `))`).then((block: any) => {
-          logseq.Editor.openInRightSidebar(block.uuid)
-          logseq.UI.showMsg(t("Mouse drag a bullet of the block to move it to the journal."), "info")
-        })
-    }
-  )
+  logseq.Editor.registerBlockContextMenuItem(t("repeat-task as LATER"), async ({ uuid }) => {
+    const block = await logseq.Editor.getBlock(uuid) as BlockEntity | null
+    if (!block) return
+    if (block?.marker === "LATER")
+      logseq.UI.showMsg(t("This block is LATER task"), "error")
+    else
+      await logseq.Editor.insertBlock(uuid, `LATER 🔁 ((` + uuid + `))`).then((block: { uuid: BlockEntity["uuid"] } | null) => {
+        if (!block) return
+        logseq.Editor.openInRightSidebar(block.uuid)
+        logseq.UI.showMsg(t("Mouse drag a bullet of the block to move it to the journal."), "info")
+      })
+  })
 }
