@@ -27,6 +27,8 @@
 
 - [More details (Document)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document)
 
+> These features may be derived as separate plugins in the future.
+
 ---
 
 ## Getting Started
