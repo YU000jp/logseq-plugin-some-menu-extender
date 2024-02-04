@@ -1,23 +1,3 @@
 {
-  "[Document here](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document)": "[ドキュメントは、こちら](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/%E6%97%A5%E6%9C%AC%E8%AA%9E%E3%83%89%E3%82%AD%E3%83%A5%E3%83%A1%E3%83%B3%E3%83%88)",
-  "`/Insert current page title as a link` item": "`Insert current page title as a link`項目 (現在のページ名をリンクとして挿入)",
-  "`repeat-task as LATER` item": "`リピートタスクをLATERにする`項目",
-  "`select blocks to calculate` item": "`計算する行を選択`項目",
-  "⚠️Attention": "⚠️注意",
-  "📖Document": "📖ドキュメント",
-  "Command pallet menu item (shortcut key: `Ctrl+Shift+P`)": "コマンドパレットのメニュー項目 (ショートカットキー：`Ctrl+Shift+P`)",
-  "Context menu item": "コンテキストメニュー項目",
-  "Enable": "有効にする",
-  "Mouse drag a bullet of the block to move it to the journal.": "その行の(・)をドラッグして日誌に移動します。",
-  "Move task state to next": "タスクの状態を次に移行",
-  "Need to restart Logseq or turn this plugin off to take effect.": "反映するには、Logseqを再起動するか、このプラグインをオフにしてください。",
-  "Page title menu": "ページ名のメニュー項目",
-  "repeat-task as LATER": "リピートタスクをLATERにする",
-  "Select blocks to SUM (calculate)": "SUM(計算)する行を選択",
-  "Separate with `,`. Only strings for Logseq built in task markers are valid. (`NOW`|`LATER`|`TODO`|`DOING`|`DONE`|`WAITING`|`WAIT`|`CANCELED`|`CANCELLED`|`IN-PROGRESS`)": "カンマ`,`で区切ってください。Logseqに組み込まれたタスクマーカーの文字列のみ有効です。(`NOW`|`LATER`|`TODO`|`DOING`|`DONE`|`WAITING`|`WAIT`|`CANCELED`|`CANCELLED`|`IN-PROGRESS`)",
-  "Set state items (Strings used when moving a task to the next state)": "タスクの状態を変更するときに使用される文字列を設定(ワークフロー)",
-  "Shortcut key: `Ctrl+Shift+Enter`(Windows) or `Cmd+Shift+Enter`(Mac)": "ショートカットキー：`Ctrl+Shift+Enter`(Windows)または`Cmd+Shift+Enter`(Mac)",
-  "Slash command ": "スラッシュコマンド",
-  "This block is LATER task": "この行はLATERタスクです",
-  "TODO,DOING,WAITING,CANCELED,DONE": "TODO, DOING, WAITING, CANCELED, DONE"
+
 }

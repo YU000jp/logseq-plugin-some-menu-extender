@@ -3,25 +3,18 @@ import { t } from "logseq-l10n"
 
 //https://logseq.github.io/plugins/types/SettingSchemaDesc.html
 export const settingsTemplate = (): SettingSchemaDesc[] => [
-  {//注意事項
-    key: "headingHead",
-    title: t("⚠️Attention"),
-    type: "heading",
-    default: "",
-    description: t("Need to restart Logseq or turn this plugin off to take effect."),
-  },
   {//ドキュメントへのリンク
     key: "headingDocumentLink",
-    title: t("📖Document"),
+    title: t("📖Getting Started"),
     type: "heading",
     default: "",
-    description: t("[Document here](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document)"),
+    description: t("\"Enable\" toggles turns the feature on and off, but requires restarting Logseq or turning off this plugin once. Please refer to the documentation for feature details. [Document here](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document)"),
   },
 
   //DONEになったときに、DEADLINEやSCHEDULEを削除する機能
   {
     key: "headingLoadAutoRemoveDeadline",
-    title: t("Auto Remove DEADLINE or SCHEDULED when a task is DONE"),
+    title: t("Auto remove DEADLINE or SCHEDULED"),
     type: "heading",
     default: "",
     description: t(""),
@@ -32,12 +25,12 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
     title: t("Enable"),
     type: "boolean",
     default: true,
-    description: "",
+    description: t("When a DONE task is created"),
   },
   {
     //DEADLINEを削除するかどうか
     key: "removeDeadline",
-    title: t("Remove DEADLINE when a task is DONE"),
+    title: t("Remove DEADLINE"),
     type: "boolean",
     default: true,
     description: "",
@@ -45,7 +38,7 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
   {
     //SCHEDULEを削除するかどうか
     key: "removeScheduled",
-    title: t("Remove SCHEDULED when a task is DONE"),
+    title: t("Remove SCHEDULED"),
     type: "boolean",
     default: true,
     description: "",
@@ -59,11 +52,10 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
     description: t("Finish the effectiveness of the task by removing the `:`. If you want to change it back, replace `✔️` with `:`."),
   },
 
-
   // リピートタスクをDONEにしたときに、その子ブロックに、引用を持たせて完了ステータスを作成し(DONEをつける場合とそうでない場合)、サイドバーで開く機能
   {
     key: "headingRepeatTaskDONE",
-    title: t("Repeat Task Auto Status"),
+    title: t("Repeat-task Auto Status"),
     type: "heading",
     default: "",
     // リピートタスクにチェックを入れると、その次の行に、引用を持たせて完了ステータスを作成する
@@ -75,7 +67,7 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
     title: t("Enable"),
     type: "boolean",
     default: true,
-    description: "",
+    description: t("When a repeat-task is checked"),
   },
   {//DONEをつけるかどうか
     key: "repeatTaskDONEadd",
@@ -87,19 +79,103 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
   },
   {//サイドバーで開くかどうか
     key: "repeatTaskDONEopenSidebar",
-    title: t("Open the sidebar when the repeat task is DONE"),
+    title: t("Open the sidebar when the repeat task is checked"),
     type: "boolean",
     default: false,
     description: "",
   },
 
   {
-    //loadTaskWorkflowState
-    key: "headingLoadTaskWorkflowState",
-    title: t("Move task state to next"),
+    // Repeat-task as LATER
+    key: "headingLoadRepeatTask",
+    title: t("Repeat-task as LATER"),
     type: "heading",
     default: "",
-    description: t("Shortcut key: `Ctrl+Shift+Enter`(Windows) or `Cmd+Shift+Enter`(Mac)"),
+    description: t("Provide workflow for recording repeat task as LATER in a journal. Select from the context menu of the repeating task bullet."),
+  },
+  {
+    key: "loadRepeatTask",
+    title: t("Enable"),
+    type: "boolean",
+    default: true,
+    description: t("Bullet context menu item"),
+  },
+
+  // DONEタスクを作成したときに、DONEページの一行目の子ブロック行に、そのタスクの引用を挿入する機能
+  {
+    key: "headingLoadDONEref",
+    title: t("DONE task Auto State"),
+    type: "heading",
+    default: "",
+    description: t("When a DONE task is created, insert the reference to the DONE page."),
+  },
+  {
+    //トグル オンオフ
+    key: "loadDONEref",
+    title: t("Enable"),
+    type: "boolean",
+    default: true,
+    description: t("When a DONE task is created"),
+  },
+  {// リファレンスに日付リンクを挿入するかどうか
+    key: "DONErefAddLink",
+    title: t("Add the journal link to the reference of the DONE task"),
+    type: "boolean",
+    default: true,
+    description: "",
+  },
+  {// リファレンスに時間を挿入するかどうか
+    key: "DONErefTime",
+    title: t("Add time to the reference of the DONE task"),
+    type: "boolean",
+    default: true,
+    description: "",
+  },
+  {// リファレンスに週番号を挿入するかどうか
+    key: "DONErefWeekNumber",
+    title: t("Add the week number to the reference of the DONE task"),
+    type: "enum",
+    default: "None",
+    enumChoices: ["None", "ISO8601", "US"],
+    description: t("If you want to use the ISO8601 format, select `ISO8601`. If you want to use the US format, select `US`."),
+  },
+  // {// リファレンスの週番号をリンクにするかどうか
+  //   key: "DONErefWeekNumberLink",
+  //   title: t("Link to the week number of the reference of the DONE task"),
+  //   type: "boolean",// リンクにすると、そのページが作成されるが失敗する。2024-w01のように小文字になり、空ページができてしまう
+  //   default: true,
+  //   description: "",
+  // },
+  {//referenceにするかembedにするか
+    key: "DONErefEmbed",
+    title: t("Embed the reference of the DONE task"),
+    type: "boolean",
+    default: true,
+    description: "",
+  },
+  {// 月ごとのソートをするかどうか
+    key: "sortByMonth",
+    title: t("Sort by month"),
+    type: "boolean",
+    default: true,
+    description: "",
+  },
+  {// 月ごとのソートをリンクにするかどうか
+    key: "sortByMonthLink",
+    title: t("Link to the month"),
+    type: "boolean",
+    default: true,
+    description: "",
+  },
+
+  {
+    //loadTaskWorkflowState
+    key: "headingLoadTaskWorkflowState",
+    title: t("Move Task State To Next (shortcut key)"),
+    type: "heading",
+    default: "",
+    // ブロック上でショートカットキーを押すと、タスクのステータスを次に進める
+    description: t("Move the task state to the next by pressing the shortcut key on the block. / A lite version of [Custom Workflow plugin](https://github.com/sawhney17/logseq-custom-workflow-plugin)"),
   },
   {
     //loadTaskWorkflowState
@@ -107,7 +183,7 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
     title: t("Enable"),
     type: "boolean",
     default: false,
-    description: "",
+    description: t("Default shortcut key: `Ctrl+Shift+Enter`(Windows) or `Cmd+Shift+Enter`(Mac)"),
   },
   {
     key: "taskWorkflowState",
@@ -117,104 +193,4 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
     description:
       t("Separate with `,`. Only strings for Logseq built in task markers are valid. (`NOW`|`LATER`|`TODO`|`DOING`|`DONE`|`WAITING`|`WAIT`|`CANCELED`|`CANCELLED`|`IN-PROGRESS`)"), //Logseqで許可されたタスク用の文字列のみ有効
   },
-  // {
-  //   key: "headingTaskWorkflowStateSetChildBlock",
-  //   title: "Set child block on the DOING task",
-  //   type: "heading",
-  //   default: "",
-  //   description: `If the DOING block contains like "#tag" in the first line, use the next lines in the DOING block to insert some child blocks by user plugin settings.
-
-  //   Example*:
-  //   #book
-  //   TODO Reading %next week
-  //   TODO Review %next 2weeks
-  //   Read #Archive
-
-  //   *Such as "%next week" require datenlp plugin.
-  //   `,
-  // },
-  // {
-  //   //https://github.com/sawhney17/logseq-custom-workflow-plugin/issues/4
-  //   key: "DOINGchildrenSet01",
-  //   title: "Set child block on the DOING task: 01",
-  //   type: "string",
-  //   default: "",
-  //   inputAs: "textarea",
-  //   description: "(default: blank) Separate with a newline.",
-  // },
-  // {
-  //   key: "DOINGchildrenSet02",
-  //   title: "Set child block on the DOING task: 02",
-  //   type: "string",
-  //   default: "",
-  //   inputAs: "textarea",
-  //   description: "(default: blank) Separate with a newline.",
-  // },
-  // {
-  //   key: "DOINGchildrenSet03",
-  //   title: "Set child block on the DOING task: 03",
-  //   type: "string",
-  //   default: "",
-  //   inputAs: "textarea",
-  //   description: "(default: blank) Separate with a newline.",
-  // },
-  // {
-  //   key: "DOINGchildrenSet04",
-  //   title: "Set child block on the DOING task: 04",
-  //   type: "string",
-  //   default: "",
-  //   inputAs: "textarea",
-  //   description: "(default: blank) Separate with a newline.",
-  // },
-  // {
-  //   key: "DOINGchildrenSet05",
-  //   title: "Set child block on the DOING task: 05",
-  //   type: "string",
-  //   default: "",
-  //   inputAs: "textarea",
-  //   description: "(default: blank) Separate with a newline.",
-  // },
-  // {
-  //   key: "DOINGchildrenSet06",
-  //   title: "Set child block on the DOING task: 06",
-  //   type: "string",
-  //   default: "",
-  //   inputAs: "textarea",
-  //   description: "(default: blank) Separate with a newline.",
-  // },
-
-  {
-    //loadRepeatTask
-    key: "headingLoadRepeatTask",
-    title: t("`repeat-task as LATER` item"),
-    type: "heading",
-    default: "",
-    description: t("Context menu item"),
-  },
-  {
-    //loadRepeatTask
-    key: "loadRepeatTask",
-    title: t("Enable"),
-    type: "boolean",
-    default: true,
-    description: "",
-  },
-
-  {
-    //loadCalculator
-    key: "headingLoadCalculator",
-    title: t("`select blocks to calculate` item"),
-    type: "heading",
-    default: "",
-    description: t("Command pallet menu item (shortcut key: `Ctrl+Shift+P`)"),
-  },
-  {
-    //loadCalculator
-    key: "loadCalculator",
-    title: t("Enable"),
-    type: "boolean",
-    default: false,
-    description: "",
-  },
-
 ]

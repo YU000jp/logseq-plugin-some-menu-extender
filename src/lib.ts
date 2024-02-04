@@ -1,7 +1,10 @@
 import { BlockEntity, BlockUUIDTuple, PageEntity } from "@logseq/libs/dist/LSPlugin.user"
+import { format, getISOWeek, getISOWeekYear, getWeek, getWeekYear } from "date-fns"
+import { t } from "logseq-l10n"
 
 export const stringLimitAndRemoveProperties = (content: string, limit: number): string => {
-    if (content && content.length > limit)
+    if (content
+        && content.length > limit)
         content = content.slice(0, limit) + "\n\n...\n"
     if (content.includes("\n")) {
         //contentに「background-color:: 何らかの文字列 \n」が含まれる場合は、その行を削除する
@@ -32,17 +35,15 @@ export const includeReference = async (content): Promise<string | null> => {
 
 
 
-
-
 //--------------------------------------------Credit: briansunter
 //https://github.com/briansunter/logseq-plugin-gpt3-openai/blob/980b80dd7787457ffed2218c51fcf8007d4416d5/src/lib/logseq.ts#L47
 
 
-function isBlockEntity(b: BlockEntity | BlockUUIDTuple): b is BlockEntity {
+const isBlockEntity = (b: BlockEntity | BlockUUIDTuple): b is BlockEntity => {
     return (b as BlockEntity).uuid !== undefined
 }
 
-async function getTreeContent(b: BlockEntity) {
+const getTreeContent = async (b: BlockEntity) => {
     let content = ""
     const trimmedBlockContent = b.content.trim()
     if (trimmedBlockContent.length > 0)
@@ -62,7 +63,7 @@ async function getTreeContent(b: BlockEntity) {
     return content
 }
 
-export async function getPageContent(page: PageEntity): Promise<string> {
+export const getPageContent = async (page: PageEntity): Promise<string> => {
     let blockContents: string[] = []
 
     const pageBlocks = await logseq.Editor.getPageBlocksTree(page.name) as BlockEntity[]
@@ -75,7 +76,7 @@ export async function getPageContent(page: PageEntity): Promise<string> {
 }
 
 //子ブロックを含めたブロックの内容を取得する
-export async function getBlockContent(block: BlockEntity): Promise<string> {
+export const getBlockContent = async (block: BlockEntity): Promise<string> => {
     let content = ""
     content += await getTreeContent(block)
     return content
@@ -83,3 +84,78 @@ export async function getBlockContent(block: BlockEntity): Promise<string> {
 
 
 //--------------------------------------------end of credit
+
+
+
+/**
+ * 先頭行が空のブロックを全て削除する。
+ * @param block0 - 削除対象のブロックツリーの先頭ブロック
+ */
+export const removeEmptyBlockFirstLineAll = async (firstBlock: { children: BlockEntity["children"] }) => {
+    const children = firstBlock.children as BlockEntity[]
+    if (children
+        && children.length > 0)
+        for (let i = 0; i < children.length; i++) {
+            const child = children[i]
+            if (child.content === "")
+                await logseq.Editor.removeBlock(child.uuid)
+            // 子孫ブロックがある場合は探索する
+            if (child.children
+                && child.children.length > 0)
+                await removeEmptyBlockFirstLineAll((child.children as { children: BlockEntity["children"] }[])[0])
+        }
+}
+
+//月ごとにソートする場合
+export const sortByMonth = async (blocks: BlockEntity[], insertContent: string, uuid: BlockEntity["uuid"]) => {
+
+    //同じ月のサブ行がある場合はそのブロックのサブ行に追記する
+    const monthFormat: string = format(new Date(), "yyyy/MM")
+    const firstBlock = blocks[0] as { uuid: BlockEntity["uuid"], children: BlockEntity["children"] }
+    const children = firstBlock.children as BlockEntity[]
+    //childrenのcontentが日付フォーマットと一致するか確認(先頭が 「### 」から始まる)
+    const monthString = logseq.settings!.sortByMonthLink ?
+        `### [[${monthFormat}]]`
+        : `### ${monthFormat}`
+    const child = children.find(child => child.content.startsWith(monthString))
+    if (child && child.children as BlockEntity[]) {//マッチした場合
+        //insertContentがすでにサブ行に記録されていないか調べる
+        await removeDuplicateBlock(uuid, child.children as BlockEntity[])// 重複ブロックを削除
+        await logseq.Editor.insertBlock(child.uuid, insertContent, { sibling: false })//そのブロックのサブ行に追記する
+    } else {
+        //マッチしない場合
+        //先頭行の下に、新しいブロックを作成して月分類のブロックを作成し、その中にサブ行を追記する
+        const newBlock = await logseq.Editor.insertBlock(firstBlock.uuid, monthString, { sibling: false }) as { uuid: BlockEntity["uuid"] } | null // ブロックのサブ行に追記
+        if (!newBlock)
+            //年のためエラー処理
+            logseq.UI.showMsg(t("Failed (Cannot create a new block in first block of the page)"), "error")
+        else
+            // ブロックのサブ行に追記
+            await logseq.Editor.insertBlock(newBlock.uuid, insertContent, { sibling: false })
+    }
+}
+
+
+export const removeDuplicateBlock = async (uuid: BlockEntity["uuid"], blocks: BlockEntity[]) => {
+    const duplicateBlock: { uuid: BlockEntity["uuid"] }[] = blocks.filter(({ content }) => content.includes(`((${uuid}))`))
+    if (duplicateBlock
+        && duplicateBlock.length > 0)
+        for (const block of duplicateBlock)
+            await logseq.Editor.removeBlock(block.uuid)
+}
+
+//日付から週番号を求める
+export const getWeekNumberFromDate = (targetDate: Date, config: string, flag?: { markdown?: boolean }): string => {
+    let year: number
+    let week: number
+    if (config === "ISO8601") {
+        week = getISOWeek(targetDate) // 月曜日始まり ISO8601
+        year = getISOWeekYear(targetDate) // 週番号の年
+    } else {
+        //NOTE: getWeekYear関数は1月1日がその年の第1週の始まりとなる(デフォルト)
+        week = getWeek(targetDate, { weekStartsOn: 0 }) //日曜日始まり US
+        year = getWeekYear(targetDate, { weekStartsOn: 0 }) // 週番号の年
+    }
+    const weekString = (week < 10) ? String("0" + week) : String(week) // 週番号が1桁の場合は0埋めする
+    return flag?.markdown ? `[${week === 53 ? `${year}-W${weekString}` : "W" + weekString}](${year}-W${weekString})` : "W" + weekString
+}

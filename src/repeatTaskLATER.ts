@@ -11,8 +11,8 @@ export const loadRepeatTaskLATER = () => {
     div#main-content-container input.form-checkbox+div a{font-size:medium}
   `)
 
-  logseq.Editor.registerBlockContextMenuItem(t("repeat-task as LATER"), async ({ uuid }) => {
-    const block = await logseq.Editor.getBlock(uuid) as BlockEntity | null
+  logseq.Editor.registerBlockContextMenuItem(t("Repeat-task as LATER"), async ({ uuid }) => {
+    const block = await logseq.Editor.getBlock(uuid) as { marker: BlockEntity["marker"] } | null
     if (!block) return
     if (block?.marker === "LATER")
       logseq.UI.showMsg(t("This block is LATER task"), "error")

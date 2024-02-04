@@ -25,10 +25,7 @@ const onBlockChanged = () => logseq.DB.onChanged(async ({ blocks, txMeta }) => {
     }
 
     //taskBlock.contentからSCHEDULED: <...>やDEADLINE: <...>を削除する 
-    replaceContent(
-      taskBlock.uuid,
-      removeSCHEDULEandDEADLINE(taskBlock.uuid, taskBlock.content)
-    ) //taskBlock.contentを更新する
+    replaceContent(taskBlock.uuid, removeSCHEDULEandDEADLINE(taskBlock.uuid, taskBlock.content)) //taskBlock.contentを更新する
   }
 
   setTimeout(() => processing = false, 100)

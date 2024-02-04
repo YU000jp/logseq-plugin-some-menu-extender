@@ -10,13 +10,19 @@
 ## Overview
 
 1. Auto remove DEADLINE or SCHEDULED
+   - When a DONE task is created
 1. Repeat-task Auto Status
+   - When a repeat-task is checked, the next line is created with a quote and a DONE status.
+   - Move that reference to a journal or something.
 1. Repeat-task as LATER
    > Bullet context menu item
-   - Provide workflow for recording repeat task as LATER in a journal. Select from the context menu of the repeating task bullet.
+   - Provide workflow for recording repeat task as LATER in a journal.
+   - Select from the context menu of the repeating task bullet.
 1. DONE task Auto State
    - When a DONE task is created, insert the reference to the DONE page.
 1. Move Task State To Next (shortcut key)
+   - Move the task state to the next by pressing the shortcut key on the block.
+   - A lite version of [Custom Workflow plugin](https://github.com/sawhney17/logseq-custom-workflow-plugin)
 
 - [More details (Document)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document)
 

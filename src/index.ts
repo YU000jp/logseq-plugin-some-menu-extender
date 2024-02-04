@@ -3,12 +3,18 @@ import { setup as l10nSetup, t } from "logseq-l10n" //https://github.com/sethyua
 import ja from "./translations/ja.json"
 import { settingsTemplate } from "./settings"
 import { loadRepeatTaskLATER } from "./repeatTaskLATER"
-import { loadCalculator } from "./calculator"
 import { loadTaskWorkflowState } from "./moveTaskState"
 import { mainCSS } from "./mainCSS"
 import { loadAutoRemoveDeadline } from "./autoRemoveDeadline"
 import { loadRepeatTaskDONE } from "./repeatTaskDONE"
+import { loadDONEref } from "./DONEref"
+let configPreferredDateFormat: string
+export const getConfigPreferredDateFormat = (): string => configPreferredDateFormat
 
+export const getUserConfig = async () => {
+  const { preferredDateFormat } = await logseq.App.getUserConfigs() as { preferredDateFormat: string }
+  configPreferredDateFormat = preferredDateFormat
+}
 
 const main = async () => {
   await l10nSetup({ builtinTranslations: { ja } })
@@ -23,11 +29,6 @@ const main = async () => {
   if (logseq.settings!.loadRepeatTask === true) loadRepeatTaskLATER()
 
   //コマンドパレット
-  //`select blocks to calculate`
-  //選択したブロックの数値を合計して、最後のブロックに追記する
-  //バレッドのコンテキストメニューではブロックの複数選択ができないため
-  if (logseq.settings!.loadCalculator === true) loadCalculator()
-  //コマンドパレット
   //`Rotate the task workflow state`
   //タスクのワークフロー状態を切り替える
   if (logseq.settings!.loadTaskWorkflowState === true) loadTaskWorkflowState()
@@ -38,6 +39,9 @@ const main = async () => {
 
   //リピートタスクをDONEにしたときに、その子ブロックに、引用を持たせて完了ステータスを作成します
   if (logseq.settings!.loadRepeatTaskDONE === true) loadRepeatTaskDONE()
+
+  ///DONEページの一行目ブロックの子ブロックに、ステータス(引用ref)を追加する
+  if(logseq.settings!.loadDONEref === true) loadDONEref()
 
 } /* end_main */
 

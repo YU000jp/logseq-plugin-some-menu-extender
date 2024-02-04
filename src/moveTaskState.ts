@@ -53,10 +53,10 @@ export const loadTaskWorkflowState = () => {
     async ({ uuid }) => {
       if (processing) return
       processing = true
-      const block = (await logseq.Editor.getBlock(uuid)) as BlockEntity
+      const block = (await logseq.Editor.getBlock(uuid)) as { uuid: BlockEntity["uuid"], content: BlockEntity["content"], marker: BlockEntity["marker"] }
       if (!block) return (processing = false)
       if (logseq.settings!.taskWorkflowState === "") return (processing = false)
-      
+
       const states: string[] = (logseq.settings!.taskWorkflowState as string).replace(/\s+/g, "")
         .split(",")
       const index: number = block.marker ? states.indexOf(block.marker) : -1
