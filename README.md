@@ -50,6 +50,7 @@
 1. This plugin has many features that still have room for improvement. Let us know if you run into any issues or have ideas for enhancements. If the functionality is similar, it shows that it is possible. [[discussions here](https://github.com/YU000jp/logseq-plugin-some-menu-extender/discussions)]
 1. Derivative plugin
    1. [Show page date plugin](https://github.com/YU000jp/logseq-plugin-show-page-date)
+   1. [More reference plugin](https://github.com/YU000jp/logseq-plugin-reference-guide)
    1. [Left-sidebar Enhance plugin](https://github.com/YU000jp/logseq-plugin-left-sidebar-enhance)
    1. [2 hop link plugin](https://github.com/YU000jp/logseq-plugin-two-hop-link)
    1. 🗝️[Legacy date format plugin](https://github.com/YU000jp/logseq-plugin-legacy-date-format)
