@@ -22,7 +22,7 @@
    - When a DONE task is created, insert the reference to the DONE page.
 1. Move Task State To Next (shortcut key)
    - Move the task state to the next by pressing the shortcut key on the block.
-   - A lite version of [Custom Workflow plugin](https://github.com/sawhney17/logseq-custom-workflow-plugin)
+   - A lite version of [Custom Workflow plugin](https://github.com/sawhney17/logseq-custom-workflow-plugin) (fixed bugs)
 
 - [More details (Document)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document)
 
@@ -41,19 +41,19 @@
 - Please configure from the plugin settings.
 
 ---
+## Showcase / Questions / Ideas / Help
 
-### Derivative plugin
-
-1. [Show page date plugin](https://github.com/YU000jp/logseq-plugin-show-page-date)
-1. [Left-sidebar Enhance plugin](https://github.com/YU000jp/logseq-plugin-left-sidebar-enhance)
-1. [2 hop link plugin](https://github.com/YU000jp/logseq-plugin-two-hop-link)
-1. 🗝️[Legacy date format plugin](https://github.com/YU000jp/logseq-plugin-legacy-date-format)
-1. 🦢[Blank line plugin](https://github.com/YU000jp/logseq-plugin-blank-line)
-1. ⚓[Quickly PARA method plugin](https://github.com/YU000jp/logseq-plugin-quickly-para-method)
-1. 💪[DONE task property plugin](https://github.com/YU000jp/logseq-plugin-confirmation-done-task)
-1. 🔗[Hyperlink URL plugin](https://github.com/YU000jp/logseq-plugin-confirmation-hyperlink)
-
-> This plugin has many features that still have room for improvement. Let us know if you run into any issues or have ideas for enhancements. If the functionality is similar, it shows that it is possible. [[discussions here](https://github.com/YU000jp/logseq-plugin-some-menu-extender/discussions)]
+> Go to the [discussion](https://github.com/YU000jp/logseq-plugin-some-menu-extender/discussions) tab to ask and find this kind of things.
+1. This plugin has many features that still have room for improvement. Let us know if you run into any issues or have ideas for enhancements. If the functionality is similar, it shows that it is possible. [[discussions here](https://github.com/YU000jp/logseq-plugin-some-menu-extender/discussions)]
+1. Derivative plugin
+   1. [Show page date plugin](https://github.com/YU000jp/logseq-plugin-show-page-date)
+   1. [Left-sidebar Enhance plugin](https://github.com/YU000jp/logseq-plugin-left-sidebar-enhance)
+   1. [2 hop link plugin](https://github.com/YU000jp/logseq-plugin-two-hop-link)
+   1. 🗝️[Legacy date format plugin](https://github.com/YU000jp/logseq-plugin-legacy-date-format)
+   1. 🦢[Blank line plugin](https://github.com/YU000jp/logseq-plugin-blank-line)
+   1. ⚓[Quickly PARA method plugin](https://github.com/YU000jp/logseq-plugin-quickly-para-method)
+   1. 💪[DONE task property plugin](https://github.com/YU000jp/logseq-plugin-confirmation-done-task)
+   1. 🔗[Hyperlink URL plugin](https://github.com/YU000jp/logseq-plugin-confirmation-hyperlink)
 
 ## Prior art & Credit
 
