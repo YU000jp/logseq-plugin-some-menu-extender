@@ -1,3 +1,11 @@
+# [0.27.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.26.0...v0.27.0) (2024-2-4)
+
+
+### Features
+
+* **Add:** Auto remove DEADLINE / repeat task auto status ([264dd7c](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/264dd7cfe8adb8cc9341331fff0b61179e771cd4))
+* **Add:** Provides powerful functions for DONE tasks and repeat tasks  [#56](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/56) ([62a0c07](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/62a0c07993dc6f8645429e1341ee912b6163ada1))
+
 # [0.26.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.25.1...v0.26.0) (2023-11-04)
 
 
