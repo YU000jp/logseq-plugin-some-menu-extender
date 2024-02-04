@@ -25,7 +25,7 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
     title: t("Enable"),
     type: "boolean",
     default: true,
-    description: t("When a DONE task is created"),
+    description: t("When a task is set to DONE"),
   },
   {
     //DEADLINEを削除するかどうか
@@ -46,7 +46,7 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
   {
     // 次の行にコピーを書きだす
     key: "timeCopyToTheLine",
-    title: t("Copy to the line when remove DEADLINE or SCHEDULED"),
+    title: t("Leave a copy of DEADLINE or SCHEDULED without deleting it"),
     type: "boolean",
     default: true,
     description: t("Finish the effectiveness of the task by removing the `:`. If you want to change it back, replace `✔️` with `:`."),
@@ -55,7 +55,7 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
   // リピートタスクをDONEにしたときに、その子ブロックに、引用を持たせて完了ステータスを作成し(DONEをつける場合とそうでない場合)、サイドバーで開く機能
   {
     key: "headingRepeatTaskDONE",
-    title: t("Repeat-task Auto Status"),
+    title: t("Repeat-task Auto Statistics"),
     type: "heading",
     default: "",
     // リピートタスクにチェックを入れると、その次の行に、引用を持たせて完了ステータスを作成する
@@ -71,7 +71,7 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
   },
   {//DONEをつけるかどうか
     key: "repeatTaskDONEadd",
-    title: t("Add DONE or Add today journal link, to the reference of the repeat task"),
+    title: t("Add DONE marker or Add today journal link, to the reference of the repeat task"),
     type: "enum",
     default: "Today journal link",
     enumChoices: ["Today journal link", "Add DONE", "None"],
@@ -104,10 +104,10 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
   // DONEタスクを作成したときに、DONEページの一行目の子ブロック行に、そのタスクの引用を挿入する機能
   {
     key: "headingLoadDONEref",
-    title: t("DONE task Auto State"),
+    title: t("DONE task Auto Statistics"),
     type: "heading",
     default: "",
-    description: t("When a DONE task is created, insert the reference to the DONE page."),
+    description: t("When a task is set to DONE, insert a reference of the task to the DONE page."),
   },
   {
     //トグル オンオフ
@@ -115,7 +115,7 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
     title: t("Enable"),
     type: "boolean",
     default: true,
-    description: t("When a DONE task is created"),
+    description: t("When a task is set to DONE"),
   },
   {// リファレンスに日付リンクを挿入するかどうか
     key: "DONErefAddLink",

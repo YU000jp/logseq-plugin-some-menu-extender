@@ -1,26 +1,26 @@
 # Logseq Plugin: Innovation Lab 🌱
 
+[English](https://github.com/YU000jp/logseq-plugin-some-menu-extender) | [日本語](https://github.com/YU000jp/logseq-plugin-some-menu-extender/blob/main/README.ja.md)
+
 - This plugin provides several features that are currently in the development stage.
 - It aims to provide users with a variety of advanced features and customization options.
 
 [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-some-menu-extender)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/releases)
 [![License](https://img.shields.io/github/license/YU000jp/logseq-plugin-some-menu-extender?color=blue)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/blob/main/LICENSE)
 [![Downloads](https://img.shields.io/github/downloads/YU000jp/logseq-plugin-some-menu-extender/total.svg)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/releases)
- Published 2023/04/01
+ Published 20230401
 
 ## Overview
 
 1. Auto remove DEADLINE or SCHEDULED
-   > When a DONE task is created
-1. Repeat-task Auto Status
-   - When a repeat-task is checked, the next line is created with a quote and a DONE status.
-   - Move that reference to a journal or something.
+   > When a task is set to DONE
+1. Repeat-task Auto Statistics
+   - When a repeat-task is checked, insert a reference with a quote and a DONE marker to the next line. Move that reference to a journal or something.
 1. Repeat-task as LATER
-   - Provide workflow for recording repeat task as LATER in a journal.
-   - Select from the context menu of the repeating task bullet.
+   - Provide workflow for recording repeat task as LATER in a journal. Select from the context menu of the bullet.
    > Bullet context menu item
-1. DONE task Auto State
-   - When a DONE task is created, insert the reference to the DONE page.
+1. DONE task Auto Statistics
+   - When a task is set to DONE, insert a reference of the task to the DONE page.
 1. Move Task State To Next (shortcut key)
    - Move the task state to the next by pressing the shortcut key on the block.
    > A lite version of [Custom Workflow plugin](https://github.com/sawhney17/logseq-custom-workflow-plugin) (fixed bugs)
@@ -50,6 +50,7 @@
 1. This plugin has many features that still have room for improvement. Let us know if you run into any issues or have ideas for enhancements. If the functionality is similar, it shows that it is possible. [[discussions here](https://github.com/YU000jp/logseq-plugin-some-menu-extender/discussions)]
 1. TODO:
    1. DOING Alert
+   1. Delete unnecessary pages
 1. Derivative plugin
    1. [Show page date plugin](https://github.com/YU000jp/logseq-plugin-show-page-date)
    1. [More reference plugin](https://github.com/YU000jp/logseq-plugin-reference-guide)
