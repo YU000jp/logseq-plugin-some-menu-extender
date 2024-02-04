@@ -7,16 +7,18 @@
 [![Downloads](https://img.shields.io/github/downloads/YU000jp/logseq-plugin-some-menu-extender/total.svg)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/releases)
  Published 2023/04/01
 
----
+## Overview
 
-## [Document here (Functions list)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document)
+1. Auto remove DEADLINE or SCHEDULED
+1. Repeat-task Auto Status
+1. Repeat-task as LATER
+   > Bullet context menu item
+   - Provide workflow for recording repeat task as LATER in a journal. Select from the context menu of the repeating task bullet.
+1. DONE task Auto State
+   - When a DONE task is created, insert the reference to the DONE page.
+1. Move Task State To Next (shortcut key)
 
-### Bug-fixed versions of other plugin
-
-#### Move task state to next by the shortcut key [41](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/41)
-
-> A lite version of [Custom Workflow plugin](https://github.com/sawhney17/logseq-custom-workflow-plugin) (Some bug fixes.)
-- Shortcut `Ctrl + Shift + Enter`
+- [More details (Document)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document)
 
 ---
 
@@ -30,17 +32,7 @@
 
 ### Usage
 
-   [document](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document)
-
-### Plugin Settings
-
-#### "Move task state to next" feature
-
-- Shortcut key: string
-  - `Win / Cmd + Shift + Enter` default
-- Set state items (Strings used when moving a task to the next state): string
-  - `TODO,DOING,WAITING,CANCELED,DONE` default
-   > Separate with `,`. Only strings for Logseq built in task markers are valid. (`NOW`|`LATER`|`TODO`|`DOING`|`DONE`|`WAITING`|`WAIT`|`CANCELED`|`CANCELLED`|`IN-PROGRESS`)
+- Please configure from the plugin settings.
 
 ---
 
