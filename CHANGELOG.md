@@ -1,3 +1,10 @@
+# [0.28.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.27.0...v0.28.0) (2024-2-4)
+
+
+### Features
+
+* **Add:** Translation 日本語翻訳 ([fc44663](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/fc446630d6e40f9f6e3a63a797a227c9fb3f97a9))
+
 # [0.27.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.26.0...v0.27.0) (2024-2-4)
 
 
