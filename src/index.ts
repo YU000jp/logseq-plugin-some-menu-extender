@@ -7,7 +7,7 @@ import { loadTaskWorkflowState } from "./moveTaskState"
 import { mainCSS } from "./mainCSS"
 import { loadAutoRemoveDeadline } from "./autoRemoveDeadline"
 import { loadRepeatTaskDONE } from "./repeatTaskDONE"
-import { loadDONEref } from "./taskRef"
+import { loadDOINGref, loadDONEref } from "./taskRef"
 let configPreferredDateFormat: string
 export const getConfigPreferredDateFormat = (): string => configPreferredDateFormat
 
@@ -41,8 +41,11 @@ const main = async () => {
   //リピートタスクをDONEにしたときに、その子ブロックに、引用を持たせて完了ステータスを作成します
   if (logseq.settings!.loadRepeatTaskDONE === true) loadRepeatTaskDONE()
 
-  ///DONEページの一行目ブロックの子ブロックに、ステータス(引用ref)を追加する
+  //DONEページの一行目ブロックの子ブロックに、ステータス(引用ref)を追加する
   if (logseq.settings!.loadDONEref === true) loadDONEref()
+
+  //DOINGページの一行目ブロックの子ブロックに、ステータス(引用ref)を追加する
+  if (logseq.settings!.loadDOINGref === true) loadDOINGref()
 
 } /* end_main */
 
