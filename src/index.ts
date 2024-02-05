@@ -7,11 +7,12 @@ import { loadTaskWorkflowState } from "./moveTaskState"
 import { mainCSS } from "./mainCSS"
 import { loadAutoRemoveDeadline } from "./autoRemoveDeadline"
 import { loadRepeatTaskDONE } from "./repeatTaskDONE"
-import { loadDONEref } from "./DONEref"
+import { loadDONEref } from "./taskRef"
 let configPreferredDateFormat: string
 export const getConfigPreferredDateFormat = (): string => configPreferredDateFormat
 
 export const getUserConfig = async () => {
+  if (configPreferredDateFormat) return
   const { preferredDateFormat } = await logseq.App.getUserConfigs() as { preferredDateFormat: string }
   configPreferredDateFormat = preferredDateFormat
 }
@@ -41,7 +42,7 @@ const main = async () => {
   if (logseq.settings!.loadRepeatTaskDONE === true) loadRepeatTaskDONE()
 
   ///DONEページの一行目ブロックの子ブロックに、ステータス(引用ref)を追加する
-  if(logseq.settings!.loadDONEref === true) loadDONEref()
+  if (logseq.settings!.loadDONEref === true) loadDONEref()
 
 } /* end_main */
 
