@@ -1,7 +1,7 @@
 import { BlockEntity } from "@logseq/libs/dist/LSPlugin"
 import { format } from "date-fns"
-import { getConfigPreferredDateFormat, getUserConfig } from "."
-import { getWeekNumberFromDate, removeDuplicateBlock, removeEmptyBlockFirstLineAll, sortByMonth } from "./lib"
+import { getConfigPreferredDateFormat, getUserConfig } from "../."
+import { getWeekNumberFromDate, removeDuplicateBlock, removeEmptyBlockFirstLineAll, sortByMonth } from ".././lib"
 let DONEprocessing: boolean = false
 let DOINGprocessing: boolean = false
 

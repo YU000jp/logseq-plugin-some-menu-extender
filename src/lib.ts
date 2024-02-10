@@ -69,7 +69,8 @@ export const getPageContent = async (page: PageEntity): Promise<string> => {
     const pageBlocks = await logseq.Editor.getPageBlocksTree(page.name) as BlockEntity[]
     for (const pageBlock of pageBlocks) {
         const blockContent = await getTreeContent(pageBlock)
-        if (typeof blockContent === "string" && blockContent.length > 0)
+        if (typeof blockContent === "string"
+            && blockContent.length > 0)
             blockContents.push(blockContent)
     }
     return blockContents.join("\n")
@@ -95,7 +96,9 @@ export const removeEmptyBlockFirstLineAll = async (firstBlock: { children: Block
     const children = firstBlock.children as BlockEntity[]
     if (children
         && children.length > 0)
-        for (let i = 0; i < children.length; i++) {
+        for (let i = 0;
+            i < children.length;
+            i++) {
             const child = children[i]
             if (child.content === "")
                 await logseq.Editor.removeBlock(child.uuid)
@@ -118,7 +121,8 @@ export const sortByMonth = async (blocks: BlockEntity[], insertContent: string, 
         `### [[${monthFormat}]]`
         : `### ${monthFormat}`
     const child = children.find(child => child.content.startsWith(monthString))
-    if (child && child.children as BlockEntity[]) {//マッチした場合
+    if (child
+        && child.children as BlockEntity[]) {//マッチした場合
         //insertContentがすでにサブ行に記録されていないか調べる
         await removeDuplicateBlock(uuid, child.children as BlockEntity[])// 重複ブロックを削除
         await logseq.Editor.insertBlock(child.uuid, insertContent, { sibling: false })//そのブロックのサブ行に追記する
@@ -156,6 +160,13 @@ export const getWeekNumberFromDate = (targetDate: Date, config: string, flag?: {
         week = getWeek(targetDate, { weekStartsOn: 0 }) //日曜日始まり US
         year = getWeekYear(targetDate, { weekStartsOn: 0 }) // 週番号の年
     }
-    const weekString = (week < 10) ? String("0" + week) : String(week) // 週番号が1桁の場合は0埋めする
-    return flag?.markdown ? `[${week === 53 ? `${year}-W${weekString}` : "W" + weekString}](${year}-W${weekString})` : "W" + weekString
+    const weekString = (week < 10) ?
+        String("0" + week)
+        : String(week) // 週番号が1桁の場合は0埋めする
+    
+    return flag?.markdown ?
+        `[${week === 53 ?
+            `${year}-W${weekString}`
+            : "W" + weekString}](${year}-W${weekString})`
+        : "W" + weekString
 }

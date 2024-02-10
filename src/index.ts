@@ -2,12 +2,12 @@ import "@logseq/libs" //https://plugins-doc.logseq.com/
 import { setup as l10nSetup, t } from "logseq-l10n" //https://github.com/sethyuan/logseq-l10n
 import ja from "./translations/ja.json"
 import { settingsTemplate } from "./settings"
-import { loadRepeatTaskLATER } from "./repeatTaskLATER"
-import { loadTaskWorkflowState } from "./moveTaskState"
+import { loadRepeatTaskLATER } from "./task/repeatTaskLATER"
+import { loadTaskWorkflowState } from "./task/moveTaskState"
 import { mainCSS } from "./mainCSS"
-import { loadAutoRemoveDeadline } from "./autoRemoveDeadline"
-import { loadRepeatTaskDONE } from "./repeatTaskDONE"
-import { loadDOINGref, loadDONEref } from "./taskRef"
+import { loadAutoRemoveDeadline } from "./task/autoRemoveDeadline"
+import { loadRepeatTaskDONE } from "./task/repeatTaskDONE"
+import { loadDOINGref, loadDONEref } from "./task/taskRef"
 let configPreferredDateFormat: string
 export const getConfigPreferredDateFormat = (): string => configPreferredDateFormat
 
@@ -27,25 +27,31 @@ const main = async () => {
 
   /* ContextMenuItem
   `repeat-task as LATER`  */
-  if (logseq.settings!.loadRepeatTask === true) loadRepeatTaskLATER()
+  if (logseq.settings!.loadRepeatTask === true)
+    loadRepeatTaskLATER()
 
   //コマンドパレット
   //`Rotate the task workflow state`
   //タスクのワークフロー状態を切り替える
-  if (logseq.settings!.loadTaskWorkflowState === true) loadTaskWorkflowState()
+  if (logseq.settings!.loadTaskWorkflowState === true)
+    loadTaskWorkflowState()
 
 
   //タスクがDONEになったときに、DEADLINEやSCHEDULEを削除する機能
-  if (logseq.settings!.loadAutoRemoveDeadline === true) loadAutoRemoveDeadline()
+  if (logseq.settings!.loadAutoRemoveDeadline === true)
+    loadAutoRemoveDeadline()
 
   //リピートタスクをDONEにしたときに、その子ブロックに、引用を持たせて完了ステータスを作成します
-  if (logseq.settings!.loadRepeatTaskDONE === true) loadRepeatTaskDONE()
+  if (logseq.settings!.loadRepeatTaskDONE === true)
+    loadRepeatTaskDONE()
 
   //DONEページの一行目ブロックの子ブロックに、ステータス(引用ref)を追加する
-  if (logseq.settings!.loadDONEref === true) loadDONEref()
+  if (logseq.settings!.loadDONEref === true)
+    loadDONEref()
 
   //DOINGページの一行目ブロックの子ブロックに、ステータス(引用ref)を追加する
-  if (logseq.settings!.loadDOINGref === true) loadDOINGref()
+  if (logseq.settings!.loadDOINGref === true)
+    loadDOINGref()
 
 } /* end_main */
 

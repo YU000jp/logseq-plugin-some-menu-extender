@@ -1,6 +1,6 @@
 import { BlockEntity } from "@logseq/libs/dist/LSPlugin"
 import { format } from "date-fns"
-import { getConfigPreferredDateFormat, getUserConfig } from "."
+import { getConfigPreferredDateFormat, getUserConfig } from "../."
 let processing: boolean = false
 
 export const loadRepeatTaskDONE = () => {
