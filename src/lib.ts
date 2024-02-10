@@ -76,14 +76,6 @@ export const getPageContent = async (page: PageEntity): Promise<string> => {
     return blockContents.join("\n")
 }
 
-//子ブロックを含めたブロックの内容を取得する
-export const getBlockContent = async (block: BlockEntity): Promise<string> => {
-    let content = ""
-    content += await getTreeContent(block)
-    return content
-}
-
-
 //--------------------------------------------end of credit
 
 
