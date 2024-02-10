@@ -58,7 +58,7 @@
    1. [Left-sidebar Enhance plugin](https://github.com/YU000jp/logseq-plugin-left-sidebar-enhance)
    1. [2 hop link plugin](https://github.com/YU000jp/logseq-plugin-two-hop-link)
    1. 🗝️[Legacy date format plugin](https://github.com/YU000jp/logseq-plugin-legacy-date-format)
-   1. 🦢[Blank line plugin](https://github.com/YU000jp/logseq-plugin-blank-line)
+   1. 🦢[New line Shortcut plugin](https://github.com/YU000jp/logseq-plugin-blank-line)
    1. ⚓[Quickly PARA method plugin](https://github.com/YU000jp/logseq-plugin-quickly-para-method)
    1. 💪[DONE task property plugin](https://github.com/YU000jp/logseq-plugin-confirmation-done-task)
    1. 🔗[Hyperlink URL plugin](https://github.com/YU000jp/logseq-plugin-confirmation-hyperlink)
