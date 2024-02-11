@@ -8,6 +8,7 @@ import { mainCSS } from "./mainCSS"
 import { loadAutoRemoveDeadline } from "./task/autoRemoveDeadline"
 import { loadRepeatTaskDONE } from "./task/repeatTaskDONE"
 import { loadDOINGref, loadDONEref } from "./task/taskRef"
+import { loadDeleteUnnecessaryPages } from "./task/deletePage"
 let configPreferredDateFormat: string
 export const getConfigPreferredDateFormat = (): string => configPreferredDateFormat
 
@@ -52,6 +53,10 @@ const main = async () => {
   //DOINGページの一行目ブロックの子ブロックに、ステータス(引用ref)を追加する
   if (logseq.settings!.loadDOINGref === true)
     loadDOINGref()
+
+  // Delete unnecessary pages feature
+  if (logseq.settings!.loadDeleteUnnecessaryPages === true)
+    loadDeleteUnnecessaryPages()
 
 } /* end_main */
 
