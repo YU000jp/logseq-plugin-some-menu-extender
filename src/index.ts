@@ -8,7 +8,7 @@ import { mainCSS } from "./mainCSS"
 import { loadAutoRemoveDeadline } from "./task/autoRemoveDeadline"
 import { loadRepeatTaskDONE } from "./task/repeatTaskDONE"
 import { loadDOINGref, loadDONEref } from "./task/taskRef"
-import { loadDeleteUnnecessaryPages } from "./task/deletePage"
+import { loadDeleteUnnecessaryPages } from "./lab/deletePage"
 let configPreferredDateFormat: string
 export const getConfigPreferredDateFormat = (): string => configPreferredDateFormat
 
