@@ -1,3 +1,12 @@
+# [0.29.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.28.1...v0.29.0) (2024-2-25)
+
+
+### Features
+
+* **Add:** "Delete Unnecessary Pages" [#57](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/57) ([8f7b6d9](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/8f7b6d99da079ca5df4140cf1c9ae24cb0fcb999))
+* **Add:** DOING task Auto Statistics ([94cade4](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/94cade4e4a2af05bf12260261ab25cde15b63ec7))
+* **Add:** DOING task Auto Statistics [#60](https://github.com/YU000jp/logseq-plugin-some-menu-extender/issues/60) ([887ca91](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/887ca918daaf996ff1e241857e91ecfb9d344304))
+
 ## [0.28.1](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.28.0...v0.28.1) (2024-2-5)
 
 
