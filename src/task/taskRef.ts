@@ -1,7 +1,7 @@
 import { BlockEntity } from "@logseq/libs/dist/LSPlugin"
 import { format } from "date-fns"
 import { getConfigPreferredDateFormat, getUserConfig } from "../."
-import { getWeekNumberFromDate, removeDuplicateBlock, removeEmptyBlockFirstLineAll, sortByMonth } from ".././lib"
+import { getDuplicateBlock, getWeekNumberFromDate, removeDuplicateBlock, removeEmptyBlockFirstLineAll, sortByMonth } from ".././lib"
 let DONEprocessing: boolean = false
 let DOINGprocessing: boolean = false
 
@@ -65,14 +65,16 @@ const insertBlock = async (uuid: BlockEntity["uuid"], taskMarker: string) => {
 
   if (logseq.settings!.sortByMonth === true) {//月ごとのソートをする場合
 
-    await sortByMonth(blocks, insertContent, uuid)
+    await sortByMonth(blocks, insertContent, uuid, taskMarker)
     removeEmptyBlockFirstLineAll(blocks[0] as { children: BlockEntity["children"] })
 
   } else { //月ごとのソートをしない場合
-
-    removeDuplicateBlock(uuid, blocks)
+    const checkDuplicate = getDuplicateBlock(uuid, blocks)
+    if (taskMarker === "DOING") return // DOINGの場合は、そのままにする
+    if (checkDuplicate) removeDuplicateBlock(checkDuplicate)
     const firstBlock = blocks[0] as { uuid: BlockEntity["uuid"], children: BlockEntity["children"] }
-    if (!firstBlock || !firstBlock.uuid) return
+    if (!firstBlock
+      || !firstBlock.uuid) return
     const duplicateBlock = (firstBlock.children as BlockEntity[] | undefined)?.find(({ content }) => content.includes(`((${uuid}))`)) as { uuid: BlockEntity["uuid"] } //重複チェック
     if (duplicateBlock) logseq.Editor.removeBlock(duplicateBlock.uuid)
     logseq.Editor.insertBlock(firstBlock.uuid, insertContent, { sibling: false }) //一行目の子ブロックに追加する

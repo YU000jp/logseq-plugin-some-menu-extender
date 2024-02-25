@@ -1,8 +1,6 @@
 import { PageEntity } from "@logseq/libs/dist/LSPlugin.user"
 import { t } from "logseq-l10n"
-
-// UI.showMsgラベル
-const LABEL = "\n\n[🌱Innovation Lab plugin]"
+import { LABEL } from ".."
 
 //ダイアログのキー
 const key = "deletePagesDialog"

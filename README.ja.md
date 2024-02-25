@@ -47,10 +47,6 @@
 
 > [ディスカッション](https://github.com/YU000jp/logseq-plugin-some-menu-extender/Discussions) タブに移動して、このようなことを質問したり見つけたりしてください。
 1. このプラグインには、まだ改善の余地がある多くの機能があります。 問題が発生した場合、または機能強化のアイデアがある場合はお知らせください。 機能が類似している場合は、それが可能であることを示します。 [[discussions here](https://github.com/YU000jp/logseq-plugin-some-menu-extender/discussions)]
-1. TODO:
-   1. DOING Alert
-   1. DOING task Auto Statistics
-   1. Delete unnecessary pages
 1. 派生したプラグイン
    1. [Show page date プラグイン](https://github.com/YU000jp/logseq-plugin-show-page-date)
    1. [More reference プラグイン](https://github.com/YU000jp/logseq-plugin-reference-guide)

@@ -11,15 +11,16 @@ export const loadRepeatTaskDONE = () => {
 
 const onBlockChanged = () => logseq.DB.onChanged(async ({ blocks, txMeta }) => {
   if (processing === true //処理中の場合 
-    || (txMeta
-      && txMeta["transact?"] === false //ユーザー操作ではない場合 (transactは取引の意味)
-      || txMeta?.outlinerOp !== "save-block") //ブロックの保存操作ではない場合
+    || (txMeta && (
+      txMeta["transact?"] === false //ユーザー操作ではない場合 (transactは取引の意味)
+      || txMeta["outlinerOp"] !== "save-block" //ブロックの保存操作ではない場合
+      || txMeta["skipProperties?"] === true)) //処理しない
   ) return //処理しない
   processing = true
 
 
   //TODOタスクが見つかった場合の処理
-  const taskBlock: { uuid: BlockEntity["uuid"], content: BlockEntity["content"], repeated?: boolean | undefined } | undefined = blocks.find(({ marker, properties }) => marker === "TODO" && properties!.id) //TODOタスクを取得する
+  const taskBlock: { uuid: BlockEntity["uuid"], repeated?: boolean | undefined } | undefined = blocks.find(({ marker, properties }) => marker === "TODO" && properties!.id) //TODOタスクを取得する
 
   if (!taskBlock
     || taskBlock["repeated?"] !== true) { //リピートタスクが見つからない場合は処理しない
@@ -34,6 +35,7 @@ const onBlockChanged = () => logseq.DB.onChanged(async ({ blocks, txMeta }) => {
 
 
 const insertBlock = async (uuid: BlockEntity["uuid"]) => {
+
   //リピートタスクの行に、ステータスを追加する
   logseq.Editor.insertBlock(
     uuid,

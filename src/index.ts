@@ -7,8 +7,12 @@ import { loadTaskWorkflowState } from "./task/moveTaskState"
 import { mainCSS } from "./mainCSS"
 import { loadAutoRemoveDeadline } from "./task/autoRemoveDeadline"
 import { loadRepeatTaskDONE } from "./task/repeatTaskDONE"
-import { loadDOINGref, loadDONEref } from "./task/taskRef"
+import { loadDONEref } from "./task/taskRef"
 import { loadDeleteUnnecessaryPages } from "./lab/deletePage"
+
+// UI.showMsgラベル
+export const LABEL = "\n\n[🌱Innovation Lab plugin]"
+
 let configPreferredDateFormat: string
 export const getConfigPreferredDateFormat = (): string => configPreferredDateFormat
 
@@ -50,14 +54,10 @@ const main = async () => {
   if (logseq.settings!.loadDONEref === true)
     loadDONEref()
 
-  //DOINGページの一行目ブロックの子ブロックに、ステータス(引用ref)を追加する
-  if (logseq.settings!.loadDOINGref === true)
-    loadDOINGref()
-
   // Delete unnecessary pages feature
   if (logseq.settings!.loadDeleteUnnecessaryPages === true)
     loadDeleteUnnecessaryPages()
-
+  
 } /* end_main */
 
 logseq.ready(main).catch(console.error);

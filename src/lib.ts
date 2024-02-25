@@ -102,7 +102,7 @@ export const removeEmptyBlockFirstLineAll = async (firstBlock: { children: Block
 }
 
 //月ごとにソートする場合
-export const sortByMonth = async (blocks: BlockEntity[], insertContent: string, uuid: BlockEntity["uuid"]) => {
+export const sortByMonth = async (blocks: BlockEntity[], insertContent: string, uuid: BlockEntity["uuid"], taskMarker: BlockEntity["marker"]) => {
 
     //同じ月のサブ行がある場合はそのブロックのサブ行に追記する
     const monthFormat: string = format(new Date(), "yyyy/MM")
@@ -116,7 +116,11 @@ export const sortByMonth = async (blocks: BlockEntity[], insertContent: string, 
     if (child
         && child.children as BlockEntity[]) {//マッチした場合
         //insertContentがすでにサブ行に記録されていないか調べる
-        await removeDuplicateBlock(uuid, child.children as BlockEntity[])// 重複ブロックを削除
+        const checkDuplicate = getDuplicateBlock(uuid, child.children as BlockEntity[])
+
+        if (taskMarker === "DOING") return // DOINGの場合は、そのままにする
+
+        if (checkDuplicate) await removeDuplicateBlock(checkDuplicate)// 重複ブロックを削除
         await logseq.Editor.insertBlock(child.uuid, insertContent, { sibling: false })//そのブロックのサブ行に追記する
     } else {
         //マッチしない場合
@@ -131,9 +135,10 @@ export const sortByMonth = async (blocks: BlockEntity[], insertContent: string, 
     }
 }
 
+export const getDuplicateBlock = (uuid: BlockEntity["uuid"], blocks: BlockEntity[]): { uuid: BlockEntity["uuid"] }[] => blocks.filter(({ content }) => content.includes(`((${uuid}))`))
 
-export const removeDuplicateBlock = async (uuid: BlockEntity["uuid"], blocks: BlockEntity[]) => {
-    const duplicateBlock: { uuid: BlockEntity["uuid"] }[] = blocks.filter(({ content }) => content.includes(`((${uuid}))`))
+
+export const removeDuplicateBlock = async (duplicateBlock: { uuid: BlockEntity["uuid"] }[]) => {
     if (duplicateBlock
         && duplicateBlock.length > 0)
         for (const block of duplicateBlock)
@@ -155,7 +160,7 @@ export const getWeekNumberFromDate = (targetDate: Date, config: string, flag?: {
     const weekString = (week < 10) ?
         String("0" + week)
         : String(week) // 週番号が1桁の場合は0埋めする
-    
+
     return flag?.markdown ?
         `[${week === 53 ?
             `${year}-W${weekString}`
