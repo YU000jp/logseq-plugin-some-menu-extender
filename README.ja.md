@@ -25,8 +25,8 @@
     > [カスタム ワークフロー プラグイン](https://github.com/sawhney17/logseq-custom-workflow-plugin) のライト バージョン (バグ修正)
 1. 不要なページを削除
    - ページ名に「`[[`」と「`]]`」を含むページを削除する
-> これらの機能は、将来的に別のプラグインとして派生される可能性があります。
 - [詳細(ドキュメント)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document)
+> これらの機能は、将来的に別のプラグインとして派生される可能性があります。
 
 ---
 
