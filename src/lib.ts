@@ -120,7 +120,10 @@ export const sortByMonth = async (blocks: BlockEntity[], insertContent: string, 
 
         if (taskMarker === "DOING") return // DOINGの場合は、そのままにする
 
-        if (checkDuplicate) await removeDuplicateBlock(checkDuplicate)// 重複ブロックを削除
+        if (checkDuplicate && checkDuplicate.length > 0) {
+            return
+            //await removeDuplicateBlock(checkDuplicate)// 重複ブロックを削除
+        }
         await logseq.Editor.insertBlock(child.uuid, insertContent, { sibling: false })//そのブロックのサブ行に追記する
     } else {
         //マッチしない場合

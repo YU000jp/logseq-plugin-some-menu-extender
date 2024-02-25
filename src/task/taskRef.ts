@@ -21,8 +21,9 @@ const onBlockChanged = (taskMarker: string) => logseq.DB.onChanged(async ({ bloc
     || (taskMarker === "DOING"
       && DOINGprocessing === true) //処理中の場合
     || (txMeta
-      && txMeta["transact?"] === false //ユーザー操作ではない場合 (transactは取引の意味)
-      || txMeta?.outlinerOp !== "save-block") //ブロックの保存操作ではない場合
+      && (txMeta["transact?"] === false //ユーザー操作ではない場合 (transactは取引の意味)
+        || txMeta?.outlinerOp !== "save-block" //ブロックの保存操作ではない場合
+      ))
   ) return //処理しない
 
   if (taskMarker === "DOING") DOINGprocessing = true
@@ -71,7 +72,10 @@ const insertBlock = async (uuid: BlockEntity["uuid"], taskMarker: string) => {
   } else { //月ごとのソートをしない場合
     const checkDuplicate = getDuplicateBlock(uuid, blocks)
     if (taskMarker === "DOING") return // DOINGの場合は、そのままにする
-    if (checkDuplicate) removeDuplicateBlock(checkDuplicate)
+    if (checkDuplicate && checkDuplicate.length > 0) {
+      return
+      //removeDuplicateBlock(checkDuplicate)
+    } 
     const firstBlock = blocks[0] as { uuid: BlockEntity["uuid"], children: BlockEntity["children"] }
     if (!firstBlock
       || !firstBlock.uuid) return
