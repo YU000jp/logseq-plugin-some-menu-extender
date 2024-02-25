@@ -1,3 +1,10 @@
+## [0.29.1](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.29.0...v0.29.1) (2024-2-25)
+
+
+### Bug Fixes
+
+* **bug:** check duplicate ([b457d02](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/b457d02f47ea7a8d8b8a19ee56512091e0fcb3f0))
+
 # [0.29.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.28.1...v0.29.0) (2024-2-25)
 
 
