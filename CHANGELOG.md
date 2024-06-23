@@ -1,3 +1,10 @@
+## [0.29.2](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.29.1...v0.29.2) (2024-06-23)
+
+
+### Bug Fixes
+
+* **remove:** Delete Page Interval ([165b63e](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/165b63e02fbc0bc35c09bce275f746fa90c99d56))
+
 ## [0.29.1](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.29.0...v0.29.1) (2024-2-25)
 
 
