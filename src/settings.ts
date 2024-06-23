@@ -253,8 +253,8 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
     title: t("Enable"),
     type: "boolean",
     default: false,
-    // プラグインが読み込まれてから5分後と、そのあと2時間ごとに、バックグラウンドで不要なページを削除する。ページ名に「[[」と「]]」を同時に含むページのすべてが対象。
-    description: t("The plugin will delete unnecessary pages 5 minutes after it is loaded and every 2 hours thereafter. All pages with both `[[` and `]]` in the page name are targeted."),
+    // プラグインが読み込まれてから5分後にバックグラウンドで不要なページを削除する。ページ名に「[[」と「]]」を同時に含むページのすべてが対象。
+    description: t("The plugin will delete unnecessary pages 5 minutes after it is loaded. All pages with both `[[` and `]]` in the page name are targeted."),
   },
   {// 選択なしで自動で削除するか、ユーザーの選択を求めるか
     key: "deleteUnnecessaryPagesAuto",
@@ -263,11 +263,11 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
     default: true,
     description: t("If `true`, delete unnecessary pages automatically. If `false`, ask the user for selection."),
   },
-  { // インターバルを設定する
-    key: "deleteUnnecessaryPagesInterval",
-    title: t("Enable every 2 hour interval"),
-    type: "boolean",
-    default: false,
-    description: t("It will not take effect until you restart or turn off the plugin."),
-  },
+  // { // インターバルを設定する
+  //   key: "deleteUnnecessaryPagesInterval",
+  //   title: t("Enable every 2 hour interval"),
+  //   type: "boolean",
+  //   default: false,
+  //   description: t("It will not take effect until you restart or turn off the plugin."),
+  // },
 ]

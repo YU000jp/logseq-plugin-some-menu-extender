@@ -13,12 +13,12 @@ export const loadDeleteUnnecessaryPages = () => {
     setTimeout(() => {
         //チェックをおこなう
         runQuery()
-        // インターバル 2時間ごと
-        if (logseq.settings!.deleteUnnecessaryPagesInterval === true)
-            setInterval(() => {
-                runQuery()
-            }, 1000 * 60 * 60 * 2)
-        // 5分後
+        // // インターバル 2時間ごと
+        // if (logseq.settings!.deleteUnnecessaryPagesInterval === true)
+        //     setInterval(() => {
+        //         runQuery()
+        //     }, 1000 * 60 * 60 * 2)
+        // // 5分後
     }, timeout)
 
 }
