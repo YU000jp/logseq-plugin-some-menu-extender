@@ -1,14 +1,15 @@
 # Logseq プラグイン: Innovation Lab 🌱
 
-[English](https://github.com/YU000jp/logseq-plugin-some-menu-extender) | [日本語](https://github.com/YU000jp/logseq-plugin-some-menu-extender/blob/main/README.ja.md)
-
 - このプラグインは、現在開発段階にあるいくつかの機能を提供します。
 - さまざまな高度な機能とカスタマイズ オプションをユーザーに提供することを目的としています。
 
-[![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-some-menu-extender)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/releases)
+<div align="right">
+
+[English](https://github.com/YU000jp/logseq-plugin-some-menu-extender)/[日本語](https://github.com/YU000jp/logseq-plugin-some-menu-extender/blob/main/README.ja.md) [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-some-menu-extender)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/releases)
 [![License](https://img.shields.io/github/license/YU000jp/logseq-plugin-some-menu-extender?color=blue)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/blob/main/LICENSE)
 [![Downloads](https://img.shields.io/github/downloads/YU000jp/logseq-plugin-some-menu-extender/total.svg)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/releases)
- 公開日 2023/04/01
+ 公開日 2023/04/01 <a href="https://www.buymeacoffee.com/yu000japan"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a pizza&emoji=🍕&slug=yu000japan&button_colour=FFDD00&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=ffffff" /></a>
+ </div>
 
 ## 概要
 
@@ -60,8 +61,7 @@
 
 ## 先行技術 / クレジット
 
-1. [@sawhney17/ logseq-custom-workflow-plugin](https://github.com/sawhney17/logseq-custom-workflow-plugin)
-1. アイコン > [icooon-mono.com](https://icooon-mono.com/12611-%e3%83%a1%e3%83%8b%e3%83%a5%e3%83%bc%e3%81%ae%e3%83%95%e3%83%aa%e3%83%bc%e3%82%a2%e3%82%a4%e3%82%b3%e3%83%b316/)
-1. 製作者 > [@YU000jp](https://github.com/YU000jp)
+- [@sawhney17/ logseq-custom-workflow-plugin](https://github.com/sawhney17/logseq-custom-workflow-plugin)
+- アイコン > [icooon-mono.com](https://icooon-mono.com/12611-%e3%83%a1%e3%83%8b%e3%83%a5%e3%83%bc%e3%81%ae%e3%83%95%e3%83%aa%e3%83%bc%e3%82%a2%e3%82%a4%e3%82%b3%e3%83%b316/)
+- 製作者 > [@YU000jp](https://github.com/YU000jp)
 
-<a href="https://www.buymeacoffee.com/yu000japan"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a pizza&emoji=🍕&slug=yu000japan&button_colour=FFDD00&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=ffffff" /></a>
