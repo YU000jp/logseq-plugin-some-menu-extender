@@ -26,7 +26,7 @@ export const loadDeleteUnnecessaryPages = () => {
 
 const runQuery = async () => {
 
-    logseq.UI.showMsg(t("Checked for unnecessary pagesII Runs periodically.") + LABEL, "success", { timeout: 8000 })
+    logseq.UI.showMsg(t("Checked for unnecessary pages. Runs periodically.") + LABEL, "success", { timeout: 3000 })
 
     //同じ名前をもつページ名を取得するクエリー
     const query = `
@@ -51,7 +51,7 @@ const runQuery = async () => {
 
 
     if (result.length === 0) {// ページが見つからなかった場合に、チェックをおこなったことを伝える通知
-        logseq.UI.showMsg(t("No unnecessary pages found.") + LABEL, "info", { timeout: 6000 })
+        logseq.UI.showMsg(t("No unnecessary pages found.") + LABEL, "info", { timeout: 3000 })
         return
     }
 
@@ -60,7 +60,7 @@ const runQuery = async () => {
         //ページを削除する
         result.forEach(async (item) => {
             await logseq.Editor.deletePage(item["name"])
-            logseq.UI.showMsg(t("Deleted") + " " + item["original-name"] + LABEL, "success", { timeout: 12000 })
+            logseq.UI.showMsg(t("Deleted") + " " + item["original-name"] + LABEL, "success", { timeout: 5000 })
         })
     } else
         //ページを削除するかどうかを確認するダイアログを表示する
@@ -118,7 +118,7 @@ ${checkButton}
                     Array.from(selectPages).forEach(async (item) => {
                         if (item.checked) {
                             await logseq.Editor.deletePage(item.value)
-                            logseq.UI.showMsg(t("Deleted") + "\n<" + item.value + ">" + LABEL, "success", { timeout: 12000 })
+                            logseq.UI.showMsg(t("Deleted") + "\n<" + item.value + ">" + LABEL, "success", { timeout: 5000 })
                         }
                     })
 
