@@ -1,7 +1,6 @@
 # Logseq Plugin: Innovation Lab 🌱
 
 - This plugin provides several features that are currently in the development stage.
-- It aims to provide users with a variety of advanced features and customization options.
 
 <div align="right">
 
