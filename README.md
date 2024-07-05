@@ -54,17 +54,17 @@
 1. This plugin has many features that still have room for improvement. Let us know if you run into any issues or have ideas for enhancements. If the functionality is similar, it shows that it is possible. [[discussions here](https://github.com/YU000jp/logseq-plugin-some-menu-extender/discussions)]
 1. Derivative plugin
 
-  | Plugin Name | Link |
-  |-------------|-------------|
-  | Show page date| | [GitHub](https://github.com/YU000jp/logseq-plugin-show-page-date) |
-  | More reference| | [GitHub](https://github.com/YU000jp/logseq-plugin-reference-guide) |
-  | Left-sidebar Enhance| | [GitHub](https://github.com/YU000jp/logseq-plugin-left-sidebar-enhance) |
-  | 2 hop link| | [GitHub](https://github.com/YU000jp/logseq-plugin-two-hop-link) |
-  | Legacy date format| | [GitHub](https://github.com/YU000jp/logseq-plugin-legacy-date-format) |
-  | New line Shortcut| | [GitHub](https://github.com/YU000jp/logseq-plugin-blank-line) |
-  | Quickly PARA method| | [GitHub](https://github.com/YU000jp/logseq-plugin-quickly-para-method) |
-  | DONE task property| | [GitHub](https://github.com/YU000jp/logseq-plugin-confirmation-done-task) |
-  | Hyperlink URL| | [GitHub](https://github.com/YU000jp/logseq-plugin-confirmation-hyperlink) |
+   | Plugin Name |
+   | -- |
+   | [Show page date](https://github.com/YU000jp/logseq-plugin-show-page-date) |
+   | [More reference](https://github.com/YU000jp/logseq-plugin-reference-guide) |
+   | [Left-sidebar Enhance](https://github.com/YU000jp/logseq-plugin-left-sidebar-enhance) |
+   | [2 hop link](https://github.com/YU000jp/logseq-plugin-two-hop-link) |
+   | 🗝️[Legacy date format](https://github.com/YU000jp/logseq-plugin-legacy-date-format) |
+   | 🦢[New line Shortcut](https://github.com/YU000jp/logseq-plugin-blank-line) |
+   | ⚓[Quickly PARA method](https://github.com/YU000jp/logseq-plugin-quickly-para-method) |
+   | 💪[DONE task property](https://github.com/YU000jp/logseq-plugin-confirmation-done-task) |
+   | 🔗[URL Hyperlink](https://github.com/YU000jp/logseq-plugin-confirmation-hyperlink) |
 
 ## Prior art & Credit
 
