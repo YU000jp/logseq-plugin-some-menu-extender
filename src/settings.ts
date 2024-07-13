@@ -11,6 +11,8 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
     description: t("\"Enable\" toggles turns the feature on and off, but requires restarting Logseq or turning off this plugin once. Please refer to the documentation for feature details. [Document here](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document)"),
   },
 
+
+
   //DONEになったときに、DEADLINEやSCHEDULEを削除する機能
   {
     key: "headingLoadAutoRemoveDeadline",
@@ -52,6 +54,8 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
     description: t("Finish the effectiveness of the task by removing the `:`. If you want to change it back, replace `✔️` with `:`."),
   },
 
+
+
   // リピートタスクをDONEにしたときに、その子ブロックに、引用を持たせて完了ステータスを作成し(DONEをつける場合とそうでない場合)、サイドバーで開く機能
   {
     key: "headingRepeatTaskDONE",
@@ -85,6 +89,8 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
     description: "",
   },
 
+
+
   {
     // Repeat-task as LATER
     key: "headingLoadRepeatTask",
@@ -100,6 +106,8 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
     default: true,
     description: t("Bullet context menu item"),
   },
+
+
 
   // DONEタスクを作成したときに、DONEページの一行目の子ブロック行に、そのタスクの引用を挿入する機能
   {
@@ -147,6 +155,8 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
     description: "",
   },
 
+
+
   // // DOING タスクを作成したときに、DOINGページの一行目の子ブロック行に、そのタスクの引用を挿入する機能
   // {
   //   key: "headingLoadDOINGref",
@@ -193,6 +203,8 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
   //   description: "",
   // },
 
+
+
   {//共通設定
     key: "headingCommonSettings",
     title: t("Common Settings"),
@@ -214,6 +226,8 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
     default: true,
     description: "",
   },
+
+
 
   {
     //loadTaskWorkflowState
@@ -240,6 +254,8 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
     description:
       t("Separate with `,`. Only strings for Logseq built in task markers are valid. (`NOW`|`LATER`|`TODO`|`DOING`|`DONE`|`WAITING`|`WAIT`|`CANCELED`|`CANCELLED`|`IN-PROGRESS`)"), //Logseqで許可されたタスク用の文字列のみ有効
   },
+
+
 
   {// "Delete unnecessary pages" feature settings (experimental)
     key: "headingDeleteUnnecessaryPages",

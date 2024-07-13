@@ -22,13 +22,18 @@ export const getUserConfig = async () => {
   configPreferredDateFormat = preferredDateFormat
 }
 
+
+
 const main = async () => {
+
+
   await l10nSetup({ builtinTranslations: { ja } })
   //設定画面の読み込み
   logseq.useSettingsSchema(settingsTemplate())
 
   //CSSを読み込む
   mainCSS(logseq.baseInfo.id)
+
 
   /* ContextMenuItem
   `repeat-task as LATER`  */
@@ -58,7 +63,8 @@ const main = async () => {
   if (logseq.settings!.loadDeleteUnnecessaryPages === true)
     loadDeleteUnnecessaryPages()
   
+
 } /* end_main */
 
-logseq.ready(main).catch(console.error);
 
+logseq.ready(main).catch(console.error);

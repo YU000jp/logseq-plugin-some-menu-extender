@@ -2,6 +2,7 @@ import { BlockEntity, BlockUUIDTuple, PageEntity } from "@logseq/libs/dist/LSPlu
 import { format, getISOWeek, getISOWeekYear, getWeek, getWeekYear } from "date-fns"
 import { t } from "logseq-l10n"
 
+
 export const stringLimitAndRemoveProperties = (content: string, limit: number): string => {
     if (content
         && content.length > limit)
@@ -18,6 +19,7 @@ export const stringLimitAndRemoveProperties = (content: string, limit: number): 
     }
     return content
 }
+
 
 export const includeReference = async (content): Promise<string | null> => {
     if (content.match(/\(\(.+?\)\)/) === null) return null
@@ -63,6 +65,7 @@ const getTreeContent = async (b: BlockEntity) => {
     return content
 }
 
+
 export const getPageContent = async (page: PageEntity): Promise<string> => {
     let blockContents: string[] = []
 
@@ -101,6 +104,7 @@ export const removeEmptyBlockFirstLineAll = async (firstBlock: { children: Block
         }
 }
 
+
 //月ごとにソートする場合
 export const sortByMonth = async (blocks: BlockEntity[], insertContent: string, uuid: BlockEntity["uuid"], taskMarker: BlockEntity["marker"]) => {
 
@@ -120,7 +124,8 @@ export const sortByMonth = async (blocks: BlockEntity[], insertContent: string, 
 
         if (taskMarker === "DOING") return // DOINGの場合は、そのままにする
 
-        if (checkDuplicate && checkDuplicate.length > 0) {
+        if (checkDuplicate
+            && checkDuplicate.length > 0) {
             return
             //await removeDuplicateBlock(checkDuplicate)// 重複ブロックを削除
         }
@@ -138,6 +143,7 @@ export const sortByMonth = async (blocks: BlockEntity[], insertContent: string, 
     }
 }
 
+
 export const getDuplicateBlock = (uuid: BlockEntity["uuid"], blocks: BlockEntity[]): { uuid: BlockEntity["uuid"] }[] => blocks.filter(({ content }) => content.includes(`((${uuid}))`))
 
 
@@ -147,6 +153,7 @@ export const removeDuplicateBlock = async (duplicateBlock: { uuid: BlockEntity["
         for (const block of duplicateBlock)
             await logseq.Editor.removeBlock(block.uuid)
 }
+
 
 //日付から週番号を求める
 export const getWeekNumberFromDate = (targetDate: Date, config: string, flag?: { markdown?: boolean }): string => {
