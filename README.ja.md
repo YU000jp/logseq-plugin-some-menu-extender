@@ -3,6 +3,9 @@
 - このプラグインは、現在開発段階にあるいくつかの機能を提供します。
 - さまざまな高度な機能とカスタマイズ オプションをユーザーに提供することを目的としています。
 
+> [!WARNING]
+>このプラグインはLogseq dbバージョンでは動作しません。
+
 <div align="right">
 
 [English](https://github.com/YU000jp/logseq-plugin-some-menu-extender)/[日本語](https://github.com/YU000jp/logseq-plugin-some-menu-extender/blob/main/README.ja.md) [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-some-menu-extender)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/releases)

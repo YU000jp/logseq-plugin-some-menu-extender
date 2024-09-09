@@ -2,6 +2,9 @@
 
 - This plugin provides several features that are currently in the development stage.
 
+> [!WARNING]
+This plugin does not work with Logseq db version.
+
 <div align="right">
 
 [English](https://github.com/YU000jp/logseq-plugin-some-menu-extender) | [日本語](https://github.com/YU000jp/logseq-plugin-some-menu-extender/blob/main/README.ja.md)
