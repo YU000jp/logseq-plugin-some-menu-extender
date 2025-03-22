@@ -17,7 +17,10 @@ const onBlockChanged = () => logseq.DB.onChanged(async ({ blocks, txMeta }) => {
   if (logseq.settings!.removeDeadline === true
     || logseq.settings!.removeScheduled === true) {
 
-    const taskBlock: { uuid: BlockEntity["uuid"], content: BlockEntity["content"] } | undefined = blocks.find(({ marker }) => marker === "DONE") //DONEタスクを取得する
+    const taskBlock: { uuid: BlockEntity["uuid"], content: BlockEntity["content"] } | undefined = blocks.find(({ marker, content }) =>
+      marker === "DONE"//DONEタスクを取得する
+      && (content.includes("SCHEDULED: ")
+        || content.includes("DEADLINE: "))) // どちらかが含まれている場合
 
     if (!taskBlock) { //DONEタスクが見つからない場合は処理しない
       setTimeout(() => processing = false, 100)
