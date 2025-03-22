@@ -4,11 +4,11 @@ import { t } from "logseq-l10n"
 export const loadRepeatTaskLATER = () => {
   //for repeat task
   logseq.provideStyle(String.raw`
-    div#main-content-container input.form-checkbox{transform:scale(1.1)}
-    div#main-content-container input.form-checkbox+div input.form-checkbox{transform:scale(0.6);pointer-events:none}
-    div#main-content-container div:not(.page-blocks-inner) input.form-checkbox+a+div input.form-checkbox{transform:scale(0.9)}
-    div#main-content-container input.form-checkbox+div input.form-checkbox+a,div#main-content-container div:not(.page-blocks-inner) input.form-checkbox+a+div input.form-checkbox+a{text-decoration:line-through;font-size:small;pointer-events:none}
-    div#main-content-container input.form-checkbox+div a{font-size:medium}
+    #main-content-container input.form-checkbox{transform:scale(1.1)}
+    #main-content-container input.form-checkbox+div input.form-checkbox{transform:scale(0.6);pointer-events:none}
+    #main-content-container div:not(.page-blocks-inner) input.form-checkbox+a+div input.form-checkbox{transform:scale(0.9)}
+    #main-content-container input.form-checkbox+div input.form-checkbox+a,div#main-content-container div:not(.page-blocks-inner) input.form-checkbox+a+div input.form-checkbox+a{text-decoration:line-through;font-size:small;pointer-events:none}
+    #main-content-container input.form-checkbox+div a{font-size:medium}
   `)
 
   logseq.Editor.registerBlockContextMenuItem(t("Repeat-task as LATER"), async ({ uuid }) => {
