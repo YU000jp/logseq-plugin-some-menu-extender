@@ -28,7 +28,7 @@ const onBlockChanged = () => logseq.DB.onChanged(async ({ blocks, txMeta }) => {
     replaceContent(taskBlock.uuid, removeSCHEDULEandDEADLINE(taskBlock.uuid, taskBlock.content)) //taskBlock.contentを更新する
   }
 
-  setTimeout(() => processing = false, 100)
+  setTimeout(() => processing = false, 1000)
 })
 
 
