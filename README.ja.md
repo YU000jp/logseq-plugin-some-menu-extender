@@ -27,8 +27,6 @@
 1. タスクの状態を次へ移行する (ショートカット キー)
     - ブロック上でショートカット キーを押して、タスクの状態を次の状態に移行させます。
     > [カスタム ワークフロー プラグイン](https://github.com/sawhney17/logseq-custom-workflow-plugin) のライト バージョン (バグ修正)
-1. 不要なページを削除
-   - ページ名に「`[[`」と「`]]`」を含むページを削除する
 - [詳細(ドキュメント)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document)
 > これらの機能は、将来的に別のプラグインとして派生される可能性があります。
 

@@ -1,43 +1,6 @@
 import { BlockEntity } from "@logseq/libs/dist/LSPlugin.user"
 import { t } from "logseq-l10n"
 
-// export function DOINGchildrenSet(
-//   uuid: string,
-//   content: string,
-//   DOINGchildrenSet: string
-// ): Boolean {
-//   if (DOINGchildrenSet !== "") {
-//     const blockSet: string[] = DOINGchildrenSet.split("\n");
-//     //blockSetの2つ目以降を使って処理する
-//     //Support date-nlp plugin
-//     if (content.includes(blockSet[0])) {
-//       processBlockSet(uuid, blockSet);
-//       return true;
-//     }
-//   }
-//   return false;
-// }
-
-// async function processBlockSet(
-//   uuid: string,
-//   blockSet: string[]
-// ): Promise<void> {
-//   for (let index = 1; index < blockSet.length; index++) {
-//     const child = blockSet[index];
-//     await new Promise<void>((resolve) => {
-//       logseq.Editor.insertBlock(uuid, child, {
-//         before: false,
-//         sibling: false,
-//         focus: true,
-//       });
-//       setTimeout(() => {
-//         logseq.Editor.exitEditingMode();
-//         resolve();
-//       }, 200);
-//     });
-//     await new Promise<void>((resolve) => setTimeout(resolve, 100));
-//   }
-// }
 
 export const loadTaskWorkflowState = () => {
   let processing: Boolean = false
@@ -77,66 +40,16 @@ export const loadTaskWorkflowState = () => {
 
       } else {
         let content = ""
-        //let DOING: boolean = false;
         switch (states[index + 1]) {
           case undefined:
             content = "" //最後の状態の場合はタスクマーカーを削除する
             break
-          //case "DOING":
-          //DOING = true;
           default:
             content = states[index + 1] + " "
             break
         }
 
         logseq.Editor.updateBlock(block.uuid, block.content.replace(block.marker + " ", content))
-        // if (DOING === true) {
-        //   if (
-        //     (DOINGchildrenSet(
-        //       block.uuid,
-        //       block.content,
-        //       logseq.settings!.DOINGchildrenSet01
-        //     ) as boolean) === false
-        //   ) {
-        //     if (
-        //       (DOINGchildrenSet(
-        //         block.uuid,
-        //         block.content,
-        //         logseq.settings!.DOINGchildrenSet02
-        //       ) as boolean) === false
-        //     ) {
-        //       if (
-        //         (DOINGchildrenSet(
-        //           block.uuid,
-        //           block.content,
-        //           logseq.settings!.DOINGchildrenSet03
-        //         ) as boolean) === false
-        //       ) {
-        //         if (
-        //           (DOINGchildrenSet(
-        //             block.uuid,
-        //             block.content,
-        //             logseq.settings!.DOINGchildrenSet04
-        //           ) as boolean) === false
-        //         ) {
-        //           if (
-        //             (DOINGchildrenSet(
-        //               block.uuid,
-        //               block.content,
-        //               logseq.settings!.DOINGchildrenSet05
-        //             ) as boolean) === false
-        //           ) {
-        //             DOINGchildrenSet(
-        //               block.uuid,
-        //               block.content,
-        //               logseq.settings!.DOINGchildrenSet06
-        //             );
-        //           }
-        //         }
-        //       }
-        //     }
-        //   }
-        // }
       }
       setTimeout(() => processing = false, 200)
     }

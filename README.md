@@ -28,9 +28,6 @@ This plugin does not work with Logseq db version.
 1. Move Task State To Next (shortcut key)
    - Move the task state to the next by pressing the shortcut key on the block.
    > A lite version of [Custom Workflow plugin](https://github.com/sawhney17/logseq-custom-workflow-plugin) (fixed bugs)
-1. Delete unnecessary pages
-   - Delete pages containing "`[[`" and "`]]`" in the page name
-   > This is a sample. If you need any others, please make suggestions.
 - [More details (Document)](https://github.com/YU000jp/logseq-plugin-some-menu-extender/wiki/Document)
 
 > These features may be derived as separate plugins in the future.

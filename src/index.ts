@@ -8,7 +8,6 @@ import { mainCSS } from "./mainCSS"
 import { loadAutoRemoveDeadline } from "./task/autoRemoveDeadline"
 import { loadRepeatTaskDONE } from "./task/repeatTaskDONE"
 import { loadDONEref } from "./task/taskRef"
-import { loadDeleteUnnecessaryPages } from "./lab/deletePage"
 
 // UI.showMsgラベル
 export const LABEL = "\n\n[🌱Innovation Lab plugin]"
@@ -58,10 +57,6 @@ const main = async () => {
   //DONEページの一行目ブロックの子ブロックに、ステータス(引用ref)を追加する
   if (logseq.settings!.loadDONEref === true)
     loadDONEref()
-
-  // Delete unnecessary pages feature
-  if (logseq.settings!.loadDeleteUnnecessaryPages === true)
-    loadDeleteUnnecessaryPages()
   
 
 } /* end_main */

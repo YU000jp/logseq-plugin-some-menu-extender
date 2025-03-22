@@ -157,54 +157,6 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
 
 
 
-  // // DOING タスクを作成したときに、DOINGページの一行目の子ブロック行に、そのタスクの引用を挿入する機能
-  // {
-  //   key: "headingLoadDOINGref",
-  //   title: t("DOING task Auto Statistics"),
-  //   type: "heading",
-  //   default: "",
-  //   description: t("When a task is set to DOING, insert a reference of the task to the DOING page."),
-  // },
-  // {
-  //   // トグル オンオフ
-  //   key: "loadDOINGref",
-  //   title: t("DOING task: ") + t("Enable"),
-  //   type: "boolean",
-  //   default: true,
-  //   description: t("When a task is set to DOING"),
-  // },
-  // {// リファレンスに日付リンクを挿入するかどうか
-  //   key: "DOINGrefAddLink",
-  //   title: t("DOING task: ") + t("Add the journal link to the reference of the task"),
-  //   type: "boolean",
-  //   default: true,
-  //   description: "",
-  // },
-  // {// リファレンスに時間を挿入するかどうか
-  //   key: "DOINGrefTime",
-  //   title: t("DOING task: ") + t("Add time to the reference of the task"),
-  //   type: "boolean",
-  //   default: true,
-  //   description: "",
-  // },
-  // {// リファレンスに週番号を挿入するかどうか
-  //   key: "DOINGrefWeekNumber",
-  //   title: t("DOING task: ") + t("Add the week number to the reference of the task"),
-  //   type: "enum",
-  //   default: "None",
-  //   enumChoices: ["None", "ISO8601", "US"],
-  //   description: t("If you want to use the ISO8601 format, select `ISO8601`. If you want to use the US format, select `US`."),
-  // },
-  // {//referenceにするかembedにするか
-  //   key: "DOINGrefEmbed",
-  //   title: t("DOING task: ") + t("Embed the reference of the task"),
-  //   type: "boolean",
-  //   default: false,
-  //   description: "",
-  // },
-
-
-
   {//共通設定
     key: "headingCommonSettings",
     title: t("Common Settings"),
@@ -255,35 +207,4 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
       t("Separate with `,`. Only strings for Logseq built in task markers are valid. (`NOW`|`LATER`|`TODO`|`DOING`|`DONE`|`WAITING`|`WAIT`|`CANCELED`|`CANCELLED`|`IN-PROGRESS`)"), //Logseqで許可されたタスク用の文字列のみ有効
   },
 
-
-
-  {// "Delete unnecessary pages" feature settings (experimental)
-    key: "headingDeleteUnnecessaryPages",
-    title: t("Delete Unnecessary Pages"),
-    type: "heading",
-    default: "",
-    description: "",
-  },
-  {
-    key: "loadDeleteUnnecessaryPages",
-    title: t("Enable"),
-    type: "boolean",
-    default: false,
-    // プラグインが読み込まれてから5分後にバックグラウンドで不要なページを削除する。ページ名に「[[」と「]]」を同時に含むページのすべてが対象。
-    description: t("The plugin will delete unnecessary pages 5 minutes after it is loaded. All pages with both `[[` and `]]` in the page name are targeted."),
-  },
-  {// 選択なしで自動で削除するか、ユーザーの選択を求めるか
-    key: "deleteUnnecessaryPagesAuto",
-    title: t("Automatic deletion or user selection"),
-    type: "boolean",
-    default: true,
-    description: t("If `true`, delete unnecessary pages automatically. If `false`, ask the user for selection."),
-  },
-  // { // インターバルを設定する
-  //   key: "deleteUnnecessaryPagesInterval",
-  //   title: t("Enable every 2 hour interval"),
-  //   type: "boolean",
-  //   default: false,
-  //   description: t("It will not take effect until you restart or turn off the plugin."),
-  // },
 ]
