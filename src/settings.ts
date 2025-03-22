@@ -79,7 +79,7 @@ export const settingsTemplate = (): SettingSchemaDesc[] => [
     type: "enum",
     default: "Today journal link",
     enumChoices: ["Today journal link", "Add DONE", "None"],
-    description: t(""),
+    description: "",
   },
   {//サイドバーで開くかどうか
     key: "repeatTaskDONEopenSidebar",

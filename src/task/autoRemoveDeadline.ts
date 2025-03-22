@@ -1,4 +1,5 @@
 import { BlockEntity } from "@logseq/libs/dist/LSPlugin"
+import { t } from "logseq-l10n"
 let processing: boolean = false
 
 export const loadAutoRemoveDeadline = () => {
@@ -64,7 +65,7 @@ const removeSCHEDULEandDEADLINE = (uuid: BlockEntity["uuid"], content: BlockEnti
 
 const replaceContent = (uuid: BlockEntity["uuid"], content: string) => {
   logseq.Editor.updateBlock(uuid, content)
-  logseq.UI.showMsg("DONE, remove SCHEDULED or DEADLINE", "success", { timeout: 4000 })
+  logseq.UI.showMsg(t("SCHEDULED or DEADLINE deleted."), "success", { timeout: 4000 })
 }
 
 

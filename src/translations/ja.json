@@ -41,5 +41,6 @@
   "When a task is set to DOING, insert a reference of the task to the DOING page.": "タスクをDOINGにしたときに、そのタスクの引用をDOINGページに挿入します。",
   "When a task is set to DONE": "タスクをDONEにしたとき",
   "When a task is set to DONE, insert a reference of the task to the DONE page.": "タスクをDONEにしたときに、そのタスクの引用をDONEページに挿入します。",
-  "📖Getting Started": "📖はじめに"
+  "📖Getting Started": "📖はじめに",
+  "SCHEDULED or DEADLINE deleted.": " SCHEDULEDまたはDEADLINEが削除されました。"
 }
