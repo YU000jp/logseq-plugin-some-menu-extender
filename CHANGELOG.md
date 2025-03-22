@@ -1,3 +1,17 @@
+# [0.30.0](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.29.2...v0.30.0) (2025-03-22)
+
+
+### Bug Fixes
+
+* **bug:** Deletion process and its messages are duplicated ([e4a515d](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/e4a515d26896c04f4ecb46def8a36f426735d115))
+* **bug:** The message should only be displayed if a SCHEDULED or DEADLINE is found. ([6e5b4d7](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/6e5b4d7ba801eec690119b59ee5ab7aadcc0d0d8))
+* Delete a feature "Delete unnecessary pages" ([41e53ac](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/41e53ac1cb880b1af49fdb44ed82484c217ec606))
+
+
+### Features
+
+* **Add:** translations ([4100bea](https://github.com/YU000jp/logseq-plugin-some-menu-extender/commit/4100bea485dc6771cae85bb55a5b1ca09e3a34ea))
+
 ## [0.29.2](https://github.com/YU000jp/logseq-plugin-some-menu-extender/compare/v0.29.1...v0.29.2) (2024-06-23)
 
 
