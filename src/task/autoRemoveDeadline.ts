@@ -6,11 +6,7 @@ export const loadAutoRemoveDeadline = () => {
 }
 
 const onBlockChanged = () => logseq.DB.onChanged(async ({ blocks, txMeta }) => {
-  if (processing === true //処理中の場合 
-    || (txMeta
-      && txMeta["transact?"] === false //ユーザー操作ではない場合 (transactは取引の意味)
-      || txMeta?.outlinerOp === "delete-blocks") //ブロックが削除された場合
-  ) return //処理しない
+  if (shouldSkipProcessing(txMeta)) return //処理しない
   processing = true
 
   //DONEタスクが見つかった場合の処理
@@ -34,6 +30,12 @@ const onBlockChanged = () => logseq.DB.onChanged(async ({ blocks, txMeta }) => {
   setTimeout(() => processing = false, 1000)
 })
 
+const shouldSkipProcessing = (txMeta: any): boolean => {
+  return processing === true //処理中の場合 
+    || (txMeta
+      && txMeta["transact?"] === false //ユーザー操作ではない場合 (transactは取引の意味)
+      || txMeta?.outlinerOp === "delete-blocks") //ブロックが削除された場合
+}
 
 const removeSCHEDULEandDEADLINE = (uuid: BlockEntity["uuid"], content: BlockEntity["content"]): string => {
   const contentSplit: string[] = content.split("\n") // \nで区切る
