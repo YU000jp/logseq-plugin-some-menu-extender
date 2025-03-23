@@ -3,7 +3,7 @@
 - This plugin provides several features that are currently in the development stage.
 
 > [!WARNING]
-This plugin does not work with Logseq db version.
+> This plugin is not available for versions newer than Logseq v0.10.9 and db versions. This is due to break changes in the feature of tasks.
 
 <div align="right">
 
